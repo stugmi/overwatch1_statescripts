@@ -1,0 +1,251 @@
+# build 1.74.0.0.104319: 49 nodes (16 States), 10 entries, 44 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001b5c
+# inlined shared nodes (printed at each use site instead of a def): SetVar_19, SetVar_21, SetVar_22, Condition_42, SetVar_46
+# names (replace): 3 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[3592] (set x5), var[8872] (set x3), var[18968] (set x11, stack_contribution x1),
+#                      var[19323] (set x2), var[19521] (set x2), var[19522] (set x2)
+#   messages: receives GameMessage(0x02400000000006E0) (entry rid 8); receives
+#             GameMessage(0x02400000000006E1) (entry rid 9); receives GameMessage(0x024000000000091B) (entry
+#             rid 10); receives GameMessage(0x0240000000000267) (entry rid 23); receives
+#             GameMessage(0x0240000000000D1A) (entry rid 24); receives GameMessage(0x024000000000022B) (entry
+#             rid 43)
+#   placeholders: 11 unrecovered (7 classes; 7 node, 4 configvar)
+#   var[18968]: 12 writes at lines 53, 56, 61, 64, 85, 98 ...; 1 read at line 120
+#   var[3592]: 5 writes at lines 81, 84, 94, 97, 240; 1 read at line 137
+#   var[1303]: 2 writes at lines 108, 113; 3 reads at lines 60, 80, 93
+#   var[8872]: 3 writes at lines 30, 35, 40; 1 read at line 204
+#   shared_var[9544]: 3 reads at lines 69, 79, 92
+#   var[19323]: 2 writes at lines 52, 55; 1 read at line 145
+#   var[19521]: 2 writes at lines 70, 73; 1 read at line 169
+#   var[19522]: 2 writes at lines 71, 74; 1 read at line 177
+
+on_entry(context=unset, rid=6):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_DEBD057B_3)
+
+on_game_message(GameMessage(0x02400000000006E0), rid=8):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: var[8872]
+    set_var(var[8872], True)
+    begin(STU_D74D4F47_13)
+
+on_game_message(GameMessage(0x02400000000006E1), rid=9):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: var[8872]
+    set_var(var[8872], True)
+    begin(STU_D74D4F47_14)
+
+on_game_message(GameMessage(0x024000000000091B), rid=10):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: var[8872]
+    set_var(var[8872], True)
+    begin(STU_D74D4F47_14)
+
+on_entry(context=unset, rid=17):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_20)
+
+on_game_message(GameMessage(0x0240000000000267), rid=23)(var[9901] <- param 0x0A40000000000425):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[9901]  writes: var[9901], var[18968], var[19323]
+    # + unimplemented nodes may touch others
+    if unimplemented STU_90CFE6AF() == Map(0x08000000000007E2) and var[9901] == 0.0:
+        set_var(var[19323], Effect(0x030000000000296C))
+        set_var(var[18968], Identifier(0x0D80000000004A19))
+    else:
+        set_var(var[19323], Effect(0x0300000000002953))
+        set_var(var[18968], Identifier(0x0D80000000004A19))
+
+on_game_message(GameMessage(0x0240000000000D1A), rid=24):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[1303]  writes: var[18968]
+    if var[1303] > 80.0:
+        set_var(var[18968], 0)
+        begin(STU_30667BB6_34)
+    else:
+        set_var(var[18968], Identifier(0x0D80000000004AA5))
+        begin(ChaseVar_37)
+
+on_entry(context=unset, rid=32):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: shared_var[9544]  writes: var[19521], var[19522]
+    if shared_var[9544]:
+        set_var(var[19521], Effect(0x03000000000029A3))
+        set_var(var[19522], Effect(0x03000000000029A4))
+    else:
+        set_var(var[19521], Effect(0x0300000000002949))
+        set_var(var[19522], Effect(0x0300000000002952))
+
+on_game_message(GameMessage(0x024000000000022B), rid=43):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[1303], shared_var[7901], shared_var[9544]  writes: var[3592], var[18968]
+    # + unimplemented nodes may touch others
+    if not (shared_var[7901] == 0.0 and shared_var[9544]):
+        if var[1303] > 30.0:
+            set_var(var[3592], 0)
+            begin(STU_30667BB6_38)
+        else:
+            set_var(var[3592], unimplemented STU_20E022FD(m_map=unimplemented STU_90CFE6AF()))
+            set_var(var[18968], Identifier(0x0D80000000004A1F))
+            begin(ChaseVar_41)
+
+on_entry(context=unset, rid=45):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[1303], shared_var[7901], shared_var[9544]  writes: var[3592], var[18968]
+    # + unimplemented nodes may touch others
+    if not unimplemented STU_12DDFABC():
+        if not (shared_var[7901] == 0.0 and shared_var[9544]):
+            if var[1303] > 30.0:
+                set_var(var[3592], 0)
+                begin(STU_30667BB6_38)
+            else:
+                set_var(var[3592], unimplemented STU_20E022FD(m_map=unimplemented STU_90CFE6AF()))
+                set_var(var[18968], Identifier(0x0D80000000004A1F))
+                begin(ChaseVar_41)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_37:  # STUStatescriptStateChaseVar, state 13; from SetVar_21.m_outPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: none  writes: var[1303]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=999, start[?]=0, m_out_Var=var[1303], restart_on_retrigger[?]=1)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+state ChaseVar_41:  # STUStatescriptStateChaseVar, state 15; from SetVar_44.m_outPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: none  writes: var[1303]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=999, start[?]=0, m_out_Var=var[1303], restart_on_retrigger[?]=1)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+# ---- begun from on_entry rid=6 ----
+
+state STU_DEBD057B_3:  # STU_DEBD057B, state 3; from Entry_6.m_outPlug
+    # reads: var[18968]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_DEBD057B(m_262AE982=var[18968], m_F0F0720B=raw(01000000))
+    plug m_05706D1C[0]:  # m_value=Identifier(0x0D80000000004A1F)
+        begin(STU_38EE1100_2)
+    plug m_05706D1C[1]:  # m_value=Identifier(0x0D80000000004A19)
+        begin(STU_38EE1100_1)
+    plug m_05706D1C[2]:  # m_value=Identifier(0x0D80000000004AA5)
+        begin(STU_38EE1100_0)
+    plug m_05706D1C[3]:  # m_value=Identifier(0x0D80000000004A21)
+        begin(STU_38EE1100_4)
+    plug m_05706D1C[4]:  # m_value=Identifier(0x0D80000000004A22)
+        begin(STU_38EE1100_5)
+    plug m_05706D1C[5]:  # m_value=Identifier(0x0D80000000004A23)
+        begin(STU_38EE1100_7)
+
+state STU_38EE1100_2:  # STU_38EE1100, state 2; from STU_DEBD057B_3.m_05706D1C[0]
+    # reads: var[3592]  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=var[3592], m_B5051BCE=asset(0x0A4000000000071A))],
+        m_gameMessage=GameMessage(0x0240000000000D06),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )
+
+state STU_38EE1100_1:  # STU_38EE1100, state 1; from STU_DEBD057B_3.m_05706D1C[1]
+    # reads: var[19323]  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=var[19323], m_B5051BCE=asset(0x0A4000000000071A))],
+        m_gameMessage=GameMessage(0x0240000000000D06),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )
+
+state STU_38EE1100_0:  # STU_38EE1100, state 0; from STU_DEBD057B_3.m_05706D1C[2]
+    # reads: none  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=Effect(0x0300000000002954), m_B5051BCE=asset(0x0A4000000000071A))],
+        m_gameMessage=GameMessage(0x0240000000000D06),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )
+
+state STU_38EE1100_4:  # STU_38EE1100, state 4; from STU_DEBD057B_3.m_05706D1C[3]
+    # reads: none  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=Effect(0x0300000000002948), m_B5051BCE=asset(0x0A4000000000071A))],
+        m_gameMessage=GameMessage(0x0240000000000D06),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )
+
+state STU_38EE1100_5:  # STU_38EE1100, state 5; from STU_DEBD057B_3.m_05706D1C[4]
+    # reads: var[19521]  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=var[19521], m_B5051BCE=asset(0x0A4000000000071A))],
+        m_gameMessage=GameMessage(0x0240000000000D06),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )
+
+state STU_38EE1100_7:  # STU_38EE1100, state 6; from STU_DEBD057B_3.m_05706D1C[5]
+    # reads: var[19522]  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=var[19522], m_B5051BCE=asset(0x0A4000000000071A))],
+        m_gameMessage=GameMessage(0x0240000000000D06),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )
+
+# ---- begun from on_game_message rid=8 ----
+
+state STU_D74D4F47_13:  # STU_D74D4F47, state 7; from SetVar_18.m_outPlug
+    # reads: none  writes: var[18968]
+    # + unimplemented nodes may touch others
+    unimplemented STU_D74D4F47(m_3016B9A1=1)
+    plug m_onFinishedPlug:
+        set_var(var[18968], Identifier(0x0D80000000004A22))
+
+# ---- begun from on_game_message rid=9 ----
+
+state STU_D74D4F47_14:  # STU_D74D4F47, state 8; from SetVar_19.m_outPlug
+    # reads: none  writes: var[18968]
+    # + unimplemented nodes may touch others
+    unimplemented STU_D74D4F47(m_3016B9A1=1)
+    plug m_onFinishedPlug:
+        set_var(var[18968], Identifier(0x0D80000000004A23))
+
+# ---- begun from on_entry rid=17 ----
+
+state BooleanSwitch_20:  # STUStatescriptStateBooleanSwitch, state 11; from Entry_17.m_outPlug
+    # reads: var[8872]  writes: none
+    watch not var[8872]:  # re-evaluated while the State runs
+        while true:
+            begin(GameMessageEntry_15)
+
+state GameMessageEntry_15:  # STUStatescriptStateGameMessageEntry, state 9; from BooleanSwitch_20.m_trueSubgraphPlug
+    # reads: none  writes: var[18968]
+    subscribe_game_message(m_gameMessage=GameMessage(0x024000000000075E))
+    provider_present:
+        begin(Stack_16)
+        set_var(var[18968], 0)
+
+state Stack_16:  # STUStatescriptStateStack, state 10; from GameMessageEntry_15.m_452862E6
+    # reads: none  writes: var[18968]
+    stack_contribution(
+        var[18968],
+        value=Identifier(0x0D80000000004A21),
+        priority=STU_8A491388(0x0C40000000000001),
+    )
+
+# ---- begun from on_game_message rid=24 ----
+
+state STU_30667BB6_34:  # STU_30667BB6, state 12; from SetVar_35.m_outPlug
+    # reads: none  writes: var[18968]
+    # + unimplemented nodes may touch others
+    unimplemented STU_30667BB6(m_3016B9A1=1)
+    plug m_onFinishedPlug:
+        set_var(var[18968], Identifier(0x0D80000000004AA5))
+        begin(ChaseVar_37)
+
+# ---- begun from on_game_message rid=43 ----
+
+state STU_30667BB6_38:  # STU_30667BB6, state 14; from SetVar_39.m_outPlug
+    # reads: none  writes: var[3592], var[18968]
+    # + unimplemented nodes may touch others
+    unimplemented STU_30667BB6(m_3016B9A1=1)
+    plug m_onFinishedPlug:
+        set_var(var[3592], unimplemented STU_20E022FD(m_map=unimplemented STU_90CFE6AF()))
+        set_var(var[18968], Identifier(0x0D80000000004A1F))
+        begin(ChaseVar_41)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_90CFE6AF (configvar) x2
+#   STUStatescriptStateChaseVar (node) x2
+#   STU_30667BB6 (node) x2
+#   STU_D74D4F47 (node) x2
+#   STU_12DDFABC (configvar) x1
+#   STU_20E022FD (configvar) x1
+#   STU_DEBD057B (node) x1

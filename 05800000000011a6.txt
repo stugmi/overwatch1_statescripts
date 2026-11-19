@@ -1,0 +1,165 @@
+# build 1.74.0.0.104319: 14 nodes (5 States), 1 entries, 17 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000011a6
+# inlined shared nodes (printed at each use site instead of a def): STU_6E5C5F66_6
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[2212] (stack_contribution x1), var[12302] (set x2)
+#   waits: Wait_3 after(0.0 if var[12302] else unimplemented STU_AE87A346())
+#   placeholders: 7 unrecovered (4 classes; 6 node, 1 configvar)
+#   var[12240]: 1 write at line 46; 5 reads at lines 84, 85, 104, 124, 142
+#   var[13468]: 1 write at line 54; 4 reads at lines 78, 96, 116, 136
+#   var[13555]: 1 write at line 55; 4 reads at lines 79, 97, 117, 137
+#   var[3392]: 1 write at line 56; 4 reads at lines 77, 95, 115, 135
+#   var[4912]: 1 write at line 45; 4 reads at lines 86, 106, 126, 144
+#   var[4913]: 1 write at line 49; 4 reads at lines 87, 107, 127, 145
+#   var[7901]: 1 write at line 41; 4 reads at lines 81, 99, 119, 139
+#   var[7919]: 1 write at line 42; 4 reads at lines 83, 101, 121, 141
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(GameMessageEntry_4)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state GameMessageEntry_4:  # STUStatescriptStateGameMessageEntry, state 2; from Entry_0.m_outPlug
+    # reads: none  writes: var[12302]
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000694))
+    begin:
+        set_var(var[12302], True)
+    provider_present:
+        begin(GameMessageEntry_2)
+
+state GameMessageEntry_2:  # STUStatescriptStateGameMessageEntry, state 0; from GameMessageEntry_4.m_452862E6
+    # reads: none  writes: var[2198], var[3392], var[4912], var[4913], var[7901], var[7909], var[7912], var[7919], var[7997], var[7998], var[8077], var[12240], var[12241], var[12250], var[12252], var[12253], var[12254], var[13468], var[13555]
+    subscribe_game_message(
+        m_params=[
+            STU_EF930FD7(m_out_Var=var[12252], m_B5051BCE=asset(0x0A400000000004E2)),
+            STU_EF930FD7(m_out_Var=var[2198], m_B5051BCE=asset(0x0A40000000000373)),
+            STU_EF930FD7(m_out_Var=var[8077], m_B5051BCE=asset(0x0A400000000004D6)),
+            STU_EF930FD7(m_out_Var=var[7901], m_B5051BCE=asset(0x0A4000000000038F)),
+            STU_EF930FD7(m_out_Var=var[7919], m_B5051BCE=asset(0x0A400000000004D8)),
+            STU_EF930FD7(m_out_Var=var[7909], m_B5051BCE=asset(0x0A400000000004D9)),
+            STU_EF930FD7(m_out_Var=var[7997], m_B5051BCE=asset(0x0A400000000004DA)),
+            STU_EF930FD7(m_out_Var=var[4912], m_B5051BCE=asset(0x0A40000000000496)),
+            STU_EF930FD7(m_out_Var=var[12240], m_B5051BCE=asset(0x0A400000000004DB)),
+            STU_EF930FD7(m_out_Var=var[7912], m_B5051BCE=asset(0x0A400000000004DC)),
+            STU_EF930FD7(m_out_Var=var[7998], m_B5051BCE=asset(0x0A400000000004DD)),
+            STU_EF930FD7(m_out_Var=var[4913], m_B5051BCE=asset(0x0A40000000000497)),
+            STU_EF930FD7(m_out_Var=var[12241], m_B5051BCE=asset(0x0A400000000004DE)),
+            STU_EF930FD7(m_out_Var=var[12250], m_B5051BCE=asset(0x0A400000000004DF)),
+            STU_EF930FD7(m_out_Var=var[12253], m_B5051BCE=asset(0x0A400000000004E3)),
+            STU_EF930FD7(m_out_Var=var[12254], m_B5051BCE=asset(0x0A400000000004E4)),
+            STU_EF930FD7(m_out_Var=var[13468], m_B5051BCE=asset(0x0A40000000000587)),
+            STU_EF930FD7(m_out_Var=var[13555], m_B5051BCE=asset(0x0A40000000000588)),
+            STU_EF930FD7(m_out_Var=var[3392], m_B5051BCE=asset(0x0A400000000005A1)),
+        ],
+        m_gameMessage=GameMessage(0x02400000000008D7),
+    )
+    provider_present:
+        begin(Wait_3)
+        begin(GameMessageEntry_8)
+
+state Wait_3:  # STUStatescriptStateWait, state 1; from GameMessageEntry_2.m_452862E6, STU_6E5C5F66_6.m_outPlug
+    # reads: var[2212], var[3392], var[4912], var[4913], var[7901], var[7909], var[7912], var[7919], var[8077], var[12240], var[12241], var[12250], var[12252], var[12253], var[12254], var[12302], var[13468], var[13555]  writes: var[12302]
+    # + unimplemented nodes may touch others
+    after(0.0 if var[12302] else unimplemented STU_AE87A346()):
+        set_var(var[12302], False)
+        unimplemented STUStatescriptActionSwitch(m_262AE982=var[12252]):
+            plug m_FDD34C25[0]:  # m_value=Identifier(0x0D80000000002FDB)
+                unimplemented STU_86A2C83C(
+                    m_71CB8790=[
+                        STU_9F9C100B(m_17C34C1B=var[12250], m_E086BB06=asset(0x0D80000000002FDA)),
+                        STU_9F9C100B(m_17C34C1B=var[12253], m_E086BB06=asset(0x0D80000000002FDD)),
+                        STU_9F9C100B(m_17C34C1B=var[12254], m_E086BB06=asset(0x0D80000000002FDE)),
+                        STU_9F9C100B(m_17C34C1B=var[2212], m_E086BB06=asset(0x0D800000000008A4)),
+                        STU_9F9C100B(m_17C34C1B=var[3392], m_E086BB06=asset(0x0D80000000000D40)),
+                        STU_9F9C100B(m_17C34C1B=var[13468], m_E086BB06=asset(0x0D8000000000349C)),
+                        STU_9F9C100B(m_17C34C1B=var[13555], m_E086BB06=asset(0x0D800000000034F3)),
+                    ],
+                    m_1AF7DD3E=var[7901],
+                    m_6B934200=var[8077],
+                    m_5D4EAA26=var[7919],
+                    m_362DC33E=var[12240],
+                    m_AC77CFFA=var[12240],
+                    m_5A0ACD5C=var[4912],
+                    m_8FB185B1=var[4913],
+                    m_5254FA5A=False,
+                )
+                unimplemented STU_6E5C5F66()
+                begin(Wait_3)
+            plug m_FDD34C25[1]:  # m_value=Identifier(0x0D8000000000088E)
+                unimplemented STU_86A2C83C(
+                    m_71CB8790=[
+                        STU_9F9C100B(m_17C34C1B=var[3392], m_E086BB06=asset(0x0D80000000000D40)),
+                        STU_9F9C100B(m_17C34C1B=var[13468], m_E086BB06=asset(0x0D8000000000349C)),
+                        STU_9F9C100B(m_17C34C1B=var[13555], m_E086BB06=asset(0x0D800000000034F3)),
+                    ],
+                    m_1AF7DD3E=var[7901],
+                    m_6B934200=var[8077],
+                    m_5D4EAA26=var[7919],
+                    m_331CE991=var[7909],
+                    m_918D3911=var[7912],
+                    m_362DC33E=var[12240],
+                    m_AC77CFFA=var[12241],
+                    m_5A0ACD5C=var[4912],
+                    m_8FB185B1=var[4913],
+                    m_5254FA5A=False,
+                )
+                unimplemented STU_6E5C5F66()
+                begin(Wait_3)
+            plug m_FDD34C25[2]:  # m_value=Identifier(0x0D80000000002FDF)
+                unimplemented STU_86A2C83C(
+                    m_71CB8790=[
+                        STU_9F9C100B(m_17C34C1B=var[3392], m_E086BB06=asset(0x0D80000000000D40)),
+                        STU_9F9C100B(m_17C34C1B=var[13468], m_E086BB06=asset(0x0D8000000000349C)),
+                        STU_9F9C100B(m_17C34C1B=var[13555], m_E086BB06=asset(0x0D800000000034F3)),
+                    ],
+                    m_1AF7DD3E=var[7901],
+                    m_6B934200=var[8077],
+                    m_5D4EAA26=var[7919],
+                    m_331CE991=var[7909],
+                    m_918D3911=var[7912],
+                    m_362DC33E=var[12240],
+                    m_AC77CFFA=var[12241],
+                    m_5A0ACD5C=var[4912],
+                    m_8FB185B1=var[4913],
+                    m_5254FA5A=False,
+                )
+                unimplemented STU_6E5C5F66()
+                begin(Wait_3)
+            plug m_FDD34C25[3]:  # m_value=Identifier(0x0D80000000002FE0)
+                unimplemented STU_86A2C83C(
+                    m_71CB8790=[
+                        STU_9F9C100B(m_17C34C1B=var[3392], m_E086BB06=asset(0x0D80000000000D40)),
+                        STU_9F9C100B(m_17C34C1B=var[13468], m_E086BB06=asset(0x0D8000000000349C)),
+                        STU_9F9C100B(m_17C34C1B=var[13555], m_E086BB06=asset(0x0D800000000034F3)),
+                    ],
+                    m_1AF7DD3E=var[7901],
+                    m_6B934200=var[8077],
+                    m_5D4EAA26=var[7919],
+                    m_362DC33E=var[12240],
+                    m_AC77CFFA=var[12241],
+                    m_5A0ACD5C=var[4912],
+                    m_8FB185B1=var[4913],
+                    m_5254FA5A=False,
+                )
+                unimplemented STU_6E5C5F66()
+                begin(Wait_3)
+
+state GameMessageEntry_8:  # STUStatescriptStateGameMessageEntry, state 3; from GameMessageEntry_2.m_452862E6
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000008E9))
+    provider_present:
+        begin(Stack_9)
+
+state Stack_9:  # STUStatescriptStateStack, state 4; from GameMessageEntry_8.m_452862E6
+    # reads: none  writes: var[2212]
+    stack_contribution(var[2212], value=True, priority=None)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_86A2C83C (node) x4
+#   STU_AE87A346 (configvar) x1
+#   STUStatescriptActionSwitch (node) x1
+#   STU_6E5C5F66 (node) x1

@@ -1,0 +1,70 @@
+# build 1.74.0.0.104319: 10 nodes (5 States), 5 entries, 6 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001c25
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x02400000000009F2) (entry rid 1); receives
+#             GameMessage(0x0240000000000A7A) (entry rid 4); receives GameMessage(0x0240000000000A7B) (entry
+#             rid 5); receives GameMessage(0x0240000000000A7C) (entry rid 7)
+#   placeholders: none
+
+on_game_message(GameMessage(0x02400000000009F2), rid=1)(var[9190] <- param 0x0A4000000000059C):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[9190]
+    pass
+
+on_entry(context=unset, rid=2):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_3)
+
+on_game_message(GameMessage(0x0240000000000A7A), rid=4):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    pass
+
+on_game_message(GameMessage(0x0240000000000A7B), rid=5):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    pass
+
+on_game_message(GameMessage(0x0240000000000A7C), rid=7):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    abort(BooleanSwitch_3)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=2 ----
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 1; from Entry_2.m_outPlug, GameMessage_7.m_outPlug
+    # reads: shared_var[10249], shared_var[20862]  writes: none
+    watch not shared_var[10249] and shared_var[20862]:  # re-evaluated while the State runs
+        while true:
+            begin(GameMessageEntry_0)
+            begin(GameMessageEntry_6)
+
+state GameMessageEntry_0:  # STUStatescriptStateGameMessageEntry, state 0; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000009AC))
+    provider_present:
+        begin(STU_38EE1100_8)
+
+state GameMessageEntry_6:  # STUStatescriptStateGameMessageEntry, state 2; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000009AB))
+    provider_present:
+        begin(STU_38EE1100_9)
+
+state STU_38EE1100_8:  # STU_38EE1100, state 3; from GameMessageEntry_0.m_452862E6
+    # reads: none  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=Effect(0x0300000000002B08), m_B5051BCE=asset(0x0A4000000000071A))],
+        m_gameMessage=GameMessage(0x0240000000000D06),
+        m_priority=STU_8A491388(0x0C40000000000003),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )
+
+state STU_38EE1100_9:  # STU_38EE1100, state 4; from GameMessageEntry_6.m_452862E6
+    # reads: none  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=Effect(0x0300000000002B09), m_B5051BCE=asset(0x0A4000000000071A))],
+        m_gameMessage=GameMessage(0x0240000000000D06),
+        m_priority=STU_8A491388(0x0C40000000000003),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )

@@ -1,0 +1,81 @@
+# build 1.74.0.0.104319: 13 nodes (5 States), 1 entries, 12 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000cec
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[8190] (set x1), var[8600] (set x1), shared_var[8773] (set x1)
+#   waits: Wait_12 after(0.2); Wait_1 after(var[8190] * var[8600]); Wait_8 after(var[8190] * var[8600] *
+#          0.90000004)
+#   placeholders: 6 unrecovered (5 classes; 5 node, 1 configvar)
+#   var[8190]: 1 write at line 15; 3 reads at lines 27, 54, 71
+#   var[8600]: 1 write at line 16; 2 reads at lines 54, 71
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[8190], var[8600]
+    set_var(var[8190], 0.1)
+    set_var(var[8600], 5)
+    begin(STU_2F07848F_6)
+    begin(Wait_12)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_2F07848F_6:  # STU_2F07848F, state 1; from SetVar_7.m_outPlug
+    # reads: var[8190]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_2F07848F(m_17D12F6B=1, m_D8989B37=0, m_89C63AB3=0, m_E75DF5AC=var[8190])
+    begin:
+        begin(Wait_1)
+        begin(BooleanSwitch_10)
+
+state Wait_12:  # STUStatescriptStateWait, state 4; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    after(0.2):
+        pass
+    end:
+        unimplemented STU_100EF8C2(
+            m_gameMessage=GameMessage(0x02400000000006F2),
+            m_targets=unimplemented STU_B5A0CAF0(),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state Wait_1:  # STUStatescriptStateWait, state 0; from STU_2F07848F_6.m_onBeginPlug
+    # reads: var[8190], var[8600], var[8602]  writes: none
+    # + unimplemented nodes may touch others
+    begin:
+        unimplemented STU_57692020(
+            m_params=[
+                STU_814D595E(m_value=True, m_B5051BCE=asset(0x0A40000000000390)),
+                STU_814D595E(m_value=var[8602], m_B5051BCE=asset(0x0A40000000000008)),
+            ],
+            m_gameMessage=GameMessage(0x02400000000006BB),
+        )
+    after(var[8190] * var[8600]):
+        pass
+    end:
+        unimplemented STU_57692020(
+            m_params=[STU_814D595E(m_value=False, m_B5051BCE=asset(0x0A40000000000390))],
+            m_gameMessage=GameMessage(0x02400000000006BB),
+        )
+        unimplemented STU_22926252()
+
+state BooleanSwitch_10:  # STUStatescriptStateBooleanSwitch, state 3; from STU_2F07848F_6.m_onBeginPlug
+    # reads: var[8802]  writes: none
+    watch var[8802]:  # re-evaluated while the State runs
+        while true:
+            begin(Wait_8)
+
+state Wait_8:  # STUStatescriptStateWait, state 2; from BooleanSwitch_10.m_trueSubgraphPlug
+    # reads: var[8190], var[8600]  writes: shared_var[8773]
+    after(var[8190] * var[8600] * 0.90000004):
+        pass
+    end:
+        set_var(shared_var[8773], True)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_57692020 (node) x2
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_100EF8C2 (node) x1
+#   STU_22926252 (node) x1
+#   STU_2F07848F (node) x1

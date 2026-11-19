@@ -1,0 +1,68 @@
+# build 1.74.0.0.104319: 12 nodes (3 States), 3 entries, 11 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000fe9
+# inlined shared nodes (printed at each use site instead of a def): STU_5644500F_6
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[11238] (set x1), shared_var[7595] (set x1), shared_var[11057] (set x2,
+#                      stack_contribution x1)
+#   waits: Wait_5 after(0.25)
+#   messages: receives GameMessage(0x024000000000070D) (entry rid 3); receives var[20088] (entry rid 11)
+#   placeholders: 1 unrecovered (1 classes; 1 node)
+#   shared_var[11057]: 3 writes at lines 24, 53, 62
+#   shared_var[8742]: 3 reads at lines 45, 51, 63
+#   var[11163]: 3 reads at lines 45, 51, 63
+#   var[11238]: 1 write at line 45; 1 read at line 63
+#   var[20088]: 2 reads at lines 33, 54
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[11083] = None
+    var[11163] = 15
+    var[20088] = None
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[11083]  writes: shared_var[7595], shared_var[11057]
+    set_var(shared_var[11057], 0.0)
+    set_var(shared_var[7595], var[11083])
+    begin(Wait_5)
+
+on_game_message(GameMessage(0x024000000000070D), rid=3):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_5644500F()
+
+on_game_message(var[20088], rid=11):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_5644500F()
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=1 ----
+
+state Wait_5:  # STUStatescriptStateWait, state 1; from SetVar_0.m_outPlug
+    # reads: var[11163], shared_var[8742]  writes: var[11238]
+    after(0.25):
+        set_var(var[11238], max(1.0, shared_var[8742] - var[11163] + 1.0))
+        begin(BooleanSwitch_2)
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 0; from SetVar_7.m_outPlug
+    # reads: var[11163], var[20088], shared_var[8742]  writes: shared_var[11057]
+    # + unimplemented nodes may touch others
+    watch shared_var[8742] < var[11163]:  # re-evaluated while the State runs
+        while true:
+            set_var(shared_var[11057], 100.0)
+            if not var[20088]:
+                unimplemented STU_5644500F()
+        while false:
+            begin(Stack_9)
+
+state Stack_9:  # STUStatescriptStateStack, state 2; from BooleanSwitch_2.m_falseSubgraphPlug
+    # reads: var[11163], var[11238], shared_var[8742]  writes: shared_var[11057]
+    stack_contribution(
+        shared_var[11057],
+        value=clamp(100.0 * (1.0 - (shared_var[8742] - var[11163]) / var[11238]), 0.0, 100.0),
+        priority=None,
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_5644500F (node) x1

@@ -1,0 +1,30 @@
+# build 1.74.0.0.104319: 3 nodes (1 States), 1 entries, 2 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000004ba
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x02400000000001EF) (entry rid 1)
+#   placeholders: 2 unrecovered (2 classes; 1 configvar, 1 node)
+
+on_game_message(GameMessage(0x02400000000001EF), rid=1):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), client-only
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    if unimplemented STU_FD6F82D1() == STU_BD6CC023(1):  # client-only
+        begin(DataFlowMapping_2)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_2:  # STUStatescriptStateDataFlowMapping, state 0 (client-only); from Condition_0.m_truePlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x0480000000000002),
+        m_answer=Animation(0x0A000000000022FB),
+        m_entity=STU_02C0109E(),
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_FD6F82D1 (configvar) x1
+#   STUStatescriptStateDataFlowMapping (node) x1

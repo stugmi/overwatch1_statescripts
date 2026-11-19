@@ -1,0 +1,132 @@
+# build 1.74.0.0.104319: 15 nodes (9 States), 2 entries, 17 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000002951
+# inlined shared nodes (printed at each use site instead of a def): SetVar_9
+# names (replace): 9 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[6538] (set x3)
+#   waits: Wait_4 after(3)
+#   placeholders: 12 unrecovered (9 classes; 9 configvar, 3 node)
+#   var[6538]: 3 writes at lines 70, 72, 95; 1 read at line 94
+#   shared_var[31435]: 2 reads at lines 68, 121
+#   shared_var[7265]: 2 reads at lines 30, 121
+
+on_entry(context=unset, rid=8):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(BooleanSwitch_10)
+
+on_entry(always, rid=13):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_14)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- input listeners (States that watch a logical button) ----
+
+state UXPresenter_0:  # STUStatescriptStateUXPresenter, state 0 (client-only); from BooleanSwitch_3.m_onTruePlug, Wait_4.m_onFinishedPlug, STU_6E5C5F66_11.m_outPlug; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: var[11270], shared_var[7265]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        m_3DBF6FD2=STU_5F31962C(m_condition=not shared_var[7265]),
+        presenter_id[?]=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=var[11270]),
+        presenter_data[?]=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(
+                        m_value=(
+                            unimplemented STU_9C54C383(m_7E2A700B=Button(14, "RELOAD"), m_9480AFFF=False) if unimplemented STU_D3685C04()
+                            else unimplemented STU_9C54C383(m_7E2A700B=Button(81, "HERO SELECT"), m_9480AFFF=False)
+                        ),
+                        m_id=asset(0x0D8000000000608A),
+                    ),
+                    STU_E870E3E8(m_value=unimplemented STU_C56414C8(), m_id=asset(0x0D80000000006087)),
+                ],
+                m_definition=asset(0x0A880000000000CF),
+            ),
+        ),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven], class STU_D3685C04=ConfigVarEntityFlag [candidate]
+
+state STU_F4876F8D_7:  # STU_F4876F8D, state 5 (client-only); from GameMessageEntry_2.m_452862E6
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_F4876F8D(
+        m_1C413B73=[
+            STU_9E1C882D(
+                m_012FEE23=0.75,
+                m_key=Button(81, "HERO SELECT"),
+                m_37EE887D=True,
+                m_9B0385B4=1,
+                m_color=unimplemented STU_9A3F9836(m_DA1D5BA0=4),
+            ),
+        ],
+    )
+
+# ---- begun from on_entry rid=8 ----
+
+state BooleanSwitch_10:  # STUStatescriptStateBooleanSwitch, state 6 (client-only); from Entry_8.m_outPlug
+    # reads: shared_var[31435]  writes: var[6538]
+    watch shared_var[31435]:  # re-evaluated while the State runs
+        on change to true:
+            set_var(var[6538], True)  # client-only
+        on change to false:
+            set_var(var[6538], True)  # client-only
+        while false:
+            begin(GameMessageEntry_1)
+
+state GameMessageEntry_1:  # STUStatescriptStateGameMessageEntry, state 1 (client-only); from BooleanSwitch_10.m_falseSubgraphPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000692))
+    provider_absent:
+        begin(GameMessageEntry_12)
+
+state GameMessageEntry_12:  # STUStatescriptStateGameMessageEntry, state 7 (client-only); from GameMessageEntry_1.m_33DA5163
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000832))
+    provider_absent:
+        begin(GameMessageEntry_2)
+
+state GameMessageEntry_2:  # STUStatescriptStateGameMessageEntry, state 2 (client-only); from GameMessageEntry_12.m_33DA5163
+    # reads: var[6538]  writes: var[6538]
+    # + unimplemented nodes may touch others
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000725))
+    provider_present:
+        # owns (not begun here): BooleanSwitch_3
+        if var[6538]:  # client-only
+            set_var(var[6538], False)  # client-only
+            begin(Wait_4)
+        else:
+            unimplemented STU_6E5C5F66()  # client-only
+            begin(UXPresenter_0)
+        begin(STU_F4876F8D_7)
+
+state Wait_4:  # STUStatescriptStateWait, state 4 (client-only); from BooleanSwitch_3.m_onTruePlug, SetVar_5.m_outPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(BooleanSwitch_3)
+    after(3):
+        begin(UXPresenter_0)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 3 (client-only); from Wait_4.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_D3685C04() and unimplemented STU_C56414C8() > 0.0:  # re-evaluated while the State runs; names: class STU_D3685C04=ConfigVarEntityFlag [candidate]
+        on change to true:
+            begin(UXPresenter_0)
+            abort(Wait_4)
+
+# ---- begun from on_entry rid=13 ----
+
+state STU_9D7BF987_14:  # STU_9D7BF987, state 8 (plain State at run time); from STU_571CC72E_13.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[shared_var[7265], shared_var[31435]]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_9C54C383 (configvar) x2
+#   STU_C56414C8 (configvar) x2
+#   STU_D3685C04 (configvar) x2
+#   STU_9A3F9836 (configvar) x1
+#   STU_B317E7B5 (configvar) x1
+#   STU_BCD1C634 (configvar) x1
+#   STUStatescriptStateUXPresenter (node) x1
+#   STU_6E5C5F66 (node) x1
+#   STU_F4876F8D (node) x1

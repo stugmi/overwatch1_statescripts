@@ -1,0 +1,31 @@
+# build 1.74.0.0.104319: 6 nodes (0 States), 3 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000000d6
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x0240000000000071) (entry rid 0); receives
+#             GameMessage(0x0240000000000635) (entry rid 3); receives GameMessage(0x0240000000000656) (entry
+#             rid 5)
+#   placeholders: none
+#   var[2054]: 2 writes at lines 16, 23; 2 reads at lines 19, 20
+#   var[697]: 2 reads at lines 20, 30
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[697] = 0
+    var[698] = 0
+
+on_game_message(GameMessage(0x0240000000000071), rid=0)(var[2054] <- param 0x0A40000000000055):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[697], var[698], var[2054]  writes: var[2054]
+    if not var[2054] == var[698]:
+        if var[2054] == var[697]:
+            pass
+
+on_game_message(GameMessage(0x0240000000000635), rid=3)(var[2054] <- param 0x0A40000000000055):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[2054]
+    pass
+
+on_game_message(GameMessage(0x0240000000000656), rid=5):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[697]  writes: none
+    if var[697] != 0.0:
+        pass

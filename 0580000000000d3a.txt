@@ -1,0 +1,322 @@
+# build 1.74.0.0.104319: 22 nodes (10 States), 5 entries, 18 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000d3a
+# inlined shared nodes (printed at each use site instead of a def): STU_57692020_16
+# names (replace): 5 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[9026] (stack_contribution x2), var[10555] (stack_contribution x1), var[16638] (set
+#                      x1)
+#   messages: receives GameMessage(0x0240000000000E34) (entry rid 18)
+#   placeholders: 48 unrecovered (17 classes; 43 configvar, 5 node)
+#   shared_var[9901]: 6 reads at lines 95, 104, 137, 139, 280, 296
+#   var[16638]: 1 write at line 38; 5 reads at lines 52, 55, 57, 61, 63
+#   shared_var[1303]: 4 reads at lines 110, 112, 280, 299
+#   shared_var[1923]: 4 reads at lines 95, 105, 280, 298
+#   var[9026]: 2 writes at lines 274, 279; 2 reads at lines 100, 293
+#   shared_var[21652]: 3 reads at lines 100, 110, 294
+#   shared_var[4912]: 3 reads at lines 123, 133, 301
+#   shared_var[4913]: 3 reads at lines 126, 130, 302
+
+on_entry(context=unset, rid=4):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(GameMessageEntry_9)
+
+on_entry(context=unset, rid=6):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_38EE1100_3)
+    begin(GameMessageEntry_0)
+    begin(GameMessageEntry_7)
+
+on_entry(context=unset, rid=17):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[16638]  writes: var[16638]
+    # + unimplemented nodes may touch others
+    if (
+           unimplemented STU_D289FA32(m_team=STU_BD6CC023(0)) <= 3.0
+           and unimplemented STU_D289FA32(m_team=STU_BD6CC023(1)) <= 3.0
+       ):
+        set_var(
+            var[16638],
+            unimplemented STU_45B0D2B2(
+                m_configVars=[
+                    {None: None, None: None, None: None},
+                    {None: None, None: None},
+                    {None: None, None: None, None: None},
+                ],
+            ),
+        )
+        if (
+               unimplemented STU_BEDA850F()
+               and (unimplemented STU_7855457F(m_574BBF5A=5) or unimplemented STU_7855457F(m_574BBF5A=6))
+           ):
+            unimplemented STU_CBE8BDAA(
+                m_26E3B366=var[16638],
+                m_value={None: None, None: None, None: None, None: None},
+            )
+            unimplemented STU_CBE8BDAA(m_26E3B366=var[16638], m_value={None: None, None: None})
+            unimplemented STU_57692020(
+                m_params=[STU_814D595E(m_value=var[16638], m_B5051BCE=asset(0x0A40000000000660))],
+                m_gameMessage=GameMessage(0x0240000000000BBB),
+            )
+        else:
+            unimplemented STU_CBE8BDAA(m_26E3B366=var[16638], m_value={None: None, None: None, None: None})
+            unimplemented STU_57692020(
+                m_params=[STU_814D595E(m_value=var[16638], m_B5051BCE=asset(0x0A40000000000660))],
+                m_gameMessage=GameMessage(0x0240000000000BBB),
+            )
+
+on_game_message(GameMessage(0x0240000000000E34), rid=18)(var[20945] <- param 0x0A400000000004E9):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), client-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[20945]
+    pass
+
+on_entry(always, rid=20):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_21)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=4 ----
+
+state GameMessageEntry_9:  # STUStatescriptStateGameMessageEntry, state 7 (client-only); from Entry_4.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000717))
+    provider_absent:
+        begin(GameMessageEntry_19)
+
+state GameMessageEntry_19:  # STUStatescriptStateGameMessageEntry, state 8 (client-only); from GameMessageEntry_9.m_33DA5163
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000013C6))
+    provider_absent:
+        begin(STU_5A666B1A_5)
+
+state STU_5A666B1A_5:  # STU_5A666B1A, state 4 (client-only); from GameMessageEntry_19.m_33DA5163
+    # reads: var[9026], var[10555], var[20945], shared_var[1303], shared_var[1923], shared_var[4912], shared_var[4913], shared_var[9130], shared_var[9901], shared_var[21652]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_5A666B1A(
+        m_45216F79=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A0000000000530)),
+        m_EC32138E=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=var[9026] and not shared_var[21652], m_id=asset(0x0D800000000063E4)),
+                    STU_E870E3E8(
+                        m_value=var[20945] if has_value(var[20945]) else unimplemented STU_E0A69706(
+                            m_displayText=(
+                                UXDisplayText(0x0DE0000000000F7F) if member(shared_var[9901], id(9872))
+                                else shared_var[1923]
+                            ),
+                        ),
+                        m_id=asset(0x0D800000000067AD),
+                    ),
+                    STU_E870E3E8(m_value=shared_var[1303] > 0.0 and not shared_var[21652], m_id=asset(0x0D800000000063ED)),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_108981C8(m_B3EC7449=shared_var[1303], m_D909AA4D=False),
+                        m_id=asset(0x0D80000000006825),
+                    ),
+                    STU_E870E3E8(
+                        m_value=(
+                            shared_var[9130]
+                            and not unimplemented STU_AECBBA41(m_entity=unimplemented STU_8985E00A())
+                        ),
+                        m_id=asset(0x0D800000000063AD),
+                    ),
+                    STU_E870E3E8(
+                        m_value=shared_var[4912] if (
+                            unimplemented STU_65ABFCCC(m_target=unimplemented STU_8985E00A()) == STU_BD6CC023(0)
+                            or unimplemented STU_65ABFCCC(m_target=unimplemented STU_8985E00A()) == STU_BD6CC023(4294967295)
+                        ) else shared_var[4913],
+                        m_id=asset(0x0D80000000001330),
+                    ),
+                    STU_E870E3E8(
+                        m_value=shared_var[4913] if (
+                            unimplemented STU_65ABFCCC(m_target=unimplemented STU_8985E00A()) == STU_BD6CC023(0)
+                            or unimplemented STU_65ABFCCC(m_target=unimplemented STU_8985E00A()) == STU_BD6CC023(4294967295)
+                        ) else shared_var[4912],
+                        m_id=asset(0x0D80000000001331),
+                    ),
+                    STU_E870E3E8(m_value=var[10555], m_id=asset(0x0D80000000006331)),
+                    STU_E870E3E8(m_value=member(shared_var[9901], id(9866)), m_id=asset(0x0D800000000059C0)),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_47703870(m_team=member(shared_var[9901], id(98))),
+                        m_id=asset(0x0D80000000006330),
+                    ),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_B317E7B5(
+                            m_structBuilder[?]=STU_802D5580(
+                                m_overrides=[
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=1.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 0.0,
+                                        ),
+                                        m_id=asset(0x0D80000000002EAB),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=1.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 0.0,
+                                            m_color=1,
+                                        ),
+                                        m_id=asset(0x0D80000000002EAC),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=1.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 0.0,
+                                            m_color=2,
+                                        ),
+                                        m_id=asset(0x0D80000000002EAD),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=1.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 0.0,
+                                            m_color=4,
+                                        ),
+                                        m_id=asset(0x0D80000000004498),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=1.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 0.0,
+                                            m_color=3,
+                                        ),
+                                        m_id=asset(0x0D80000000004499),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_377B7AAB(
+                                            m_67465E75=1.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 0.0,
+                                        ),
+                                        m_id=asset(0x0D8000000000449A),
+                                    ),
+                                ],
+                                m_definition=asset(0x0A88000000000252),
+                            ),
+                        ),
+                        m_id=asset(0x0D80000000003137),
+                    ),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_B317E7B5(
+                            m_structBuilder[?]=STU_802D5580(
+                                m_overrides=[
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=0.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 1.0,
+                                        ),
+                                        m_id=asset(0x0D80000000002EAB),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=0.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 1.0,
+                                            m_color=1,
+                                        ),
+                                        m_id=asset(0x0D80000000002EAC),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=0.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 1.0,
+                                            m_color=2,
+                                        ),
+                                        m_id=asset(0x0D80000000002EAD),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=0.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 1.0,
+                                            m_color=4,
+                                        ),
+                                        m_id=asset(0x0D80000000004498),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(
+                                            m_67465E75=0.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 1.0,
+                                            m_color=3,
+                                        ),
+                                        m_id=asset(0x0D80000000004499),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_377B7AAB(
+                                            m_67465E75=0.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(0)) else 1.0,
+                                        ),
+                                        m_id=asset(0x0D8000000000449A),
+                                    ),
+                                    STU_E870E3E8(m_value=True, m_id=asset(0x0D80000000006374)),
+                                ],
+                                m_definition=asset(0x0A88000000000252),
+                            ),
+                        ),
+                        m_id=asset(0x0D80000000003138),
+                    ),
+                ],
+                m_definition=asset(0x0A880000000001C7),
+            ),
+        ),
+    )  # names: class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+
+# ---- begun from on_entry rid=6 ----
+
+state STU_38EE1100_3:  # STU_38EE1100, state 3; from Entry_6.m_outPlug
+    # reads: none  writes: none
+    publish_game_message(m_gameMessage=GameMessage(0x024000000000074B), m_target=STU_1D719351(), m_67FD6A60=1)
+
+state GameMessageEntry_0:  # STUStatescriptStateGameMessageEntry, state 0; from Entry_6.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000700))
+    provider_present:
+        begin(Stack_1)
+    provider_absent:
+        begin(Stack_2)
+
+state GameMessageEntry_7:  # STUStatescriptStateGameMessageEntry, state 5; from Entry_6.m_outPlug
+    # reads: none  writes: var[10156]
+    subscribe_game_message(
+        m_params=[STU_EF930FD7(m_out_Var=var[10156], m_B5051BCE=asset(0x0A40000000000440))],
+        m_gameMessage=GameMessage(0x024000000000079E),
+    )
+    provider_present:
+        begin(Stack_8)
+
+state Stack_1:  # STUStatescriptStateStack, state 1; from GameMessageEntry_0.m_452862E6
+    # reads: none  writes: var[9026]
+    stack_contribution(var[9026], value=True, priority=None)
+
+state Stack_2:  # STUStatescriptStateStack, state 2; from GameMessageEntry_0.m_33DA5163
+    # reads: shared_var[1303], shared_var[1923], shared_var[9901]  writes: var[9026]
+    stack_contribution(
+        var[9026],
+        value=member(shared_var[9901], id(9872)) or shared_var[1923] != 0.0 and shared_var[1303] > 0.0,
+        priority=None,
+    )
+
+state Stack_8:  # STUStatescriptStateStack, state 6; from GameMessageEntry_7.m_452862E6
+    # reads: none  writes: var[10555]
+    stack_contribution(var[10555], value=True, priority=None)
+
+# ---- begun from on_entry rid=20 ----
+
+state STU_9D7BF987_21:  # STU_9D7BF987, state 9 (plain State at run time); from STU_571CC72E_20.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[
+            var[9026],
+            shared_var[21652],
+            var[10555],
+            shared_var[9901],
+            var[9872],
+            shared_var[1923],
+            shared_var[1303],
+            shared_var[9130],
+            shared_var[4912],
+            shared_var[4913],
+        ]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_47703870 (configvar) x13
+#   STU_32208212 (configvar) x10
+#   STU_8985E00A (configvar) x3
+#   STU_B317E7B5 (configvar) x3
+#   STU_CBE8BDAA (node) x3
+#   STU_377B7AAB (configvar) x2
+#   STU_65ABFCCC (configvar) x2
+#   STU_7855457F (configvar) x2
+#   STU_D289FA32 (configvar) x2
+#   STU_108981C8 (configvar) x1
+#   STU_45B0D2B2 (configvar) x1
+#   STU_AECBBA41 (configvar) x1
+#   STU_BCD1C634 (configvar) x1
+#   STU_BEDA850F (configvar) x1
+#   STU_E0A69706 (configvar) x1
+#   STU_57692020 (node) x1
+#   STU_5A666B1A (node) x1

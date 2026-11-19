@@ -1,0 +1,721 @@
+# build 1.74.0.0.104319: 48 nodes (25 States), 6 entries, 46 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001762 (heroes Baptiste)
+# inlined shared nodes (printed at each use site instead of a def): STU_523EE38D_1, Effect_3
+# names (replace): 12 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[1993] (set x1), var[7056] (set x1), var[7138] (stack_contribution x1), var[12389]
+#                      (set x1), var[13784] (set x1), var[17085] (set x1), shared_var[1859] (set x1)
+#   waits: Wait_15 after(5); Wait_25 after(0.35); Wait_30 after(4); Wait_31 after(3); Wait_46 after(0.5)
+#   messages: receives GameMessage(0x024000000000003F) (entry rid 6); receives
+#             GameMessage(0x024000000000003E) (entry rid 34); receives GameMessage(0x02400000000000EC) (entry
+#             rid 40); sends GameMessage(0x0240000000000040) x1
+#   placeholders: 78 unrecovered (34 classes; 56 configvar, 20 node, 2 expression)
+#   var[1165]: 1 write at line 35; 4 reads at lines 262, 265, 314, 317
+#   var[27]: 5 reads at lines 29, 246, 653, 663, 677
+#   var[392]: 1 write at line 58; 3 reads at lines 72, 75, 85
+#   var[6864]: 1 write at line 105; 3 reads at lines 110, 112, 114
+#   var[7138]: 1 write at line 197; 3 reads at lines 215, 264, 316
+#   var[11861]: 1 write at line 35; 2 reads at lines 262, 314
+#   var[14386]: 3 reads at lines 636, 653, 663
+#   var[375]: 3 reads at lines 277, 627, 634
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[27]  writes: var[1165], var[7056], var[11861], var[12389], var[13784], shared_var[1859]
+    # + unimplemented nodes may touch others
+    begin(Wait_15)
+    send_game_message(
+        GameMessage(0x0240000000000040),
+        targets=var[27],
+        params=[STU_814D595E(m_value=unimplemented STU_B5A0CAF0(), m_B5051BCE=asset(0x0A4000000000005B))],
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    set_var(shared_var[1859], True)
+    begin(CombatModFilter_16)
+    unimplemented STU_12F5D52D(
+        m_143D4C5B=[STU_8529C204(m_value=6, m_out_Var=var[11861]), STU_8529C204(m_value=10, m_out_Var=var[1165])],
+    )
+    begin(BooleanSwitch_18)
+    set_var(var[12389], 0.1)
+    set_var(var[13784], 0.3)
+    set_var(var[7056], 2.75)
+    begin(Stack_47)
+    begin(DataFlowMapping_27)
+
+on_game_message(GameMessage(0x024000000000003F), rid=6):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_523EE38D(m_entity=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+on_entry(context=unset, rid=7):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    pass
+
+on_entry(context=unset, rid=17):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    pass
+
+on_game_message(GameMessage(0x024000000000003E), rid=34)(
+    var[392] <- param 0x0A40000000000012,
+    var[6617] <- param 0x0A400000000000BD,
+    var[510] <- param 0x0A4000000000003D,
+    var[1821] <- param 0x0A40000000000095,
+    var[548] <- param 0x0A4000000000006B,
+    var[2792] <- param 0x0A40000000000142,
+    var[9300] <- param 0x0A400000000003E6,
+    var[9296] <- param 0x0A400000000003E7,
+    var[9297] <- param 0x0A400000000003E8,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[392], var[510], var[1821], var[6617], var[9296], var[9297], var[9300]  writes: var[392], var[510], var[548], var[1821], var[2792], var[6617], var[9296], var[9297], var[9300]
+    # + unimplemented nodes may touch others
+    begin(STU_40E05F6B_35)
+    if var[392]:
+        unimplemented STU_100EF8C2(
+            m_params=[
+                STU_814D595E(m_value=var[392], m_B5051BCE=asset(0x0A400000000003E9)),
+                STU_814D595E(m_value=unimplemented STU_B5A0CAF0(), m_B5051BCE=asset(0x0A400000000003EA)),
+                STU_814D595E(m_value=var[9300], m_B5051BCE=asset(0x0A400000000003EB)),
+                STU_814D595E(m_value=var[9296], m_B5051BCE=asset(0x0A400000000003EC)),
+                STU_814D595E(m_value=var[9297], m_B5051BCE=asset(0x0A400000000003ED)),
+                STU_814D595E(
+                    m_value=(
+                        not unimplemented STU_108E49CC(m_entity=unimplemented STU_8985E00A())
+                        or unimplemented STU_99A1D7EB()
+                        or unimplemented STU_12DDFABC()
+                    ) if unimplemented STU_1FF67CA6() == var[392] else (
+                        unimplemented STU_1FF67CA6() == var[6617]
+                        and (
+                            not unimplemented STU_108E49CC(m_entity=unimplemented STU_8985E00A())
+                            or unimplemented STU_99A1D7EB()
+                            or unimplemented STU_12DDFABC()
+                        )
+                    ),
+                    m_B5051BCE=asset(0x0A400000000003EE),
+                ),
+                STU_814D595E(m_value=var[1821], m_B5051BCE=asset(0x0A400000000003EF)),
+                STU_814D595E(m_value=contains(var[510], key=None, value=Identifier(0x0D80000000000302)), m_B5051BCE=asset(0x0A400000000006FA)),
+                STU_814D595E(m_value=Texture(0x0C0000000001E2D9), m_B5051BCE=asset(0x0A40000000000401)),
+                STU_814D595E(m_value=True, m_B5051BCE=asset(0x0A400000000006FB)),
+                STU_814D595E(m_value=contains(var[510], key=None, value=Identifier(0x0D80000000004FFB)), m_B5051BCE=asset(0x0A400000000008AF)),
+            ],
+            m_gameMessage=GameMessage(0x0240000000000765),
+            m_targets=unimplemented STU_A3DEF368(),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STU_1FF67CA6=ControllerEntityID [candidate]
+
+on_game_message(GameMessage(0x02400000000000EC), rid=40)(var[6864] <- param 0x0A4000000000033E):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[1993], var[6864]  writes: var[6864]
+    # + unimplemented nodes may touch others
+    if (
+           not unimplemented STU_E72F6348(m_entity=var[6864])
+           or (
+               not unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000002BD), m_entity=var[6864])
+               and not unimplemented STU_AC829876(
+                   m_entity=var[6864],
+                   m_filter=unimplemented STUConfigVarFilter(m_84065FD1=128),
+               )
+           )
+       ):  # server-only; names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        if not var[1993]:  # server-only
+            begin(ModifyHealth_41)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_27:  # STUStatescriptStateDataFlowMapping, state 14; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x048000000000073A),
+        m_answer=(
+            1.0 if unimplemented STU_9B7648C3(m_entity=unimplemented STU_B5A0CAF0()) / unimplemented STU_60146072(m_entity=unimplemented STU_B5A0CAF0()) < 0.5
+            else 0.0
+        ),
+        m_entity=STU_02C0109E(),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state DataFlowMapping_24:  # STUStatescriptStateDataFlowMapping, state 12; from Wait_25.m_onFinishedPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x048000000000010C),
+        m_answer=1,
+        m_entity=STU_02C0109E(),
+    )
+
+# ---- begun from on_entry rid=0 ----
+
+state Wait_15:  # STUStatescriptStateWait, state 7; from Entry_0.m_outPlug
+    # reads: shared_var[478]  writes: none
+    # + unimplemented nodes may touch others
+    subgraph:
+        begin(Wait_25)
+        begin(STU_691BFA55_14)
+        begin(STU_691BFA55_22)
+    transitions:
+        when transition[0]:
+            if shared_var[478]:
+                unimplemented STUStatescriptActionEffect(
+                    m_effect=Effect(0x030000000000291B),
+                    position[?]=unimplemented STU_B5A0CAF0(),
+                )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+                begin(STU_33A46033_4)
+                begin(Wait_46)
+    after(5):
+        begin(STU_40E05F6B_36)
+    end:
+        unimplemented STUStatescriptActionEffect(
+            m_effect=Effect(0x030000000000291B),
+            position[?]=unimplemented STU_B5A0CAF0(),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        begin(STU_33A46033_4)
+        begin(Wait_46)
+        unimplemented STUStatescriptActionEffect(
+            m_effect=Effect(0x0300000000002910),
+            entity[?]=unimplemented STU_B5A0CAF0(),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state CombatModFilter_16:  # STUStatescriptStateCombatModFilter, state 8; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateCombatModFilter(m_60703B1E=asset(0x0D8000000000031A), m_50530EAB=0, m_41B10FF2=1)
+
+state BooleanSwitch_18:  # STUStatescriptStateBooleanSwitch, state 9; from BooleanSwitch_18.m_onFalsePlug, STU_12F5D52D_26.m_outPlug
+    # reads: shared_var[8912]  writes: none
+    watch not shared_var[8912]:  # re-evaluated while the State runs
+        while true:
+            begin(TrackTargets_12)
+            begin(TrackTargets_28)
+        on change to false:
+            abort(BooleanSwitch_18)
+
+state Stack_47:  # STUStatescriptStateStack, state 24; from SetVar_45.m_outPlug
+    # reads: var[7056]  writes: var[7138], var[17085]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        var[7138],
+        value=unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()) - vec3(0.0, var[7056], 0.0),
+        priority=None,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin:
+        set_var(var[17085], unimplemented STU_B5A0CAF0() + vec3(0.0, var[7056], 0.0))  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        begin(STU_94DAAA8C_19)
+
+state Wait_25:  # STUStatescriptStateWait, state 13; from Wait_15.m_subgraphPlug
+    # reads: none  writes: none
+    after(0.35):
+        begin(DataFlowMapping_24)
+
+state STU_691BFA55_14:  # STU_691BFA55, state 6; from Wait_15.m_subgraphPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: var[7138]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(
+        m_effect=Effect(0x03000000000025EC),
+        m_BD631144=var[7138],
+        skip_if[?]=True,
+        m_CEE37F9C=unimplemented STU_B5A0CAF0(),
+    )  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_691BFA55_22:  # STU_691BFA55, state 11; from Wait_15.m_subgraphPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(
+        m_effect=Effect(0x0300000000002907),
+        entity[?]=unimplemented STU_B5A0CAF0(),
+        m_9E54CED9=HardPoint(0x0DC0000000000076),
+        m_CEE37F9C=unimplemented STU_B5A0CAF0(),
+    )  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_33A46033_4:  # STU_33A46033, state 0; from Effect_3.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(m_7E42F868=True)
+    subgraph:
+        begin(STU_D07EBF01_8)
+
+state Wait_46:  # STUStatescriptStateWait, state 23; from Effect_3.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    after(0.5):
+        unimplemented STU_523EE38D(m_entity=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_40E05F6B_36:  # STU_40E05F6B, state 21; from Wait_15.m_onFinishedPlug
+    # reads: var[27]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_40E05F6B(m_stimulus=VoiceStimulus(0x0EE0000000000B1E), m_targets=var[27], m_B0263D2D=0.5, m_E0E02BD4=0.0)
+
+state TrackTargets_12:  # STUStatescriptStateTrackTargets, state 4; from BooleanSwitch_18.m_trueSubgraphPlug
+    # reads: var[375], var[1165], var[7138], var[11861]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_47AB1887=[
+            STU_97368A55(
+                m_end=unimplemented STU_71A87E92(m_entity=param[92]),
+                m_start=unimplemented STU_FC99C77E(
+                    m_hardPoint=HardPoint(0x0DC0000000000004),
+                    m_entity=unimplemented STU_B5A0CAF0(),
+                ),
+            ),
+        ],
+        m_E46A19A3=90.0,
+        m_A30B383E=unimplemented STU_919FD47C(code=raw(080008013106001900), vars=[var[11861], var[1165]], floats=[2.0]),
+        m_D45E22FA=360.0,
+        m_05BE62DD=var[7138] + unimplemented STU_D32169F6(m_entity=unimplemented STU_B5A0CAF0()) * -4.0,
+        m_radius=var[1165],
+        m_E474FFD6=True,
+        m_D59188D5=unimplemented STU_FC99C77E(
+            m_hardPoint=HardPoint(0x0DC0000000000004),
+            m_entity=unimplemented STU_B5A0CAF0(),
+        ),
+        m_48837057=unimplemented STU_21A13145(m_entity=param[92]),
+        m_3D667CE3=unimplemented STUConfigVarFilter(
+            m_8B2A4DF3=unimplemented STU_45B0D2B2(
+                m_configVars=[STU_357DABBB(0x0D6000000000003A), STU_357DABBB(0x0D600000000002A0)],
+            ),
+        ),
+        m_8A2905A0=var[375],
+        m_filter=unimplemented STUConfigVarFilter(
+            m_84065FD1=1073741823,
+            m_condition=(
+                unimplemented STU_AC829876(
+                    m_entity=param[8],
+                    m_filter=unimplemented STUConfigVarFilter(m_4EA686DB=2097168, m_66747E7D=1, m_84065FD1=1),
+                )
+                or unimplemented STU_AC829876(
+                    m_entity=param[8],
+                    m_filter=unimplemented STUConfigVarFilter(m_4EA686DB=2097168, m_66747E7D=1, m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D60000000000121)),
+                )
+            ),
+        ),
+        m_8CBE558B=False,
+        m_2F5FAF65=1,
+        m_0297060F=raw(00),
+        m_08285CD6=raw(00),
+        m_DD792FF0=raw(00000000),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STU_21A13145=EntityPosition [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate], class STU_AC829876=EntityFilterTest [candidate]
+    subgraph:
+        begin(STU_CB4905E9_13)
+
+state TrackTargets_28:  # STUStatescriptStateTrackTargets, state 15; from BooleanSwitch_18.m_trueSubgraphPlug
+    # reads: var[1165], var[7138], var[11861], var[18206]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_47AB1887=[
+            STU_97368A55(
+                m_end=unimplemented STU_71A87E92(m_entity=param[92]),
+                m_start=unimplemented STU_FC99C77E(
+                    m_hardPoint=HardPoint(0x0DC0000000000004),
+                    m_entity=unimplemented STU_B5A0CAF0(),
+                ),
+            ),
+        ],
+        m_E46A19A3=90.0,
+        m_A30B383E=unimplemented STU_919FD47C(code=raw(080008013106001900), vars=[var[11861], var[1165]], floats=[2.0]),
+        m_D45E22FA=360.0,
+        m_05BE62DD=var[7138] + unimplemented STU_D32169F6(m_entity=unimplemented STU_B5A0CAF0()) * -4.0,
+        m_radius=var[1165] * 3.0,
+        m_E474FFD6=True,
+        m_D59188D5=unimplemented STU_FC99C77E(
+            m_hardPoint=HardPoint(0x0DC0000000000004),
+            m_entity=unimplemented STU_B5A0CAF0(),
+        ),
+        m_48837057=unimplemented STU_21A13145(m_entity=param[92]),
+        m_3D667CE3=unimplemented STUConfigVarFilter(m_8B2A4DF3=STU_357DABBB(0x0D6000000000003A)),
+        m_8A2905A0=var[18206],
+        m_filter=unimplemented STUConfigVarFilter(m_4EA686DB=2097168, m_66747E7D=1, m_84065FD1=1),
+        m_8CBE558B=False,
+        m_2F5FAF65=1,
+        m_0297060F=raw(00),
+        m_08285CD6=raw(00),
+        m_DD792FF0=raw(01000000),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STU_21A13145=EntityPosition [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(STU_0A6BE10E_33)
+
+state STU_94DAAA8C_19:  # STU_94DAAA8C, state 10 (plain State at run time); from SetVar_20.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_BD2A95EE=var[17085], m_2B98273A=0.75, m_1AAE9B1A=True, m_0CD88782=STUAnimCurve(
+            m_compiled=STUAnimCurveCompiled(
+                m_valueKeys=[
+                    0.0,
+                    -1.2680325e-05,
+                    -4.7616337e-05,
+                    -0.00010015058,
+                    -0.00016562562,
+                    -0.00023938398,
+                    -0.00031676824,
+                    -0.00039312095,
+                    -0.00046378464,
+                    -0.00052410195,
+                    -0.00056941516,
+                    -0.00059506716,
+                    -0.00059640023,
+                    -0.0005687572,
+                    -0.00050748046,
+                    -0.00040791254,
+                    -0.00026539597,
+                    -7.527345e-05,
+                    0.00016711233,
+                    0.00046641938,
+                    0.0008273055,
+                    0.0012544268,
+                    0.0017524413,
+                    0.002326006,
+                    0.0029797805,
+                    0.003718419,
+                    0.004546582,
+                    0.0054689236,
+                    0.006490105,
+                    0.007614781,
+                    0.00884761,
+                    0.01019325,
+                    0.011656357,
+                    0.01324159,
+                    0.014953604,
+                    0.016797062,
+                    0.01877661,
+                    0.02089692,
+                    0.023162639,
+                    0.025578432,
+                    0.028148951,
+                    0.030878851,
+                    0.033772796,
+                    0.03683544,
+                    0.040071443,
+                    0.04348546,
+                    0.047082145,
+                    0.050866164,
+                    0.054842174,
+                    0.05901482,
+                    0.063388765,
+                    0.06796868,
+                    0.07275921,
+                    0.07776502,
+                    0.082990736,
+                    0.088441074,
+                    0.09412064,
+                    0.10003411,
+                    0.10618614,
+                    0.1125814,
+                    0.11922452,
+                    0.12612018,
+                    0.13327305,
+                    0.14068775,
+                    0.14836895,
+                    0.16411036,
+                    0.18016386,
+                    0.19651179,
+                    0.21313652,
+                    0.23002042,
+                    0.24714583,
+                    0.26449513,
+                    0.28205067,
+                    0.2997948,
+                    0.3177099,
+                    0.3357783,
+                    0.3539824,
+                    0.3723045,
+                    0.39072704,
+                    0.4092323,
+                    0.42780268,
+                    0.44642055,
+                    0.46506825,
+                    0.4837281,
+                    0.5023826,
+                    0.5210139,
+                    0.53960454,
+                    0.5581368,
+                    0.57659304,
+                    0.5949556,
+                    0.6132069,
+                    0.6313293,
+                    0.6493051,
+                    0.6671167,
+                    0.6847464,
+                    0.70217663,
+                    0.71938974,
+                    0.736368,
+                    0.75309396,
+                    0.7695498,
+                    0.78571796,
+                    0.8015808,
+                    0.81712055,
+                    0.8323198,
+                    0.8471607,
+                    0.8616258,
+                    0.8756973,
+                    0.88935757,
+                    0.90258914,
+                    0.91537416,
+                    0.92769516,
+                    0.9395343,
+                    0.95087415,
+                    0.96169686,
+                    0.971985,
+                    0.9817208,
+                    0.9908867,
+                    0.999465,
+                    1.0074381,
+                    1.0147882,
+                    1.0214978,
+                    1.0275494,
+                    1.0329251,
+                    1.0376074,
+                    1.0415785,
+                    1.044821,
+                    1.0473173,
+                    1.0490494,
+                    1.05,
+                    1.0431864,
+                    1.0230395,
+                    1.0076431,
+                    1.0,
+                ],
+                m_timeKeys=[
+                    -0.00070323487,
+                    0.00282013,
+                    0.006334299,
+                    0.009839465,
+                    0.013335825,
+                    0.016823571,
+                    0.020302895,
+                    0.023773996,
+                    0.027237065,
+                    0.030692294,
+                    0.034139883,
+                    0.03758002,
+                    0.0410129,
+                    0.044438723,
+                    0.04785768,
+                    0.051269956,
+                    0.05467576,
+                    0.05807528,
+                    0.0614687,
+                    0.064856224,
+                    0.06823806,
+                    0.07161437,
+                    0.07498538,
+                    0.07835125,
+                    0.08171221,
+                    0.085068434,
+                    0.088420115,
+                    0.09176746,
+                    0.09511065,
+                    0.09844988,
+                    0.10178535,
+                    0.105117254,
+                    0.10844578,
+                    0.11177113,
+                    0.11509349,
+                    0.11841307,
+                    0.12173003,
+                    0.12504461,
+                    0.12835696,
+                    0.13166732,
+                    0.13497584,
+                    0.13828273,
+                    0.1415882,
+                    0.14489242,
+                    0.1481956,
+                    0.15149792,
+                    0.15479958,
+                    0.15810078,
+                    0.16140172,
+                    0.16470258,
+                    0.16800356,
+                    0.17130485,
+                    0.17460665,
+                    0.17790917,
+                    0.18121256,
+                    0.18451704,
+                    0.18782282,
+                    0.19113006,
+                    0.19443896,
+                    0.19774975,
+                    0.20106259,
+                    0.2043777,
+                    0.20769525,
+                    0.21101543,
+                    0.21433845,
+                    0.21515398,
+                    0.21607448,
+                    0.2171,
+                    0.21823055,
+                    0.21946615,
+                    0.22080684,
+                    0.22225262,
+                    0.22380355,
+                    0.2254596,
+                    0.22722086,
+                    0.2290873,
+                    0.23105897,
+                    0.23313588,
+                    0.23531806,
+                    0.23760553,
+                    0.23999833,
+                    0.24249645,
+                    0.24509995,
+                    0.24780881,
+                    0.2506231,
+                    0.25354284,
+                    0.256568,
+                    0.2596987,
+                    0.26293486,
+                    0.26627657,
+                    0.2697238,
+                    0.27327663,
+                    0.27693507,
+                    0.28069913,
+                    0.28456882,
+                    0.28854418,
+                    0.29262525,
+                    0.29681203,
+                    0.30110455,
+                    0.30550283,
+                    0.3100069,
+                    0.3146168,
+                    0.31933248,
+                    0.32415408,
+                    0.32908154,
+                    0.3341149,
+                    0.3392542,
+                    0.34449947,
+                    0.34985065,
+                    0.3553079,
+                    0.36087114,
+                    0.36654043,
+                    0.37231582,
+                    0.37819728,
+                    0.38418484,
+                    0.3902786,
+                    0.39647847,
+                    0.40278456,
+                    0.40919685,
+                    0.4157154,
+                    0.42234015,
+                    0.42907125,
+                    0.43590862,
+                    0.44285232,
+                    0.4499024,
+                    0.45705885,
+                    0.46432167,
+                    0.47169095,
+                    0.47916666,
+                    0.6315175,
+                    0.74475753,
+                    0.86257404,
+                    1.0,
+                ],
+            ),
+        )
+
+state STU_D07EBF01_8:  # STU_D07EBF01, state 1 (plain State at run time); from STU_33A46033_4.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_target=unimplemented STU_B5A0CAF0(); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(STU_9028E035_9)
+
+state STU_CB4905E9_13:  # STU_CB4905E9, state 5; from TrackTargets_12.m_subgraphPlug
+    # reads: var[375]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_CB4905E9(
+        m_69F4B52C=unimplemented STU_9DB46B98(),
+        m_4B7DF406=False,
+        m_8C797956=False,
+        m_script=STU_105E1BCC(0x0580000000001763),
+        m_targets=var[375],
+    )
+
+state STU_0A6BE10E_33:  # STU_0A6BE10E, state 19; from TrackTargets_28.m_subgraphPlug
+    # reads: var[375], var[14386], var[18206]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_0A6BE10E(
+        m_filter=unimplemented STUConfigVarFilter(m_condition=not contains(var[375], key=None, value=param[142])),
+        m_814F8EC3=var[18206],
+        m_F2805C84=var[14386],
+    )  # names: class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        # owns (not begun here): STU_40E05F6B_29, Wait_31
+        begin(Wait_30)
+
+state STU_9028E035_9:  # STU_9028E035, state 2; from STU_D07EBF01_8.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_9028E035()
+    subgraph:
+        begin(STU_F08E1453_11)
+
+state Wait_30:  # STUStatescriptStateWait, state 17; from STU_0A6BE10E_33.m_subgraphPlug
+    # reads: var[27], var[14386]  writes: none
+    # + unimplemented nodes may touch others
+    after(4):
+        unimplemented STU_4C3509FB(m_26E3B366=var[14386], m_value=var[27])
+        begin(STU_40E05F6B_29)
+
+state STU_F08E1453_11:  # STU_F08E1453, state 3 (plain State at run time); from STU_9028E035_9.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_64C3E07E=unimplemented STU_B5A0CAF0(); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_40E05F6B_29:  # STU_40E05F6B, state 16; from Wait_31.m_onFinishedPlug, STU_4C3509FB_32.m_outPlug
+    # reads: var[27], var[14386]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_40E05F6B(m_stimulus=VoiceStimulus(0x0EE0000000000AFB), m_targets=var[27], m_297E0B63=var[14386], m_E0E02BD4=0.0)
+    begin:
+        begin(Wait_31)
+
+state Wait_31:  # STUStatescriptStateWait, state 18; from STU_40E05F6B_29.m_onBeginPlug
+    # reads: none  writes: none
+    after(3):
+        begin(STU_40E05F6B_29)
+
+# ---- begun from on_game_message rid=34 ----
+
+state STU_40E05F6B_35:  # STU_40E05F6B, state 20; from GameMessage_34.m_outPlug
+    # reads: var[27]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_40E05F6B(m_stimulus=VoiceStimulus(0x0EE0000000000AFD), m_targets=var[27], m_B0263D2D=0.5, m_E0E02BD4=0.0)
+
+# ---- begun from on_game_message rid=40 ----
+
+state ModifyHealth_41:  # STUStatescriptStateModifyHealth, state 22 (plain State at run time, server-only); from Condition_43.m_falsePlug
+    # reads: none  writes: var[1993]
+    # authored, unused by the plain State handler [INFERENCE]: m_modifyHealth=STUStatescriptModifyHealth(m_724CBA57=unimplemented STU_B5A0CAF0(), m_amount=10000), m_FA3ECC43=unimplemented STU_B5A0CAF0(), m_79758CE9=False, m_FF9E82FA=False, m_48BED081=False; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin:
+        set_var(var[1993], True)  # server-only
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x22
+#   STUConfigVarFilter (configvar) x8
+#   STU_FC99C77E (configvar) x4
+#   STU_71A87E92 (configvar) x3
+#   STU_AC829876 (configvar) x3
+#   STU_40E05F6B (node) x3
+#   STU_21A13145 (configvar) x2
+#   STU_D32169F6 (configvar) x2
+#   STU_919FD47C (expression) x2
+#   STUStatescriptActionEffect (node) x2
+#   STUStatescriptStateDataFlowMapping (node) x2
+#   STUStatescriptStateTrackTargets (node) x2
+#   STU_691BFA55 (node) x2
+#   STU_108E49CC (configvar) x1
+#   STU_12DDFABC (configvar) x1
+#   STU_1FF67CA6 (configvar) x1
+#   STU_25ECB55F (configvar) x1
+#   STU_45B0D2B2 (configvar) x1
+#   STU_60146072 (configvar) x1
+#   STU_8985E00A (configvar) x1
+#   STU_99A1D7EB (configvar) x1
+#   STU_9B7648C3 (configvar) x1
+#   STU_9DB46B98 (configvar) x1
+#   STU_A3DEF368 (configvar) x1
+#   STU_E72F6348 (configvar) x1
+#   STUStatescriptStateCombatModFilter (node) x1
+#   STU_0A6BE10E (node) x1
+#   STU_100EF8C2 (node) x1
+#   STU_12F5D52D (node) x1
+#   STU_33A46033 (node) x1
+#   STU_4C3509FB (node) x1
+#   STU_523EE38D (node) x1
+#   STU_9028E035 (node) x1
+#   STU_CB4905E9 (node) x1

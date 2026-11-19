@@ -1,0 +1,66 @@
+# build 1.74.0.0.104319: 5 nodes (3 States), 2 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000002153 (heroes Winston)
+# names (replace): 7 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   placeholders: 2 unrecovered (2 classes; 1 configvar, 1 node)
+#   var[586]: 1 write at line 47; 2 reads at lines 32, 33
+#   shared_var[11821]: 2 reads at lines 28, 62
+#   var[587]: 1 write at line 48; 1 read at line 33
+#   var[6728]: 1 write at line 49; 1 read at line 34
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(GameMessageEntry_2)
+
+on_entry(always, rid=3):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_4)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- UI presenters (grouped by class) ----
+
+state UXPresenter_1:  # STUStatescriptStateUXPresenter, state 0 (client-only); from GameMessageEntry_2.m_452862E6; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: var[586], var[587], var[6728], shared_var[11821]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        presenter_id[?]=STU_99CEEC04(m_25521BD9=STU_A1BAFA3E(m_id=asset(0x0D8000000000606E)), m_D44EB181=shared_var[11821]),
+        presenter_data[?]=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=ceil(var[586]), m_id=asset(0x0D800000000000C7)),
+                    STU_E870E3E8(m_value=var[586] / var[587], m_id=asset(0x0D800000000001FC)),
+                    STU_E870E3E8(m_value=var[6728], m_id=asset(0x0D80000000006343)),
+                ],
+                m_definition=asset(0x0A88000000000253),
+            ),
+        ),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+
+# ---- begun from on_entry rid=0 ----
+
+state GameMessageEntry_2:  # STUStatescriptStateGameMessageEntry, state 1 (client-only); from Entry_0.m_outPlug
+    # reads: none  writes: var[215], var[567], var[586], var[587], var[6728]
+    subscribe_game_message(
+        m_params=[
+            STU_EF930FD7(m_out_Var=var[586], m_B5051BCE=asset(0x0A40000000000043)),
+            STU_EF930FD7(m_out_Var=var[587], m_B5051BCE=asset(0x0A40000000000044)),
+            STU_EF930FD7(m_out_Var=var[6728], m_B5051BCE=asset(0x0A40000000000863)),
+            STU_EF930FD7(m_out_Var=var[215], m_B5051BCE=asset(0x0A4000000000002B)),
+            STU_EF930FD7(m_out_Var=var[567], m_B5051BCE=asset(0x0A40000000000494)),
+        ],
+        m_gameMessage=GameMessage(0x024000000000104E),
+    )
+    provider_present:
+        begin(UXPresenter_1)
+
+# ---- begun from on_entry rid=3 ----
+
+state STU_9D7BF987_4:  # STU_9D7BF987, state 2 (plain State at run time); from STU_571CC72E_3.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[shared_var[11821]]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B317E7B5 (configvar) x1
+#   STUStatescriptStateUXPresenter (node) x1

@@ -1,0 +1,62 @@
+# build 1.74.0.0.104319: 6 nodes (3 States), 1 entries, 5 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000012d4
+# names (replace): 8 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[6828] (stack_contribution x1), var[12942] (set x1), var[12943] (set x1)
+#   placeholders: 3 unrecovered (3 classes; 2 configvar, 1 node)
+#   var[12942]: 2 writes at lines 14, 47; 1 read at line 33
+#   var[12943]: 2 writes at lines 15, 48; 1 read at line 34
+#   var[6828]: 1 write at line 57; 1 read at line 31
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: var[12942], var[12943]
+    set_var(var[12942], 0.5)  # client-only
+    set_var(var[12943], 0.5)  # client-only
+    begin(UXPresenter_2)
+    begin(GameMessageEntry_1)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- UI presenters (grouped by class) ----
+
+state UXPresenter_2:  # STUStatescriptStateUXPresenter, state 1 (client-only); from SetVar_4.m_outPlug; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: var[6828], var[12942], var[12943]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        presenter_id[?]=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A00000000005F1)),
+        presenter_data[?]=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=var[6828], m_id=asset(0x0D800000000007AA)),
+                    STU_E870E3E8(m_value=color(0.0, 0.0, 0.0, 0.0), m_id=asset(0x0D80000000002C67)),
+                    STU_E870E3E8(m_value=var[12942], m_id=asset(0x0D80000000006212)),
+                    STU_E870E3E8(m_value=var[12943], m_id=asset(0x0D80000000006214)),
+                ],
+                m_definition=asset(0x0A880000000000BA),
+            ),
+        ),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+
+# ---- begun from on_entry rid=0 ----
+
+state GameMessageEntry_1:  # STUStatescriptStateGameMessageEntry, state 0 (client-only); from SetVar_4.m_outPlug
+    # reads: none  writes: var[12942], var[12943]
+    subscribe_game_message(
+        m_params=[
+            STU_EF930FD7(m_out_Var=var[12942], m_B5051BCE=asset(0x0A400000000003CB)),
+            STU_EF930FD7(m_out_Var=var[12943], m_B5051BCE=asset(0x0A400000000003CC)),
+        ],
+        m_gameMessage=GameMessage(0x0240000000000960),
+    )
+    provider_present:
+        begin(Stack_3)
+
+state Stack_3:  # STUStatescriptStateStack, state 2 (client-only); from GameMessageEntry_1.m_452862E6
+    # reads: none  writes: var[6828]
+    stack_contribution(var[6828], value=True, priority=None)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B317E7B5 (configvar) x1
+#   STU_BCD1C634 (configvar) x1
+#   STUStatescriptStateUXPresenter (node) x1

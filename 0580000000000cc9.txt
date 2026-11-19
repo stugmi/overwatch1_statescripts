@@ -1,0 +1,118 @@
+# build 1.74.0.0.104319: 17 nodes (15 States), 2 entries, 15 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000cc9
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[1844] (stack_contribution x1), shared_var[2932] (stack_contribution x1),
+#                      shared_var[6699] (stack_contribution x1), shared_var[6863] (stack_contribution x1),
+#                      shared_var[7265] (stack_contribution x1), shared_var[8511] (stack_contribution x1),
+#                      shared_var[13557] (stack_contribution x1)
+#   placeholders: none
+#   shared_var[13557]: 1 write at line 92; 1 read at line 115
+#   shared_var[1844]: 1 write at line 84; 1 read at line 113
+#   shared_var[2932]: 1 write at line 100; 1 read at line 117
+#   shared_var[6699]: 1 write at line 104; 1 read at line 112
+#   shared_var[6863]: 1 write at line 96; 1 read at line 116
+#   shared_var[7265]: 1 write at line 88; 1 read at line 114
+#   shared_var[8511]: 1 write at line 74; 1 read at line 111
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(GameMessageEntry_1)
+    begin(GameMessageEntry_4)
+    begin(GameMessageEntry_5)
+    begin(GameMessageEntry_8)
+    begin(GameMessageEntry_11)
+    begin(GameMessageEntry_13)
+
+on_entry(always, rid=15):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_16)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state GameMessageEntry_1:  # STUStatescriptStateGameMessageEntry, state 0 (client-only); from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000006A3))
+    provider_present:
+        begin(Stack_2)
+
+state GameMessageEntry_4:  # STUStatescriptStateGameMessageEntry, state 3 (client-only); from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000006DF))
+    provider_present:
+        begin(GameMessageEntry_14)
+
+state GameMessageEntry_5:  # STUStatescriptStateGameMessageEntry, state 4 (client-only); from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000717))
+    provider_present:
+        begin(Stack_6)
+        begin(Stack_7)
+
+state GameMessageEntry_8:  # STUStatescriptStateGameMessageEntry, state 7 (client-only); from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000009DE))
+    provider_present:
+        begin(Stack_9)
+
+state GameMessageEntry_11:  # STUStatescriptStateGameMessageEntry, state 10 (client-only); from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000BE3))
+    provider_present:
+        begin(Stack_10)
+
+state GameMessageEntry_13:  # STUStatescriptStateGameMessageEntry, state 12 (client-only); from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000BEA))
+    provider_present:
+        begin(Stack_12)
+
+state Stack_2:  # STUStatescriptStateStack, state 1 (client-only); from GameMessageEntry_1.m_452862E6
+    # reads: none  writes: shared_var[8511]
+    stack_contribution(shared_var[8511], value=True, priority=None)
+
+state GameMessageEntry_14:  # STUStatescriptStateGameMessageEntry, state 13 (client-only); from GameMessageEntry_4.m_452862E6
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000013BF))
+    provider_absent:
+        begin(Stack_3)
+
+state Stack_6:  # STUStatescriptStateStack, state 5 (client-only); from GameMessageEntry_5.m_452862E6
+    # reads: none  writes: shared_var[1844]
+    stack_contribution(shared_var[1844], value=False, priority=STU_8A491388(0x0C40000000000015))
+
+state Stack_7:  # STUStatescriptStateStack, state 6 (client-only); from GameMessageEntry_5.m_452862E6
+    # reads: none  writes: shared_var[7265]
+    stack_contribution(shared_var[7265], value=True, priority=STU_8A491388(0x0C40000000000015))
+
+state Stack_9:  # STUStatescriptStateStack, state 8 (client-only); from GameMessageEntry_8.m_452862E6
+    # reads: none  writes: shared_var[13557]
+    stack_contribution(shared_var[13557], value=False, priority=None)
+
+state Stack_10:  # STUStatescriptStateStack, state 9 (client-only); from GameMessageEntry_11.m_452862E6
+    # reads: none  writes: shared_var[6863]
+    stack_contribution(shared_var[6863], value=True, priority=None)
+
+state Stack_12:  # STUStatescriptStateStack, state 11 (client-only); from GameMessageEntry_13.m_452862E6
+    # reads: none  writes: shared_var[2932]
+    stack_contribution(shared_var[2932], value=True, priority=None)
+
+state Stack_3:  # STUStatescriptStateStack, state 2 (client-only); from GameMessageEntry_14.m_33DA5163
+    # reads: none  writes: shared_var[6699]
+    stack_contribution(shared_var[6699], value=True, priority=STU_8A491388(0x0C400000000000F9))
+
+# ---- begun from on_entry rid=15 ----
+
+state STU_9D7BF987_16:  # STU_9D7BF987, state 14 (plain State at run time); from STU_571CC72E_15.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[
+            shared_var[8511],
+            shared_var[6699],
+            shared_var[1844],
+            shared_var[7265],
+            shared_var[13557],
+            shared_var[6863],
+            shared_var[2932],
+        ]

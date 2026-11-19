@@ -1,0 +1,162 @@
+# build 1.74.0.0.104319: 21 nodes (12 States), 1 entries, 21 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000025a3
+# inlined shared nodes (printed at each use site instead of a def): STU_F5EA75DB_12
+# names (replace): 6 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[7061] (set x1), var[29221] (stack_contribution x1), var[30101] (set x1),
+#                      shared_var[6766] (stack_contribution x2), shared_var[6850] (stack_contribution x1),
+#                      shared_var[6856] (stack_contribution x1), shared_var[6887] (stack_contribution x1),
+#                      shared_var[7265] (stack_contribution x1), shared_var[8197] (stack_contribution x1),
+#                      shared_var[8198] (stack_contribution x1)
+#   placeholders: 17 unrecovered (15 classes; 10 configvar, 7 node)
+#   var[30101]: 1 write at line 19; 4 reads at lines 63, 67, 83, 91
+#   shared_var[6766]: 2 writes at lines 54, 138
+#   var[7061]: 1 write at line 20; 1 read at line 111
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[13784], shared_var[7061]  writes: var[7061], var[30101]
+    set_var(var[30101], var[13784])
+    set_var(var[7061], shared_var[7061])
+    begin(BooleanSwitch_11)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_11:  # STUStatescriptStateBooleanSwitch, state 6; from SetVar_2.m_outPlug
+    # reads: var[29323]  writes: none
+    subgraph:
+        begin(Stack_10)
+        begin(Stack_9)
+    watch var[29323]:  # re-evaluated while the State runs
+        while true:
+            begin(Stack_5)
+            begin(STU_BD55DBE1_13)
+            begin(Stack_17)
+            begin(BooleanSwitch_3)
+
+state Stack_10:  # STUStatescriptStateStack, state 5; from BooleanSwitch_11.m_subgraphPlug
+    # reads: none  writes: var[29221]
+    stack_contribution(var[29221], value=True, priority=None)
+    subgraph:
+        begin(Stack_1)
+
+state Stack_9:  # STUStatescriptStateStack, state 4; from BooleanSwitch_11.m_subgraphPlug
+    # reads: none  writes: shared_var[6856]
+    stack_contribution(shared_var[6856], value=UXDisplayText(0x0DE0000000010CD0), priority=None)
+    subgraph:
+        begin(Stack_16)
+
+state Stack_5:  # STUStatescriptStateStack, state 3; from BooleanSwitch_11.m_trueSubgraphPlug
+    # reads: none  writes: shared_var[6766]
+    # + unimplemented nodes may touch others
+    stack_contribution(shared_var[6766], value=Identifier(0x0D80000000001A66), priority=None)
+    begin:
+        unimplemented STU_E0687628(m_AC2333F7=Effect(0x030000000000075F))
+    end:
+        unimplemented STU_E0687628(m_AC2333F7=Effect(0x0300000000000760))
+
+state STU_BD55DBE1_13:  # STU_BD55DBE1, state 7; from BooleanSwitch_11.m_trueSubgraphPlug
+    # reads: var[24035], var[30101]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_BD55DBE1(
+        m_4FF3A882=[STU_294F6168(m_id=asset(0x0D800000000068B0), m_51F3DB2A=var[24035])],
+        m_45216F79=STU_43A1F049(
+            m_39736FED=(
+                unimplemented STU_BCD1C634(m_type=asset(0x0C880000000000DD), m_id=asset(0x0D80000000007D8F)) if var[30101] == unimplemented STU_A753DC79(m_74A2248F=-862561353)
+                else unimplemented STU_BCD1C634(m_type=asset(0x0C880000000000DD), m_id=asset(0x0D80000000007B71))
+            ),
+            m_C21DB248=STU_08305297(0x09A0000000000766),
+        ),
+        m_EC32138E=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=unimplemented STU_07AF5658(), m_id=asset(0x0D8000000000638C)),
+                    STU_E870E3E8(m_value=unimplemented STU_BE984B95(), m_id=asset(0x0D80000000006356)),
+                ],
+                m_definition=asset(0x0A880000000004CB),
+            ),
+        ),
+    )  # names: class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+    begin:
+        unimplemented STU_F5EA75DB(m_659F9F6B=var[30101])
+        unimplemented STU_813F1719()
+    plug m_8D6AF7DD[0]:  # m_id=asset(0x0D80000000000501)
+        unimplemented STU_C43F9944(
+            m_params=[STU_814D595E(m_value=True, m_B5051BCE=asset(0x0A40000000000350))],
+            m_gameMessage=GameMessage(0x02400000000005CF),
+        )
+    plug m_8D6AF7DD[1]:  # m_id=asset(0x0D8000000000662E)
+        unimplemented STU_F5EA75DB(m_659F9F6B=var[30101])
+    plug m_8D6AF7DD[2]:  # m_id=asset(0x0D80000000007A36)
+        unimplemented STUStatescriptActionPlayScript(
+            m_params=[
+                STU_814D595E(
+                    m_value=unimplemented STU_4E258C37(m_CB60BB76=UXDisplayText(0x0DE00000000110FE)),
+                    m_B5051BCE=asset(0x0A4000000000072B),
+                ),
+                STU_814D595E(m_value=True, m_B5051BCE=asset(0x0A4000000000091E)),
+                STU_814D595E(m_value=unimplemented STU_F3D92E50(), m_B5051BCE=asset(0x0A4000000000091F)),
+            ],
+            m_69F4B52C=unimplemented STU_9DB46B98(
+                m_6525E98B=STUStatescriptGraphWithOverrides(m_graph=asset(0x0580000000002955)),
+            ),
+            m_script=STU_105E1BCC(0),
+            m_targets=unimplemented STU_B5A0CAF0(),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state Stack_17:  # STUStatescriptStateStack, state 9; from BooleanSwitch_11.m_trueSubgraphPlug
+    # reads: var[7061]  writes: shared_var[6850]
+    stack_contribution(shared_var[6850], value=var[7061], priority=STU_8A491388(0x0C4000000000003D))
+    subgraph:
+        begin(Stack_18)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 1; from BooleanSwitch_11.m_trueSubgraphPlug
+    # reads: shared_var[2490]  writes: none
+    watch shared_var[2490]:  # re-evaluated while the State runs
+        while true:
+            begin(Stack_4)
+
+state Stack_1:  # STUStatescriptStateStack, state 0; from Stack_10.m_subgraphPlug
+    # reads: none  writes: shared_var[7265]
+    stack_contribution(shared_var[7265], value=True, priority=STU_8A491388(0x0C40000000000003))
+
+state Stack_16:  # STUStatescriptStateStack, state 8; from Stack_9.m_subgraphPlug
+    # reads: none  writes: shared_var[8198]
+    stack_contribution(shared_var[8198], value=UXDisplayText(0x0DE0000000010D8F), priority=None)
+    subgraph:
+        begin(Stack_20)
+
+state Stack_18:  # STUStatescriptStateStack, state 10; from Stack_17.m_subgraphPlug
+    # reads: none  writes: shared_var[6887]
+    stack_contribution(shared_var[6887], value=True, priority=None)
+
+state Stack_4:  # STUStatescriptStateStack, state 2; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: none  writes: shared_var[6766]
+    stack_contribution(
+        shared_var[6766],
+        value=Identifier(0x0D80000000001CDF),
+        priority=STU_8A491388(0x0C40000000000003),
+    )
+
+state Stack_20:  # STUStatescriptStateStack, state 11; from Stack_16.m_subgraphPlug
+    # reads: none  writes: shared_var[8197]
+    stack_contribution(shared_var[8197], value=UXDisplayText(0x0DE00000000110FF), priority=None)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_BCD1C634 (configvar) x2
+#   STU_E0687628 (node) x2
+#   STU_07AF5658 (configvar) x1
+#   STU_4E258C37 (configvar) x1
+#   STU_9DB46B98 (configvar) x1
+#   STU_A753DC79 (configvar) x1
+#   STU_B317E7B5 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_BE984B95 (configvar) x1
+#   STU_F3D92E50 (configvar) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STU_813F1719 (node) x1
+#   STU_BD55DBE1 (node) x1
+#   STU_C43F9944 (node) x1
+#   STU_F5EA75DB (node) x1

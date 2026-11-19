@@ -1,0 +1,19 @@
+# build 1.74.0.0.104319: 4 nodes (0 States), 1 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000020ec
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[7566] (set x1)
+#   messages: sends GameMessage(0x024000000000100D) x1
+#   placeholders: 2 unrecovered (2 classes; 1 configvar, 1 node)
+#   var[7566]: 1 write at line 13; 1 read at line 14
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[7566], var[18739]  writes: var[7566]
+    # + unimplemented nodes may touch others
+    set_var(var[7566], [unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0])])
+    send_game_message(GameMessage(0x024000000000100D), targets=var[7566])
+    unimplemented STU_1E93FE1F()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_77B0987E (configvar) x1
+#   STU_1E93FE1F (node) x1

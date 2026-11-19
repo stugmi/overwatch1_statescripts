@@ -1,0 +1,117 @@
+# build 1.74.0.0.104319: 14 nodes (9 States), 1 entries, 14 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001488
+# names (replace): 5 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[954] (set x1), var[955] (set x1), var[1183] (set x1), var[11883] (set x1),
+#                      shared_var[11882] (stack_contribution x1)
+#   waits: Wait_4 after(var[955]); Wait_3 after(var[955])
+#   placeholders: 17 unrecovered (8 classes; 14 configvar, 3 node)
+#   var[954]: 3 writes at lines 30, 37, 80; 3 reads at lines 30, 37, 97
+#   var[955]: 1 write at line 81; 2 reads at lines 101, 106
+#   var[1183]: 1 write at line 69; 1 read at line 97
+#   var[11883]: 1 write at line 75; 1 read at line 97
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[9133] = 4
+    var[9781] = 50.0
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_91EF24A9_1)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_7:  # STUStatescriptStateChaseVar, state 4; from SetVar_2.m_outPlug, Wait_3.m_onFinishedPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: var[954]  writes: var[954]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=-1.0, start[?]=var[954], m_out_Var=var[954], rate=1.0)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    plug m_onFinishedPlug:
+        begin(Wait_4)
+
+state ChaseVar_5:  # STUStatescriptStateChaseVar, state 3; from Wait_4.m_onFinishedPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: var[954]  writes: var[954]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=1.0, start[?]=var[954], m_out_Var=var[954], rate=1.0)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    plug m_onFinishedPlug:
+        begin(Wait_3)
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_91EF24A9_1:  # STU_91EF24A9, state 0; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_91EF24A9(
+        m_329381D5=[STU_F0FD6BAC(m_232D081C=0.7, m_390BD4AD=1)],
+        m_AAAC951E=[
+            unimplemented STU_783B4CF0(
+                m_7E8B666C=STU_297E1A30(0),
+                m_entity=unimplemented STU_0AC15F78(m_entity=unimplemented STU_B5A0CAF0()),
+            ) > 0.0,
+            not unimplemented STU_A37A910D(m_152B6961=unimplemented STU_B5A0CAF0(), m_A60150E2=0),
+            not member(unimplemented STU_0AC15F78(m_entity=unimplemented STU_B5A0CAF0()), id(14018)),
+        ],
+        m_2A8EBAE3=Identifier(0x0D800000000036ED),
+        m_38568F15=0.0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    plug m_6F92F4BD:
+        # owns (not begun here): Stack_12, BooleanSwitch_9, STU_E88BA88B_8, ChaseVar_7, Wait_4, ChaseVar_5, Wait_3
+        begin(State_13)
+
+state State_13:  # STUStatescriptState, state 8 (plain State at run time); from STU_91EF24A9_1.m_6F92F4BD
+    # reads: none  writes: var[954], var[955], var[1183], var[11883]
+    # + unimplemented nodes may touch others
+    subgraph:
+        begin(Stack_12)
+        set_var(
+            var[1183],
+            unimplemented STU_66F3B89E(
+                m_entity=unimplemented STU_0AC15F78(m_entity=unimplemented STU_B5A0CAF0()),
+            ),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        set_var(
+            var[11883],
+            unimplemented STU_2200A66D(
+                m_entity=unimplemented STU_0AC15F78(m_entity=unimplemented STU_B5A0CAF0()),
+            ),
+        )  # names: class STU_2200A66D=EntityDirection [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        set_var(var[954], 0)
+        set_var(var[955], 0.25)
+        begin(BooleanSwitch_9)
+        begin(ChaseVar_7)
+
+state Stack_12:  # STUStatescriptStateStack, state 7; from State_13.m_subgraphPlug
+    # reads: none  writes: shared_var[11882]
+    stack_contribution(shared_var[11882], value=True, priority=None)
+
+state BooleanSwitch_9:  # STUStatescriptStateBooleanSwitch, state 6; from SetVar_2.m_outPlug
+    # reads: var[888]  writes: none
+    watch not var[888]:  # re-evaluated while the State runs
+        while true:
+            begin(STU_E88BA88B_8)
+
+state STU_E88BA88B_8:  # STU_E88BA88B, state 5 (plain State at run time); from BooleanSwitch_9.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_EDA78B80=normalize(var[11883] * 3.0 + var[954] * -var[1183]), m_14EDDDA7=unimplemented STU_B5A0CAF0(), m_D50954CF=True, m_2E6DB8EE=False, m_49EEBB65=6.0, m_FD4D6C19=8.0; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state Wait_4:  # STUStatescriptStateWait, state 2; from ChaseVar_7.m_onFinishedPlug
+    # reads: var[955]  writes: none
+    after(var[955]):
+        begin(ChaseVar_5)
+
+state Wait_3:  # STUStatescriptStateWait, state 1; from ChaseVar_5.m_onFinishedPlug
+    # reads: var[955]  writes: none
+    after(var[955]):
+        begin(ChaseVar_7)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x6
+#   STU_0AC15F78 (configvar) x4
+#   STUStatescriptStateChaseVar (node) x2
+#   STU_2200A66D (configvar) x1
+#   STU_66F3B89E (configvar) x1
+#   STU_783B4CF0 (configvar) x1
+#   STU_A37A910D (configvar) x1
+#   STU_91EF24A9 (node) x1

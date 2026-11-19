@@ -1,0 +1,151 @@
+# build 1.74.0.0.104319: 53 nodes (1 States), 6 entries, 52 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000014
+# inlined shared nodes (printed at each use site instead of a def): Condition_13, SetVar_31, SendGameMessage_34
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[20] (set x2), var[36] (set x2), var[43] (set x2), var[44] (set x3), var[45] (set
+#                      x3)
+#   waits: Wait_41 after(10)
+#   messages: receives GameMessage(0x0240000000000002) (entry rid 3); receives
+#             GameMessage(0x0240000000000003) (entry rid 15); receives GameMessage(0x024000000000000A) (entry
+#             rid 24); receives GameMessage(0x0240000000000008) (entry rid 35); receives
+#             GameMessage(0x0240000000000007) (entry rid 37); sends GameMessage(0x0240000000000004) x2; sends
+#             GameMessage(0x0240000000000005) x3
+#   placeholders: 34 unrecovered (8 classes; 18 node, 16 configvar)
+#   var[44]: 3 writes at lines 28, 92, 128; 8 reads at lines 57, 60, 91, 127, 129, 134 ...
+#   var[45]: 3 writes at lines 29, 95, 136; 7 reads at lines 64, 67, 94, 129, 133, 137 ...
+#   var[14]: 1 write at line 35; 8 reads at lines 39, 41, 45, 125, 126, 128 ...
+#   var[36]: 2 writes at lines 30, 58; 4 reads at lines 32, 58, 59, 62
+#   var[16]: 1 write at line 51; 4 reads at lines 56, 57, 64, 71
+#   var[43]: 2 writes at lines 31, 65; 3 reads at lines 65, 66, 69
+#   var[47]: 1 write at line 82; 4 reads at lines 88, 89, 91, 94
+#   shared_var[22]: 4 reads at lines 86, 129, 137, 140
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[36]  writes: var[36], var[43], var[44], var[45]
+    # + unimplemented nodes may touch others
+    set_var(var[44], STU_BD6CC023(4294967295))
+    set_var(var[45], STU_BD6CC023(4294967295))
+    set_var(var[36], 0)
+    set_var(var[43], 0)
+    unimplemented STU_9F3FE778(m_value=var[36])
+    unimplemented STU_9F3FE778()
+
+on_game_message(GameMessage(0x0240000000000002), rid=3)(var[14] <- param 0x0A40000000000002):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[14]  writes: var[14]
+    # + unimplemented nodes may touch others
+    if unimplemented STU_65ABFCCC(m_target=var[14]) == STU_BD6CC023(4294967295):
+        if unimplemented STU_A90795E2(m_6CE7A900=STU_BD6CC023(0)) <= unimplemented STU_A90795E2(m_6CE7A900=STU_BD6CC023(1)):
+            unimplemented STU_0F647E55(m_targets=var[14], m_67465E75=STU_BD6CC023(0))
+            unimplemented STU_9F3FE778()
+            STU_9F3FE778_4()
+        else:
+            unimplemented STU_0F647E55(m_targets=var[14], m_67465E75=STU_BD6CC023(1))
+            unimplemented STU_9F3FE778()
+            STU_9F3FE778_4()
+    else:
+        STU_9F3FE778_4()
+
+on_game_message(GameMessage(0x0240000000000003), rid=15)(var[16] <- param 0x0A40000000000004, var[18] <- param 0x0A40000000000003):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[16], var[18], var[36], var[43], var[44], var[45], shared_var[21]  writes: var[16], var[18], var[20], var[36], var[43]
+    # + unimplemented nodes may touch others
+    if shared_var[21]:
+        unimplemented STU_9F3FE778(m_value=unimplemented STU_65ABFCCC(m_target=var[16]))
+        if unimplemented STU_65ABFCCC(m_target=var[16]) == var[44]:
+            set_var(var[36], var[36] + 1.0)
+            if var[36] >= 25.0:
+                set_var(var[20], var[44])
+                send_game_message(GameMessage(0x0240000000000004), targets=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+            unimplemented STU_9F3FE778(m_value=var[36])
+        else:
+            if unimplemented STU_65ABFCCC(m_target=var[16]) == var[45]:
+                set_var(var[43], var[43] + 1.0)
+                if var[43] >= 25.0:
+                    set_var(var[20], var[45])
+                    send_game_message(GameMessage(0x0240000000000004), targets=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+                unimplemented STU_9F3FE778(m_value=var[43])
+            else:
+                unimplemented STU_9F3FE778(m_value=unimplemented STU_65ABFCCC(m_target=var[16]))
+    unimplemented STUStatescriptActionPlayScript(
+        m_params=[STU_814D595E(m_value=var[18], m_B5051BCE=asset(0x0A40000000000003))],
+        m_69F4B52C=unimplemented STU_9DB46B98(),
+        m_script=STU_105E1BCC(0x0580000000000012),
+        m_targets=unimplemented STU_B5A0CAF0(),
+        m_AA4DE426=1,
+        m_7ABA409C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_9F3FE778()
+
+on_game_message(GameMessage(0x024000000000000A), rid=24)(var[46] <- param 0x0A40000000000006, var[47] <- param 0x0A40000000000007):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[44], var[45], var[47], shared_var[22]  writes: var[44], var[45], var[46], var[47]
+    # + unimplemented nodes may touch others
+    if shared_var[22]:
+        if (
+               unimplemented STU_A90795E2(m_6CE7A900=var[47]) <= 0.0
+               and var[47] != STU_BD6CC023(4294967295)
+           ):
+            if var[47] == var[44]:
+                set_var(var[44], STU_BD6CC023(4294967295))
+            else:
+                if var[47] == var[45]:
+                    set_var(var[45], STU_BD6CC023(4294967295))
+
+on_game_message(GameMessage(0x0240000000000008), rid=35):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[20]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_9F3FE778(m_value=var[20])
+    begin(Wait_41)
+
+on_game_message(GameMessage(0x0240000000000007), rid=37):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_9F3FE778()
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_game_message rid=35 ----
+
+state Wait_41:  # STUStatescriptStateWait, state 0; from STU_9F3FE778_36.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    begin:
+        unimplemented STU_9F3FE778()
+    after(10):
+        pass
+    end:
+        unimplemented STU_147B34C6()
+
+def STU_9F3FE778_4():  # STU_9F3FE778; shared or nested too deep to inline; from STU_9F3FE778_48.m_outPlug, STU_9F3FE778_49.m_outPlug, Condition_50.m_falsePlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[14], var[44], var[45], shared_var[22]  writes: var[44], var[45]
+    # + unimplemented nodes may touch others
+    unimplemented STU_9F3FE778(m_value=var[14])
+    unimplemented STU_9F3FE778(m_value=unimplemented STU_65ABFCCC(m_target=var[14]))
+    if var[44] == STU_BD6CC023(4294967295):
+        set_var(var[44], unimplemented STU_65ABFCCC(m_target=var[14]))
+        if var[44] != -1.0 and var[45] != -1.0 and shared_var[22]:
+            send_game_message(GameMessage(0x0240000000000005), targets=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    else:
+        if (
+               var[45] == STU_BD6CC023(4294967295)
+               and unimplemented STU_65ABFCCC(m_target=var[14]) != var[44]
+           ):
+            set_var(var[45], unimplemented STU_65ABFCCC(m_target=var[14]))
+            if var[44] != -1.0 and var[45] != -1.0 and shared_var[22]:
+                send_game_message(GameMessage(0x0240000000000005), targets=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        else:
+            if var[44] != -1.0 and var[45] != -1.0 and shared_var[22]:
+                send_game_message(GameMessage(0x0240000000000005), targets=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_9F3FE778 (node) x14
+#   STU_65ABFCCC (configvar) x9
+#   STU_A90795E2 (configvar) x3
+#   STU_B5A0CAF0 (configvar) x3
+#   STU_0F647E55 (node) x2
+#   STU_9DB46B98 (configvar) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STU_147B34C6 (node) x1

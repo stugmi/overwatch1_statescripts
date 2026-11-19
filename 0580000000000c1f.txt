@@ -1,0 +1,93 @@
+# build 1.74.0.0.104319: 10 nodes (7 States), 1 entries, 9 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c1f
+# names (replace): 5 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   placeholders: 10 unrecovered (8 classes; 7 node, 3 configvar)
+#   var[7927]: 5 reads at lines 32, 46, 63, 82
+#   var[8441]: 3 reads at lines 33, 55
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    begin(STU_5FD84627_4)
+    unimplemented STU_C43F9944(
+        m_params=[STU_814D595E(m_value=1, m_B5051BCE=asset(0x0A4000000000012E))],
+        m_gameMessage=GameMessage(0x024000000000063A),
+    )
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_5FD84627_4:  # STU_5FD84627, state 2; from Entry_0.m_outPlug
+    # reads: var[7927], var[8441]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_5FD84627(
+        m_3DBF6FD2=STU_5F31962C(m_condition=owner_scope(not member(unimplemented STU_DAAE1875(), id(29350)), scope=0)),
+        m_45216F79=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A0000000000500)),
+        m_EC32138E=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=var[7927], m_id=asset(0x0D8000000000601E)),
+                    STU_E870E3E8(m_value=var[8441], m_id=asset(0x0D8000000000601D)),
+                ],
+                m_definition=asset(0x0A8800000000021A),
+            ),
+        ),
+    )  # names: class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+    subgraph:
+        begin(BooleanSwitch_3)
+        begin(BooleanSwitch_7)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 1; from STU_5FD84627_4.m_subgraphPlug
+    # reads: var[7927]  writes: none
+    # + unimplemented nodes may touch others
+    watch var[7927] > 0.0 and var[7927] <= 1.0:  # re-evaluated while the State runs
+        while true:
+            begin(STU_BF916E6E_2)
+            begin(STU_880F03B4_9)
+        on change to false:
+            unimplemented STU_E0687628(m_AC2333F7=Effect(0x03000000000019BC))
+
+state BooleanSwitch_7:  # STUStatescriptStateBooleanSwitch, state 5; from STU_5FD84627_4.m_subgraphPlug
+    # reads: var[8441]  writes: none
+    watch var[8441] > 0.0 and var[8441] <= 1.0:  # re-evaluated while the State runs
+        while true:
+            begin(STU_880F03B4_6)
+
+state STU_BF916E6E_2:  # STU_BF916E6E, state 0; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: var[7927]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_BF916E6E(
+        m_values=[STUGlobalDataFlowValue(m_5A6D4FBD=DataFlow(0x04800000000005BC), m_answer=var[7927])],
+    )
+
+state STU_880F03B4_9:  # STU_880F03B4, state 6; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_880F03B4(m_AC2333F7=Effect(0x03000000000019BB))
+
+state STU_880F03B4_6:  # STU_880F03B4, state 4; from BooleanSwitch_7.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_880F03B4(m_AC2333F7=Effect(0x0300000000001AFA))
+    subgraph:
+        begin(STU_BF916E6E_5)
+
+state STU_BF916E6E_5:  # STU_BF916E6E, state 3; from STU_880F03B4_6.m_subgraphPlug
+    # reads: var[7927]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_BF916E6E(
+        m_values=[STUGlobalDataFlowValue(m_5A6D4FBD=DataFlow(0x04800000000005BC), m_answer=var[7927])],
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_880F03B4 (node) x2
+#   STU_BF916E6E (node) x2
+#   STU_B317E7B5 (configvar) x1
+#   STU_BCD1C634 (configvar) x1
+#   STU_DAAE1875 (configvar) x1
+#   STU_5FD84627 (node) x1
+#   STU_C43F9944 (node) x1
+#   STU_E0687628 (node) x1

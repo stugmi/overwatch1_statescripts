@@ -1,0 +1,29 @@
+# build 1.74.0.0.104319: 3 nodes (1 States), 2 entries, 2 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000002d9
+# names (replace): 3 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x02400000000000CA) (entry rid 1); receives
+#             GameMessage(0x024000000000016D) (entry rid 2)
+#   placeholders: 2 unrecovered (2 classes; 1 configvar, 1 node)
+
+on_game_message(GameMessage(0x02400000000000CA), rid=1):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    abort(STU_691BFA55_0)
+
+on_game_message(GameMessage(0x024000000000016D), rid=2):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    begin(STU_691BFA55_0)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_game_message rid=1 ----
+
+state STU_691BFA55_0:  # STU_691BFA55, state 0; from GameMessage_1.m_outPlug, GameMessage_2.m_outPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(m_effect=Effect(0x0300000000000682), entity[?]=unimplemented STU_B5A0CAF0())  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_691BFA55 (node) x1

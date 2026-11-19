@@ -1,0 +1,602 @@
+# build 1.74.0.0.104319: 96 nodes (6 States), 16 entries, 100 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000001d8 (shared by 32 heroes)
+# inlined shared nodes (printed at each use site instead of a def): SetVar_3, SetVar_53, SetVar_86
+# names (replace): 4 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[176] (set x7), var[417] (set x2), var[479] (set x1), var[681] (set x1), var[1002]
+#                      (set x1), var[2499] (set x13), var[5786] (set x1), var[7462] (set x9), var[7583] (set
+#                      x1), var[9339] (set x1), var[10654] (set x1), var[18376] (set x1)
+#   waits: Wait_58 after(0.25)
+#   messages: receives GameMessage(0x0240000000000093) (entry rid 0); receives
+#             GameMessage(0x0240000000000190) (entry rid 2); receives GameMessage(0x0240000000000192) (entry
+#             rid 5); receives GameMessage(0x0240000000000143) (entry rid 6); receives
+#             GameMessage(0x024000000000003E) (entry rid 9, 30, 43, 51); receives
+#             GameMessage(0x0240000000000044) (entry rid 12); receives GameMessage(0x02400000000005CD) (entry
+#             rid 17); receives GameMessage(0x0240000000000622) (entry rid 50); receives
+#             GameMessage(0x0240000000000174) (entry rid 52); receives GameMessage(0x0240000000000634) (entry
+#             rid 54); receives GameMessage(0x024000000000064A) (entry rid 59)
+#   placeholders: 78 unrecovered (16 classes; 59 configvar, 18 node, 1 condition)
+#   var[392]: 7 writes at lines 32, 137, 164, 180, 191, 206 ...; 27 reads at lines 149, 330, 333, 337, 341, 345 ...
+#   var[2499]: 13 writes at lines 50, 68, 76, 82, 100, 103 ...; 6 reads at lines 68, 308, 383, 391, 399, 407
+#   var[7462]: 10 writes at lines 46, 75, 81, 94, 108, 120 ...; 6 reads at lines 232, 241, 385, 393, 401, 409
+#   var[176]: 7 writes at lines 147, 375, 439, 480, 514, 524 ...; 7 reads at lines 375, 439, 480, 514, 524, 551 ...
+#   var[7407]: 4 writes at lines 136, 163, 179, 219; 10 reads at lines 230, 239, 368, 433, 474, 508 ...
+#   var[681]: 4 writes at lines 139, 149, 166, 182; 4 reads at lines 149, 155, 498, 501
+#   var[199]: 4 writes at lines 30, 86, 189, 204; 3 reads at lines 51, 100, 103
+#   var[510]: 4 writes at lines 33, 141, 192, 207; 3 reads at lines 66, 67, 150
+
+on_game_message(GameMessage(0x0240000000000093), rid=0)(
+    var[199] <- param 0x0A4000000000006B,
+    var[393] <- param 0x0A40000000000015,
+    var[392] <- param 0x0A40000000000012,
+    var[510] <- param 0x0A4000000000003D,
+    var[1798] <- param 0x0A40000000000091,
+    var[2792] <- param 0x0A40000000000142,
+    var[7341] <- param 0x0A400000000000C9,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[199], var[393], var[510], var[1798], var[2499], var[2792], shared_var[842]  writes: var[199], var[392], var[393], var[510], var[1798], var[2499], var[2792], var[7341], var[7462]
+    # + unimplemented nodes may touch others
+    if unimplemented STU_AC829876(
+           m_entity=var[393],
+           m_filter=unimplemented STUConfigVarFilter(m_4EA686DB=32768, m_84065FD1=1073741823, m_8B2A4DF3=STU_357DABBB(0x0D6000000000047F)),
+       ):  # server-only; names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        set_var(
+            var[7462],
+            UXDisplayText(0x0DE00000000038D6) if var[1798] else UXDisplayText(0x0DE00000000038D7),
+        )  # server-only
+        set_var(
+            var[2499],
+            (100.0 * var[199] + (50.0 if var[1798] else 0.0)) * (1.5 if var[2792] else 1.0),
+        )  # server-only
+        if (
+               unimplemented STU_AC829876(
+                   m_entity=unimplemented STU_B5A0CAF0(),
+                   m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D60000000000109)),
+               )
+               or unimplemented STU_AC829876(
+                   m_entity=unimplemented STU_B5A0CAF0(),
+                   m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D600000000000F8)),
+               )
+               or unimplemented STU_AC829876(
+                   m_entity=unimplemented STU_B5A0CAF0(),
+                   m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D600000000000F6)),
+               )
+               or contains(var[510], key=None, value=Identifier(0x0D8000000000448A))
+           ) if shared_var[842] else contains(var[510], key=None, value=Identifier(0x0D8000000000448A)):  # server-only; names: class STU_AC829876=EntityFilterTest [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+            set_var(var[2499], var[2499] * 0.75)  # server-only
+            Condition_67()
+        else:
+            Condition_67()
+
+on_game_message(GameMessage(0x0240000000000190), rid=2):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # reads: none  writes: var[2499], var[7462]
+    set_var(var[7462], UXDisplayText(0x0DE00000000038D5))  # server-only
+    set_var(var[2499], 25)  # server-only
+    STU_6E5C5F66_61()
+
+on_game_message(GameMessage(0x0240000000000192), rid=5):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # reads: none  writes: var[2499], var[7462]
+    set_var(var[7462], UXDisplayText(0x0DE00000000038D4))  # server-only
+    set_var(var[2499], 25)  # server-only
+    STU_6E5C5F66_61()
+
+on_game_message(GameMessage(0x0240000000000143), rid=6)(
+    var[199] <- param 0x0A400000000000C9,
+    var[393] <- param 0x0A40000000000015,
+    var[24636] <- param 0x0A400000000000CB,
+    var[2301] <- param 0x0A400000000000CA,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[199], var[393], var[24636]  writes: var[199], var[393], var[2301], var[2499], var[7462], var[24636]
+    # + unimplemented nodes may touch others
+    set_var(var[7462], UXDisplayText(0x0DE00000000038D8))  # server-only
+    if unimplemented STU_AC829876(
+           m_entity=var[393],
+           m_filter=unimplemented STUConfigVarFilter(m_4EA686DB=32768, m_84065FD1=1073741823, m_89831602=1),
+       ):  # server-only; names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        if contains([var[24636]], key=None, value=1) or contains([var[24636]], key=None, value=3):  # server-only
+            set_var(var[2499], 100.0 * var[199] / 2.0)  # server-only
+            STU_6E5C5F66_61()
+        else:
+            set_var(var[2499], 100.0 * var[199] / 4.0)  # server-only
+            STU_6E5C5F66_61()
+
+on_game_message(GameMessage(0x024000000000003E), rid=9):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # reads: none  writes: var[2499], var[7462]
+    set_var(var[7462], UXDisplayText(0x0DE00000000038D9))  # server-only
+    set_var(var[2499], -50.0)  # server-only
+    STU_6E5C5F66_61()
+
+on_game_message(GameMessage(0x0240000000000044), rid=12)(
+    var[1950] <- param 0x0A4000000000003F,
+    var[499] <- param 0x0A40000000000040,
+    var[659] <- param 0x0A40000000000041,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[499], var[1950]  writes: var[499], var[659], var[1950], var[2499], var[7462]
+    # + unimplemented nodes may touch others
+    set_var(var[7462], UXDisplayText(0x0DE00000000038DA))  # server-only
+    if var[1950] != unimplemented STU_B5A0CAF0():  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        if unimplemented STU_AC829876(
+               m_entity=var[1950],
+               m_filter=unimplemented STUConfigVarFilter(m_66747E7D=1, m_84065FD1=1),
+           ):  # server-only; names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+            set_var(var[2499], var[499] * 0.1)  # server-only
+            STU_6E5C5F66_61()
+
+on_game_message(GameMessage(0x02400000000005CD), rid=17):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # reads: shared_var[6847]  writes: var[2499], var[7462]
+    set_var(var[7462], UXDisplayText(0x0DE00000000038DB))  # server-only
+    set_var(var[2499], shared_var[6847])  # server-only
+    STU_6E5C5F66_61()
+
+on_game_message(GameMessage(0x024000000000003E), rid=30)(
+    var[7407] <- param 0x0A4000000000035F,
+    var[392] <- param 0x0A40000000000012,
+    var[1821] <- param 0x0A40000000000095,
+    var[681] <- param 0x0A40000000000364,
+    var[4608] <- param 0x0A40000000000234,
+    var[510] <- param 0x0A4000000000003D,
+    var[6471] <- param 0x0A4000000000064D,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[392], var[510], var[681], var[4608]  writes: var[176], var[392], var[510], var[681], var[1002], var[1821], var[2499], var[4608], var[6471], var[7407]
+    # + unimplemented nodes may touch others
+    set_var(var[176], 1.2)  # server-only
+    set_var(var[2499], 0)  # server-only
+    set_var(var[681], var[681] - unimplemented STU_309B0570(m_entity=var[392]))  # server-only
+    if unimplemented STU_821116A6(m_value=Identifier(0x0D80000000001E1E), m_814F8EC3=var[510]):  # server-only
+        if (
+               not var[4608]
+               and member(unimplemented STU_9622CAD6(), id(405)) != Identifier(0x0D8000000000018D)
+           ):  # server-only
+            set_var(var[1002], magnitude(var[681]))  # server-only
+            Condition_31()
+
+on_entry(context=unset, rid=41):  # STUStatescriptEntry, init=context_match (context omitted), server-only
+    # reads: none  writes: none
+    begin(BooleanSwitch_40)
+
+on_game_message(GameMessage(0x024000000000003E), rid=43)(
+    var[7407] <- param 0x0A4000000000035F,
+    var[392] <- param 0x0A40000000000012,
+    var[1821] <- param 0x0A40000000000095,
+    var[681] <- param 0x0A40000000000364,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: shared_var[7538]  writes: var[392], var[681], var[1821], var[7407]
+    if shared_var[7538]:  # server-only
+        begin(Wait_58)
+
+on_game_message(GameMessage(0x0240000000000622), rid=50, m_B60ABDA4=var[40])(var[215] <- param 0x0A4000000000002B):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[40]  writes: var[215]
+    pass
+
+on_game_message(GameMessage(0x024000000000003E), rid=51)(
+    var[7407] <- param 0x0A4000000000035F,
+    var[392] <- param 0x0A40000000000012,
+    var[1821] <- param 0x0A40000000000095,
+    var[681] <- param 0x0A40000000000364,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[392], var[681], var[1821], var[7407]
+    pass
+
+on_game_message(GameMessage(0x0240000000000174), rid=52)(
+    var[199] <- param 0x0A4000000000006B,
+    var[393] <- param 0x0A40000000000015,
+    var[392] <- param 0x0A40000000000012,
+    var[510] <- param 0x0A4000000000003D,
+    var[1798] <- param 0x0A40000000000091,
+    var[2792] <- param 0x0A40000000000142,
+    var[7341] <- param 0x0A400000000000C9,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[199], var[392], var[393], var[510], var[1798], var[2499], var[2792], var[7341], var[7462]
+    set_var(var[2499], 1.0)  # server-only
+    set_var(var[7462], UXDisplayText(0x0DE00000000043AC))  # server-only
+    STU_6E5C5F66_61()
+
+on_game_message(GameMessage(0x0240000000000634), rid=54)(
+    var[199] <- param 0x0A4000000000006B,
+    var[393] <- param 0x0A40000000000015,
+    var[392] <- param 0x0A40000000000012,
+    var[510] <- param 0x0A4000000000003D,
+    var[1798] <- param 0x0A40000000000091,
+    var[2792] <- param 0x0A40000000000142,
+    var[7341] <- param 0x0A400000000000C9,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[199], var[392], var[393], var[510], var[1798], var[2499], var[2792], var[7341], var[7462]
+    set_var(var[2499], 1.0)  # server-only
+    set_var(var[7462], UXDisplayText(0x0DE00000000043AC))  # server-only
+    STU_6E5C5F66_61()
+
+on_game_message(GameMessage(0x024000000000064A), rid=59)(
+    var[7407] <- param 0x0A4000000000035F,
+    var[392] <- param 0x0A40000000000415,
+    var[499] <- param 0x0A4000000000002A,
+    var[7462] <- param 0x0A4000000000036A,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[7407], var[7462]  writes: var[392], var[499], var[7407], var[7462]
+    # + unimplemented nodes may touch others
+    unimplemented STU_0FC6DAEA(
+        m_POTGData=PlayOfTheGameData(
+            m_value=100,
+            m_id=var[7407],
+            m_371085C1=asset(0x0830000000000003),
+            m_description=var[7462],
+            m_targets=unimplemented STU_B5A0CAF0(),
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_0FC6DAEA(
+        m_POTGData=PlayOfTheGameData(
+            m_value=100,
+            m_id=var[7407],
+            m_371085C1=asset(0x0830000000000002),
+            m_description=var[7462],
+            m_targets=unimplemented STU_B5A0CAF0(),
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+on_entry(context=unset, rid=63):  # STUStatescriptEntry, init=context_match (context omitted), server-only
+    # reads: none  writes: none
+    begin(GameMessageEntry_64)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_game_message rid=0 ----
+
+state STU_7B9E8909_65:  # STU_7B9E8909, state 4 (server-only); from Condition_62.m_falsePlug, GameMessageEntry_69.m_33DA5163
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_7B9E8909()
+    plug m_outPlug:
+        STU_0FC6DAEA_27()
+
+# ---- begun from on_entry rid=41 ----
+
+state BooleanSwitch_40:  # STUStatescriptStateBooleanSwitch, state 1 (server-only); from Entry_41.m_outPlug
+    # reads: shared_var[7538]  writes: none
+    watch shared_var[7538]:  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_39)
+
+state BooleanSwitch_39:  # STUStatescriptStateBooleanSwitch, state 0 (server-only); from BooleanSwitch_40.m_trueSubgraphPlug
+    # reads: shared_var[888]  writes: none
+    watch shared_var[888]:  # re-evaluated while the State runs
+        on change to true:
+            begin(Wait_58)
+
+state Wait_58:  # STUStatescriptStateWait, state 2 (server-only); from BooleanSwitch_39.m_onTruePlug, Condition_42.m_truePlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    begin:
+        if not member(unimplemented STU_A3DEF368(), id(12421)):  # server-only
+            pass
+    after(0.25):
+        pass
+
+# ---- begun from on_entry rid=63 ----
+
+state GameMessageEntry_64:  # STUStatescriptStateGameMessageEntry, state 3 (server-only); from Entry_63.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000694))
+    provider_present:
+        begin(GameMessageEntry_69)
+
+state GameMessageEntry_69:  # STUStatescriptStateGameMessageEntry, state 5 (server-only); from GameMessageEntry_64.m_452862E6
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000713))
+    provider_absent:
+        begin(STU_7B9E8909_65)
+
+def Condition_67():  # STU_3387AB5D; shared or nested too deep to inline; from Condition_14.m_falsePlug, SetVar_15.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[2499]  writes: var[2499]
+    # + unimplemented nodes may touch others
+    if (
+           member(unimplemented STU_A3DEF368(), id(10274))
+           and unimplemented STU_25ECB55F(
+               m_88B0050A=asset(0x0D600000000000FC),
+               m_entity=unimplemented STU_B5A0CAF0(),
+           )
+       ):  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        set_var(var[2499], var[2499] * 0.75)  # server-only
+        STU_6E5C5F66_61()
+    else:
+        STU_6E5C5F66_61()
+
+def STU_6E5C5F66_61():  # STU_6E5C5F66; shared or nested too deep to inline; from SetVar_3.m_outPlug, SetVar_7.m_outPlug, SetVar_10.m_outPlug, SetVar_11.m_outPlug +5 more; not a function: no arguments or return value, reads/writes instance variables
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_6E5C5F66()  # server-only
+    if unimplemented STU_4A101787():  # server-only
+        if (
+               member(unimplemented STU_9622CAD6(), id(405)) != Identifier(0x0D8000000000018D)
+               and not member(unimplemented STU_9622CAD6(), id(8078))
+           ):  # server-only
+            STU_0FC6DAEA_27()
+    else:
+        pulse(STU_7B9E8909_65.m_inPlug)
+
+def Condition_31():  # STU_3387AB5D; shared or nested too deep to inline; from SetVar_38.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[176], var[392], var[2413], var[7407]  writes: var[176], var[417], var[2413]
+    # + unimplemented nodes may touch others
+    if not (
+               member(var[392], id(842))
+               and (
+                   unimplemented STU_AC829876(
+                       m_entity=var[392],
+                       m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D60000000000109)),
+                   )
+                   or unimplemented STU_AC829876(
+                       m_entity=var[392],
+                       m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D600000000000F8)),
+                   )
+                   or unimplemented STU_AC829876(
+                       m_entity=var[392],
+                       m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D600000000000F6)),
+                   )
+                   or unimplemented STU_AC829876(
+                       m_entity=var[392],
+                       m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D60000000000101)),
+                   )
+                   or unimplemented STU_AC829876(
+                       m_entity=var[392],
+                       m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D6000000000011E)),
+                   )
+               )
+           ):  # server-only; names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        unimplemented STU_08D6BA6E(
+            m_startPosWS=unimplemented STU_B5A0CAF0() + vec3(0.0, 0.25, 0.0),
+            m_dirWS=vec3(0.0, -1.0, 0.0),
+            m_castLength=4,
+            m_castFilter=unimplemented STUConfigVarFilter(m_C1903771=STU_20DB8AB5(0x069000000000002C)),
+            m_out_HitSomething=var[2413],
+        )  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        if var[2413]:  # server-only
+            set_var(var[417], False)  # server-only
+            STU_08D6BA6E_34()
+        else:
+            unimplemented STU_0FC6DAEA(
+                m_POTGData=PlayOfTheGameData(
+                    m_value=25.0,
+                    m_id=var[7407],
+                    m_371085C1=asset(0x0830000000000002),
+                    m_description=UXDisplayText(0x0DE0000000004161),
+                    m_targets=var[392],
+                ),
+            )  # server-only
+            set_var(var[417], True)  # server-only
+            set_var(var[176], var[176] + 0.3)  # server-only
+            STU_08D6BA6E_34()
+
+def STU_0FC6DAEA_27():  # STU_0FC6DAEA; shared or nested too deep to inline; from Condition_26.m_truePlug, STU_7B9E8909_65.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[2499], var[7462]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_0FC6DAEA(
+        m_POTGData=PlayOfTheGameData(
+            m_value=var[2499],
+            m_371085C1=asset(0x0830000000000003),
+            m_description=var[7462],
+            m_targets=unimplemented STU_B5A0CAF0(),
+        ),
+    )  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_0FC6DAEA(
+        m_POTGData=PlayOfTheGameData(
+            m_value=var[2499] * 0.5,
+            m_371085C1=asset(0x0830000000000001),
+            m_description=var[7462],
+            m_targets=unimplemented STU_B5A0CAF0(),
+        ),
+    )  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_0FC6DAEA(
+        m_POTGData=PlayOfTheGameData(
+            m_value=var[2499] * 0.0,
+            m_371085C1=asset(0x0830000000000002),
+            m_description=var[7462],
+            m_targets=unimplemented STU_B5A0CAF0(),
+        ),
+    )  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_0FC6DAEA(
+        m_POTGData=PlayOfTheGameData(
+            m_value=var[2499] * 0.5,
+            m_371085C1=asset(0x0830000000000004),
+            m_description=var[7462],
+            m_targets=unimplemented STU_B5A0CAF0(),
+        ),
+    )  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+def STU_08D6BA6E_34():  # STU_08D6BA6E; shared or nested too deep to inline; from SetVar_75.m_outPlug, SetVar_77.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[176], var[392], var[2413], var[7407]  writes: var[176], var[2413]
+    # + unimplemented nodes may touch others
+    unimplemented STU_08D6BA6E(
+        m_startPosWS=var[392] + vec3(0.0, 0.25, 0.0),
+        m_dirWS=vec3(0.0, -1.0, 0.0),
+        m_castLength=4,
+        m_castFilter=unimplemented STUConfigVarFilter(m_C1903771=STU_20DB8AB5(0x069000000000002C)),
+        m_out_HitSomething=var[2413],
+    )  # server-only; names: class STUConfigVarFilter=OwnEntityFilter [candidate]
+    if var[2413]:  # server-only
+        SetVar_81()
+    else:
+        unimplemented STU_0FC6DAEA(
+            m_POTGData=PlayOfTheGameData(
+                m_value=12.5 if unimplemented STU_AC829876(
+                    m_entity=var[392],
+                    m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D600000000000F8)),
+                ) else 25.0,
+                m_id=var[7407],
+                m_371085C1=asset(0x0830000000000002),
+                m_description=UXDisplayText(0x0DE000000000415F),
+                m_targets=var[392],
+            ),
+        )  # server-only; names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        set_var(var[176], var[176] + 0.3)  # server-only
+        SetVar_81()
+
+def SetVar_81():  # STUStatescriptActionSetVar; shared or nested too deep to inline; from Condition_32.m_truePlug, SetVar_78.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[176], var[392], var[7407], var[7583]  writes: var[176], var[7583]
+    # + unimplemented nodes may touch others
+    set_var(
+        var[7583],
+        (min(
+            40.0,
+            distance(
+                unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()),
+                unimplemented STU_71A87E92(m_entity=var[392]),
+            ) / 40.0 * 40.0,
+        ) if distance(
+            unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()),
+            unimplemented STU_71A87E92(m_entity=var[392]),
+        ) > 20.0 else 0.0) * 0.5 if unimplemented STU_AC829876(
+            m_entity=var[392],
+            m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D600000000000F7)),
+        ) else (min(
+            40.0,
+            distance(
+                unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()),
+                unimplemented STU_71A87E92(m_entity=var[392]),
+            ) / 40.0 * 40.0,
+        ) if distance(
+            unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()),
+            unimplemented STU_71A87E92(m_entity=var[392]),
+        ) > 20.0 else 0.0),
+    )  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    if var[7583] > 0.0:  # server-only
+        unimplemented STU_0FC6DAEA(
+            m_POTGData=PlayOfTheGameData(
+                m_value=var[7583],
+                m_id=var[7407],
+                m_371085C1=asset(0x0830000000000002),
+                m_description=UXDisplayText(0x0DE000000000415D),
+                m_targets=var[392],
+            ),
+        )  # server-only
+        set_var(var[176], var[176] + 0.3)  # server-only
+        SetVar_71()
+    else:
+        SetVar_71()
+
+def SetVar_71():  # STUStatescriptActionSetVar; shared or nested too deep to inline; from Condition_82.m_falsePlug, SetVar_83.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[176], var[392], var[681], var[5786], var[7407], var[9339], var[10654]  writes: var[176], var[479], var[5786], var[9339], var[10654]
+    # + unimplemented nodes may touch others
+    set_var(
+        var[479],
+        max(
+            distance(
+                unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()),
+                unimplemented STU_71A87E92(m_entity=var[392]),
+            ),
+            1.0,
+        ),
+    )  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    set_var(var[5786], dot(var[681], unimplemented STU_021D01CD(m_entity=var[392])))  # server-only
+    set_var(
+        var[10654],
+        magnitude(var[681] - var[5786] * unimplemented STU_021D01CD(m_entity=var[392])),
+    )  # server-only
+    set_var(var[9339], min(40.0, var[10654] / 20.0 * 40.0) if var[10654] > 7.0 else 0.0)  # server-only
+    if var[9339] > 0.0:  # server-only
+        unimplemented STU_0FC6DAEA(
+            m_POTGData=PlayOfTheGameData(
+                m_value=var[9339],
+                m_id=var[7407],
+                m_371085C1=asset(0x0830000000000002),
+                m_description=UXDisplayText(0x0DE000000000415B),
+                m_targets=var[392],
+            ),
+        )  # server-only
+        set_var(var[176], var[176] + 0.3)  # server-only
+        SetVar_87()
+    else:
+        SetVar_87()
+
+def SetVar_87():  # STUStatescriptActionSetVar; shared or nested too deep to inline; from Condition_85.m_falsePlug, SetVar_86.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[176], var[392], var[6471], var[7407], var[18376]  writes: var[176], var[18376]
+    # + unimplemented nodes may touch others
+    set_var(var[18376], min(40.0, 40.0 * (var[6471] * 2.0)) if var[6471] > 0.2 else 0.0)  # server-only
+    if var[18376] > 0.0:  # server-only
+        set_var(var[176], var[176] + 0.3)  # server-only
+        unimplemented STU_0FC6DAEA(
+            m_POTGData=PlayOfTheGameData(
+                m_value=var[18376],
+                m_id=var[7407],
+                m_371085C1=asset(0x0830000000000002),
+                m_description=UXDisplayText(0x0DE0000000009341),
+                m_targets=var[392],
+            ),
+        )  # server-only
+        Condition_36()
+    else:
+        Condition_36()
+
+def Condition_36():  # STU_3387AB5D; shared or nested too deep to inline; from STU_0FC6DAEA_73.m_outPlug, Condition_88.m_falsePlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[176], var[392], var[1821], var[7407]  writes: var[176]
+    # + unimplemented nodes may touch others
+    if var[1821]:  # server-only
+        unimplemented STU_0FC6DAEA(
+            m_POTGData=PlayOfTheGameData(
+                m_value=30,
+                m_id=var[7407],
+                m_371085C1=asset(0x0830000000000002),
+                m_description=UXDisplayText(0x0DE0000000004159),
+                m_targets=var[392],
+            ),
+        )  # server-only
+        set_var(var[176], var[176] + 0.4)  # server-only
+        STU_0FC6DAEA_90()
+    else:
+        STU_0FC6DAEA_90()
+
+def STU_0FC6DAEA_90():  # STU_0FC6DAEA; shared or nested too deep to inline; from Condition_36.m_falsePlug, SetVar_79.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[176], var[392], var[7407]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_0FC6DAEA(
+        m_POTGData=PlayOfTheGameData(
+            m_value=var[176],
+            m_id=var[7407],
+            m_371085C1=asset(0x0830000000000002),
+            m_41B10FF2=1,
+            m_description=UXDisplayText(0x0DE0000000010C24),
+            m_targets=var[392],
+        ),
+    )  # server-only
+    if not dot(
+               unimplemented STU_2200A66D(m_entity=var[392]),
+               normalize(
+                   unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()) - unimplemented STU_71A87E92(m_entity=var[392]),
+               ),
+           ) > 0.63:  # server-only; names: class STU_2200A66D=EntityDirection [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        unimplemented STU_0FC6DAEA(
+            m_POTGData=PlayOfTheGameData(
+                m_value=0.5,
+                m_id=var[7407],
+                m_371085C1=asset(0x0830000000000002),
+                m_41B10FF2=1,
+                m_description=UXDisplayText(0x0DE0000000004414),
+                m_targets=var[392],
+            ),
+        )  # server-only
+
+# placeholders in this graph (semantics not recovered):
+#   STUConfigVarFilter (configvar) x15
+#   STU_B5A0CAF0 (configvar) x15
+#   STU_0FC6DAEA (node) x14
+#   STU_AC829876 (configvar) x13
+#   STU_71A87E92 (configvar) x6
+#   STU_021D01CD (configvar) x2
+#   STU_9622CAD6 (configvar) x2
+#   STU_A3DEF368 (configvar) x2
+#   STU_08D6BA6E (node) x2
+#   STU_821116A6 (condition) x1
+#   STU_2200A66D (configvar) x1
+#   STU_25ECB55F (configvar) x1
+#   STU_309B0570 (configvar) x1
+#   STU_4A101787 (configvar) x1
+#   STU_6E5C5F66 (node) x1
+#   STU_7B9E8909 (node) x1

@@ -1,0 +1,21 @@
+# build 1.74.0.0.104319: 4 nodes (0 States), 1 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000bcc
+# names (replace): 2 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x024000000000000F) (entry rid 2)
+#   placeholders: 2 unrecovered (2 classes; 1 configvar, 1 node)
+
+on_game_message(GameMessage(0x024000000000000F), rid=2):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # reads: var[223], shared_var[7059]  writes: none
+    # + unimplemented nodes may touch others
+    if shared_var[7059]:  # server-only
+        if var[223] >= 4.0:  # server-only
+            unimplemented STUStatescriptActionCriteria(
+                m_identifier=Identifier(0x0D80000000001C38),
+                m_targets=unimplemented STU_B5A0CAF0(),
+            )  # server-only; names: class STUStatescriptActionCriteria=ReportCriteria [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x1
+#   STUStatescriptActionCriteria (node) x1

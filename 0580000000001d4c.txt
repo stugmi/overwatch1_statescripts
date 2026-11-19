@@ -1,0 +1,40 @@
+# build 1.74.0.0.104319: 7 nodes (1 States), 1 entries, 7 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001d4c
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[7566] (set x1), var[20769] (set x1), shared_var[20769] (set x1)
+#   placeholders: 5 unrecovered (4 classes; 3 node, 2 configvar)
+#   var[18739]: 2 reads at lines 14, 17
+#   var[20769]: 1 write at line 16; 1 read at line 33
+#   var[7566]: 1 write at line 14; 1 read at line 28
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[18739]  writes: var[7566], var[20769]
+    # + unimplemented nodes may touch others
+    set_var(var[7566], [unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0])])
+    set_var(
+        var[20769],
+        unimplemented STU_77B0987E(m_35547D6E=var[18739][1.0], m_68CFF844=9999, m_FDCA1FD0=0.5),
+    )
+    begin(STU_550D0C5C_2)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_550D0C5C_2:  # STU_550D0C5C, state 0; from STU_550D0C5C_2.m_onBeginPlug, SetVar_5.m_outPlug
+    # reads: var[7566], var[20769]  writes: shared_var[20769]
+    # + unimplemented nodes may touch others
+    unimplemented STU_550D0C5C(m_4B7DF406=True, m_targets=var[7566])
+    begin:
+        abort(STU_550D0C5C_2)
+        unimplemented STU_1E93FE1F()
+    plug m_C41A9BE2:  # m_5AEA0A51=4
+        set_var(shared_var[20769], parent_var(1, var[20769]))
+        unimplemented STU_22926252()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_77B0987E (configvar) x2
+#   STU_1E93FE1F (node) x1
+#   STU_22926252 (node) x1
+#   STU_550D0C5C (node) x1

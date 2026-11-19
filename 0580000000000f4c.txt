@@ -1,0 +1,39 @@
+# build 1.74.0.0.104319: 9 nodes (0 States), 1 entries, 8 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000f4c
+# inlined shared nodes (printed at each use site instead of a def): SetVar_8
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[10545] (set x1), shared_var[10548] (set x1), shared_var[10549] (set x1),
+#                      shared_var[10550] (set x1), shared_var[10552] (set x1), shared_var[10553] (set x1),
+#                      shared_var[10803] (set x1)
+#   messages: sends GameMessage(0x0240000000000813) x1
+#   placeholders: 1 unrecovered (1 classes; 1 configvar)
+#   var[10548]: 2 reads at lines 31, 35
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[10545] = Identifier(0)
+    var[10548] = 0
+    var[10549] = STU_357DABBB(0)
+    var[10550] = STU_357DABBB(0)
+    var[10803] = 0
+    var[10552] = 0.0
+    var[10553] = 0.0
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[10545], var[10548], var[10549], var[10550], var[10552], var[10553], var[10803]  writes: shared_var[10545], shared_var[10548], shared_var[10549], shared_var[10550], shared_var[10552], shared_var[10553], shared_var[10803]
+    # + unimplemented nodes may touch others
+    set_var(shared_var[10545], var[10545])
+    set_var(shared_var[10549], var[10549])
+    set_var(shared_var[10550], var[10550])
+    set_var(shared_var[10803], var[10803])
+    set_var(shared_var[10552], var[10552])
+    set_var(shared_var[10553], var[10553])
+    set_var(shared_var[10548], var[10548])
+    send_game_message(
+        GameMessage(0x0240000000000813),
+        targets=unimplemented STU_A3DEF368(),
+        params=[STU_814D595E(m_value=var[10548], m_B5051BCE=asset(0x0A4000000000045E))],
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_A3DEF368 (configvar) x1

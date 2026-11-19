@@ -1,0 +1,78 @@
+# build 1.74.0.0.104319: 5 nodes (2 States), 1 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000017b7
+# names (replace): 2 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[536] (set x1), var[9000] (set x1)
+#   placeholders: 23 unrecovered (5 classes; 22 configvar, 1 node)
+#   var[7566]: 3 reads at lines 35, 70, 71
+#   var[536]: 1 write at line 22; 1 read at line 68
+#   var[9000]: 1 write at line 21; 1 read at line 67
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[422] = 2
+    var[10592] = STU_357DABBB(0)
+    var[10593] = STU_357DABBB(0)
+    var[10122] = VoiceStimulus(0)
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[10592], var[10593]  writes: var[536], var[9000]
+    # + unimplemented nodes may touch others
+    set_var(var[9000], unimplemented STU_B3E67A36(m_9C7BD8B8=var[10592]))
+    set_var(var[536], unimplemented STU_B3E67A36(m_9C7BD8B8=var[10593]))
+    begin(TrackTargets_0)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=1 ----
+
+state TrackTargets_0:  # STUStatescriptStateTrackTargets, state 0; from SetVar_4.m_outPlug
+    # reads: var[422], var[7566]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_8DCA77B6=unimplemented STU_B5A0CAF0(),
+        m_radius=var[422],
+        m_8A2905A0=var[7566],
+        m_filter=unimplemented STUConfigVarFilter(
+            m_84065FD1=262144,
+            m_condition=(
+                unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000000F9), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D60000000000612), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D60000000000101), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000000FC), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000000FE), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D6000000000011F), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000000F5), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000000F6), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D6000000000083C), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000009C2), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000000FA), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D60000000000526), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000000F7), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000007BD), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D6000000000029A), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D60000000000661), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D60000000000121), m_entity=param[8])
+                or unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000000FD), m_entity=param[8])
+            ),
+        ),
+        m_DD792FF0=raw(02000000),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(STU_431F3FCC_2)
+
+state STU_431F3FCC_2:  # STU_431F3FCC, state 1 (plain State at run time); from TrackTargets_0.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_params=[
+            STU_814D595E(m_value=var[9000], m_B5051BCE=asset(0x0A4000000000006E)),
+            STU_814D595E(m_value=var[536], m_B5051BCE=asset(0x0A4000000000005C)),
+            STU_814D595E(m_value=var[10122], m_B5051BCE=asset(0x0A40000000000416)),
+            STU_814D595E(m_value=var[7566], m_B5051BCE=asset(0x0A40000000000737)),
+        ], m_A76A8CF6=STU_0E766B33(0x04A000000000031C), m_targets=var[7566]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_25ECB55F (configvar) x18
+#   STU_B3E67A36 (configvar) x2
+#   STUConfigVarFilter (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STUStatescriptStateTrackTargets (node) x1

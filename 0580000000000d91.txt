@@ -1,0 +1,70 @@
+# build 1.74.0.0.104319: 9 nodes (8 States), 1 entries, 9 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000d91
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[9067] (stack_contribution x5)
+#   placeholders: 4 unrecovered (4 classes; 3 configvar, 1 node)
+#   shared_var[9067]: 5 writes at lines 32, 36, 40, 52, 64
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_DEBD057B_2)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_DEBD057B_2:  # STU_DEBD057B, state 1; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_DEBD057B(m_262AE982=True)
+    plug m_05706D1C[0]:  # m_value=not unimplemented STU_0CFBAF2D()
+        begin(Stack_3)
+    plug m_05706D1C[1]:  # m_value=unimplemented STU_C3D71CB5()
+        begin(Stack_8)
+    plug m_05706D1C[2]:  # m_value=unimplemented STU_5E9B1B23()
+        begin(Stack_1)
+    plug m_A5EF385D:
+        begin(GameMessageEntry_6)
+
+state Stack_3:  # STUStatescriptStateStack, state 2; from STU_DEBD057B_2.m_05706D1C[0]
+    # reads: none  writes: shared_var[9067]
+    stack_contribution(shared_var[9067], value=UXDisplayText(0x0DE00000000047A3), priority=None)
+
+state Stack_8:  # STUStatescriptStateStack, state 7; from STU_DEBD057B_2.m_05706D1C[1], GameMessageEntry_7.m_452862E6
+    # reads: none  writes: shared_var[9067]
+    stack_contribution(shared_var[9067], value=UXDisplayText(0x0DE00000000091D6), priority=None)
+
+state Stack_1:  # STUStatescriptStateStack, state 0; from STU_DEBD057B_2.m_05706D1C[2]
+    # reads: none  writes: shared_var[9067]
+    stack_contribution(shared_var[9067], value=UXDisplayText(0x0DE00000000052E5), priority=None)
+
+state GameMessageEntry_6:  # STUStatescriptStateGameMessageEntry, state 5; from STU_DEBD057B_2.m_A5EF385D
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000B1A))
+    provider_present:
+        begin(Stack_5)
+    provider_absent:
+        begin(GameMessageEntry_7)
+
+state Stack_5:  # STUStatescriptStateStack, state 4; from GameMessageEntry_6.m_452862E6
+    # reads: none  writes: shared_var[9067]
+    stack_contribution(shared_var[9067], value=UXDisplayText(0x0DE0000000008CF8), priority=None)
+
+state GameMessageEntry_7:  # STUStatescriptStateGameMessageEntry, state 6; from GameMessageEntry_6.m_33DA5163
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000B7C))
+    provider_present:
+        begin(Stack_8)
+    provider_absent:
+        begin(Stack_4)
+
+state Stack_4:  # STUStatescriptStateStack, state 3; from GameMessageEntry_7.m_33DA5163
+    # reads: none  writes: shared_var[9067]
+    stack_contribution(shared_var[9067], value=UXDisplayText(0), priority=None)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_0CFBAF2D (configvar) x1
+#   STU_5E9B1B23 (configvar) x1
+#   STU_C3D71CB5 (configvar) x1
+#   STU_DEBD057B (node) x1

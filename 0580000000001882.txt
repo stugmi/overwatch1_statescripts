@@ -1,0 +1,42 @@
+# build 1.74.0.0.104319: 7 nodes (3 States), 2 entries, 5 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001882
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[9705] (stack_contribution x1), shared_var[10228] (stack_contribution x1)
+#   messages: sends GameMessage(0x0240000000000C09) x1
+#   placeholders: 2 unrecovered (2 classes; 2 configvar)
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    if unimplemented STU_E95A9C77():
+        send_game_message(GameMessage(0x0240000000000C09), targets=unimplemented STU_A3DEF368())
+    begin(STU_37D754C8_3)
+
+on_entry(context=unset, rid=6):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(Stack_5)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=1 ----
+
+state STU_37D754C8_3:  # STU_37D754C8, state 0; from Entry_1.m_outPlug
+    # reads: none  writes: none
+    run_nested_graph(m_36F7B64C=graph_ref(STU_105E1BCC(0x0580000000001A36), params=[], extras=[]))
+
+# ---- begun from on_entry rid=6 ----
+
+state Stack_5:  # STUStatescriptStateStack, state 2; from Entry_6.m_outPlug
+    # reads: none  writes: shared_var[9705]
+    stack_contribution(shared_var[9705], value=True, priority=None)
+    subgraph:
+        begin(Stack_4)
+
+state Stack_4:  # STUStatescriptStateStack, state 1; from Stack_5.m_subgraphPlug
+    # reads: none  writes: shared_var[10228]
+    stack_contribution(shared_var[10228], value=True, priority=None)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_A3DEF368 (configvar) x1
+#   STU_E95A9C77 (configvar) x1

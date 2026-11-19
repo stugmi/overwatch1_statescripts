@@ -1,0 +1,30 @@
+# build 1.74.0.0.104319: 3 nodes (1 States), 1 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000cbf
+# names (replace): 2 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_2 after(random_float(3.0, 10.0))
+#   placeholders: 3 unrecovered (3 classes; 2 configvar, 1 node)
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted), server-only
+    # reads: none  writes: none
+    begin(Wait_2)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=1 ----
+
+state Wait_2:  # STUStatescriptStateWait, state 0 (server-only); from Criteria_0.m_outPlug, Entry_1.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    after(random_float(3.0, 10.0)):
+        unimplemented STUStatescriptActionCriteria(
+            m_identifier=Identifier(0x0D800000000021DA),
+            m_targets=unimplemented STU_F7262B36(m_801B298F=unimplemented STU_B5A0CAF0()),
+        )  # server-only; names: class STUStatescriptActionCriteria=ReportCriteria [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        begin(Wait_2)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_F7262B36 (configvar) x1
+#   STUStatescriptActionCriteria (node) x1

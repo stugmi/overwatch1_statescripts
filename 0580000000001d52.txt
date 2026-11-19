@@ -1,0 +1,111 @@
+# build 1.74.0.0.104319: 14 nodes (3 States), 2 entries, 13 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001d52
+# names (replace): 3 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[7566] (set x1), var[20796] (set x2)
+#   messages: receives GameMessage(0x0240000000000E12) (entry rid 8); sends GameMessage(0x0240000000000E12)
+#             x2
+#   placeholders: 21 unrecovered (15 classes; 15 configvar, 6 node)
+#   var[20796]: 3 writes at lines 19, 47, 82; 4 reads at lines 47, 51, 82, 91
+#   var[16797]: 1 write at line 48; 2 reads at lines 27, 79
+#   var[18739]: 2 reads at lines 18, 19
+#   var[7566]: 1 write at line 18; 1 read at line 40
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[18739]  writes: var[7566], var[20796]
+    # + unimplemented nodes may touch others
+    set_var(var[7566], [unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0])])
+    set_var(var[20796], var[18739][1.0])
+    begin(STU_550D0C5C_3)
+
+on_game_message(
+    GameMessage(0x0240000000000E12),
+    rid=8,
+    m_5AEA0A51=13,
+    m_params=[STU_EF930FD7(m_B5051BCE=asset(0x0A40000000000776))],
+    m_filter=unimplemented STUConfigVarFilter(m_condition=param[1910] != var[16797]),
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered); names: class STUConfigVarFilter=OwnEntityFilter [candidate]
+    # reads: var[16797]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_22926252()
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=1 ----
+
+state STU_550D0C5C_3:  # STU_550D0C5C, state 0; from SetVar_0.m_outPlug, STU_550D0C5C_3.m_onBeginPlug
+    # reads: var[7566], var[20796]  writes: var[16797], var[20796]
+    # + unimplemented nodes may touch others
+    unimplemented STU_550D0C5C(m_4B7DF406=True, m_targets=var[7566], m_DED58406=False)
+    begin:
+        abort(STU_550D0C5C_3)
+        unimplemented STU_1E93FE1F()
+    plug m_C41A9BE2:  # m_5AEA0A51=13
+        unimplemented STU_12F5D52D(
+            m_143D4C5B=[
+                STU_8529C204(m_value=parent_var(1, var[20796]), m_out_Var=var[20796]),
+                STU_8529C204(m_value=unimplemented STU_5F94FAF9(), m_out_Var=var[16797]),
+            ],
+        )
+        if var[20796] != Identifier(0x0D8000000000506A):
+            begin(STU_550D0C5C_6)
+        else:
+            send_game_message(
+                GameMessage(0x0240000000000E12),
+                targets=unimplemented STU_B5A0CAF0(),
+                params=[STU_814D595E(m_value=0, m_B5051BCE=asset(0x0A40000000000776))],
+            )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_550D0C5C_6:  # STU_550D0C5C, state 1; from Condition_10.m_truePlug
+    # reads: var[20796]  writes: var[20796]
+    # + unimplemented nodes may touch others
+    unimplemented STU_550D0C5C(
+        m_targets=[
+            unimplemented STU_69DBE90D(m_entity=unimplemented STU_B5A0CAF0()),
+            unimplemented STU_951CAB4C(
+                m_814F8EC3=unimplemented STU_31661752(m_92D12BE6=unimplemented STU_B5A0CAF0()),
+                m_condition=unimplemented STU_AC829876(
+                    m_entity=param[142],
+                    m_filter=unimplemented STUConfigVarFilter(m_9C7BD8B8=STU_357DABBB(0x0D600000000008A3)),
+                ),
+            ),
+        ],
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    begin:
+        send_game_message(
+            GameMessage(0x0240000000000E12),
+            targets=unimplemented STU_B5A0CAF0(),
+            params=[STU_814D595E(m_value=var[16797], m_B5051BCE=asset(0x0A40000000000776))],
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    plug m_C41A9BE2:  # m_5AEA0A51=12
+        set_var(var[20796], parent_var(1, var[20796]))
+        begin(STU_33A46033_12)
+
+state STU_33A46033_12:  # STU_33A46033, state 2; from SetVar_13.m_outPlug
+    # reads: var[20796]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(
+        m_7E42F868=True,
+        m_DFD8E2EA=(
+            var[20796] != Identifier(0x0D80000000005139)
+            and unimplemented STU_F76C486C(m_D63CBEC2=unimplemented STU_B5A0CAF0()) != unimplemented STU_8985E00A()
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x5
+#   STUConfigVarFilter (configvar) x2
+#   STU_550D0C5C (node) x2
+#   STU_31661752 (configvar) x1
+#   STU_5F94FAF9 (configvar) x1
+#   STU_69DBE90D (configvar) x1
+#   STU_77B0987E (configvar) x1
+#   STU_8985E00A (configvar) x1
+#   STU_951CAB4C (configvar) x1
+#   STU_AC829876 (configvar) x1
+#   STU_F76C486C (configvar) x1
+#   STU_12F5D52D (node) x1
+#   STU_1E93FE1F (node) x1
+#   STU_22926252 (node) x1
+#   STU_33A46033 (node) x1

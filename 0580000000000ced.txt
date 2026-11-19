@@ -1,0 +1,91 @@
+# build 1.74.0.0.104319: 10 nodes (5 States), 2 entries, 9 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000ced
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[682] (set x1)
+#   messages: receives GameMessage(0x02400000000006BC) (entry rid 2); receives
+#             GameMessage(0x02400000000006BB) (entry rid 7)
+#   placeholders: 10 unrecovered (7 classes; 6 configvar, 4 node)
+#   var[536]: 1 write at line 19; 8 reads at lines 25, 28, 29, 43, 44
+#   var[8439]: 5 reads at lines 52, 55, 62, 63
+#   var[682]: 1 write at line 26; 1 read at line 44
+#   var[699]: 1 write at line 19; 1 read at line 24
+
+on_game_message(GameMessage(0x02400000000006BC), rid=2):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    abort(STU_96333BBE_0)
+    begin(STU_160F2578_3)
+
+on_game_message(GameMessage(0x02400000000006BB), rid=7)(var[699] <- param 0x0A40000000000390, var[536] <- param 0x0A40000000000008):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[536], var[699]  writes: var[536], var[682], var[699]
+    # + unimplemented nodes may touch others
+    begin(STU_E8D976BE_6)
+    if var[699]:
+        set_var(
+            var[682],
+            (
+                vec3(0.0, 1.0, 0.0) * 4.0 + unimplemented STU_021D01CD(m_entity=var[536]) * 3.0 if unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D6000000000011E), m_entity=var[536])
+                else vec3(0.0, 1.0, 0.0) * 3.0 + unimplemented STU_021D01CD(m_entity=var[536]) * 2.0
+            ),
+        )
+        begin(STU_96333BBE_0)
+    begin(STU_38EE1100_9)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_game_message rid=2 ----
+
+state STU_96333BBE_0:  # STU_96333BBE, state 0; from GameMessage_2.m_outPlug, SetVar_5.m_outPlug
+    # reads: var[536], var[682]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_96333BBE(
+        m_A7B12CE0=var[536],
+        m_9524A8D6=unimplemented STU_0BA27A07(m_entity=var[536]) + var[682],
+        m_17A441C0=0.5,
+        m_41CF4BA7=True,
+    )
+
+state STU_160F2578_3:  # STU_160F2578, state 1; from GameMessage_2.m_outPlug
+    # reads: var[8439]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_160F2578(m_4AEEE6A1=var[8439], m_9C7BD8B8=STU_357DABBB(0x0D6000000000030E))
+    transitions:
+        when transition[0]:
+            if var[8439]:
+                begin(STU_96333BBE_4)
+
+state STU_96333BBE_4:  # STU_96333BBE, state 2; from Condition_8.m_truePlug
+    # reads: var[8439]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_96333BBE(
+        m_A7B12CE0=unimplemented STU_0BA27A07(m_entity=var[8439]) + vec3(0.0, 4.5, 0.0),
+        m_9524A8D6=unimplemented STU_0BA27A07(m_entity=var[8439]) + vec3(0.0, 6.0, 0.0) + unimplemented STU_9BC6CEE8(m_entity=var[8439]) * 11.0,
+        m_17A441C0=1,
+        m_EE23357E=0,
+        m_41CF4BA7=True,
+    )
+
+# ---- begun from on_game_message rid=7 ----
+
+state STU_E8D976BE_6:  # STU_E8D976BE, state 3; from GameMessage_7.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_E8D976BE()
+
+state STU_38EE1100_9:  # STU_38EE1100, state 4; from GameMessage_7.m_outPlug
+    # reads: none  writes: none
+    publish_game_message(
+        m_gameMessage=GameMessage(0x0240000000000721),
+        m_target=STU_1D719351(m_1199BFE0=1),
+        m_67FD6A60=1,
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_0BA27A07 (configvar) x3
+#   STU_96333BBE (node) x2
+#   STU_021D01CD (configvar) x1
+#   STU_25ECB55F (configvar) x1
+#   STU_9BC6CEE8 (configvar) x1
+#   STU_160F2578 (node) x1
+#   STU_E8D976BE (node) x1

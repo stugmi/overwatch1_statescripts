@@ -1,0 +1,134 @@
+# build 1.74.0.0.104319: 16 nodes (13 States), 3 entries, 13 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000d73
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[2167] (stack_contribution x2), var[2168] (stack_contribution x2)
+#   placeholders: 8 unrecovered (4 classes; 5 configvar, 3 node)
+#   var[2168]: 2 writes at lines 120, 124; 4 reads at lines 69, 70, 73, 74
+#   var[2167]: 2 writes at lines 116, 128; 2 reads at lines 70, 74
+#   var[12961]: 1 write at line 53; 1 read at line 86
+#   var[12962]: 1 write at line 54; 1 read at line 92
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[2167] = False
+    var[2168] = False
+    var[10770] = False
+    var[10771] = False
+
+on_entry(context=unset, rid=2):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(BooleanSwitch_1)
+
+on_entry(context=unset, rid=5):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(GameMessageEntry_6)
+
+on_entry(context=unset, rid=13):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_14)
+    begin(BooleanSwitch_15)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=2 ----
+
+state BooleanSwitch_1:  # STUStatescriptStateBooleanSwitch, state 1 (client-only); from Entry_2.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch member(unimplemented STU_8985E00A(), id(2438)):  # re-evaluated while the State runs
+        while true:
+            begin(STU_33A46033_0)
+
+state STU_33A46033_0:  # STU_33A46033, state 0 (client-only); from BooleanSwitch_1.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(m_381879C1=True, m_7E42F868=True)
+
+# ---- begun from on_entry rid=5 ----
+
+state GameMessageEntry_6:  # STUStatescriptStateGameMessageEntry, state 4; from Entry_5.m_outPlug
+    # reads: none  writes: var[12961], var[12962]
+    subscribe_game_message(
+        m_params=[
+            STU_EF930FD7(m_out_Var=var[12961], m_B5051BCE=asset(0x0A40000000000542)),
+            STU_EF930FD7(m_out_Var=var[12962], m_B5051BCE=asset(0x0A40000000000543)),
+        ],
+        m_gameMessage=GameMessage(0x024000000000072F),
+    )
+    provider_present:
+        begin(STU_33A46033_4)
+    provider_absent:
+        begin(STU_33A46033_3)
+
+state STU_33A46033_4:  # STU_33A46033, state 3; from GameMessageEntry_6.m_452862E6
+    # reads: var[2167], var[2168]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(
+        m_381879C1=(
+            unimplemented STU_4E59CD2E() == STU_BD6CC023(0)
+            or var[2168] and unimplemented STU_4E59CD2E() == STU_BD6CC023(1)
+        ) if var[2167] else var[2168] and unimplemented STU_4E59CD2E() == STU_BD6CC023(1),
+        m_7E42F868=(
+            unimplemented STU_4E59CD2E() == STU_BD6CC023(0)
+            or var[2168] and unimplemented STU_4E59CD2E() == STU_BD6CC023(1)
+        ) if var[2167] else var[2168] and unimplemented STU_4E59CD2E() == STU_BD6CC023(1),
+    )
+
+state STU_33A46033_3:  # STU_33A46033, state 2; from GameMessageEntry_6.m_33DA5163
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(m_381879C1=True, m_7E42F868=True, m_DFD8E2EA=False, m_D82DB14B=True)
+
+# ---- begun from on_entry rid=13 ----
+
+state BooleanSwitch_14:  # STUStatescriptStateBooleanSwitch, state 11; from Entry_13.m_outPlug
+    # reads: var[10770], var[12961]  writes: none
+    watch var[10770] or var[12961]:  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_9)
+
+state BooleanSwitch_15:  # STUStatescriptStateBooleanSwitch, state 12; from Entry_13.m_outPlug
+    # reads: var[10771], var[12962]  writes: none
+    watch var[10771] or var[12962]:  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_10)
+
+state BooleanSwitch_9:  # STUStatescriptStateBooleanSwitch, state 7; from BooleanSwitch_14.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch member(unimplemented STU_A3DEF368(), id(10795)) == STU_BD6CC023(0):  # re-evaluated while the State runs
+        while true:
+            begin(Stack_7)
+        while false:
+            begin(Stack_12)
+
+state BooleanSwitch_10:  # STUStatescriptStateBooleanSwitch, state 8; from BooleanSwitch_15.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch member(unimplemented STU_A3DEF368(), id(10795)) == STU_BD6CC023(0):  # re-evaluated while the State runs
+        while true:
+            begin(Stack_11)
+        while false:
+            begin(Stack_8)
+
+state Stack_7:  # STUStatescriptStateStack, state 5; from BooleanSwitch_9.m_trueSubgraphPlug
+    # reads: none  writes: var[2167]
+    stack_contribution(var[2167], value=True, priority=None)
+
+state Stack_12:  # STUStatescriptStateStack, state 10; from BooleanSwitch_9.m_falseSubgraphPlug
+    # reads: none  writes: var[2168]
+    stack_contribution(var[2168], value=True, priority=None)
+
+state Stack_11:  # STUStatescriptStateStack, state 9; from BooleanSwitch_10.m_trueSubgraphPlug
+    # reads: none  writes: var[2168]
+    stack_contribution(var[2168], value=True, priority=None)
+
+state Stack_8:  # STUStatescriptStateStack, state 6; from BooleanSwitch_10.m_falseSubgraphPlug
+    # reads: none  writes: var[2167]
+    stack_contribution(var[2167], value=True, priority=None)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_33A46033 (node) x3
+#   STU_4E59CD2E (configvar) x2
+#   STU_A3DEF368 (configvar) x2
+#   STU_8985E00A (configvar) x1

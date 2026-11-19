@@ -1,0 +1,119 @@
+# build 1.74.0.0.104319: 18 nodes (2 States), 3 entries, 17 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001234
+# inlined shared nodes (printed at each use site instead of a def): SetVar_7
+# names (replace): 5 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[12507] (set x3), var[12671] (set x2), var[12672] (set x1), var[12673] (set x4),
+#                      var[13673] (set x1)
+#   messages: receives GameMessage(0x0240000000000944) (entry rid 9); sends GameMessage(0x02400000000008AB)
+#             x1
+#   placeholders: 10 unrecovered (7 classes; 8 configvar, 2 node)
+#   var[12507]: 3 writes at lines 75, 80, 84; 7 reads at lines 53, 54, 55, 75, 80, 84 ...
+#   var[12671]: 2 writes at lines 76, 89; 3 reads at lines 56, 90, 106
+#   var[12673]: 4 writes at lines 32, 77, 81, 85; 1 read at line 31
+#   var[12672]: 1 write at line 24; 2 reads at lines 67, 105
+#   var[13673]: 1 write at line 23; 2 reads at lines 68, 75
+#   shared_var[11920]: 2 reads at lines 62, 97
+#   var[10824]: 1 write at line 27; 1 read at line 36
+#   var[18432]: 2 reads at lines 57, 107
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: var[12672], var[13673]
+    set_var(var[13673], 5)  # client-only
+    set_var(var[12672], 20)  # client-only
+    begin(STU_498067F9_1)
+
+on_game_message(GameMessage(0x0240000000000944), rid=9)(var[10824] <- param 0x0A400000000004F1):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), client-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[12673]  writes: var[10824], var[12673]
+    # + unimplemented nodes may touch others
+    if var[12673]:  # client-only
+        set_var(var[12673], False)  # client-only
+        send_game_message(
+            GameMessage(0x02400000000008AB),
+            targets=unimplemented STU_B5A0CAF0(),
+            params=[STU_814D595E(m_value=var[10824], m_B5051BCE=asset(0x0A400000000004F1))],
+        )  # client-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+on_entry(always, rid=16):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_17)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_498067F9_1:  # STU_498067F9, state 0 (client-only); from SetVar_14.m_outPlug
+    # reads: var[12507], var[12671], var[12672], var[13673], var[18432], shared_var[11920]  writes: var[12507], var[12671], var[12673]
+    # + unimplemented nodes may touch others
+    unimplemented STU_498067F9(
+        m_3DBF6FD2=STU_5F31962C(m_4BA4C058=raw(01000000)),
+        m_4FF3A882=[
+            STU_294F6168(m_id=asset(0x0D8000000000619E), m_51F3DB2A=var[12507]),
+            STU_294F6168(m_id=asset(0x0D8000000000619C), m_51F3DB2A=var[12507]),
+            STU_294F6168(m_id=asset(0x0D8000000000619B), m_51F3DB2A=var[12507]),
+            STU_294F6168(m_id=asset(0x0D800000000066F3), m_51F3DB2A=var[12671]),
+            STU_294F6168(m_id=asset(0x0D800000000066F4), m_51F3DB2A=var[18432]),
+        ],
+        m_45216F79=STU_99CEEC04(
+            m_25521BD9=STU_A1BAFA3E(m_id=asset(0x0D800000000060F4)),
+            m_6CF79CB7=unimplemented STU_B5A0CAF0(),
+            m_D44EB181=shared_var[11920],
+        ),
+        m_EC32138E=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=var[12672], m_id=asset(0x0D80000000004250)),
+                    STU_E870E3E8(m_value=var[13673], m_id=asset(0x0D80000000006642)),
+                ],
+                m_definition=asset(0x0A88000000000073),
+            ),
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+    plug m_8D6AF7DD[0]:  # m_id=asset(0x0D8000000000619E)
+        set_var(var[12507], var[12507] - unimplemented STU_170887D1() - var[13673])  # client-only
+        set_var(var[12671], unimplemented STU_92CA44CC())  # client-only
+        set_var(var[12673], False)  # client-only
+        STU_C43F9944_3()
+    plug m_8D6AF7DD[1]:  # m_id=asset(0x0D8000000000619C)
+        set_var(var[12507], var[12507] - unimplemented STU_170887D1() - 5.0)  # client-only
+        set_var(var[12673], True)  # client-only
+        STU_C43F9944_3()
+    plug m_8D6AF7DD[2]:  # m_id=asset(0x0D8000000000619B)
+        set_var(var[12507], var[12507] - unimplemented STU_170887D1() - 10.0)  # client-only
+        set_var(var[12673], True)  # client-only
+        STU_C43F9944_3()
+    plug m_8D6AF7DD[3]:  # m_id=asset(0x0D800000000066F3)
+        set_var(
+            var[12671],
+            unimplemented STU_E7579408(m_367CCBF5=[var[12671]], m_6C54C35C=UXDisplayText(0x0DE0000000007449)),
+        )  # client-only
+
+# ---- begun from on_entry rid=16 ----
+
+state STU_9D7BF987_17:  # STU_9D7BF987, state 1 (plain State at run time); from STU_571CC72E_16.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[shared_var[11920]]
+
+def STU_C43F9944_3():  # STU_C43F9944; shared or nested too deep to inline; from SetVar_7.m_outPlug, SetVar_8.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[12507], var[12671], var[12672], var[18432]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_C43F9944(
+        m_params=[
+            STU_814D595E(m_value=var[12507], m_B5051BCE=asset(0x0A400000000004F3)),
+            STU_814D595E(m_value=var[12672], m_B5051BCE=asset(0x0A40000000000514)),
+            STU_814D595E(m_value=var[12671], m_B5051BCE=asset(0x0A40000000000515)),
+            STU_814D595E(m_value=var[18432], m_B5051BCE=asset(0x0A400000000006F2)),
+        ],
+        m_gameMessage=GameMessage(0x024000000000092D),
+    )  # client-only
+
+# placeholders in this graph (semantics not recovered):
+#   STU_170887D1 (configvar) x3
+#   STU_B5A0CAF0 (configvar) x2
+#   STU_92CA44CC (configvar) x1
+#   STU_B317E7B5 (configvar) x1
+#   STU_E7579408 (configvar) x1
+#   STU_498067F9 (node) x1
+#   STU_C43F9944 (node) x1

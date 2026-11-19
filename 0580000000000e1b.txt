@@ -1,0 +1,95 @@
+# build 1.74.0.0.104319: 9 nodes (8 States), 1 entries, 9 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000e1b
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[680] (stack_contribution x1)
+#   waits: Wait_6 after(0.5)
+#   placeholders: 11 unrecovered (7 classes; 8 configvar, 3 node)
+#   var[2231]: 6 reads at lines 23, 33, 34, 35, 55, 77
+#   var[680]: 1 write at line 53; 2 reads at line 77
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_160F2578_1)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_160F2578_1:  # STU_160F2578, state 0; from Entry_0.m_outPlug
+    # reads: var[2231]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_160F2578(m_4AEEE6A1=var[2231], m_9C7BD8B8=STU_357DABBB(0x0D6000000000037C))
+    subgraph:
+        begin(STU_91EF24A9_4)
+
+state STU_91EF24A9_4:  # STU_91EF24A9, state 3; from STU_160F2578_1.m_subgraphPlug
+    # reads: var[2231]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_91EF24A9(
+        m_329381D5=[STU_F0FD6BAC(m_232D081C=0.99, m_390BD4AD=1)],
+        m_AAAC951E=[
+            len(var[2231]) > 0.0,
+            unimplemented STU_E72F6348(m_entity=var[2231][0.0]),
+            unimplemented STU_0AC15F78(m_entity=unimplemented STU_B5A0CAF0()) == member(var[2231][0.0], id(9512)),
+        ],
+        m_2A8EBAE3=Identifier(0x0D80000000001DF7),
+        m_38568F15=0.0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    plug m_6F92F4BD:
+        # owns (not begun here): Stack_8, STU_ECAEE401_3, STU_988AAC99_2, STU_760F68AF_7, Wait_6
+        begin(State_5)
+
+state State_5:  # STUStatescriptState, state 4 (plain State at run time); from STU_91EF24A9_4.m_6F92F4BD
+    # reads: none  writes: none
+    begin:
+        begin(Stack_8)
+
+state Stack_8:  # STUStatescriptStateStack, state 7; from State_5.m_onBeginPlug
+    # reads: var[2231]  writes: var[680]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        var[680],
+        value=distance(
+            unimplemented STU_71A87E92(m_entity=var[2231][0.0]),
+            unimplemented STU_71A87E92(
+                m_entity=unimplemented STU_0AC15F78(m_entity=unimplemented STU_B5A0CAF0()),
+            ),
+        ),
+        priority=None,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(STU_ECAEE401_3)
+
+state STU_ECAEE401_3:  # STU_ECAEE401, state 2; from Wait_6.m_onFinishedPlug, Stack_8.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_ECAEE401(m_F377D806=False, m_BDDD203A=0.0, m_6F4283C8=0.0, m_priority=STU_8A491388(0x0C40000000000003))
+    subgraph:
+        begin(STU_988AAC99_2)
+        begin(STU_760F68AF_7)
+    plug m_1B09389D:
+        begin(Wait_6)
+
+state STU_988AAC99_2:  # STU_988AAC99, state 1 (plain State at run time); from STU_ECAEE401_3.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_AE1D56F0=5, m_9FC83BDB=unimplemented STU_71A87E92(m_entity=var[2231][0.0]), m_F4B6197E=max(8.0, var[680]), m_35A4E804=max(16.0, var[680]), m_BE0AB214=0, m_CA523921=True, m_EFDC53C7=True, m_55877F0C=STU_BAB1FAAF(7), m_BEAA0407=1
+
+state STU_760F68AF_7:  # STU_760F68AF, state 6 (plain State at run time); from STU_ECAEE401_3.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_AE1D56F0=10, m_171FF7A5=8, m_14D4313E=0, m_C5870984=True
+
+state Wait_6:  # STUStatescriptStateWait, state 5; from STU_ECAEE401_3.m_1B09389D
+    # reads: none  writes: none
+    after(0.5):
+        pulse(STU_ECAEE401_3.m_8CBFEBB9)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_71A87E92 (configvar) x3
+#   STU_0AC15F78 (configvar) x2
+#   STU_B5A0CAF0 (configvar) x2
+#   STU_E72F6348 (configvar) x1
+#   STU_160F2578 (node) x1
+#   STU_91EF24A9 (node) x1
+#   STU_ECAEE401 (node) x1

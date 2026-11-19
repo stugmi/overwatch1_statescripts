@@ -1,0 +1,124 @@
+# build 1.74.0.0.104319: 16 nodes (6 States), 4 entries, 13 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000010ff
+# names (replace): 5 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[10379] (set x1), var[10380] (set x1)
+#   waits: Wait_12 after(1)
+#   messages: receives GameMessage(0x0240000000000044) (entry rid 15); sends GameMessage(0x024000000000060E)
+#             x1
+#   placeholders: 18 unrecovered (11 classes; 13 configvar, 5 node)
+#   var[10379]: 1 write at line 44; 3 reads at lines 44, 45, 65
+#   var[10380]: 1 write at line 20; 3 reads at lines 28, 45, 65
+#   var[375]: 3 reads at lines 78, 91, 97
+#   var[10378]: 1 write at line 40; 1 read at line 44
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[10380]  writes: var[10380]
+    # + unimplemented nodes may touch others
+    set_var(
+        var[10380],
+        300.0 * unimplemented STU_3832D36C(
+            m_value=member(unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()), id(12618)),
+        ),
+    )  # names: class STU_3832D36C=EntitySharedVariable [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin(TrackTargets_1)
+    unimplemented STU_CEBDAF17(
+        m_stat=asset(0x08600000000005E3),
+        m_amount=var[10380],
+        m_targets=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+    )  # names: class STU_CEBDAF17=ModifyStat [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+on_entry(context=unset, rid=8):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(DataFlowMapping_7)
+
+on_entry(context=unset, rid=11):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_9)
+
+on_game_message(GameMessage(0x0240000000000044), rid=15)(var[10378] <- param 0x0A40000000000040, var[659] <- param 0x0A40000000000041):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[10378], var[10379], var[10380]  writes: var[659], var[10378], var[10379]
+    # + unimplemented nodes may touch others
+    set_var(var[10379], var[10379] + var[10378])
+    if var[10379] >= var[10380]:
+        unimplemented STU_523EE38D(m_entity=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        send_game_message(
+            GameMessage(0x024000000000060E),
+            targets=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+            params=[
+                STU_814D595E(m_value=Identifier(0x0D800000000030F2), m_B5051BCE=asset(0x0A40000000000358)),
+                STU_814D595E(m_value=True, m_B5051BCE=asset(0x0A400000000003D5)),
+            ],
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_7:  # STUStatescriptStateDataFlowMapping, state 2; from Entry_8.m_outPlug
+    # reads: var[10379], var[10380]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x0480000000000636),
+        m_answer=min(var[10379] / var[10380], 1.0),
+        m_entity=STU_02C0109E(),
+    )
+
+# ---- begun from on_entry rid=0 ----
+
+state TrackTargets_1:  # STUStatescriptStateTrackTargets, state 0; from SetVar_4.m_outPlug
+    # reads: var[375]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_8DCA77B6=unimplemented STU_B5A0CAF0(),
+        m_radius=5,
+        m_3D667CE3=unimplemented STUConfigVarFilter(),
+        m_8A2905A0=var[375],
+        m_filter=unimplemented STUConfigVarFilter(
+            m_4EA686DB=2097168,
+            m_66747E7D=1,
+            m_84065FD1=1,
+            m_condition=unimplemented STU_32E6E4D8(m_entity=param[8]) < unimplemented STU_7D7D2470(m_entity=param[8]),
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(STU_431F3FCC_2)
+
+state STU_431F3FCC_2:  # STU_431F3FCC, state 1 (plain State at run time); from TrackTargets_1.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_params=[STU_814D595E(m_value=65, m_B5051BCE=asset(0x0A4000000000002A))], m_A76A8CF6=STU_0E766B33(0x04A00000000002A1), m_targets=var[375]
+
+# ---- begun from on_entry rid=11 ----
+
+state BooleanSwitch_9:  # STUStatescriptStateBooleanSwitch, state 3; from Entry_11.m_outPlug
+    # reads: var[375]  writes: none
+    watch var[375]:  # re-evaluated while the State runs
+        on change to true:
+            begin(STU_D3F71FCF_10)
+        while false:
+            begin(Wait_12)
+
+state STU_D3F71FCF_10:  # STU_D3F71FCF, state 4; from BooleanSwitch_9.m_onTruePlug, Wait_12.m_onFinishedPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_D3F71FCF(m_67E8FF48=0.275)
+
+state Wait_12:  # STUStatescriptStateWait, state 5; from BooleanSwitch_9.m_falseSubgraphPlug
+    # reads: none  writes: none
+    after(1):
+        abort(STU_D3F71FCF_10)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x5
+#   STU_2B2E2F6D (configvar) x3
+#   STUConfigVarFilter (configvar) x2
+#   STU_32E6E4D8 (configvar) x1
+#   STU_3832D36C (configvar) x1
+#   STU_7D7D2470 (configvar) x1
+#   STUStatescriptStateDataFlowMapping (node) x1
+#   STUStatescriptStateTrackTargets (node) x1
+#   STU_523EE38D (node) x1
+#   STU_CEBDAF17 (node) x1
+#   STU_D3F71FCF (node) x1

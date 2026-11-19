@@ -1,0 +1,81 @@
+# build 1.74.0.0.104319: 10 nodes (4 States), 3 entries, 8 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000e5c
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[9647] (set x1), shared_var[10147] (stack_contribution x1)
+#   waits: Wait_8 after(var[10098] if var[10098] > 0.0 else 0.1)
+#   messages: receives GameMessage(0x024000000000078B) (entry rid 3); receives
+#             GameMessage(0x024000000000078A) (entry rid 5); sends GameMessage(0x024000000000078A) x1
+#   placeholders: 5 unrecovered (5 classes; 3 node, 2 configvar)
+#   var[10098]: 4 reads at lines 51, 69
+#   var[9647]: 1 write at line 29; 1 read at line 39
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[9683] = None
+    var[9684] = None
+    var[9695] = None
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_91EF24A9_1)
+
+on_game_message(GameMessage(0x024000000000078B), rid=3):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    pulse(STU_7B9E8909_4.m_inPlug)
+
+on_game_message(GameMessage(0x024000000000078A), rid=5):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: var[9647]
+    set_var(var[9647], True)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_91EF24A9_1:  # STU_91EF24A9, state 0; from Entry_0.m_outPlug
+    # reads: var[9647]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_91EF24A9(
+        m_329381D5=[STU_F0FD6BAC(m_232D081C=0.95000005 if var[9647] else 0.0, m_390BD4AD=1)],
+        m_2A8EBAE3=Identifier(0x0D80000000002167),
+        m_38568F15=0.0,
+    )
+    plug m_6F92F4BD:
+        send_game_message(
+            GameMessage(0x024000000000078A),
+            targets=unimplemented STU_0AC15F78(m_entity=unimplemented STU_B5A0CAF0()),
+            params=[
+                STU_814D595E(m_value=var[9683], m_B5051BCE=asset(0x0A4000000000040C)),
+                STU_814D595E(m_value=var[9684], m_B5051BCE=asset(0x0A4000000000040B)),
+                STU_814D595E(m_value=var[9695], m_B5051BCE=asset(0x0A4000000000040D)),
+                STU_814D595E(m_value=var[10098] if var[10098] > 0.0 else 0.25, m_B5051BCE=asset(0x0A40000000000436)),
+                STU_814D595E(m_value=shared_var[10347], m_B5051BCE=asset(0x0A4000000000044C)),
+            ],
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        begin(STU_7B9E8909_4)
+        begin(Wait_8)
+
+state STU_7B9E8909_4:  # STU_7B9E8909, state 1; from STU_91EF24A9_1.m_6F92F4BD, GameMessage_3.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_7B9E8909()
+    plug m_outPlug:
+        unimplemented STU_22926252()
+
+state Wait_8:  # STUStatescriptStateWait, state 2; from STU_91EF24A9_1.m_6F92F4BD
+    # reads: var[10098]  writes: none
+    subgraph:
+        begin(Stack_9)
+    after(var[10098] if var[10098] > 0.0 else 0.1):
+        pass
+
+state Stack_9:  # STUStatescriptStateStack, state 3; from Wait_8.m_subgraphPlug
+    # reads: none  writes: shared_var[10147]
+    stack_contribution(shared_var[10147], value=False, priority=STU_8A491388(0x0C40000000000003))
+
+# placeholders in this graph (semantics not recovered):
+#   STU_0AC15F78 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_22926252 (node) x1
+#   STU_7B9E8909 (node) x1
+#   STU_91EF24A9 (node) x1

@@ -1,0 +1,83 @@
+# build 1.74.0.0.104319: 11 nodes (4 States), 2 entries, 11 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000b52
+# inlined shared nodes (printed at each use site instead of a def): SetVar_2, SetVar_8
+# names (replace): 3 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[5055] (set x3), shared_var[1359] (set x3)
+#   placeholders: 8 unrecovered (6 classes; 5 configvar, 3 node)
+#   shared_var[1359]: 3 writes at lines 19, 25, 32; 6 reads at lines 20, 57, 58, 75
+#   var[5054]: 8 reads at lines 21, 28, 35, 58
+#   var[5055]: 3 writes at lines 21, 28, 35; 4 reads at lines 21, 28, 35, 58
+#   var[1149]: 1 write at line 49; 2 reads at lines 57, 58
+#   var[2797]: 2 reads at lines 18, 19
+
+on_entry(context=unset, rid=3):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: var[2797], var[5054], var[5055], shared_var[1359]  writes: var[5055], shared_var[1359]
+    # + unimplemented nodes may touch others
+    if var[2797] != 0.0:  # client-only
+        set_var(shared_var[1359], unimplemented STU_B3E67A36(m_9C7BD8B8=var[2797]))  # client-only
+        if unimplemented STU_E72F6348(m_entity=shared_var[1359]):  # client-only
+            set_var(var[5055], var[5054] + (var[5055] - var[5054]) * 2.0)  # client-only
+            begin(STU_96333BBE_1)
+        else:
+            set_var(
+                shared_var[1359],
+                unimplemented STU_B3E67A36(m_9C7BD8B8=STU_357DABBB(0x0D60000000000015)),
+            )  # client-only
+            set_var(var[5055], var[5054] + (var[5055] - var[5054]) * 2.0)  # client-only
+            begin(STU_96333BBE_1)
+    else:
+        set_var(
+            shared_var[1359],
+            unimplemented STU_B3E67A36(m_9C7BD8B8=STU_357DABBB(0x0D60000000000015)),
+        )  # client-only
+        set_var(var[5055], var[5054] + (var[5055] - var[5054]) * 2.0)  # client-only
+        begin(STU_96333BBE_1)
+
+on_entry(always, rid=9):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_10)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_0:  # STUStatescriptStateChaseVar, state 0 (client-only); from STU_96333BBE_1.m_subgraphPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: var[2439]  writes: var[1149]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=0, start[?]=1, m_out_Var=var[1149], duration[?]=var[2439])  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+# ---- begun from on_entry rid=3 ----
+
+state STU_96333BBE_1:  # STU_96333BBE, state 1 (client-only); from SetVar_8.m_outPlug
+    # reads: var[1149], var[5054], var[5055], shared_var[1359]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_96333BBE(
+        m_A7B12CE0=shared_var[1359] + vec3(0.0, 1.15, 0.0) + unimplemented STU_588FF314(m_1FDD7084=True, m_64E06CA4=vec3(0.0, 0.0, 0.0), m_entity=shared_var[1359]) + 0.3 * vec3(0.0, 1.0 - pow(var[1149], 3.0), 0.0),
+        m_9524A8D6=shared_var[1359] + unimplemented STU_588FF314(m_1FDD7084=True, m_64E06CA4=var[5054] + (var[5055] - var[5054]) * (1.0 - pow(var[1149], 6.0)), m_entity=shared_var[1359]) + vec3(0.0, 1.25, 0.0),
+        m_17A441C0=0,
+        m_EE23357E=0,
+    )
+    subgraph:
+        begin(ChaseVar_0)
+        begin(STU_75D1C308_7)
+
+state STU_75D1C308_7:  # STU_75D1C308, state 2 (client-only); from STU_96333BBE_1.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_75D1C308(m_D5E59638=0.0, m_30F5EB94=50, m_54613F6A=1)
+
+# ---- begun from on_entry rid=9 ----
+
+state STU_9D7BF987_10:  # STU_9D7BF987, state 3 (plain State at run time); from STU_571CC72E_9.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[shared_var[1359]]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_588FF314 (configvar) x2
+#   STU_B3E67A36 (configvar) x2
+#   STU_E72F6348 (configvar) x1
+#   STUStatescriptStateChaseVar (node) x1
+#   STU_75D1C308 (node) x1
+#   STU_96333BBE (node) x1

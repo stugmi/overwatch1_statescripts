@@ -1,0 +1,12 @@
+# build 1.74.0.0.104319: 2 nodes (0 States), 1 entries, 1 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000037
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x024000000000000F) (entry rid 0); sends GameMessage(0x024000000000012F)
+#             x1
+#   placeholders: none
+#   var[40]: 2 reads at lines 10, 12
+
+on_game_message(GameMessage(0x024000000000000F), rid=0, m_B60ABDA4=var[40]):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[40]  writes: none
+    send_game_message(GameMessage(0x024000000000012F), targets=var[40])

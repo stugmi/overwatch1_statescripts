@@ -1,0 +1,77 @@
+# build 1.74.0.0.104319: 8 nodes (5 States), 1 entries, 7 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000e46
+# names (replace): 7 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[940] (set x1), var[29221] (stack_contribution x1), shared_var[8197]
+#                      (stack_contribution x1)
+#   placeholders: 7 unrecovered (6 classes; 4 configvar, 3 node)
+#   shared_var[9467]: 2 reads at lines 24, 58
+
+on_entry(context=unset, rid=6):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[13784]  writes: var[940]
+    set_var(var[940], var[13784])
+    begin(BooleanSwitch_5)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- UI presenters (grouped by class) ----
+
+state UXPresenter_1:  # STUStatescriptStateUXPresenter, state 0; from BooleanSwitch_5.m_subgraphPlug; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: shared_var[9467]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        presenter_id[?]=STU_99CEEC04(m_25521BD9=STU_A1BAFA3E(m_id=asset(0x0D8000000000657F)), m_D44EB181=shared_var[9467]),
+        presenter_data[?]=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=unimplemented STU_5F94FAF9(), m_id=asset(0x0D8000000000653F)),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_E7579408(m_6C54C35C=UXDisplayText(0x0DE00000000059A7)),
+                        m_id=asset(0x0D800000000064F1),
+                    ),
+                ],
+                m_definition=asset(0x0A880000000002A2),
+            ),
+        ),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+
+# ---- begun from on_entry rid=6 ----
+
+state BooleanSwitch_5:  # STUStatescriptStateBooleanSwitch, state 4; from SetVar_7.m_outPlug
+    # reads: var[29323]  writes: none
+    subgraph:
+        begin(Stack_4)
+        begin(UXPresenter_1)
+    watch var[29323]:  # re-evaluated while the State runs
+        while true:
+            begin(STU_D30D15AC_2)
+
+state Stack_4:  # STUStatescriptStateStack, state 3; from BooleanSwitch_5.m_subgraphPlug
+    # reads: none  writes: var[29221]
+    stack_contribution(var[29221], value=True, priority=None)
+
+state STU_D30D15AC_2:  # STU_D30D15AC, state 1; from BooleanSwitch_5.m_trueSubgraphPlug
+    # reads: var[9474], shared_var[9467]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_D30D15AC(
+        m_45216F79=STU_99CEEC04(m_25521BD9=STU_A1BAFA3E(m_id=asset(0x0D8000000000655D)), m_D44EB181=shared_var[9467]),
+        m_EC32138E=unimplemented STU_B317E7B5(m_structBuilder[?]=STU_802D5580(m_definition=asset(0x0A880000000002A1))),
+        m_45017CEA=var[9474],
+    )  # names: class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+    subgraph:
+        begin(Stack_3)
+    plug m_8D6AF7DD[0]:  # m_id=asset(0x0D800000000003BC)
+        unimplemented STU_C43F9944(m_gameMessage=GameMessage(0x02400000000005CF))
+
+state Stack_3:  # STUStatescriptStateStack, state 2; from STU_D30D15AC_2.m_subgraphPlug
+    # reads: none  writes: shared_var[8197]
+    stack_contribution(shared_var[8197], value=UXDisplayText(0x0DE0000000005B1C), priority=None)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B317E7B5 (configvar) x2
+#   STU_5F94FAF9 (configvar) x1
+#   STU_E7579408 (configvar) x1
+#   STUStatescriptStateUXPresenter (node) x1
+#   STU_C43F9944 (node) x1
+#   STU_D30D15AC (node) x1

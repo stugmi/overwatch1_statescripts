@@ -1,0 +1,92 @@
+# build 1.74.0.0.104319: 15 nodes (4 States), 1 entries, 17 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c5a
+# inlined shared nodes (printed at each use site instead of a def): Condition_10
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[375] (set x1), var[1777] (stack_contribution x1)
+#   waits: Wait_3 after(1.5)
+#   messages: sends GameMessage(0x02400000000005D1) x1
+#   placeholders: 11 unrecovered (8 classes; 10 configvar, 1 node)
+#   var[536]: 1 write at line 72; 7 reads at lines 74, 75, 76, 77, 78, 81
+#   var[1777]: 1 write at line 64; 2 reads at lines 53, 75
+#   var[375]: 1 write at line 71; 2 reads at line 72
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[1777] = STU_BD6CC023(1)
+    var[7406] = Identifier(0x0D80000000000016)
+    var[8043] = unimplemented STUConfigVarEntityReference()
+    var[8044] = unimplemented STUConfigVarEntityReference()
+    var[8045] = unimplemented STUConfigVarEntityReference()
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted), server-only
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    if unimplemented STU_4A101787():  # server-only
+        begin(BooleanSwitch_1)
+    else:
+        begin(GameMessageEntry_12)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_1:  # STUStatescriptStateBooleanSwitch, state 0 (server-only); from Condition_11.m_truePlug
+    # reads: var[7406]  writes: none
+    # + unimplemented nodes may touch others
+    watch member(unimplemented STU_9622CAD6(), id(405)) == var[7406]:  # re-evaluated while the State runs
+        while true:
+            # owns (not begun here): Stack_14
+            begin(Wait_3)
+
+state GameMessageEntry_12:  # STUStatescriptStateGameMessageEntry, state 2 (server-only); from Condition_11.m_falsePlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000701))
+    provider_present:
+        # owns (not begun here): Stack_14
+        begin(Wait_3)
+
+state Wait_3:  # STUStatescriptStateWait, state 1 (server-only); from BooleanSwitch_1.m_trueSubgraphPlug, Wait_3.m_onFinishedPlug, GameMessageEntry_12.m_452862E6
+    # reads: var[1777]  writes: none
+    # + unimplemented nodes may touch others
+    after(1.5):
+        if (
+               var[1777] == STU_BD6CC023(4294967295)
+               and has_value(member(unimplemented STU_A3DEF368(), id(10795)))
+           ):  # server-only
+            begin(Stack_14)
+        else:
+            SetVar_6()
+        begin(Wait_3)
+
+state Stack_14:  # STUStatescriptStateStack, state 3 (server-only); from Condition_13.m_truePlug
+    # reads: none  writes: var[1777]
+    # + unimplemented nodes may touch others
+    stack_contribution(var[1777], value=member(unimplemented STU_A3DEF368(), id(10795)), priority=None)
+    begin:
+        SetVar_6()
+
+def SetVar_6():  # STUStatescriptActionSetVar; shared or nested too deep to inline; from Condition_13.m_falsePlug, Stack_14.m_onBeginPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[375], var[536], var[1777], var[8043], var[8044], var[8045]  writes: var[375], var[536]
+    # + unimplemented nodes may touch others
+    set_var(var[375], unimplemented STU_BD2D717B(m_B257A3A4=raw(01)))  # server-only
+    unimplemented STU_D137ECA0(m_D10618D1=len(var[375]), m_out_Var=var[536], m_value=var[375][param[12]]):  # server-only
+        plug m_08FBE734:
+            if unimplemented STU_E72F6348(m_entity=var[536]) and not member(var[536], id(478)):  # server-only
+                if unimplemented STU_65ABFCCC(m_target=var[536]) == var[1777]:  # server-only
+                    if not unimplemented STU_73E1C5F0(m_entity=var[8043], m_A8D12F28=var[536]):  # server-only
+                        if not unimplemented STU_73E1C5F0(m_entity=var[8044], m_A8D12F28=var[536]):  # server-only
+                            if not unimplemented STU_73E1C5F0(m_entity=var[8045], m_A8D12F28=var[536]):  # server-only
+                                send_game_message(
+                                    GameMessage(0x02400000000005D1),
+                                    targets=var[536],
+                                )  # server-only
+
+# placeholders in this graph (semantics not recovered):
+#   STU_73E1C5F0 (configvar) x3
+#   STU_A3DEF368 (configvar) x2
+#   STU_4A101787 (configvar) x1
+#   STU_65ABFCCC (configvar) x1
+#   STU_9622CAD6 (configvar) x1
+#   STU_BD2D717B (configvar) x1
+#   STU_E72F6348 (configvar) x1
+#   STU_D137ECA0 (node) x1

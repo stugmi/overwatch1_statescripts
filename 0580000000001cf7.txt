@@ -1,0 +1,75 @@
+# build 1.74.0.0.104319: 11 nodes (6 States), 2 entries, 9 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001cf7
+# names (replace): 3 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[19956] (set x1), var[20284] (set x1, stack_contribution x1), var[20817] (set x1)
+#   messages: receives GameMessage(0x0240000000000DA6) (entry rid 4)
+#   placeholders: 4 unrecovered (3 classes; 4 node)
+#   var[19956]: 2 writes at lines 20, 42; 1 read at line 33
+#   var[20284]: 2 writes at lines 21, 53; 1 read at line 62
+#   var[20817]: 2 writes at lines 19, 47; 1 read at line 70
+
+on_game_message(GameMessage(0x0240000000000DA6), rid=4):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    begin(Stack_1)
+
+on_entry(context=unset, rid=5):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[19956], var[20284], var[20817]
+    set_var(var[20817], 1)
+    set_var(var[19956], 1)
+    set_var(var[20284], False)
+    begin(BooleanSwitch_2)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_0:  # STUStatescriptStateDataFlowMapping, state 0; from BooleanSwitch_2.m_subgraphPlug
+    # reads: var[19956]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x0480000000000742),
+        m_answer=var[19956],
+        m_entity=STU_469A9B36(),
+    )
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_6:  # STUStatescriptStateChaseVar, state 3; from BooleanSwitch_2.m_trueSubgraphPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: none  writes: var[19956]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=0, m_out_Var=var[19956], rate=0.05)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+state ChaseVar_8:  # STUStatescriptStateChaseVar, state 5; from BooleanSwitch_2.m_trueSubgraphPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: none  writes: var[20817]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=0, m_out_Var=var[20817], rate=0.05)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+# ---- begun from on_game_message rid=4 ----
+
+state Stack_1:  # STUStatescriptStateStack, state 1; from GameMessage_4.m_outPlug
+    # reads: none  writes: var[20284]
+    stack_contribution(var[20284], value=True, priority=None)
+
+# ---- begun from on_entry rid=5 ----
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 2; from SetVar_3.m_outPlug
+    # reads: var[20284]  writes: none
+    subgraph:
+        begin(DataFlowMapping_0)
+        begin(STU_CB8D36F7_7)
+    watch var[20284]:  # re-evaluated while the State runs
+        while true:
+            begin(ChaseVar_6)
+            begin(ChaseVar_8)
+
+state STU_CB8D36F7_7:  # STU_CB8D36F7, state 4; from BooleanSwitch_2.m_subgraphPlug
+    # reads: var[20817]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_CB8D36F7(m_678F2EE1=var[20817])
+
+# placeholders in this graph (semantics not recovered):
+#   STUStatescriptStateChaseVar (node) x2
+#   STUStatescriptStateDataFlowMapping (node) x1
+#   STU_CB8D36F7 (node) x1

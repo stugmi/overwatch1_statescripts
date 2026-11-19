@@ -1,0 +1,52 @@
+# build 1.74.0.0.104319: 6 nodes (0 States), 3 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000228
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x024000000000000F) (entry rid 1); receives
+#             GameMessage(0x0240000000000FC1) (entry rid 2)
+#   placeholders: 7 unrecovered (6 classes; 4 node, 3 configvar)
+#   var[40]: 2 reads at lines 12, 16
+#   var[41]: 2 reads at lines 16, 30
+
+on_entry_unimplemented STU_BB4AC733(rid=0, m_B60ABDA4=var[40]):  # STU_BB4AC733, init=never
+    # reads: var[40]  writes: none
+    pass
+
+on_game_message(GameMessage(0x024000000000000F), rid=1, m_B60ABDA4=var[40], m_FF703F20=var[41]):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[40], var[41]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionPlayScript(
+        m_69F4B52C=unimplemented STU_9DB46B98(
+            m_6525E98B=STUStatescriptGraphWithOverrides(
+                m_1EB5A024=[
+                    STUStatescriptSchemaEntry(
+                        m_value=1.7 if member(unimplemented STU_A3DEF368(), id(13408)) else 0.8,
+                        m_0D09D2D9=asset(0x0D800000000000D7),
+                    ),
+                    STUStatescriptSchemaEntry(m_value=Identifier(0x0D80000000004EB6), m_0D09D2D9=asset(0x0D80000000006BD6)),
+                    STUStatescriptSchemaEntry(m_value=Loadout(0x0B90000000000060), m_0D09D2D9=asset(0x0D8000000000244C)),
+                    STUStatescriptSchemaEntry(m_value=Effect(0x03000000000005D9), m_0D09D2D9=asset(0x0D80000000006EDF)),
+                    STUStatescriptSchemaEntry(m_value=var[41], m_0D09D2D9=asset(0x0D80000000000029)),
+                ],
+                m_graph=asset(0x058000000000224E),
+            ),
+        ),
+        m_script=STU_105E1BCC(0),
+        m_targets=unimplemented STU_B5A0CAF0(),
+        m_AA4DE426=2,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_22926252()
+
+on_game_message(GameMessage(0x0240000000000FC1), rid=2):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_22926252()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_22926252 (node) x2
+#   STU_9DB46B98 (configvar) x1
+#   STU_A3DEF368 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STU_BB4AC733 (node) x1

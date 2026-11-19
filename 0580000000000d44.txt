@@ -1,0 +1,159 @@
+# build 1.74.0.0.104319: 26 nodes (0 States), 3 entries, 30 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000d44
+# inlined shared nodes (printed at each use site instead of a def): SetVar_8
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[11] (set x2), var[940] (set x4), var[2075] (set x4), var[2076] (set x4),
+#                      var[16364] (set x1), var[16365] (set x1)
+#   messages: receives GameMessage(0x02400000000006A6) (entry rid 0); receives
+#             GameMessage(0x02400000000006C6) (entry rid 1)
+#   placeholders: 16 unrecovered (7 classes; 9 node, 7 configvar)
+#   var[2075]: 6 writes at lines 23, 31, 38, 45, 114, 123; 5 reads at lines 47, 49, 50, 55, 69
+#   var[2076]: 6 writes at lines 23, 31, 39, 92, 115, 124; 5 reads at lines 94, 96, 97, 102, 117
+#   var[11]: 4 writes at lines 70, 71, 118, 119; 5 reads at lines 71, 73, 119, 121, 144
+#   var[940]: 4 writes at lines 57, 73, 104, 121; 4 reads at lines 60, 81, 107, 131
+#   var[38]: 5 reads at lines 64, 84, 111, 135, 148
+#   shared_var[11165]: 4 reads at lines 54, 57, 101, 104
+#   var[16365]: 1 write at line 117; 3 reads at lines 119, 121, 144
+#   var[16364]: 1 write at line 69; 2 reads at lines 71, 73
+
+on_game_message(
+    GameMessage(0x02400000000006A6),
+    rid=0,
+    m_params=[STU_EF930FD7(m_out_Var=var[2075]), STU_EF930FD7(m_out_Var=var[2076])],
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: var[2075], var[2076]
+    SetVar_3()
+
+on_game_message(
+    GameMessage(0x02400000000006C6),
+    rid=1,
+    m_params=[STU_EF930FD7(m_out_Var=var[2075]), STU_EF930FD7(m_out_Var=var[2076])],
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: var[2075], var[2076]
+    SetVar_3()
+
+on_entry(context=unset, rid=10):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[2075], var[2076]
+    set_var(var[2075], 99)
+    set_var(var[2076], 99)
+
+def SetVar_3():  # STUStatescriptActionSetVar; shared or nested too deep to inline; from GameMessage_0.m_outPlug, GameMessage_1.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[11], var[38], var[940], var[2075], var[16364], shared_var[11165]  writes: var[11], var[940], var[2075], var[16364]
+    # + unimplemented nodes may touch others
+    set_var(
+        var[2075],
+        min(
+            var[2075],
+            unimplemented STU_D289FA32(m_team=STU_BD6CC023(0)) - unimplemented STU_A90795E2(m_6CE7A900=STU_BD6CC023(0)),
+        ) if var[2075] >= 0.0 else max(
+            unimplemented STU_D289FA32(m_team=STU_BD6CC023(0)) - unimplemented STU_A90795E2(m_6CE7A900=STU_BD6CC023(0)) + var[2075],
+            0.0,
+        ),
+    )
+    if shared_var[11165]:
+        unimplemented STU_D137ECA0(m_D10618D1=var[2075]):
+            plug m_08FBE734:
+                set_var(var[940], shared_var[11165] or Hero(0x02E0000000000002))
+                unimplemented STUStatescriptActionCreateEntity(
+                    m_3EBF988B=STU_BD6CC023(0),
+                    m_A1A715A6=var[940],
+                    m_F8E56B94=True,
+                    m_A3A50DF2=True,
+                    m_DE3B4F01=Identifier(0x0D80000000001960),
+                    m_E95B313B=var[38],
+                )
+                PlayScript_25()
+        SetVar_6()
+    else:
+        set_var(var[16364], unimplemented STU_DAB87500(m_53F11705=var[2075]))
+        set_var(var[11], -1)
+        unimplemented STU_D137ECA0(m_D10618D1=len(var[16364]), m_out_Var=var[11], m_value=var[11] + 1.0):
+            plug m_08FBE734:
+                set_var(var[940], var[16364][var[11]])
+                CreateEntity_13()
+        SetVar_6()
+
+def PlayScript_25():  # STUStatescriptActionPlayScript; shared or nested too deep to inline; from CreateEntity_2.m_outPlug, CreateEntity_5.m_outPlug, CreateEntity_13.m_outPlug, CreateEntity_19.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[38], var[940]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionPlayScript(
+        m_params=[STU_814D595E(m_value=var[940], m_B5051BCE=asset(0x0A4000000000005D))],
+        m_69F4B52C=unimplemented STU_9DB46B98(),
+        m_script=STU_105E1BCC(0x058000000000298B),
+        m_targets=var[38],
+        m_AA4DE426=3,
+    )
+
+def SetVar_6():  # STUStatescriptActionSetVar; shared or nested too deep to inline; from STU_D137ECA0_4.m_outPlug, STU_D137ECA0_14.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[11], var[38], var[940], var[2076], var[16365], shared_var[11165]  writes: var[11], var[940], var[2075], var[2076], var[16365]
+    # + unimplemented nodes may touch others
+    set_var(
+        var[2076],
+        min(
+            var[2076],
+            unimplemented STU_D289FA32(m_team=STU_BD6CC023(1)) - unimplemented STU_A90795E2(m_6CE7A900=STU_BD6CC023(1)),
+        ) if var[2076] >= 0.0 else max(
+            unimplemented STU_D289FA32(m_team=STU_BD6CC023(1)) - unimplemented STU_A90795E2(m_6CE7A900=STU_BD6CC023(1)) + var[2076],
+            0.0,
+        ),
+    )
+    if shared_var[11165]:
+        unimplemented STU_D137ECA0(m_D10618D1=var[2076]):
+            plug m_08FBE734:
+                set_var(var[940], shared_var[11165] or Hero(0x02E0000000000002))
+                unimplemented STUStatescriptActionCreateEntity(
+                    m_3EBF988B=STU_BD6CC023(1),
+                    m_A1A715A6=var[940],
+                    m_F8E56B94=True,
+                    m_A3A50DF2=True,
+                    m_DE3B4F01=Identifier(0x0D80000000001960),
+                    m_E95B313B=var[38],
+                )
+                PlayScript_25()
+        set_var(var[2075], 99)
+        set_var(var[2076], 99)
+    else:
+        set_var(var[16365], unimplemented STU_DAB87500(m_53F11705=var[2076]))
+        set_var(var[11], -1)
+        unimplemented STU_D137ECA0(m_D10618D1=len(var[16365]), m_out_Var=var[11], m_value=var[11] + 1.0):
+            plug m_08FBE734:
+                set_var(var[940], var[16365][var[11]])
+                CreateEntity_19()
+        set_var(var[2075], 99)
+        set_var(var[2076], 99)
+
+def CreateEntity_13():  # STUStatescriptActionCreateEntity; shared or nested too deep to inline; from SetVar_21.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[38], var[940]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionCreateEntity(
+        m_3EBF988B=STU_BD6CC023(0),
+        m_A1A715A6=var[940],
+        m_F8E56B94=True,
+        m_A3A50DF2=True,
+        m_DE3B4F01=Identifier(0x0D80000000001960),
+        m_E95B313B=var[38],
+    )
+    PlayScript_25()
+
+def CreateEntity_19():  # STUStatescriptActionCreateEntity; shared or nested too deep to inline; from SetVar_24.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[11], var[38], var[16365]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionCreateEntity(
+        m_3EBF988B=STU_BD6CC023(1),
+        m_A1A715A6=var[16365][var[11]],
+        m_F8E56B94=True,
+        m_A3A50DF2=True,
+        m_DE3B4F01=Identifier(0x0D80000000001960),
+        m_E95B313B=var[38],
+    )
+    PlayScript_25()
+
+# placeholders in this graph (semantics not recovered):
+#   STUStatescriptActionCreateEntity (node) x4
+#   STU_D137ECA0 (node) x4
+#   STU_A90795E2 (configvar) x2
+#   STU_D289FA32 (configvar) x2
+#   STU_DAB87500 (configvar) x2
+#   STU_9DB46B98 (configvar) x1
+#   STUStatescriptActionPlayScript (node) x1

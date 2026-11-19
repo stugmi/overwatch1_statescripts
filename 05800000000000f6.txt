@@ -1,0 +1,85 @@
+# build 1.74.0.0.104319: 12 nodes (5 States), 4 entries, 8 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000000f6
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[1926] (set x2)
+#   messages: receives GameMessage(0x0240000000000071) (entry rid 1); receives
+#             GameMessage(0x0240000000000656) (entry rid 7)
+#   placeholders: 6 unrecovered (3 classes; 3 configvar, 3 node)
+#   var[2168]: 4 reads at lines 60, 61, 64, 65
+#   shared_var[1926]: 2 writes at lines 27, 35; 1 read at line 43
+#   var[2054]: 1 write at line 23; 1 read at line 26
+#   var[2167]: 2 reads at lines 61, 65
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[2167] = False
+    var[2168] = False
+    var[2166] = 0
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_9)
+
+on_game_message(GameMessage(0x0240000000000071), rid=1)(var[2054] <- param 0x0A40000000000055):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[2054], var[2166]  writes: var[2054], shared_var[1926]
+    if var[2054] == var[2166]:
+        set_var(shared_var[1926], True)
+
+on_entry(context=unset, rid=5):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(BooleanSwitch_4)
+
+on_game_message(GameMessage(0x0240000000000656), rid=7):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: shared_var[1926]
+    set_var(shared_var[1926], False)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_9:  # STUStatescriptStateBooleanSwitch, state 2; from Entry_0.m_outPlug
+    # reads: shared_var[1926]  writes: none
+    watch shared_var[1926]:  # re-evaluated while the State runs
+        while true:
+            begin(STU_33A46033_10)
+        while false:
+            begin(STU_33A46033_11)
+
+state STU_33A46033_10:  # STU_33A46033, state 3; from BooleanSwitch_9.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(m_381879C1=True, m_7E42F868=True, m_DFD8E2EA=False, m_D82DB14B=True)
+
+state STU_33A46033_11:  # STU_33A46033, state 4; from BooleanSwitch_9.m_falseSubgraphPlug
+    # reads: var[2167], var[2168]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(
+        m_381879C1=(
+            unimplemented STU_4E59CD2E() == STU_BD6CC023(0)
+            or var[2168] and unimplemented STU_4E59CD2E() == STU_BD6CC023(1)
+        ) if var[2167] else var[2168] and unimplemented STU_4E59CD2E() == STU_BD6CC023(1),
+        m_7E42F868=(
+            unimplemented STU_4E59CD2E() == STU_BD6CC023(0)
+            or var[2168] and unimplemented STU_4E59CD2E() == STU_BD6CC023(1)
+        ) if var[2167] else var[2168] and unimplemented STU_4E59CD2E() == STU_BD6CC023(1),
+    )
+
+# ---- begun from on_entry rid=5 ----
+
+state BooleanSwitch_4:  # STUStatescriptStateBooleanSwitch, state 1 (client-only); from Entry_5.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch member(unimplemented STU_8985E00A(), id(2438)):  # re-evaluated while the State runs
+        while true:
+            begin(STU_33A46033_3)
+
+state STU_33A46033_3:  # STU_33A46033, state 0 (client-only); from BooleanSwitch_4.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(m_381879C1=True, m_7E42F868=True)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_33A46033 (node) x3
+#   STU_4E59CD2E (configvar) x2
+#   STU_8985E00A (configvar) x1

@@ -1,0 +1,48 @@
+# build 1.74.0.0.104319: 7 nodes (3 States), 2 entries, 6 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001e89
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x0240000000000EE1) (entry rid 0)
+#   placeholders: 4 unrecovered (4 classes; 2 configvar, 2 node)
+
+on_game_message(GameMessage(0x0240000000000EE1), rid=0):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    abort(State_5)
+
+on_entry(context=unset, rid=2):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    begin(State_5)
+    unimplemented STU_1E93FE1F()
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_game_message rid=0 ----
+
+state State_5:  # STUStatescriptState, state 1 (plain State at run time); from GameMessage_0.m_outPlug, Entry_2.m_outPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(STU_BD02E168_6)
+
+state STU_BD02E168_6:  # STU_BD02E168, state 2; from State_5.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_BD02E168()
+    plug m_5B10D01F:
+        if unimplemented STU_7FC33EF6() or unimplemented STU_12DDFABC():  # client-only
+            begin(STU_38EE1100_3)
+
+state STU_38EE1100_3:  # STU_38EE1100, state 0 (client-only); from Condition_4.m_truePlug
+    # reads: none  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=0, m_B5051BCE=asset(0x0A4000000000071A))],
+        m_gameMessage=GameMessage(0x0240000000000D06),
+        m_priority=STU_8A491388(0x0C40000000000003),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_12DDFABC (configvar) x1
+#   STU_7FC33EF6 (configvar) x1
+#   STU_1E93FE1F (node) x1
+#   STU_BD02E168 (node) x1

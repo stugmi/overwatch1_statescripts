@@ -1,0 +1,40 @@
+# build 1.74.0.0.104319: 5 nodes (0 States), 1 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001cca
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[7566] (set x1)
+#   messages: sends GameMessage(0x0240000000000DCF) x1
+#   placeholders: 4 unrecovered (4 classes; 2 configvar, 2 node)
+#   var[18739]: 6 reads at lines 14, 18, 22, 23, 24, 25
+#   var[7566]: 1 write at line 14; 2 reads at lines 17, 31
+
+on_entry(context=unset, rid=2):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[7566], var[18739], var[19467], var[22213]  writes: var[7566]
+    # + unimplemented nodes may touch others
+    set_var(var[7566], [unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0])])
+    send_game_message(
+        GameMessage(0x0240000000000DCF),
+        targets=var[7566],
+        params=[STU_814D595E(m_value=var[18739][1.0], m_B5051BCE=asset(0x0A4000000000075F))],
+    )
+    unimplemented STUStatescriptActionPlayScript(
+        m_params=[
+            STU_814D595E(m_value=var[18739][1.0], m_B5051BCE=asset(0x0A4000000000075F)),
+            STU_814D595E(m_value=var[18739][3.0], m_B5051BCE=asset(0x0A4000000000017E)),
+            STU_814D595E(m_value=var[18739][2.0], m_B5051BCE=asset(0x0A4000000000008E)),
+            STU_814D595E(m_value=var[18739][4.0], m_B5051BCE=asset(0x0A4000000000076C)),
+            STU_814D595E(m_value=var[22213], m_B5051BCE=asset(0x0A400000000007CF)),
+            STU_814D595E(m_value=var[19467], m_B5051BCE=asset(0x0A4000000000005C)),
+        ],
+        m_69F4B52C=unimplemented STU_9DB46B98(),
+        m_script=STU_105E1BCC(0x0580000000001CD0),
+        m_targets=var[7566],
+        m_AA4DE426=1,
+    )
+    unimplemented STU_1E93FE1F()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_77B0987E (configvar) x1
+#   STU_9DB46B98 (configvar) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STU_1E93FE1F (node) x1

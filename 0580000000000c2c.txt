@@ -1,0 +1,90 @@
+# build 1.74.0.0.104319: 9 nodes (4 States), 1 entries, 8 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c2c
+# names (replace): 4 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[61] (set x1)
+#   messages: sends GameMessage(0x02400000000011E8) x1
+#   placeholders: 8 unrecovered (7 classes; 5 configvar, 3 node)
+#   var[375]: 3 reads at lines 50, 69, 79
+#   var[61]: 2 writes at lines 31, 71; 1 read at line 37
+#   var[7868]: 2 reads at lines 72, 74
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[422] = 1
+    var[472] = 0
+    var[7868] = 0
+    var[6299] = STU_357DABBB(0x0D600000000002F7)
+    var[1777] = STU_BD6CC023(0)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted), server-only
+    # reads: none  writes: none
+    begin(BooleanSwitch_3)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_4:  # STUStatescriptStateChaseVar, state 3 (server-only); from BooleanSwitch_3.m_falseSubgraphPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: none  writes: var[61]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=0, m_out_Var=var[61], rate=1)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 2 (server-only); from Entry_0.m_outPlug
+    # reads: var[61]  writes: none
+    watch var[61] <= 0.0:  # re-evaluated while the State runs
+        while true:
+            begin(TrackTargets_1)
+        while false:
+            begin(ChaseVar_4)
+
+state TrackTargets_1:  # STUStatescriptStateTrackTargets, state 0 (server-only); from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: var[375], var[422], var[6299]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_A30B383E=360,
+        m_8DCA77B6=unimplemented STU_B5A0CAF0(),
+        m_radius=var[422],
+        m_8A2905A0=var[375],
+        m_filter=unimplemented STUConfigVarFilter(
+            m_84065FD1=1073741823,
+            m_8B2A4DF3=STU_357DABBB(0x0D6000000000099C),
+            m_B486603E=var[6299],
+            m_condition=unimplemented STU_73E1C5F0(
+                m_entity=unimplemented STU_B5A0CAF0(),
+                m_A8D12F28=unimplemented STU_FC99C77E(m_hardPoint=HardPoint(0x0DC0000000000004), m_entity=param[8]),
+            ),
+        ),
+        m_95FFC3C5=raw(00),
+        m_DD792FF0=raw(01000000),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(BooleanSwitch_2)
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 1 (server-only); from TrackTargets_1.m_subgraphPlug
+    # reads: var[375], var[472], var[7868]  writes: var[61]
+    # + unimplemented nodes may touch others
+    watch len(var[375]) > 0.0:  # re-evaluated while the State runs
+        on change to true:
+            set_var(var[61], var[472])  # server-only
+            if var[7868] != 0.0:  # server-only
+                unimplemented STU_57692020(
+                    m_params=[STU_814D595E(m_value=var[7868], m_B5051BCE=asset(0x0A40000000000055))],
+                    m_gameMessage=GameMessage(0x0240000000000071),
+                )  # server-only
+            send_game_message(
+                GameMessage(0x02400000000011E8),
+                targets=var[375],
+                params=[STU_814D595E(m_value=var[1777], m_B5051BCE=asset(0x0A4000000000008D))],
+            )  # server-only
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x2
+#   STUConfigVarFilter (configvar) x1
+#   STU_73E1C5F0 (configvar) x1
+#   STU_FC99C77E (configvar) x1
+#   STUStatescriptStateChaseVar (node) x1
+#   STUStatescriptStateTrackTargets (node) x1
+#   STU_57692020 (node) x1

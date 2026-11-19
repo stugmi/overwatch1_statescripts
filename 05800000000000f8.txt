@@ -1,0 +1,62 @@
+# build 1.74.0.0.104319: 5 nodes (0 States), 1 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000000f8
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[1018] (set x1)
+#   messages: receives GameMessage(0x024000000000000F) (entry rid 0)
+#   placeholders: 12 unrecovered (7 classes; 9 configvar, 3 node)
+#   var[40]: 4 reads at lines 14, 35, 41, 51
+#   var[1018]: 1 write at line 19; 2 reads at lines 35, 45
+#   var[1023]: 1 write at line 14; 2 reads at lines 22, 26
+#   var[31060]: 1 write at line 14; 1 read at line 46
+
+on_game_message(GameMessage(0x024000000000000F), rid=0, m_B60ABDA4=var[40])(var[1023] <- param 0x0A40000000000066, var[31060] <- param 0x0A4000000000091D):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[40], var[1018], var[1023], var[31060]  writes: var[1018], var[1023], var[31060]
+    # + unimplemented nodes may touch others
+    set_var(
+        var[1018],
+        unimplemented STU_A4F22D6B(
+            m_25252423=dot(
+                unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()) - var[1023],
+                vec3(0.0, 0.0, 1.0),
+            ),
+            m_3DCE8650=dot(
+                unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()) - var[1023],
+                vec3(1.0, 0.0, 0.0),
+            ),
+            m_447C0E2E=0.1,
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_FF3471E9(
+        m_BC5E91CF=[
+            STU_4635C5E2(
+                m_9B7A63EA=normalize(var[1018]) * 10.0 * unimplemented STU_ABE57332(m_entity=unimplemented STU_B5A0CAF0()) * coalesce(member(var[40], id(10877)), 1),
+                m_CFEC5F76=1,
+            ),
+        ],
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_AFBB59E9(
+        m_C285CBB2=var[40],
+        m_0F99C09F=unimplemented STU_B5A0CAF0(),
+        m_96C81186=0.0,
+        m_60F4B15F=False,
+        m_direction=normalize(var[1018]),
+        m_loadout=var[31060],
+        m_BA94BAA0=2,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_545AB3B8(
+        m_target=unimplemented STU_B5A0CAF0(),
+        m_0B897113=var[40],
+        m_loadout=Loadout(0),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x5
+#   STU_71A87E92 (configvar) x2
+#   STU_A4F22D6B (configvar) x1
+#   STU_ABE57332 (configvar) x1
+#   STU_545AB3B8 (node) x1
+#   STU_AFBB59E9 (node) x1
+#   STU_FF3471E9 (node) x1

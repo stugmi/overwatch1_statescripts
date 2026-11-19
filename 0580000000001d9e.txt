@@ -1,0 +1,71 @@
+# build 1.74.0.0.104319: 10 nodes (4 States), 2 entries, 8 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001d9e
+# names (replace): 2 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[7121] (set x2)
+#   messages: receives var[15182] (entry rid 0); sends var[12323] x1
+#   placeholders: 5 unrecovered (5 classes; 3 configvar, 2 node)
+#   var[12323]: 3 reads at lines 57, 58, 64
+#   var[7121]: 2 writes at lines 20, 56; 1 read at line 33
+#   var[9497]: 3 reads at lines 41, 54, 58
+#   var[15182]: 2 reads at lines 18, 64
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[15182] = GameMessage(0)
+    var[12323] = GameMessage(0)
+
+on_game_message(var[15182], rid=0):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), client-only
+    # reads: none  writes: var[7121]
+    set_var(var[7121], False)  # client-only
+    begin(BooleanSwitch_2)
+
+on_entry(always, rid=8):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_9)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_game_message rid=0 ----
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 0 (client-only); from SetVar_5.m_outPlug
+    # reads: var[7121]  writes: none
+    watch not var[7121]:  # re-evaluated while the State runs
+        while true:
+            begin(STU_160F2578_4)
+
+state STU_160F2578_4:  # STU_160F2578, state 2 (client-only); from BooleanSwitch_2.m_trueSubgraphPlug
+    # reads: var[9497]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_160F2578(
+        m_4AEEE6A1=var[9497],
+        m_filter=unimplemented STUConfigVarFilter(
+            m_4EA686DB=2,
+            m_84065FD1=1048576,
+            m_condition=unimplemented STU_73E1C5F0(m_entity=unimplemented STU_B5A0CAF0(), m_A8D12F28=param[8]),
+        ),
+    )  # names: class STUConfigVarFilter=OwnEntityFilter [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(BooleanSwitch_3)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 1 (client-only); from STU_160F2578_4.m_subgraphPlug
+    # reads: var[9497], var[12323]  writes: var[7121]
+    # + unimplemented nodes may touch others
+    watch len(var[9497]) > 0.0:  # re-evaluated while the State runs
+        while true:
+            set_var(var[7121], True)  # client-only
+            unimplemented STU_1470EF32(m_gameMessage=var[12323])  # client-only
+            send_game_message(var[12323], targets=var[9497])  # client-only
+
+# ---- begun from on_entry rid=8 ----
+
+state STU_9D7BF987_9:  # STU_9D7BF987, state 3 (plain State at run time); from STU_571CC72E_8.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[var[15182], var[12323]]
+
+# placeholders in this graph (semantics not recovered):
+#   STUConfigVarFilter (configvar) x1
+#   STU_73E1C5F0 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_1470EF32 (node) x1
+#   STU_160F2578 (node) x1

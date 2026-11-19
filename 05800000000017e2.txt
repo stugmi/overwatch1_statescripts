@@ -1,0 +1,44 @@
+# build 1.74.0.0.104319: 6 nodes (3 States), 1 entries, 5 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000017e2
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_0 after(member(var[13784], id(7310)))
+#   placeholders: 4 unrecovered (4 classes; 4 node)
+#   var[13784]: 1 write at line 11; 2 reads at lines 14, 25
+
+on_entry_unimplemented STU_BB4AC733(
+    rid=4,
+    m_params=[STU_EF930FD7(m_out_Var=var[13784], m_B5051BCE=asset(0x0A4000000000066B))],
+):  # STU_BB4AC733, init=never
+    # reads: var[13784]  writes: var[13784]
+    if member(var[13784], id(7310)):
+        begin(Wait_0)
+    begin(STU_B9898052_5)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=4 ----
+
+state Wait_0:  # STUStatescriptStateWait, state 0; from Condition_3.m_truePlug
+    # reads: var[13784]  writes: none
+    # + unimplemented nodes may touch others
+    after(member(var[13784], id(7310))):
+        unimplemented STU_22926252()
+
+state STU_B9898052_5:  # STU_B9898052, state 2; from STU_BB4AC733_4.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_B9898052()
+    plug m_B6A27F9A:
+        begin(STU_434D6E7F_1)
+
+state STU_434D6E7F_1:  # STU_434D6E7F, state 1 (client-only); from STU_B9898052_5.m_B6A27F9A
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_434D6E7F()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_22926252 (node) x1
+#   STU_434D6E7F (node) x1
+#   STU_B9898052 (node) x1
+#   STU_BB4AC733 (node) x1

@@ -1,0 +1,51 @@
+# build 1.74.0.0.104319: 5 nodes (3 States), 1 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000fcb
+# names (replace): 2 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   placeholders: 5 unrecovered (5 classes; 3 configvar, 2 node)
+#   var[375]: 2 reads at lines 13, 30
+#   var[9497]: 2 reads at lines 27, 38
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[375]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_42578342(m_4AEEE6A1=var[375], m_9C7BD8B8=STU_357DABBB(0x0D60000000000408))
+    begin(TrackTargets_1)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state TrackTargets_1:  # STUStatescriptStateTrackTargets, state 0; from STU_42578342_4.m_outPlug
+    # reads: var[375], var[9497]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_8DCA77B6=unimplemented STU_B5A0CAF0(),
+        m_radius=1,
+        m_C39691D9=1,
+        m_8A2905A0=var[9497],
+        m_filter=unimplemented STUConfigVarFilter(
+            m_84065FD1=262144,
+            m_condition=unimplemented STU_73E1C5F0(m_entity=var[375][0.0], m_A8D12F28=param[8]),
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(BooleanSwitch_2)
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 1; from TrackTargets_1.m_subgraphPlug
+    # reads: var[9497]  writes: none
+    watch len(var[9497]) > 0.0:  # re-evaluated while the State runs
+        while true:
+            begin(STU_38EE1100_3)
+
+state STU_38EE1100_3:  # STU_38EE1100, state 2; from BooleanSwitch_2.m_trueSubgraphPlug
+    # reads: none  writes: none
+    publish_game_message(m_gameMessage=GameMessage(0x0240000000000834), m_target=STU_1D719351())
+
+# placeholders in this graph (semantics not recovered):
+#   STUConfigVarFilter (configvar) x1
+#   STU_73E1C5F0 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STUStatescriptStateTrackTargets (node) x1
+#   STU_42578342 (node) x1

@@ -1,0 +1,138 @@
+# build 1.74.0.0.104319: 18 nodes (14 States), 1 entries, 17 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000d03
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_6 after(7.3); Wait_12 after(0.98); Wait_17 after(2)
+#   messages: sends GameMessage(0x0240000000000067) x1; sends GameMessage(0x024000000000006B) x1
+#   placeholders: 20 unrecovered (8 classes; 13 configvar, 7 node)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(Wait_6)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state Wait_6:  # STUStatescriptStateWait, state 5; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(STU_33A46033_2)
+    after(7.3):
+        begin(Wait_12)
+
+state STU_33A46033_2:  # STU_33A46033, state 1; from Wait_6.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(m_7E42F868=True)
+    subgraph:
+        begin(STU_9028E035_1)
+
+state Wait_12:  # STUStatescriptStateWait, state 10; from Wait_6.m_onFinishedPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    begin:
+        send_game_message(GameMessage(0x0240000000000067), targets=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        send_game_message(
+            GameMessage(0x024000000000006B),
+            targets=unimplemented STU_B5A0CAF0(),
+            params=[STU_814D595E(), STU_814D595E(m_value=var[40], m_B5051BCE=asset(0x0A40000000000008))],
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(STU_316CFEF2_11)
+    after(0.98):
+        begin(Wait_17)
+
+state STU_9028E035_1:  # STU_9028E035, state 0; from STU_33A46033_2.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_9028E035()
+    subgraph:
+        begin(STU_F08E1453_3)
+
+state STU_316CFEF2_11:  # STU_316CFEF2, state 9; from Wait_12.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_316CFEF2(
+        m_BC5E91CF=[
+            STU_D8CC6B10(m_9B7A63EA=0, m_A9561CA0=19, m_priority=99),
+            STU_D8CC6B10(m_9B7A63EA=0, m_A9561CA0=18, m_priority=99),
+            STU_56DEE1BB(m_9B7A63EA=0, m_A9561CA0=17, m_priority=99),
+            STU_D8CC6B10(m_9B7A63EA=0, m_A9561CA0=21, m_priority=99),
+            STU_56DEE1BB(m_9B7A63EA=0, m_A9561CA0=20, m_priority=99),
+        ],
+    )
+    subgraph:
+        begin(STU_93088159_10)
+
+state Wait_17:  # STUStatescriptStateWait, state 13; from Wait_12.m_onFinishedPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    after(2):
+        unimplemented STU_22926252()
+
+state STU_F08E1453_3:  # STU_F08E1453, state 2 (plain State at run time); from STU_9028E035_1.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_64C3E07E=unimplemented STU_B5A0CAF0(); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(STU_43994F1B_5)
+
+state STU_93088159_10:  # STU_93088159, state 8 (plain State at run time); from STU_316CFEF2_11.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_14EDDDA7=unimplemented STU_DB742151(m_entity=unimplemented STU_B5A0CAF0()), m_0134037F=True; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(STU_14611C1B_15)
+
+state STU_43994F1B_5:  # STU_43994F1B, state 4; from STU_F08E1453_3.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_43994F1B(m_4A5CA514=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(STU_93B8758C_4)
+
+state STU_14611C1B_15:  # STU_14611C1B, state 11 (plain State at run time); from STU_93088159_10.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_14EDDDA7=unimplemented STU_DB742151(m_entity=unimplemented STU_B5A0CAF0()); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_93B8758C_4:  # STU_93B8758C, state 3; from STU_43994F1B_5.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_93B8758C(m_4A5CA514=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(STU_316CFEF2_9)
+
+state STU_316CFEF2_9:  # STU_316CFEF2, state 7; from STU_93B8758C_4.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_316CFEF2(
+        m_BC5E91CF=[
+            STU_D8CC6B10(m_9B7A63EA=0, m_A9561CA0=19, m_priority=99),
+            STU_D8CC6B10(m_9B7A63EA=0, m_A9561CA0=18, m_priority=99),
+            STU_56DEE1BB(m_9B7A63EA=0, m_A9561CA0=17, m_priority=99),
+            STU_D8CC6B10(m_9B7A63EA=0, m_A9561CA0=21, m_priority=99),
+            STU_56DEE1BB(m_9B7A63EA=0, m_A9561CA0=20, m_priority=99),
+        ],
+    )
+    subgraph:
+        begin(STU_93088159_8)
+
+state STU_93088159_8:  # STU_93088159, state 6 (plain State at run time); from STU_316CFEF2_9.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_14EDDDA7=unimplemented STU_DB742151(m_entity=unimplemented STU_B5A0CAF0()), m_0134037F=True; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(STU_14611C1B_16)
+
+state STU_14611C1B_16:  # STU_14611C1B, state 12 (plain State at run time); from STU_93088159_8.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_14EDDDA7=unimplemented STU_DB742151(m_entity=unimplemented STU_B5A0CAF0()); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x9
+#   STU_DB742151 (configvar) x4
+#   STU_316CFEF2 (node) x2
+#   STU_22926252 (node) x1
+#   STU_33A46033 (node) x1
+#   STU_43994F1B (node) x1
+#   STU_9028E035 (node) x1
+#   STU_93B8758C (node) x1

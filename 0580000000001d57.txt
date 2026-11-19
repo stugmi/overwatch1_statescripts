@@ -1,0 +1,46 @@
+# build 1.74.0.0.104319: 7 nodes (0 States), 1 entries, 7 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001d57
+# inlined shared nodes (printed at each use site instead of a def): STU_1E93FE1F_0
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[1646] (set x1), var[7566] (set x1), var[8449] (set x1)
+#   messages: sends GameMessage(0x0240000000000E14) x1
+#   placeholders: 6 unrecovered (5 classes; 5 configvar, 1 node)
+#   var[8449]: 1 write at line 18; 4 reads at lines 21, 24, 30, 35
+#   var[1646]: 1 write at line 19; 1 read at line 26
+#   var[18739]: 2 reads at lines 17, 18
+#   var[7566]: 1 write at line 17; 1 read at line 34
+
+on_entry(context=unset, rid=5):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[1646], var[7566], var[8449], var[18739]  writes: var[1646], var[7566], var[8449]
+    # + unimplemented nodes may touch others
+    set_var(var[7566], [unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0])])
+    set_var(var[8449], [unimplemented STU_77B0987E(m_35547D6E=var[18739][1.0])])
+    set_var(var[1646], unimplemented STU_AFC074B3())
+    if (
+           len(var[8449]) > 0.0
+           and len(
+               unimplemented STU_951CAB4C(
+                   m_814F8EC3=var[8449],
+                   m_condition=(
+                       contains(var[1646], key=None, value=param[142])
+                       and unimplemented STU_94AED9DC(m_hero=param[142])
+                   ),
+               ),
+           ) == len(var[8449])
+       ):
+        send_game_message(
+            GameMessage(0x0240000000000E14),
+            targets=var[7566],
+            params=[STU_814D595E(m_value=var[8449], m_B5051BCE=asset(0x0A400000000003BE))],
+        )
+        unimplemented STU_1E93FE1F()
+    else:
+        unimplemented STU_1E93FE1F()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_77B0987E (configvar) x2
+#   STU_94AED9DC (configvar) x1
+#   STU_951CAB4C (configvar) x1
+#   STU_AFC074B3 (configvar) x1
+#   STU_1E93FE1F (node) x1

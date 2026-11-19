@@ -1,0 +1,28 @@
+# build 1.74.0.0.104319: 2 nodes (0 States), 1 entries, 1 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c7d (shared by 32 heroes)
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x024000000000064A) (entry rid 1)
+#   placeholders: 2 unrecovered (2 classes; 1 configvar, 1 node)
+
+on_game_message(GameMessage(0x024000000000064A), rid=1)(
+    var[7407] <- param 0x0A4000000000035F,
+    var[392] <- param 0x0A40000000000415,
+    var[499] <- param 0x0A4000000000002A,
+    var[7462] <- param 0x0A4000000000036A,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[392], var[499], var[7407], var[7462]
+    # + unimplemented nodes may touch others
+    unimplemented STU_008D30B1(
+        m_616BEF5B=asset(0x0D80000000002041),
+        m_amount=50,
+        m_targets=unimplemented STU_B5A0CAF0(),
+        m_1AC61055=0.0,
+        m_DE3C867C=None,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_008D30B1 (node) x1

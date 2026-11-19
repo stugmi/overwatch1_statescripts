@@ -1,0 +1,53 @@
+# build 1.74.0.0.104319: 4 nodes (3 States), 1 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000011c8 (shared by 32 heroes)
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   placeholders: 4 unrecovered (3 classes; 4 configvar)
+#   var[1777]: 1 write at line 31; 2 reads at lines 22, 23
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_3)
+    begin(GameMessageEntry_2)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 2; from Entry_0.m_outPlug
+    # reads: var[1777]  writes: none
+    # + unimplemented nodes may touch others
+    watch (
+               var[1777] == -1.0
+               or unimplemented STU_65ABFCCC(m_target=unimplemented STU_B5A0CAF0()) == var[1777]
+           ):  # re-evaluated while the State runs; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        while true:
+            begin(STU_38EE1100_1)
+
+state GameMessageEntry_2:  # STUStatescriptStateGameMessageEntry, state 1; from Entry_0.m_outPlug
+    # reads: none  writes: var[1777]
+    subscribe_game_message(
+        m_params=[STU_EF930FD7(m_out_Var=var[1777], m_B5051BCE=asset(0x0A4000000000008D))],
+        m_gameMessage=GameMessage(0x02400000000008FD),
+    )
+
+state STU_38EE1100_1:  # STU_38EE1100, state 0; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    publish_game_message(
+        m_params=[
+            STU_814D595E(
+                m_value=unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()),
+                m_B5051BCE=asset(0x0A400000000004E7),
+            ),
+        ],
+        m_gameMessage=GameMessage(0x02400000000008EE),
+        m_target=STU_1D719351(),
+        m_67FD6A60=1,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x2
+#   STU_65ABFCCC (configvar) x1
+#   STU_71A87E92 (configvar) x1

@@ -1,0 +1,129 @@
+# build 1.74.0.0.104319: 11 nodes (7 States), 1 entries, 12 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001fc8
+# inlined shared nodes (printed at each use site instead of a def): STU_22926252_5
+# names (replace): 10 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[22752] (stack_contribution x1), shared_var[22757] (set x1, stack_contribution x1)
+#   waits: Wait_8 after(member(var[16371], id(22739)))
+#   placeholders: 7 unrecovered (7 classes; 5 node, 2 configvar)
+#   var[22756]: 1 write at line 33; 5 reads at lines 84, 86, 90, 105, 117
+#   shared_var[22757]: 2 writes at lines 84, 86; 3 reads at lines 90, 105, 117
+#   var[16371]: 1 write at line 26; 4 reads at lines 97, 105, 116, 117
+#   shared_var[22777]: 1 write at line 34; 2 reads at lines 33, 34
+#   var[11251]: 1 write at line 75; 1 read at line 116
+#   var[215]: 1 write at line 25; 1 read at line 75
+#   var[22751]: 1 write at line 22; 1 read at line 54
+#   var[22752]: 1 write at line 114; 1 read at line 60
+
+on_entry_unimplemented STU_BB4AC733(
+    rid=1,
+    m_params=[
+        STU_EF930FD7(m_out_Var=var[22751], m_B5051BCE=asset(0x0A400000000007F0)),
+        STU_EF930FD7(m_out_Var=var[2464], m_B5051BCE=asset(0x0A400000000004E9)),
+        STU_EF930FD7(m_out_Var=var[22753], m_B5051BCE=asset(0x0A400000000007F2)),
+        STU_EF930FD7(m_out_Var=var[215], m_B5051BCE=asset(0x0A4000000000002B)),
+        STU_EF930FD7(m_out_Var=var[16371], m_B5051BCE=asset(0x0A400000000007F4)),
+    ],
+):  # STU_BB4AC733, init=never
+    # reads: shared_var[22777]  writes: var[215], var[2464], var[16371], var[22751], var[22753], var[22756], shared_var[22777]
+    # + unimplemented nodes may touch others
+    unimplemented STU_12F5D52D(
+        m_143D4C5B=[
+            STU_8529C204(m_value=shared_var[22777], m_out_Var=var[22756]),
+            STU_8529C204(m_value=shared_var[22777] + 1.0, m_out_Var=shared_var[22777]),
+        ],
+    )
+    begin(Stack_6)
+    begin(BooleanSwitch_7)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- UI presenters (grouped by class) ----
+
+state UXPresenter_0:  # STUStatescriptStateUXPresenter, state 0; from ChaseVar_2.m_subgraphPlug; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: var[2464], var[22751], var[22752], var[22753], shared_var[22736]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        presenter_id[?]=STU_99CEEC04(m_25521BD9=STU_A1BAFA3E(m_id=asset(0x0D80000000004BFA)), m_D44EB181=shared_var[22736]),
+        presenter_data[?]=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(
+                        m_value=(
+                            var[22751]
+                            or unimplemented STU_BCD1C634(m_type=asset(0x0C88000000000034), m_id=asset(0x0D8000000000472E))
+                        ),
+                        m_id=asset(0x0D800000000058DF),
+                    ),
+                    STU_E870E3E8(m_value=var[2464], m_id=asset(0x0D800000000009A0)),
+                    STU_E870E3E8(m_value=var[22752], m_id=asset(0x0D800000000058E0)),
+                    STU_E870E3E8(m_value=var[22753], m_id=asset(0x0D800000000058E1)),
+                ],
+                m_definition=asset(0x0A88000000000158),
+            ),
+        ),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_B317E7B5=ConfigVarStructFromDefinition [proven], class STU_BCD1C634=ConfigVarIdentifierBuilder [proven]
+    subgraph:
+        begin(Stack_9)
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_2:  # STUStatescriptStateChaseVar, state 1; from BooleanSwitch_7.m_onTruePlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: var[215]  writes: var[11251]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=0, start[?]=var[215], m_out_Var=var[11251])  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    subgraph:
+        begin(UXPresenter_0)
+        begin(BooleanSwitch_3)
+
+# ---- begun from on_entry rid=1 ----
+
+state Stack_6:  # STUStatescriptStateStack, state 3; from STU_12F5D52D_4.m_outPlug, Wait_8.m_onEndPlug
+    # reads: var[22756]  writes: shared_var[22757]
+    stack_contribution(shared_var[22757], value=var[22756], priority=STU_8A491388(0x0C40000000000001))
+    begin:
+        set_var(shared_var[22757], var[22756])
+
+state BooleanSwitch_7:  # STUStatescriptStateBooleanSwitch, state 4; from STU_BB4AC733_1.m_outPlug
+    # reads: var[22756], shared_var[22757]  writes: none
+    watch var[22756] == shared_var[22757]:  # re-evaluated while the State runs
+        on change to true:
+            begin(ChaseVar_2)
+            begin(Wait_8)
+
+state Wait_8:  # STUStatescriptStateWait, state 5; from BooleanSwitch_7.m_onTruePlug
+    # reads: var[16371]  writes: none
+    after(member(var[16371], id(22739))):
+        pass
+    end:
+        abort(Stack_6)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 2; from ChaseVar_2.m_subgraphPlug
+    # reads: var[16371], var[22756], shared_var[22757]  writes: none
+    # + unimplemented nodes may touch others
+    watch shared_var[22757] - var[22756] >= member(var[16371], id(22738)):  # re-evaluated while the State runs
+        on change to true:
+            unimplemented STU_22926252()
+    end:
+        unimplemented STU_22926252()
+
+state Stack_9:  # STUStatescriptStateStack, state 6; from UXPresenter_0.m_subgraphPlug
+    # reads: var[11251], var[16371], var[22756], shared_var[22757]  writes: var[22752]
+    stack_contribution(
+        var[22752],
+        value=(
+            var[11251] <= member(var[16371], id(22741))
+            or shared_var[22757] - var[22756] + 1.0 >= member(var[16371], id(22738))
+        ),
+        priority=None,
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B317E7B5 (configvar) x1
+#   STU_BCD1C634 (configvar) x1
+#   STUStatescriptStateChaseVar (node) x1
+#   STUStatescriptStateUXPresenter (node) x1
+#   STU_12F5D52D (node) x1
+#   STU_22926252 (node) x1
+#   STU_BB4AC733 (node) x1

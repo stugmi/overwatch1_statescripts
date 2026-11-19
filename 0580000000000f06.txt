@@ -1,0 +1,19 @@
+# build 1.74.0.0.104319: 2 nodes (0 States), 1 entries, 1 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000f06
+# names (replace): 3 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x024000000000065C) (entry rid 0)
+#   placeholders: 2 unrecovered (2 classes; 1 configvar, 1 node)
+
+on_game_message(GameMessage(0x024000000000065C), rid=0):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionEffect(
+        m_effect=Effect(0x030000000000188E),
+        entity[?]=unimplemented STU_B5A0CAF0(),
+    )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x1
+#   STUStatescriptActionEffect (node) x1

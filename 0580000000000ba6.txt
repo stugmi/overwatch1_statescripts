@@ -1,0 +1,153 @@
+# build 1.74.0.0.104319: 20 nodes (4 States), 2 entries, 18 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000ba6
+# names (replace): 6 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[431] (set x1), var[501] (set x1), var[502] (set x1), var[634] (set x1), var[21709]
+#                      (set x2)
+#   waits: Wait_2 after(0.1); Wait_9 after(1)
+#   messages: receives GameMessage(0x024000000000059D) (entry rid 5); sends GameMessage(0x0240000000000E56)
+#             x1
+#   placeholders: 40 unrecovered (15 classes; 32 configvar, 8 node)
+#   var[502]: 1 write at line 24; 4 reads at lines 28, 55, 63, 103
+#   var[21709]: 2 writes at lines 36, 80; 2 reads at lines 85, 109
+#   var[431]: 1 write at line 26; 3 reads at lines 53, 61, 104
+#   var[501]: 1 write at line 25; 3 reads at lines 54, 62, 102
+#   shared_var[2171]: 3 reads at lines 77, 92, 114
+#   var[18779]: 2 reads at lines 110, 136
+#   var[634]: 1 write at line 23; 1 read at line 101
+
+on_game_message(GameMessage(0x024000000000059D), rid=5):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[433], var[502]  writes: var[431], var[501], var[502], var[634]
+    # + unimplemented nodes may touch others
+    set_var(var[634], unimplemented STU_2200A66D(m_entity=unimplemented STU_B5A0CAF0()))  # names: class STU_2200A66D=EntityDirection [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    set_var(var[502], -unimplemented STU_40AC5AE4(m_entity=unimplemented STU_B5A0CAF0()))  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    set_var(var[501], unimplemented STU_C8C4C20D(m_entity=unimplemented STU_B5A0CAF0()))  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    set_var(var[431], unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()))  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin(Wait_2)
+    unimplemented STU_9F3FE778(m_value=var[502])
+    unimplemented STU_9F3FE778(m_value=var[433])
+    begin(STU_33A46033_6)
+
+on_entry(context=unset, rid=7):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[21709]
+    # + unimplemented nodes may touch others
+    set_var(
+        var[21709],
+        unimplemented STU_F7262B36(
+            m_801B298F=unimplemented STU_2B2E2F6D(m_7BDB02D1=2, m_81A364DE=unimplemented STU_B5A0CAF0()),
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin(STU_85124386_18)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_game_message rid=5 ----
+
+state Wait_2:  # STUStatescriptStateWait, state 0; from SetVar_13.m_outPlug
+    # reads: var[431], var[501], var[502], var[634], var[18779], var[21709], shared_var[2171]  writes: var[21709]
+    # + unimplemented nodes may touch others
+    begin:
+        unimplemented STUStatescriptActionEffect(
+            m_effect=Effect(0x030000000000045C),
+            position[?]=var[431],
+            offset_x[?]=var[501],
+            offset_y[?]=var[502],
+            m_F6AB269D=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+            m_6A3C1510=raw(01),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        unimplemented STUStatescriptActionEffect(
+            m_effect=Effect(0x03000000000004EB),
+            position[?]=var[431],
+            offset_x[?]=var[501],
+            offset_y[?]=var[502],
+            m_F6AB269D=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    after(0.1):
+        pass
+    end:
+        unimplemented STU_B6E3C77D(
+            m_entityDefinition=STU_8556841E(0x04000000000002BA),
+            m_D749D7D8=unimplemented STU_DB742151(
+                m_entity=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+            ),
+            m_AA26E7DD=unimplemented STU_2B2E2F6D(m_7BDB02D1=1, m_81A364DE=unimplemented STU_B5A0CAF0()),
+            m_position=vec3(0.0, 0.0, 0.0),
+            m_CA734729=False,
+            m_B3019338=shared_var[2171],
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        set_var(
+            var[21709],
+            (
+                unimplemented STU_F7262B36(
+                    m_801B298F=unimplemented STU_2B2E2F6D(m_7BDB02D1=2, m_81A364DE=unimplemented STU_B5A0CAF0()),
+                )
+                or var[21709]
+            ),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        send_game_message(
+            GameMessage(0x0240000000000E56),
+            targets=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+            params=[
+                STU_814D595E(m_value=shared_var[2171], m_B5051BCE=asset(0x0A40000000000008)),
+                STU_814D595E(
+                    m_value=unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()),
+                    m_B5051BCE=asset(0x0A40000000000078),
+                ),
+            ],
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        unimplemented STUStatescriptActionPlayScript(
+            m_params=[
+                STU_814D595E(m_value=var[634], m_B5051BCE=asset(0x0A40000000000092)),
+                STU_814D595E(m_value=var[501], m_B5051BCE=asset(0x0A40000000000072)),
+                STU_814D595E(m_value=var[502], m_B5051BCE=asset(0x0A40000000000094)),
+                STU_814D595E(m_value=var[431], m_B5051BCE=asset(0x0A40000000000078)),
+                STU_814D595E(
+                    m_value=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+                    m_B5051BCE=asset(0x0A4000000000034F),
+                ),
+                STU_814D595E(m_value=var[21709], m_B5051BCE=asset(0x0A400000000007A9)),
+                STU_814D595E(m_value=var[18779], m_B5051BCE=asset(0x0A4000000000035F)),
+            ],
+            m_69F4B52C=unimplemented STU_9DB46B98(),
+            m_script=STU_105E1BCC(0x0580000000000132),
+            m_targets=shared_var[2171],
+            m_7ABA409C=raw(00),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        begin(Wait_9)
+
+state STU_33A46033_6:  # STU_33A46033, state 1; from GameMessage_5.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(m_381879C1=True, m_7E42F868=True)
+
+state Wait_9:  # STUStatescriptStateWait, state 2; from PlayScript_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    after(1):
+        pass
+    end:
+        unimplemented STU_523EE38D(m_entity=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=7 ----
+
+state STU_85124386_18:  # STU_85124386, state 3 (plain State at run time); from Entry_7.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_source=STU_111DA905(m_81A364DE=unimplemented STU_B5A0CAF0()), m_B049E822=var[18779]; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x15
+#   STU_2B2E2F6D (configvar) x8
+#   STU_71A87E92 (configvar) x2
+#   STU_F7262B36 (configvar) x2
+#   STUStatescriptActionEffect (node) x2
+#   STU_9F3FE778 (node) x2
+#   STU_2200A66D (configvar) x1
+#   STU_40AC5AE4 (configvar) x1
+#   STU_9DB46B98 (configvar) x1
+#   STU_C8C4C20D (configvar) x1
+#   STU_DB742151 (configvar) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STU_33A46033 (node) x1
+#   STU_523EE38D (node) x1
+#   STU_B6E3C77D (node) x1

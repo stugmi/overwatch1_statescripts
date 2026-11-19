@@ -1,0 +1,50 @@
+# build 1.74.0.0.104319: 5 nodes (4 States), 1 entries, 5 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000d96
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   placeholders: 4 unrecovered (2 classes; 2 configvar, 2 node)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_1)
+    begin(BooleanSwitch_3)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_1:  # STUStatescriptStateBooleanSwitch, state 0; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch GameMode(0x0230000000000008) == owner_scope(unimplemented STU_37F20D24(), scope=0):  # re-evaluated while the State runs
+        while true:
+            begin(STU_F5A99B2A_2)
+            begin(STU_F5A99B2A_4)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 2; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch GameMode(0x0230000000000059) == owner_scope(unimplemented STU_37F20D24(), scope=0):  # re-evaluated while the State runs
+        while true:
+            begin(STU_F5A99B2A_2)
+
+state STU_F5A99B2A_2:  # STU_F5A99B2A, state 1; from BooleanSwitch_1.m_trueSubgraphPlug, BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_F5A99B2A(
+        m_tips=[
+            STUTip(m_tip=asset(0x0DE000000000543D), m_A127B088=asset(0x0D80000000000D6A), m_priority=2),
+            STUTip(m_tip=asset(0x0DE000000000543E), m_A127B088=asset(0x0D80000000000D6A), m_priority=2),
+        ],
+    )
+
+state STU_F5A99B2A_4:  # STU_F5A99B2A, state 3; from BooleanSwitch_1.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_F5A99B2A(
+        m_tips=[STUTip(m_tip=asset(0x0DE000000000543C), m_A127B088=asset(0x0D80000000000D6A), m_priority=2)],
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_37F20D24 (configvar) x2
+#   STU_F5A99B2A (node) x2

@@ -1,0 +1,45 @@
+# build 1.74.0.0.104319: 7 nodes (0 States), 2 entries, 6 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000200
+# inlined shared nodes (printed at each use site instead of a def): Effect_2
+# names (replace): 3 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x0240000000000071) (entry rid 0); receives
+#             GameMessage(0x0240000000000017) (entry rid 5)
+#   placeholders: 4 unrecovered (3 classes; 3 node, 1 configvar)
+#   var[264]: 4 reads at lines 25, 29, 36, 40
+#   var[2054]: 1 write at line 18; 2 reads at lines 22, 23
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[390] = False
+    var[264] = Effect(0)
+    var[697] = 0
+
+on_game_message(GameMessage(0x0240000000000071), rid=0)(var[2054] <- param 0x0A40000000000055):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[264], var[697], var[2054]  writes: var[2054]
+    # + unimplemented nodes may touch others
+    unimplemented STU_9F3FE778(m_value=var[2054])
+    if var[2054] == var[697]:
+        unimplemented STUStatescriptActionEffect(
+            m_effect=var[264],
+            position[?]=unimplemented STU_B5A0CAF0(),
+            m_7A46FA0F=raw(01000000),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        unimplemented STU_9F3FE778(m_value=var[264])
+
+on_game_message(GameMessage(0x0240000000000017), rid=5, m_B60ABDA4=var[40]):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[40], var[264], var[390]  writes: none
+    # + unimplemented nodes may touch others
+    if var[390] == 1.0:
+        unimplemented STUStatescriptActionEffect(
+            m_effect=var[264],
+            position[?]=unimplemented STU_B5A0CAF0(),
+            m_7A46FA0F=raw(01000000),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        unimplemented STU_9F3FE778(m_value=var[264])
+
+# placeholders in this graph (semantics not recovered):
+#   STU_9F3FE778 (node) x2
+#   STU_B5A0CAF0 (configvar) x1
+#   STUStatescriptActionEffect (node) x1

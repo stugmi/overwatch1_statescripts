@@ -1,0 +1,1091 @@
+# build 1.74.0.0.104319: 166 nodes (41 States), 15 entries, 183 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c38
+# inlined shared nodes (printed at each use site instead of a def): Condition_2, SetVar_31, SetVar_32, SetVar_38, STU_6E5C5F66_40, SetVar_44, SetVar_45, SetVar_59, SetVar_105, SetVar_107, SetVar_125
+# names (replace): 8 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[2198] (set x10), var[7525] (set x10), var[7858] (set x15), var[7904]
+#                      (stack_contribution x1), var[7929] (set x2), var[8004] (set x1), var[8400] (set x2),
+#                      var[8401] (set x1), var[9901] (set x2), var[10357] (set x1), var[10510] (set x1),
+#                      var[10795] (stack_contribution x1), var[12234] (stack_contribution x1), var[12246]
+#                      (stack_contribution x1), var[12247] (stack_contribution x1), var[12278]
+#                      (stack_contribution x3), var[12279] (stack_contribution x3), var[13049]
+#                      (stack_contribution x1), shared_var[7918] (set x8), shared_var[7924] (set x3),
+#                      shared_var[7954] (set x3), shared_var[7955] (set x2), shared_var[8001] (set x8),
+#                      shared_var[8310] (set x1), shared_var[8342] (set x5), shared_var[8348] (set x1),
+#                      shared_var[9899] (set x14), shared_var[9900] (set x28), shared_var[9906] (set x15),
+#                      shared_var[10286] (stack_contribution x1), shared_var[12204] (stack_contribution x2)
+#   messages: receives GameMessage(0x0240000000000656) (entry rid 0); receives
+#             GameMessage(0x024000000000000B) (entry rid 11, 87); receives GameMessage(0x0240000000000066)
+#             (entry rid 15); receives GameMessage(0x0240000000000663) (entry rid 19); receives
+#             GameMessage(0x02400000000000CA) (entry rid 21); receives GameMessage(0x0240000000000045) (entry
+#             rid 29); receives GameMessage(0x024000000000002D) (entry rid 36); receives
+#             GameMessage(0x0240000000000052) (entry rid 104)
+#   placeholders: 42 unrecovered (17 classes; 29 configvar, 13 node)
+#   shared_var[8342]: 5 writes at lines 828, 1050, 1051, 1056, 1057; 56 reads at lines 52, 151, 188, 255, 342, 344 ...
+#   shared_var[7919]: 59 reads at lines 37, 50, 51, 53, 85, 92 ...
+#   shared_var[9906]: 15 writes at lines 59, 73, 142, 620, 641, 660 ...; 41 reads at lines 62, 63, 76, 77, 311, 371 ...
+#   shared_var[7918]: 8 writes at lines 50, 94, 100, 698, 718, 973 ...; 47 reads at lines 50, 53, 54, 68, 94, 100 ...
+#   shared_var[9900]: 28 writes at lines 58, 63, 72, 77, 619, 651 ...; 18 reads at lines 140, 311, 373, 382, 448, 456 ...
+#   shared_var[9899]: 14 writes at lines 57, 71, 141, 152, 640, 702 ...; 26 reads at lines 62, 76, 140, 350, 362, 427 ...
+#   shared_var[7924]: 3 writes at lines 830, 837, 838; 31 reads at lines 113, 114, 319, 320, 321, 327 ...
+#   shared_var[7856]: 27 reads at lines 55, 69, 311, 339, 371, 380 ...
+
+on_game_message(GameMessage(0x0240000000000656), rid=0):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[7929], shared_var[7919], shared_var[7955], shared_var[12531]  writes: none
+    if not shared_var[12531]:
+        if not var[7929] or not shared_var[7955][shared_var[7919]]:
+            SetVar_51()
+
+on_entry(context=unset, rid=10):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(BooleanSwitch_9)
+
+on_game_message(GameMessage(0x024000000000000B), rid=11)(var[144] <- param 0x0A4000000000000F, var[12610] <- param 0x0A4000000000050B):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[10510], var[12610], shared_var[7856], shared_var[7918], shared_var[7919], shared_var[8001], shared_var[8342], shared_var[9899], shared_var[9906]  writes: var[144], var[2198], var[7525], var[7858], var[12610], shared_var[7918], shared_var[8001], shared_var[9899], shared_var[9900], shared_var[9906]
+    # + unimplemented nodes may touch others
+    if not var[12610]:
+        begin(BooleanSwitch_71)
+        set_var(shared_var[7918], shared_var[7918][shared_var[7919]] + 1.0, index=shared_var[7919])
+        set_var(shared_var[8001], shared_var[8001][shared_var[7919]] + 1.0, index=shared_var[7919])
+        if shared_var[8342][0.0] <= 0.0 or shared_var[8342][1.0] <= 0.0:
+            if shared_var[7918][shared_var[7919]] > shared_var[7918][(shared_var[7919] + 1.0) % 2.0]:
+                if shared_var[7918][0.0] > shared_var[7918][1.0]:
+                    set_var(var[7525], STU_BD6CC023(1) if shared_var[7856] else STU_BD6CC023(0))
+                    set_var(var[2198], True)
+                    set_var(shared_var[9899], 0)
+                    set_var(shared_var[9900], -1)
+                    set_var(shared_var[9906], -1)
+                    set_var(var[7858], False)
+                    unimplemented STU_6E5C5F66()
+                    if shared_var[9899] and shared_var[9906] > var[10510]:
+                        set_var(shared_var[9900], shared_var[9906])
+                        SetVar_133()
+                    else:
+                        SetVar_133()
+                else:
+                    if shared_var[7918][1.0] > shared_var[7918][0.0]:
+                        set_var(var[7525], STU_BD6CC023(0) if shared_var[7856] else STU_BD6CC023(1))
+                        set_var(var[2198], True)
+                        set_var(shared_var[9899], 0)
+                        set_var(shared_var[9900], -1)
+                        set_var(shared_var[9906], -1)
+                        set_var(var[7858], False)
+                        unimplemented STU_6E5C5F66()
+                        if shared_var[9899] and shared_var[9906] > var[10510]:
+                            set_var(shared_var[9900], shared_var[9906])
+                            SetVar_133()
+                        else:
+                            SetVar_133()
+
+on_game_message(GameMessage(0x0240000000000066), rid=15):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: shared_var[7919]  writes: var[7929], shared_var[7955]
+    set_var(var[7929], True)
+    set_var(shared_var[7955], False, index=shared_var[7919])
+
+on_game_message(GameMessage(0x0240000000000663), rid=19):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: shared_var[2190], shared_var[7918], shared_var[7919], shared_var[8001]  writes: shared_var[7918], shared_var[7954], shared_var[8001]
+    set_var(
+        shared_var[7954],
+        member(shared_var[2190], id(7926)) * member(shared_var[2190], id(7583)),
+        index=shared_var[7919],
+    )
+    set_var(shared_var[7918], shared_var[7918][shared_var[7919]] + 1.0, index=shared_var[7919])
+    set_var(shared_var[8001], shared_var[8001][shared_var[7919]] + 1.0, index=shared_var[7919])
+
+on_game_message(GameMessage(0x02400000000000CA), rid=21):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: shared_var[7918], shared_var[7919], shared_var[8001]  writes: shared_var[7918], shared_var[7955], shared_var[8001]
+    set_var(shared_var[7955], True, index=shared_var[7919])
+    set_var(shared_var[7918], shared_var[7918][shared_var[7919]] + 1.0, index=shared_var[7919])
+    set_var(shared_var[8001], shared_var[8001][shared_var[7919]] + 1.0, index=shared_var[7919])
+    SetVar_51()
+
+on_game_message(GameMessage(0x0240000000000045), rid=29):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[7525], shared_var[7918], shared_var[7924]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_43B63AD0(
+        m_980D78D3=unimplemented STU_43CFA23F(
+            m_367CCBF5=[
+                var[7525],
+                shared_var[7918][0.0],
+                shared_var[7918][1.0],
+                shared_var[7924][0.0],
+                shared_var[7924][1.0],
+            ],
+            m_6C54C35C=unimplemented STU_92CA44CC(),
+        ),
+        m_targets=unimplemented STU_B5A0CAF0(),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+on_game_message(GameMessage(0x024000000000002D), rid=36)(shared_var[405] <- param 0x0A40000000000029):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: shared_var[405]  writes: shared_var[405]
+    if shared_var[405] == Identifier(0x0D80000000000015):
+        begin(State_34)
+
+on_entry(context=unset, rid=63):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[8401], var[10510]
+    set_var(var[10510], 0.333)
+    set_var(var[8401], 60)
+    begin(STU_6A926B21_75)
+    begin(STU_6A926B21_76)
+    begin(STU_6A926B21_77)
+    begin(STU_6A926B21_78)
+    begin(STU_38EE1100_148)
+
+on_game_message(GameMessage(0x024000000000000B), rid=87, m_B60ABDA4=var[40]):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[40], shared_var[7813], shared_var[9899], shared_var[9900]  writes: shared_var[9899], shared_var[9906]
+    if shared_var[7813]:
+        if shared_var[9900] == -1.0 and var[40] == shared_var[9899]:
+            set_var(shared_var[9899], 0)
+            set_var(shared_var[9906], -1)
+
+on_entry(context=unset, rid=103):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_114)
+
+on_game_message(GameMessage(0x0240000000000052), rid=104, m_B60ABDA4=var[40]):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[40], shared_var[7813], shared_var[8342]  writes: shared_var[9899]
+    if shared_var[7813]:
+        if shared_var[8342][0.0] > 0.0 and shared_var[8342][1.0] > 0.0:
+            set_var(shared_var[9899], var[40])
+        else:
+            pulse(STU_7B9E8909_93.m_inPlug)
+
+on_entry(context=unset, rid=144):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    pass
+
+on_entry(context=unset, rid=151):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_156)
+
+on_entry(always, rid=164):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_165)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- UI presenters (grouped by class) ----
+
+state UXPresenter_138:  # STUStatescriptStateUXPresenter, state 18 (client-only); from Stack_163.m_subgraphPlug; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: var[10795], var[12234], var[12246], var[13049], shared_var[405], shared_var[427], shared_var[7918], shared_var[7925], shared_var[8078], shared_var[8342], shared_var[8408]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        presenter_id[?]=STU_99CEEC04(m_25521BD9=STU_A1BAFA3E(m_id=asset(0x0D80000000004BFA)), m_D44EB181=shared_var[7925]),
+        presenter_data[?]=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=3.0 if var[13049] else 0.0, m_id=asset(0x0D80000000003574)),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_108981C8(
+                            m_B3EC7449=shared_var[427] if (
+                                var[12234] == var[10795]
+                                and shared_var[405] != Identifier(0x0D80000000000016)
+                                and shared_var[405] != Identifier(0x0D80000000001ED7)
+                                and not shared_var[8078]
+                            ) else shared_var[8342][var[12246]],
+                            m_D909AA4D=False,
+                        ) if shared_var[8408][var[12246]] else unimplemented STU_E7579408(m_6C54C35C=UXDisplayText(0x0DE00000000047FB)),
+                        m_id=asset(0x0D80000000000517),
+                    ),
+                    STU_E870E3E8(m_value=shared_var[7918][var[12246]], m_id=asset(0x0D800000000009C3)),
+                    STU_E870E3E8(m_value=var[12234] == var[10795], m_id=asset(0x0D8000000000593E)),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_B317E7B5(
+                            m_structBuilder[?]=STU_802D5580(
+                                m_overrides=[
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[12234]),
+                                        m_id=asset(0x0D80000000002EAB),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[12234], m_color=1),
+                                        m_id=asset(0x0D80000000002EAC),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[12234], m_color=2),
+                                        m_id=asset(0x0D80000000002EAD),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[12234], m_color=4),
+                                        m_id=asset(0x0D80000000004498),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[12234], m_color=3),
+                                        m_id=asset(0x0D80000000004499),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_377B7AAB(m_67465E75=var[12234]),
+                                        m_id=asset(0x0D8000000000449A),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_47703870(m_team=STU_BD6CC023(0)),
+                                        m_id=asset(0x0D80000000006374),
+                                    ),
+                                ],
+                                m_definition=asset(0x0A88000000000252),
+                            ),
+                        ),
+                        m_id=asset(0x0D80000000000406),
+                    ),
+                ],
+                m_definition=asset(0x0A88000000000085),
+            ),
+        ),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+
+state UXPresenter_139:  # STUStatescriptStateUXPresenter, state 19 (client-only); from Stack_163.m_subgraphPlug; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: var[7904], var[10795], var[12247], var[13049], shared_var[405], shared_var[427], shared_var[7918], shared_var[7925], shared_var[8078], shared_var[8342], shared_var[8408]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        presenter_id[?]=STU_99CEEC04(m_25521BD9=STU_A1BAFA3E(m_id=asset(0x0D80000000004BFA)), m_D44EB181=shared_var[7925]),
+        presenter_data[?]=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=0.0 if var[13049] else 3.0, m_id=asset(0x0D80000000003574)),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_108981C8(
+                            m_B3EC7449=shared_var[427] if (
+                                var[7904] == var[10795]
+                                and shared_var[405] != Identifier(0x0D80000000000016)
+                                and shared_var[405] != Identifier(0x0D80000000001ED7)
+                                and not shared_var[8078]
+                            ) else shared_var[8342][var[12247]],
+                            m_D909AA4D=False,
+                        ) if shared_var[8408][var[12247]] else unimplemented STU_E7579408(m_6C54C35C=UXDisplayText(0x0DE00000000047FB)),
+                        m_id=asset(0x0D80000000000517),
+                    ),
+                    STU_E870E3E8(m_value=shared_var[7918][var[12247]], m_id=asset(0x0D800000000009C3)),
+                    STU_E870E3E8(m_value=var[7904] == var[10795], m_id=asset(0x0D8000000000593E)),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_B317E7B5(
+                            m_structBuilder[?]=STU_802D5580(
+                                m_overrides=[
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[7904]),
+                                        m_id=asset(0x0D80000000002EAB),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[7904], m_color=1),
+                                        m_id=asset(0x0D80000000002EAC),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[7904], m_color=2),
+                                        m_id=asset(0x0D80000000002EAD),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[7904], m_color=4),
+                                        m_id=asset(0x0D80000000004498),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_32208212(m_67465E75=var[7904], m_color=3),
+                                        m_id=asset(0x0D80000000004499),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_377B7AAB(m_67465E75=var[7904]),
+                                        m_id=asset(0x0D8000000000449A),
+                                    ),
+                                    STU_E870E3E8(
+                                        m_value=unimplemented STU_47703870(m_team=STU_BD6CC023(1)),
+                                        m_id=asset(0x0D80000000006374),
+                                    ),
+                                ],
+                                m_definition=asset(0x0A88000000000252),
+                            ),
+                        ),
+                        m_id=asset(0x0D80000000000406),
+                    ),
+                ],
+                m_definition=asset(0x0A88000000000085),
+            ),
+        ),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+
+# ---- begun from on_game_message rid=0 ----
+
+state STU_37D754C8_1:  # STU_37D754C8, state 0; from SetVar_133.m_outPlug
+    # reads: var[2198], var[7525], var[7858], var[7929], var[10357], shared_var[2190], shared_var[7856], shared_var[7899], shared_var[7918], shared_var[7919], shared_var[7920], shared_var[7924], shared_var[7954], shared_var[7955], shared_var[8001], shared_var[8342], shared_var[8348], shared_var[8408], shared_var[9899], shared_var[9900], shared_var[9906]  writes: var[2198], var[4912], var[4913], var[7525], var[7856], var[7858], var[7899], var[7901], var[7905], var[7907], var[7908], var[7910], var[7911], var[7913], var[7919], var[7929], var[7967], var[7997], var[7998], var[8002], var[8003], var[8004], var[8017], var[8018], var[8032], var[8033], var[10282], var[10283], var[10284], var[10285]
+    # + unimplemented nodes may touch others
+    run_nested_graph(
+        m_89402D74=[
+            STUStatescriptSubScriptInitData(m_value=shared_var[7918][0.0], m_2AF1FCC8=True, m_out_Var=var[4912]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[7918][1.0], m_2AF1FCC8=True, m_out_Var=var[4913]),
+            STUStatescriptSubScriptInitData(m_value=var[7858], m_2AF1FCC8=True, m_out_Var=var[7858]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[7920], m_2AF1FCC8=True, m_out_Var=var[7901]),
+            STUStatescriptSubScriptInitData(m_value=STU_BD6CC023(0) if var[7858] else STU_BD6CC023(1), m_2AF1FCC8=True, m_out_Var=var[7913]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[7899], m_2AF1FCC8=True, m_out_Var=var[7899]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[7924][0.0] - shared_var[7954][0.0], m_2AF1FCC8=True, m_out_Var=var[8017]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[7924][1.0] - shared_var[7954][1.0], m_2AF1FCC8=True, m_out_Var=var[8018]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[7924][0.0] > 0.0 or shared_var[7924][1.0] > 0.0, m_2AF1FCC8=True, m_out_Var=var[7967]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[8001][0.0], m_2AF1FCC8=True, m_out_Var=var[7997]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[8001][1.0], m_2AF1FCC8=True, m_out_Var=var[7998]),
+            STUStatescriptSubScriptInitData(m_value=not shared_var[8408][0.0], m_2AF1FCC8=True, m_out_Var=var[8003]),
+            STUStatescriptSubScriptInitData(m_value=not shared_var[8408][1.0], m_2AF1FCC8=True, m_out_Var=var[8002]),
+            STUStatescriptSubScriptInitData(
+                m_value=0.0 if shared_var[7919] == 0.0 else shared_var[7924][0.0] - shared_var[7954][0.0],
+                m_2AF1FCC8=True,
+                m_out_Var=var[8032],
+            ),
+            STUStatescriptSubScriptInitData(
+                m_value=0.0 if shared_var[7919] == 1.0 else shared_var[7924][1.0] - shared_var[7954][1.0],
+                m_2AF1FCC8=True,
+                m_out_Var=var[8033],
+            ),
+            STUStatescriptSubScriptInitData(m_value=var[2198], m_2AF1FCC8=True, m_out_Var=var[2198]),
+            STUStatescriptSubScriptInitData(m_value=var[7525], m_2AF1FCC8=True, m_out_Var=var[7525]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[7919], m_2AF1FCC8=True, m_out_Var=var[7919]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[7856], m_2AF1FCC8=True, m_out_Var=var[7856]),
+            STUStatescriptSubScriptInitData(m_value=0.25 if shared_var[7920] >= 2.0 else 1.0, m_2AF1FCC8=True, m_out_Var=var[7905]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[8348][0.0], m_2AF1FCC8=True, m_out_Var=var[7907]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[8342][0.0], m_2AF1FCC8=True, m_out_Var=var[7908]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[8348][1.0], m_2AF1FCC8=True, m_out_Var=var[7910]),
+            STUStatescriptSubScriptInitData(m_value=shared_var[8342][1.0], m_2AF1FCC8=True, m_out_Var=var[7911]),
+            STUStatescriptSubScriptInitData(
+                m_value=(
+                    shared_var[7919] == 0.0
+                    and shared_var[7924][0.0] <= 0.0
+                    and shared_var[7924][1.0] <= 0.0
+                    and (shared_var[9899] or not shared_var[7955][0.0] and not shared_var[7955][1.0])
+                ),
+                m_2AF1FCC8=True,
+                m_out_Var=var[10282],
+            ),
+            STUStatescriptSubScriptInitData(
+                m_value=(
+                    shared_var[7919] == 1.0
+                    and shared_var[7924][0.0] <= 0.0
+                    and shared_var[7924][1.0] <= 0.0
+                    and (
+                        not var[7929]
+                        or shared_var[9899]
+                        or not shared_var[7955][0.0] and not shared_var[7955][1.0]
+                    )
+                ),
+                m_2AF1FCC8=True,
+                m_out_Var=var[10284],
+            ),
+            STUStatescriptSubScriptInitData(
+                m_value=(
+                    (0.0 if var[10357] else shared_var[9906]) if (not shared_var[7856] if shared_var[7919] == 0.0 else shared_var[7856])
+                    else 0.0 if var[10357]
+                    else shared_var[9900]
+                ),
+                m_2AF1FCC8=True,
+                m_out_Var=var[10283],
+            ),
+            STUStatescriptSubScriptInitData(
+                m_value=(
+                    (0.0 if var[10357] else shared_var[9906]) if (not shared_var[7856] if shared_var[7919] == 1.0 else shared_var[7856])
+                    else 0.0 if var[10357]
+                    else shared_var[9900]
+                ),
+                m_2AF1FCC8=True,
+                m_out_Var=var[10285],
+            ),
+        ],
+        m_36F7B64C=graph_ref(
+            STU_105E1BCC(0x0580000000000C35),
+            params=[
+                arg(asset(0x0D80000000001330), shared_var[7918][0.0]),
+                arg(asset(0x0D80000000001331), shared_var[7918][1.0]),
+                arg(asset(0x0D80000000001EB2), var[7858]),
+                arg(asset(0x0D80000000001EDD), shared_var[7920]),
+                arg(asset(0x0D80000000001EE9), STU_BD6CC023(0) if var[7858] else STU_BD6CC023(1)),
+                arg(asset(0x0D80000000001EDB), shared_var[7899]),
+                arg(asset(0x0D80000000001F51), shared_var[7924][0.0] - shared_var[7954][0.0]),
+                arg(asset(0x0D80000000001F52), shared_var[7924][1.0] - shared_var[7954][1.0]),
+                arg(asset(0x0D80000000001F1F), shared_var[7924][0.0] > 0.0 or shared_var[7924][1.0] > 0.0),
+                arg(asset(0x0D80000000001F3D), shared_var[8001][0.0]),
+                arg(asset(0x0D80000000001F3E), shared_var[8001][1.0]),
+                arg(asset(0x0D80000000001F43), not shared_var[8408][0.0]),
+                arg(asset(0x0D80000000001F42), not shared_var[8408][1.0]),
+                arg(
+                    asset(0x0D80000000001F60),
+                    0.0 if shared_var[7919] == 0.0 else shared_var[7924][0.0] - shared_var[7954][0.0],
+                ),
+                arg(
+                    asset(0x0D80000000001F61),
+                    0.0 if shared_var[7919] == 1.0 else shared_var[7924][1.0] - shared_var[7954][1.0],
+                ),
+                arg(asset(0x0D80000000000896), var[2198]),
+                arg(asset(0x0D80000000001D65), var[7525]),
+                arg(asset(0x0D80000000001EEF), shared_var[7919]),
+                arg(asset(0x0D80000000001EB0), shared_var[7856]),
+                arg(asset(0x0D80000000001EE1), 0.25 if shared_var[7920] >= 2.0 else 1.0),
+                arg(asset(0x0D80000000001EE3), shared_var[8348][0.0]),
+                arg(asset(0x0D80000000001EE4), shared_var[8342][0.0]),
+                arg(asset(0x0D80000000001EE6), shared_var[8348][1.0]),
+                arg(asset(0x0D80000000001EE7), shared_var[8342][1.0]),
+                arg(
+                    asset(0x0D8000000000282A),
+                    (
+                        shared_var[7919] == 0.0
+                        and shared_var[7924][0.0] <= 0.0
+                        and shared_var[7924][1.0] <= 0.0
+                        and (shared_var[9899] or not shared_var[7955][0.0] and not shared_var[7955][1.0])
+                    ),
+                ),
+                arg(
+                    asset(0x0D8000000000282C),
+                    (
+                        shared_var[7919] == 1.0
+                        and shared_var[7924][0.0] <= 0.0
+                        and shared_var[7924][1.0] <= 0.0
+                        and (
+                            not var[7929]
+                            or shared_var[9899]
+                            or not shared_var[7955][0.0] and not shared_var[7955][1.0]
+                        )
+                    ),
+                ),
+                arg(
+                    asset(0x0D8000000000282B),
+                    (
+                        (0.0 if var[10357] else shared_var[9906]) if (not shared_var[7856] if shared_var[7919] == 0.0 else shared_var[7856])
+                        else 0.0 if var[10357]
+                        else shared_var[9900]
+                    ),
+                ),
+                arg(
+                    asset(0x0D8000000000282D),
+                    (
+                        (0.0 if var[10357] else shared_var[9906]) if (not shared_var[7856] if shared_var[7919] == 1.0 else shared_var[7856])
+                        else 0.0 if var[10357]
+                        else shared_var[9900]
+                    ),
+                ),
+            ],
+            extras=[],
+        ),
+    )
+    end:
+        if not var[2198]:
+            unimplemented STU_57692020(
+                m_params=[
+                    STU_814D595E(m_value=True, m_B5051BCE=asset(0x0A40000000000011)),
+                    STU_814D595E(m_value=shared_var[7918][shared_var[7919]] > 0.0, m_B5051BCE=asset(0x0A4000000000039F)),
+                ],
+                m_gameMessage=GameMessage(0x024000000000000D),
+            )
+            unimplemented STU_57692020(
+                m_params=[
+                    STU_814D595E(m_value=member(shared_var[2190], id(7926)), m_B5051BCE=asset(0x0A4000000000037C)),
+                    STU_814D595E(m_value=shared_var[7899], m_B5051BCE=asset(0x0A40000000000385)),
+                    STU_814D595E(m_value=False, m_B5051BCE=asset(0x0A4000000000039F)),
+                ],
+                m_gameMessage=GameMessage(0x0240000000000660),
+            )
+            set_var(var[7929], False)
+            set_var(var[8004], shared_var[7899])
+
+# ---- begun from on_entry rid=10 ----
+
+state BooleanSwitch_9:  # STUStatescriptStateBooleanSwitch, state 1 (client-only); from Entry_10.m_outPlug
+    # reads: shared_var[7813]  writes: none
+    subgraph:
+        begin(Stack_141)
+        begin(Stack_142)
+        begin(Stack_143)
+        begin(GameMessageEntry_145)
+    watch shared_var[7813]:  # re-evaluated while the State runs
+        while true:
+            begin(Stack_163)
+
+state Stack_141:  # STUStatescriptStateStack, state 21 (client-only); from BooleanSwitch_9.m_subgraphPlug
+    # reads: none  writes: var[12234]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        var[12234],
+        value=0.0 if unimplemented STU_47703870(m_team=STU_BD6CC023(1)) else 1.0,
+        priority=None,
+    )
+    subgraph:
+        begin(Stack_140)
+
+state Stack_142:  # STUStatescriptStateStack, state 22 (client-only); from BooleanSwitch_9.m_subgraphPlug
+    # reads: none  writes: var[10795]
+    stack_contribution(var[10795], value=1.0, priority=None)
+
+state Stack_143:  # STUStatescriptStateStack, state 23 (client-only); from BooleanSwitch_9.m_subgraphPlug
+    # reads: none  writes: shared_var[12204]
+    stack_contribution(shared_var[12204], value=True, priority=None)
+
+state GameMessageEntry_145:  # STUStatescriptStateGameMessageEntry, state 24 (client-only); from BooleanSwitch_9.m_subgraphPlug
+    # reads: var[12245]  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000008AD), m_B60ABDA4=var[12245])
+
+state Stack_163:  # STUStatescriptStateStack, state 39 (client-only); from BooleanSwitch_9.m_trueSubgraphPlug
+    # reads: none  writes: var[13049]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        var[13049],
+        value=owner_scope(member(unimplemented STU_DAAE1875(), id(13049)), scope=0),
+        priority=None,
+    )
+    subgraph:
+        begin(UXPresenter_138)
+        begin(UXPresenter_139)
+
+state Stack_140:  # STUStatescriptStateStack, state 20 (client-only); from Stack_141.m_subgraphPlug
+    # reads: var[12234]  writes: var[7904]
+    stack_contribution(var[7904], value=1.0 if var[12234] == 0.0 else 0.0, priority=None)
+    subgraph:
+        begin(Stack_146)
+
+state Stack_146:  # STUStatescriptStateStack, state 25 (client-only); from Stack_140.m_subgraphPlug
+    # reads: var[7904], var[12234], shared_var[7856]  writes: var[12246]
+    stack_contribution(var[12246], value=var[12234] if not shared_var[7856] else var[7904], priority=None)
+    subgraph:
+        begin(Stack_147)
+
+state Stack_147:  # STUStatescriptStateStack, state 26 (client-only); from Stack_146.m_subgraphPlug
+    # reads: var[7904], var[12234], shared_var[7856]  writes: var[12247]
+    stack_contribution(var[12247], value=var[7904] if not shared_var[7856] else var[12234], priority=None)
+
+# ---- begun from on_game_message rid=11 ----
+
+state BooleanSwitch_71:  # STUStatescriptStateBooleanSwitch, state 3; from Condition_160.m_falsePlug
+    # reads: shared_var[2190]  writes: none
+    watch member(shared_var[2190], id(8420)):  # re-evaluated while the State runs
+        pass
+
+# ---- begun from on_game_message rid=36 ----
+
+state State_34:  # STUStatescriptState, state 2 (plain State at run time); from Condition_35.m_truePlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    begin:
+        unimplemented STU_43B63AD0(
+            m_980D78D3=unimplemented STU_92CA44CC(),
+            m_targets=unimplemented STU_B5A0CAF0(),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=63 ----
+
+state STU_6A926B21_75:  # STU_6A926B21, state 4; from SetVar_62.m_outPlug
+    # reads: shared_var[8342]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_6A926B21(
+        m_values=[STUStatescriptForCodeValue(m_value=shared_var[8342], m_identifier=asset(0x0D80000000002096))],
+    )
+
+state STU_6A926B21_76:  # STU_6A926B21, state 5; from SetVar_62.m_outPlug
+    # reads: shared_var[7918]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_6A926B21(
+        m_values=[STUStatescriptForCodeValue(m_value=shared_var[7918], m_identifier=asset(0x0D80000000001EEE))],
+    )
+
+state STU_6A926B21_77:  # STU_6A926B21, state 6; from SetVar_62.m_outPlug
+    # reads: shared_var[7924]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_6A926B21(
+        m_values=[STUStatescriptForCodeValue(m_value=shared_var[7924], m_identifier=asset(0x0D80000000001EF4))],
+    )
+
+state STU_6A926B21_78:  # STU_6A926B21, state 7; from SetVar_62.m_outPlug
+    # reads: shared_var[7954]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_6A926B21(
+        m_values=[STUStatescriptForCodeValue(m_value=shared_var[7954], m_identifier=asset(0x0D80000000001F12))],
+    )
+
+state STU_38EE1100_148:  # STU_38EE1100, state 27; from SetVar_62.m_outPlug
+    # reads: var[12278], var[12279], shared_var[7918], shared_var[7919], shared_var[7920], shared_var[7924], shared_var[7954]  writes: none
+    publish_game_message(
+        m_params=[
+            STU_814D595E(m_value=Identifier(0x0D80000000002FDF), m_B5051BCE=asset(0x0A400000000004E2)),
+            STU_814D595E(m_value=shared_var[7918][0.0], m_B5051BCE=asset(0x0A40000000000496)),
+            STU_814D595E(m_value=shared_var[7918][1.0], m_B5051BCE=asset(0x0A40000000000497)),
+            STU_814D595E(m_value=shared_var[7920], m_B5051BCE=asset(0x0A4000000000038F)),
+            STU_814D595E(m_value=var[12278], m_B5051BCE=asset(0x0A400000000004DB)),
+            STU_814D595E(m_value=var[12279], m_B5051BCE=asset(0x0A400000000004DE)),
+            STU_814D595E(m_value=shared_var[7919], m_B5051BCE=asset(0x0A400000000004D8)),
+            STU_814D595E(m_value=shared_var[7924][0.0] - shared_var[7954][0.0], m_B5051BCE=asset(0x0A400000000004D9)),
+            STU_814D595E(m_value=shared_var[7924][1.0] - shared_var[7954][1.0], m_B5051BCE=asset(0x0A400000000004DC)),
+        ],
+        m_gameMessage=GameMessage(0x02400000000008D7),
+        m_target=STU_1D719351(m_1199BFE0=1),
+    )
+
+# ---- begun from on_entry rid=103 ----
+
+state BooleanSwitch_114:  # STUStatescriptStateBooleanSwitch, state 14; from Entry_103.m_outPlug
+    # reads: shared_var[7813]  writes: shared_var[9900], shared_var[9906]
+    watch shared_var[7813]:  # re-evaluated while the State runs
+        while true:
+            set_var(shared_var[9900], -1)
+            set_var(shared_var[9906], -1)
+            begin(BooleanSwitch_88)
+            begin(BooleanSwitch_98)
+
+state BooleanSwitch_88:  # STUStatescriptStateBooleanSwitch, state 9; from SetVar_81.m_outPlug, BooleanSwitch_88.m_onTruePlug
+    # reads: shared_var[8342]  writes: none
+    watch shared_var[8342][0.0] > 0.0 and shared_var[8342][1.0] > 0.0:  # re-evaluated while the State runs
+        on change to true:
+            abort(BooleanSwitch_88)
+            begin(BooleanSwitch_99)
+
+state BooleanSwitch_98:  # STUStatescriptStateBooleanSwitch, state 12; from SetVar_81.m_outPlug
+    # reads: shared_var[405], shared_var[8342], shared_var[9900]  writes: shared_var[9899], shared_var[9906]
+    subgraph:
+        begin(STU_2F4E2E3F_84)
+    watch shared_var[405] == Identifier(0x0D80000000000CDC):  # re-evaluated while the State runs
+        on change to true:
+            if shared_var[8342][0.0] <= 0.0 or shared_var[8342][1.0] <= 0.0:
+                begin(STU_7B9E8909_93)
+            if shared_var[9900] == -1.0:
+                set_var(shared_var[9899], 0)
+            set_var(shared_var[9906], -1)
+
+state BooleanSwitch_99:  # STUStatescriptStateBooleanSwitch, state 13; from BooleanSwitch_88.m_onTruePlug, BooleanSwitch_99.m_onTruePlug
+    # reads: var[10510], shared_var[8078], shared_var[8342], shared_var[9899], shared_var[9906]  writes: shared_var[9900]
+    watch (
+               shared_var[8078] if shared_var[8342][0.0] <= 0.0
+               else shared_var[8342][1.0] <= 0.0 and shared_var[8078]
+           ):  # re-evaluated while the State runs
+        on change to true:
+            if shared_var[9899] and shared_var[9906] > var[10510]:
+                set_var(shared_var[9900], shared_var[9906])
+            abort(BooleanSwitch_99)
+
+state STU_2F4E2E3F_84:  # STU_2F4E2E3F, state 8; from BooleanSwitch_98.m_subgraphPlug
+    # reads: shared_var[9899], shared_var[9906]  writes: shared_var[9906]
+    # + unimplemented nodes may touch others
+    unimplemented STU_2F4E2E3F(m_B7A3CF78=member(shared_var[9899], id(154)))
+    plug m_A70DB860:
+        if shared_var[9899] and member(shared_var[9899], id(154)) > shared_var[9906]:
+            set_var(shared_var[9906], member(shared_var[9899], id(154)))
+
+state STU_7B9E8909_93:  # STU_7B9E8909, state 11; from Condition_92.m_truePlug, Condition_101.m_falsePlug
+    # reads: var[40], shared_var[7918], shared_var[9900]  writes: var[9901]
+    # + unimplemented nodes may touch others
+    unimplemented STU_7B9E8909()
+    subgraph:
+        begin(BooleanSwitch_118)
+    plug m_outPlug:
+        if shared_var[9900] >= 0.0:
+            set_var(var[9901], var[40])
+            begin(BooleanSwitch_90)
+        else:
+            if shared_var[7918][0.0] == shared_var[7918][1.0]:
+                set_var(var[9901], var[40])
+                begin(BooleanSwitch_115)
+
+state BooleanSwitch_118:  # STUStatescriptStateBooleanSwitch, state 17; from STU_7B9E8909_93.m_subgraphPlug
+    # reads: shared_var[7918], shared_var[8342], shared_var[9900]  writes: none
+    watch shared_var[9900] < 0.0 and shared_var[7918][0.0] == shared_var[7918][1.0] if shared_var[8342][0.0] <= 0.0 else (
+               shared_var[8342][1.0] <= 0.0
+               and shared_var[9900] < 0.0
+               and shared_var[7918][0.0] == shared_var[7918][1.0]
+           ):  # re-evaluated while the State runs
+        while true:
+            begin(Stack_117)
+        while false:
+            begin(BooleanSwitch_161)
+
+state BooleanSwitch_90:  # STUStatescriptStateBooleanSwitch, state 10; from SetVar_79.m_outPlug
+    # reads: var[9901], var[10510], shared_var[7918], shared_var[7919], shared_var[8001], shared_var[9899], shared_var[9900], shared_var[9906]  writes: var[2198], var[7525], var[7858], shared_var[7918], shared_var[8001], shared_var[9899], shared_var[9900], shared_var[9906]
+    # + unimplemented nodes may touch others
+    watch (
+               var[9901] == shared_var[9899]
+               and member(var[9901], id(154)) > shared_var[9900]
+               and not member(var[9901], id(2212))
+           ):  # re-evaluated while the State runs
+        on change to true:
+            set_var(shared_var[7918], shared_var[7918][shared_var[7919]] + 1.0, index=shared_var[7919])
+            set_var(shared_var[8001], shared_var[8001][shared_var[7919]] + 1.0, index=shared_var[7919])
+            set_var(var[7525], STU_BD6CC023(1))
+            set_var(var[2198], True)
+            set_var(shared_var[9899], 0)
+            set_var(shared_var[9900], -1)
+            set_var(shared_var[9906], -1)
+            set_var(var[7858], False)
+            unimplemented STU_6E5C5F66()
+            if shared_var[9899] and shared_var[9906] > var[10510]:
+                set_var(shared_var[9900], shared_var[9906])
+                SetVar_133()
+            else:
+                SetVar_133()
+
+state BooleanSwitch_115:  # STUStatescriptStateBooleanSwitch, state 15; from SetVar_116.m_outPlug
+    # reads: var[9901], var[10510], shared_var[7918], shared_var[7919], shared_var[8001], shared_var[9899], shared_var[9906]  writes: var[2198], var[7525], var[7858], shared_var[7918], shared_var[8001], shared_var[9899], shared_var[9900], shared_var[9906]
+    # + unimplemented nodes may touch others
+    watch member(var[9901], id(154)) > var[10510] and not member(var[9901], id(2212)):  # re-evaluated while the State runs
+        on change to true:
+            set_var(shared_var[7918], shared_var[7918][shared_var[7919]] + 1.0, index=shared_var[7919])
+            set_var(shared_var[8001], shared_var[8001][shared_var[7919]] + 1.0, index=shared_var[7919])
+            set_var(var[7525], STU_BD6CC023(1))
+            set_var(var[2198], True)
+            set_var(shared_var[9899], 0)
+            set_var(shared_var[9900], -1)
+            set_var(shared_var[9906], -1)
+            set_var(var[7858], False)
+            unimplemented STU_6E5C5F66()
+            if shared_var[9899] and shared_var[9906] > var[10510]:
+                set_var(shared_var[9900], shared_var[9906])
+                SetVar_133()
+            else:
+                SetVar_133()
+
+state Stack_117:  # STUStatescriptStateStack, state 16; from BooleanSwitch_118.m_trueSubgraphPlug
+    # reads: var[10510]  writes: shared_var[10286]
+    stack_contribution(shared_var[10286], value=var[10510], priority=None)
+    subgraph:
+        begin(Stack_162)
+
+state BooleanSwitch_161:  # STUStatescriptStateBooleanSwitch, state 37; from BooleanSwitch_118.m_falseSubgraphPlug
+    # reads: shared_var[9900]  writes: none
+    watch shared_var[9900] > 0.0:  # re-evaluated while the State runs
+        while true:
+            begin(Stack_162)
+
+state Stack_162:  # STUStatescriptStateStack, state 38; from Stack_117.m_subgraphPlug, BooleanSwitch_161.m_trueSubgraphPlug
+    # reads: none  writes: shared_var[12204]
+    stack_contribution(shared_var[12204], value=False, priority=STU_8A491388(0x0C40000000000003))
+
+# ---- begun from on_entry rid=151 ----
+
+state BooleanSwitch_156:  # STUStatescriptStateBooleanSwitch, state 34; from Entry_151.m_outPlug
+    # reads: shared_var[7813]  writes: none
+    watch shared_var[7813]:  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_157)
+
+state BooleanSwitch_157:  # STUStatescriptStateBooleanSwitch, state 35; from BooleanSwitch_156.m_trueSubgraphPlug
+    # reads: shared_var[405], shared_var[8078]  writes: none
+    watch (
+               shared_var[405] != Identifier(0x0D80000000000016)
+               and shared_var[405] != Identifier(0x0D80000000001ED7)
+               and shared_var[405] != Identifier(0x0D80000000000CDC)
+               and not shared_var[8078]
+           ):  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_158)
+        while false:
+            begin(Stack_152)
+
+state BooleanSwitch_158:  # STUStatescriptStateBooleanSwitch, state 36; from BooleanSwitch_157.m_trueSubgraphPlug
+    # reads: shared_var[7919]  writes: none
+    watch shared_var[7919] == 0.0:  # re-evaluated while the State runs
+        while true:
+            begin(Stack_150)
+        while false:
+            begin(Stack_154)
+
+state Stack_152:  # STUStatescriptStateStack, state 30; from BooleanSwitch_157.m_falseSubgraphPlug
+    # reads: shared_var[8342]  writes: var[12278]
+    stack_contribution(var[12278], value=shared_var[8342][0.0], priority=None)
+    subgraph:
+        begin(Stack_153)
+
+state Stack_150:  # STUStatescriptStateStack, state 29; from BooleanSwitch_158.m_trueSubgraphPlug
+    # reads: shared_var[427]  writes: var[12278]
+    stack_contribution(var[12278], value=shared_var[427], priority=None)
+    subgraph:
+        begin(Stack_149)
+
+state Stack_154:  # STUStatescriptStateStack, state 32; from BooleanSwitch_158.m_falseSubgraphPlug
+    # reads: shared_var[8342]  writes: var[12278]
+    stack_contribution(var[12278], value=shared_var[8342][0.0], priority=None)
+    subgraph:
+        begin(Stack_155)
+
+state Stack_153:  # STUStatescriptStateStack, state 31; from Stack_152.m_subgraphPlug
+    # reads: shared_var[8342]  writes: var[12279]
+    stack_contribution(var[12279], value=shared_var[8342][1.0], priority=None)
+
+state Stack_149:  # STUStatescriptStateStack, state 28; from Stack_150.m_subgraphPlug
+    # reads: shared_var[8342]  writes: var[12279]
+    stack_contribution(var[12279], value=shared_var[8342][1.0], priority=None)
+
+state Stack_155:  # STUStatescriptStateStack, state 33; from Stack_154.m_subgraphPlug
+    # reads: shared_var[427]  writes: var[12279]
+    stack_contribution(var[12279], value=shared_var[427], priority=None)
+
+# ---- begun from on_entry rid=164 ----
+
+state STU_9D7BF987_165:  # STU_9D7BF987, state 40 (plain State at run time); from STU_571CC72E_164.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[
+            shared_var[7813],
+            shared_var[7925],
+            shared_var[7856],
+            shared_var[8408],
+            shared_var[12204],
+            shared_var[427],
+            shared_var[8342],
+            shared_var[7918],
+            shared_var[8078],
+            shared_var[405],
+        ]
+
+def SetVar_51():  # STUStatescriptActionSetVar; shared or nested too deep to inline; from SetVar_27.m_outPlug, Condition_70.m_truePlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[7929], shared_var[427], shared_var[2190], shared_var[7919], shared_var[7920], shared_var[7955], shared_var[8342]  writes: shared_var[7924], shared_var[7954], shared_var[8342], shared_var[8348]
+    set_var(shared_var[8348], shared_var[8342][shared_var[7919]], index=shared_var[7919])
+    set_var(shared_var[8342], shared_var[427], index=shared_var[7919])
+    set_var(
+        shared_var[7924],
+        member(shared_var[2190], id(7926)) * member(shared_var[2190], id(7583)),
+        index=shared_var[7919],
+    )
+    if shared_var[7920] % 2.0 == 0.0:
+        if var[7929]:
+            if shared_var[7955][0.0] and shared_var[7955][1.0]:
+                set_var(shared_var[7924], 0.0, index=0)
+                set_var(shared_var[7924], 0.0, index=1)
+                set_var(shared_var[7954], 0.0, index=0)
+                set_var(shared_var[7954], 0.0, index=1)
+                Condition_66()
+            else:
+                Condition_68()
+        else:
+            Condition_4()
+    else:
+        Condition_4()
+
+def Condition_68():  # STU_3387AB5D; shared or nested too deep to inline; from Condition_67.m_falsePlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: shared_var[7924], shared_var[8342]  writes: none
+    if shared_var[7924][0.0] == shared_var[7924][1.0]:
+        if shared_var[8342][0.0] > 0.0 or shared_var[8342][1.0] > 0.0:
+            Condition_66()
+        else:
+            Condition_4()
+    else:
+        Condition_4()
+
+def Condition_4():  # STU_3387AB5D; shared or nested too deep to inline; from Condition_56.m_falsePlug, Condition_58.m_falsePlug, Condition_64.m_falsePlug, Condition_68.m_falsePlug +2 more; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[10510], shared_var[7856], shared_var[7918], shared_var[7924], shared_var[7955], shared_var[8342], shared_var[9899], shared_var[9906]  writes: var[2198], var[7525], var[7858], shared_var[9899], shared_var[9900], shared_var[9906]
+    # + unimplemented nodes may touch others
+    if shared_var[8342][0.0] > 0.0 and shared_var[8342][1.0] > 0.0:
+        Condition_42()
+    else:
+        if shared_var[8342][0.0] > 0.0 and shared_var[7918][0.0] <= shared_var[7918][1.0]:
+            Condition_42()
+        else:
+            if shared_var[8342][1.0] > 0.0 and shared_var[7918][1.0] <= shared_var[7918][0.0]:
+                Condition_42()
+            else:
+                if shared_var[7918][0.0] == shared_var[7918][1.0]:
+                    if shared_var[7955][0.0] and shared_var[7955][1.0]:
+                        Condition_108()
+                    else:
+                        if shared_var[7924][0.0] == shared_var[7924][1.0]:
+                            Condition_108()
+                        else:
+                            Condition_5()
+                else:
+                    if shared_var[7918][0.0] > shared_var[7918][1.0]:
+                        set_var(var[7525], STU_BD6CC023(1) if shared_var[7856] else STU_BD6CC023(0))
+                        set_var(var[2198], True)
+                        set_var(shared_var[9899], 0)
+                        set_var(shared_var[9900], -1)
+                        set_var(shared_var[9906], -1)
+                        set_var(var[7858], False)
+                        unimplemented STU_6E5C5F66()
+                        if shared_var[9899] and shared_var[9906] > var[10510]:
+                            set_var(shared_var[9900], shared_var[9906])
+                            SetVar_133()
+                        else:
+                            SetVar_133()
+                    else:
+                        if shared_var[7918][1.0] > shared_var[7918][0.0]:
+                            set_var(var[7525], STU_BD6CC023(0) if shared_var[7856] else STU_BD6CC023(1))
+                            set_var(var[2198], True)
+                            set_var(shared_var[9899], 0)
+                            set_var(shared_var[9900], -1)
+                            set_var(shared_var[9906], -1)
+                            set_var(var[7858], False)
+                            unimplemented STU_6E5C5F66()
+                            if shared_var[9899] and shared_var[9906] > var[10510]:
+                                set_var(shared_var[9900], shared_var[9906])
+                                SetVar_133()
+                            else:
+                                SetVar_133()
+
+def Condition_66():  # STU_3387AB5D; shared or nested too deep to inline; from Condition_64.m_truePlug, SetVar_126.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[8401], shared_var[8342]  writes: none
+    if shared_var[8342][0.0] < var[8401] and shared_var[8342][1.0] < var[8401]:
+        Condition_57()
+    else:
+        if shared_var[8342][0.0] > 0.0 and shared_var[8342][0.0] < var[8401]:
+            Condition_57()
+        else:
+            if shared_var[8342][1.0] > 0.0 and shared_var[8342][1.0] < var[8401]:
+                Condition_57()
+            else:
+                Condition_4()
+
+def Condition_42():  # STU_3387AB5D; shared or nested too deep to inline; from Condition_4.m_truePlug, Condition_52.m_truePlug, Condition_53.m_truePlug, SetVar_65.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[10510], shared_var[7919], shared_var[7920], shared_var[8342], shared_var[9899], shared_var[9906]  writes: var[7858], shared_var[9900]
+    # + unimplemented nodes may touch others
+    if shared_var[8342][0.0] > 0.0 and shared_var[8342][1.0] > 0.0:
+        if shared_var[7920] % 2.0 == 1.0:
+            set_var(var[7858], True)
+            unimplemented STU_6E5C5F66()
+            if shared_var[9899] and shared_var[9906] > var[10510]:
+                set_var(shared_var[9900], shared_var[9906])
+                SetVar_133()
+            else:
+                SetVar_133()
+        else:
+            if shared_var[8342][1.0] > shared_var[8342][0.0]:
+                set_var(var[7858], shared_var[7919] != 0.0)
+                unimplemented STU_6E5C5F66()
+                if shared_var[9899] and shared_var[9906] > var[10510]:
+                    set_var(shared_var[9900], shared_var[9906])
+                    SetVar_133()
+                else:
+                    SetVar_133()
+            else:
+                set_var(var[7858], shared_var[7919] != 1.0)
+                unimplemented STU_6E5C5F66()
+                if shared_var[9899] and shared_var[9906] > var[10510]:
+                    set_var(shared_var[9900], shared_var[9906])
+                    SetVar_133()
+                else:
+                    SetVar_133()
+    else:
+        if shared_var[8342][0.0] > 0.0:
+            set_var(var[7858], shared_var[7919] != 0.0)
+            unimplemented STU_6E5C5F66()
+            if shared_var[9899] and shared_var[9906] > var[10510]:
+                set_var(shared_var[9900], shared_var[9906])
+                SetVar_133()
+            else:
+                SetVar_133()
+        else:
+            set_var(var[7858], shared_var[7919] != 1.0)
+            unimplemented STU_6E5C5F66()
+            if shared_var[9899] and shared_var[9906] > var[10510]:
+                set_var(shared_var[9900], shared_var[9906])
+                SetVar_133()
+            else:
+                SetVar_133()
+
+def Condition_108():  # STU_3387AB5D; shared or nested too deep to inline; from Condition_17.m_truePlug, Condition_54.m_truePlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[10510], shared_var[7918], shared_var[7919], shared_var[8001], shared_var[9899], shared_var[9900], shared_var[9906]  writes: var[2198], var[7525], var[7858], shared_var[7918], shared_var[8001], shared_var[8310], shared_var[9899], shared_var[9900], shared_var[9906]
+    # + unimplemented nodes may touch others
+    if shared_var[9900] >= 0.0:
+        set_var(
+            shared_var[7918],
+            shared_var[7918][1.0 - shared_var[7919]] + 1.0,
+            index=1.0 - shared_var[7919],
+        )
+        set_var(
+            shared_var[8001],
+            shared_var[8001][1.0 - shared_var[7919]] + 1.0,
+            index=1.0 - shared_var[7919],
+        )
+        set_var(shared_var[9899], 0)
+        set_var(shared_var[9900], -1)
+        set_var(shared_var[9906], -1)
+        set_var(var[7525], STU_BD6CC023(0))
+        set_var(var[2198], True)
+        set_var(shared_var[9899], 0)
+        set_var(shared_var[9900], -1)
+        set_var(shared_var[9906], -1)
+        set_var(var[7858], False)
+        unimplemented STU_6E5C5F66()
+        if shared_var[9899] and shared_var[9906] > var[10510]:
+            set_var(shared_var[9900], shared_var[9906])
+            SetVar_133()
+        else:
+            SetVar_133()
+    else:
+        set_var(shared_var[8310], True)
+        set_var(var[7525], STU_BD6CC023(4294967295))
+        set_var(var[2198], True)
+        set_var(shared_var[9899], 0)
+        set_var(shared_var[9900], -1)
+        set_var(shared_var[9906], -1)
+        set_var(var[7858], False)
+        unimplemented STU_6E5C5F66()
+        if shared_var[9899] and shared_var[9906] > var[10510]:
+            set_var(shared_var[9900], shared_var[9906])
+            SetVar_133()
+        else:
+            SetVar_133()
+
+def Condition_5():  # STU_3387AB5D; shared or nested too deep to inline; from Condition_54.m_falsePlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[10510], shared_var[7856], shared_var[7918], shared_var[7924], shared_var[8001], shared_var[9899], shared_var[9906]  writes: var[2198], var[7525], var[7858], shared_var[7918], shared_var[8001], shared_var[9899], shared_var[9900], shared_var[9906]
+    # + unimplemented nodes may touch others
+    if shared_var[7924][0.0] > shared_var[7924][1.0]:
+        set_var(shared_var[7918], shared_var[7918][0.0] + 1.0, index=0)
+        set_var(shared_var[8001], shared_var[8001][0.0] + 1.0, index=0)
+        set_var(var[7525], STU_BD6CC023(1) if shared_var[7856] else STU_BD6CC023(0))
+        set_var(var[2198], True)
+        set_var(shared_var[9899], 0)
+        set_var(shared_var[9900], -1)
+        set_var(shared_var[9906], -1)
+        set_var(var[7858], False)
+        unimplemented STU_6E5C5F66()
+        if shared_var[9899] and shared_var[9906] > var[10510]:
+            set_var(shared_var[9900], shared_var[9906])
+            SetVar_133()
+        else:
+            SetVar_133()
+    else:
+        set_var(shared_var[7918], shared_var[7918][1.0] + 1.0, index=1)
+        set_var(shared_var[8001], shared_var[8001][1.0] + 1.0, index=1)
+        set_var(var[7525], STU_BD6CC023(0) if shared_var[7856] else STU_BD6CC023(1))
+        set_var(var[2198], True)
+        set_var(shared_var[9899], 0)
+        set_var(shared_var[9900], -1)
+        set_var(shared_var[9906], -1)
+        set_var(var[7858], False)
+        unimplemented STU_6E5C5F66()
+        if shared_var[9899] and shared_var[9906] > var[10510]:
+            set_var(shared_var[9900], shared_var[9906])
+            SetVar_133()
+        else:
+            SetVar_133()
+
+def Condition_57():  # STU_3387AB5D; shared or nested too deep to inline; from Condition_66.m_truePlug, Condition_73.m_truePlug, Condition_74.m_truePlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[8400], var[8401], shared_var[8342]  writes: var[8400], shared_var[8342]
+    if shared_var[8342][0.0] <= shared_var[8342][1.0]:
+        set_var(var[8400], var[8401] - shared_var[8342][0.0])
+        set_var(shared_var[8342], shared_var[8342][0.0] + var[8400], index=0)
+        set_var(shared_var[8342], shared_var[8342][1.0] + var[8400], index=1)
+        Condition_42()
+    else:
+        if shared_var[8342][1.0] <= shared_var[8342][0.0]:
+            set_var(var[8400], var[8401] - shared_var[8342][1.0])
+            set_var(shared_var[8342], shared_var[8342][0.0] + var[8400], index=0)
+            set_var(shared_var[8342], shared_var[8342][1.0] + var[8400], index=1)
+            Condition_42()
+        else:
+            Condition_4()
+
+def SetVar_133():  # STUStatescriptActionSetVar; shared or nested too deep to inline; from SetVar_122.m_outPlug, Condition_123.m_falsePlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[10510], shared_var[7918], shared_var[8342], shared_var[9900]  writes: var[10357]
+    set_var(
+        var[10357],
+        shared_var[9900] < var[10510] and shared_var[7918][0.0] == shared_var[7918][1.0] if shared_var[8342][0.0] <= 0.0 else (
+            shared_var[8342][1.0] <= 0.0
+            and shared_var[9900] < var[10510]
+            and shared_var[7918][0.0] == shared_var[7918][1.0]
+        ),
+    )
+    begin(STU_37D754C8_1)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_32208212 (configvar) x10
+#   STU_B317E7B5 (configvar) x4
+#   STU_6A926B21 (node) x4
+#   STU_47703870 (configvar) x3
+#   STU_108981C8 (configvar) x2
+#   STU_377B7AAB (configvar) x2
+#   STU_92CA44CC (configvar) x2
+#   STU_B5A0CAF0 (configvar) x2
+#   STU_E7579408 (configvar) x2
+#   STUStatescriptStateUXPresenter (node) x2
+#   STU_43B63AD0 (node) x2
+#   STU_57692020 (node) x2
+#   STU_43CFA23F (configvar) x1
+#   STU_DAAE1875 (configvar) x1
+#   STU_2F4E2E3F (node) x1
+#   STU_6E5C5F66 (node) x1
+#   STU_7B9E8909 (node) x1

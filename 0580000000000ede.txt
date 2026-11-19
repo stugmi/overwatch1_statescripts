@@ -1,0 +1,46 @@
+# build 1.74.0.0.104319: 3 nodes (2 States), 1 entries, 2 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000ede
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   placeholders: 3 unrecovered (3 classes; 2 configvar, 1 node)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_1)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- input listeners (States that watch a logical button) ----
+
+state STU_F5A99B2A_2:  # STU_F5A99B2A, state 1; from BooleanSwitch_1.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_F5A99B2A(
+        m_tips=[
+            STUTip(
+                m_54379800=[unimplemented STU_9C54C383(m_7E2A700B=Button(14, "RELOAD"), m_9480AFFF=False)],
+                m_tip=asset(0x0DE0000000008151),
+                m_A127B088=asset(0x0D80000000000D6A),
+                m_priority=1,
+            ),
+            STUTip(m_tip=asset(0x0DE0000000005EC4), m_A127B088=asset(0x0D80000000000D6A), m_priority=1),
+            STUTip(m_tip=asset(0x0DE0000000005EC5)),
+        ],
+    )
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_1:  # STUStatescriptStateBooleanSwitch, state 0; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch (
+               GameMode(0x023000000000000F) == owner_scope(unimplemented STU_37F20D24(), scope=0)
+               or GameMode(0x023000000000001A) == owner_scope(unimplemented STU_37F20D24(), scope=0)
+           ):  # re-evaluated while the State runs
+        while true:
+            begin(STU_F5A99B2A_2)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_37F20D24 (configvar) x1
+#   STU_9C54C383 (configvar) x1
+#   STU_F5A99B2A (node) x1

@@ -1,0 +1,30 @@
+# build 1.74.0.0.104319: 7 nodes (0 States), 1 entries, 6 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001dde
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[514] (set x1), var[7566] (set x1)
+#   placeholders: 6 unrecovered (4 classes; 3 configvar, 3 node)
+#   var[18739]: 1 write at line 23; 4 reads at lines 15, 18, 20, 21
+#   var[38]: 2 writes at lines 16, 23; 2 reads at lines 18, 23
+#   var[514]: 2 writes at lines 18, 20; 1 read at line 23
+#   var[7566]: 1 write at line 15; 2 reads at line 16
+
+on_entry(context=unset, rid=3):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[38], var[514], var[7566], var[18739]  writes: var[38], var[514], var[7566], var[18739]
+    # + unimplemented nodes may touch others
+    set_var(var[7566], [unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0])])
+    unimplemented STU_D137ECA0(m_D10618D1=len(var[7566]), m_out_Var=var[38], m_value=var[7566][param[12]]):
+        plug m_08FBE734:
+            set_var(var[514], host_slot(var[38], var[18739][1.0]))
+            set_var(
+                var[514][unimplemented STU_77B0987E(m_35547D6E=var[18739][2.0], m_68CFF844=999, m_FDCA1FD0=0)],
+                unimplemented STU_77B0987E(m_35547D6E=var[18739][3.0], m_68CFF844=100000000, m_FDCA1FD0=-100000000),
+            )
+            unimplemented STU_0BDBC7B2(m_entity=var[38], m_out_Var=host_slot(var[38], var[18739][1.0]), m_value=var[514])
+    unimplemented STU_1E93FE1F()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_77B0987E (configvar) x3
+#   STU_0BDBC7B2 (node) x1
+#   STU_1E93FE1F (node) x1
+#   STU_D137ECA0 (node) x1

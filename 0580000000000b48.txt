@@ -1,0 +1,34 @@
+# build 1.74.0.0.104319: 4 nodes (0 States), 1 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000b48 (Mei: init)
+# names (replace): 4 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x0240000000000093) (entry rid 0)
+#   placeholders: 4 unrecovered (4 classes; 3 configvar, 1 node)
+#   var[393]: 1 write at line 12; 1 read at line 20
+#   var[510]: 1 write at line 14; 1 read at line 23
+
+on_game_message(GameMessage(0x0240000000000093), rid=0)(
+    var[393] <- param 0x0A40000000000015,
+    var[392] <- param 0x0A40000000000012,
+    var[510] <- param 0x0A4000000000003D,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[393], var[510]  writes: var[392], var[393], var[510]
+    # + unimplemented nodes may touch others
+    if unimplemented STU_AC829876(
+           m_entity=var[393],
+           m_filter=unimplemented STUConfigVarFilter(m_66747E7D=2, m_84065FD1=1, m_8B2A4DF3=STU_357DABBB(0x0D600000000006AD)),
+       ):  # names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        if contains(var[510], key=None, value=Identifier(0x0D80000000000F20)):
+            unimplemented STU_CEBDAF17(
+                m_stats=[asset(0x08600000000002CC), asset(0x08600000000002CB)],
+                m_amount=1,
+                m_targets=unimplemented STU_B5A0CAF0(),
+            )  # names: class STU_CEBDAF17=ModifyStat [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STUConfigVarFilter (configvar) x1
+#   STU_AC829876 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_CEBDAF17 (node) x1

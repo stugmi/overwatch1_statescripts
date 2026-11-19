@@ -1,0 +1,40 @@
+# build 1.74.0.0.104319: 4 nodes (2 States), 1 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000026f8
+# names (replace): 2 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[29635] (stack_contribution x1)
+#   placeholders: 4 unrecovered (4 classes; 3 configvar, 1 node)
+#   var[29635]: 1 write at line 22; 1 read at line 32
+
+on_entry(context=unset, rid=3):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(Stack_1)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=3 ----
+
+state Stack_1:  # STUStatescriptStateStack, state 0; from Entry_3.m_outPlug
+    # reads: none  writes: var[29635]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        var[29635],
+        value=unimplemented STU_3832D36C(m_value=member(unimplemented STU_A3DEF368(), id(29450))),
+        priority=None,
+    )  # names: class STU_3832D36C=EntitySharedVariable [matched]
+    subgraph:
+        begin(BooleanSwitch_2)
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 1; from Stack_1.m_subgraphPlug
+    # reads: var[29635]  writes: none
+    # + unimplemented nodes may touch others
+    watch var[29635]:  # re-evaluated while the State runs
+        on change to false:
+            unimplemented STU_523EE38D(m_entity=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_3832D36C (configvar) x1
+#   STU_A3DEF368 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_523EE38D (node) x1

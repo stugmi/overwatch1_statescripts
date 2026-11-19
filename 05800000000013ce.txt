@@ -1,0 +1,68 @@
+# build 1.74.0.0.104319: 9 nodes (0 States), 1 entries, 10 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000013ce
+# inlined shared nodes (printed at each use site instead of a def): STU_153BE5A3_1
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[39] (set x1)
+#   messages: receives GameMessage(0x0240000000000862) (entry rid 0)
+#   placeholders: 6 unrecovered (6 classes; 4 node, 2 configvar)
+#   var[11888]: 1 write at line 19; 6 reads at lines 26, 27, 30, 46, 49
+#   var[39]: 2 writes at lines 25, 30; 3 reads at lines 40, 46, 49
+#   var[11035]: 1 write at line 16; 3 reads at lines 34, 45, 50
+#   var[11230]: 1 write at line 20; 1 read at line 40
+#   var[38]: 2 reads at lines 47, 59
+
+on_game_message(GameMessage(0x0240000000000862), rid=0)(
+    var[11035] <- param 0x0A40000000000483,
+    var[11228] <- param 0x0A4000000000048F,
+    var[11231] <- param 0x0A40000000000491,
+    var[11888] <- param 0x0A400000000004B1,
+    var[11230] <- param 0x0A40000000000490,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[11035], var[11888]  writes: var[39], var[11035], var[11228], var[11230], var[11231], var[11888]
+    # + unimplemented nodes may touch others
+    set_var(var[39], 0)
+    if var[11888] != 0.0:
+        if len(var[11888]) == 0.0:
+            CreateEntity_4()
+        else:
+            unimplemented STU_D137ECA0(m_D10618D1=len(var[11888]), m_out_Var=var[39], m_value=param[12]):
+                plug m_08FBE734:
+                    CreateEntity_4()
+    else:
+        unimplemented STU_153BE5A3(m_72AAB72F=var[11035])
+
+def CreateEntity_4():  # STUStatescriptActionCreateEntity; shared or nested too deep to inline; from Condition_2.m_truePlug, STU_D137ECA0_3.m_08FBE734; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[38], var[39], var[3192], var[11035], var[11230], var[11888], shared_var[6751]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionCreateEntity(
+        m_position=var[11230][var[39]],
+        m_1C558638=lane_x(unimplemented STU_D0E0DA18(m_3ABD589C=var[3192])),
+        m_3EBF988B=STU_BD6CC023(1),
+        m_F8E56B94=True,
+        m_DE3B4F01=shared_var[6751],
+        m_373DBF32=var[11035],
+        m_0FDD45BB=var[11888][var[39]],
+        m_E95B313B=var[38],
+    )
+    if var[39] == len(var[11888]) - 1.0 or len(var[11888]) == 0.0:
+        unimplemented STU_153BE5A3(m_72AAB72F=var[11035])
+    unimplemented STUStatescriptActionPlayScript(
+        m_69F4B52C=unimplemented STU_9DB46B98(
+            m_6525E98B=STUStatescriptGraphWithOverrides(
+                m_1EB5A024=[STUStatescriptSchemaEntry(m_value=True, m_0D09D2D9=asset(0x0D8000000000344E))],
+                m_graph=asset(0x05800000000013C3),
+            ),
+        ),
+        m_script=STU_105E1BCC(0),
+        m_targets=var[38],
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_9DB46B98 (configvar) x1
+#   STU_D0E0DA18 (configvar) x1
+#   STUStatescriptActionCreateEntity (node) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STU_153BE5A3 (node) x1
+#   STU_D137ECA0 (node) x1

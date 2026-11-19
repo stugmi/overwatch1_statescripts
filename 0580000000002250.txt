@@ -1,0 +1,50 @@
+# build 1.74.0.0.104319: 6 nodes (5 States), 1 entries, 5 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000002250
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[8540] (stack_contribution x1), shared_var[9664] (stack_contribution x1)
+#   placeholders: none
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_12F037C4_0)
+    begin(STU_37D754C8_2)
+    begin(STU_38EE1100_3)
+    begin(Stack_4)
+    begin(Stack_5)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=1 ----
+
+state STU_12F037C4_0:  # STU_12F037C4, state 0 (plain State at run time); from Entry_1.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_entries=[
+            STU_8BF80D88(m_7F1035A6=STU_105E1BCC(0x0580000000000CD4), m_886C9E6E=STU_433DFB35(0x05800000000005E6)),
+            STU_8BF80D88(m_7F1035A6=STU_105E1BCC(0x0580000000000D84), m_886C9E6E=STU_433DFB35(0x058000000000064A)),
+            STU_8BF80D88(m_7F1035A6=STU_105E1BCC(0x0580000000000D98), m_886C9E6E=STU_433DFB35(0x0580000000000D97)),
+            STU_4082287A(m_29C4583C=STU_105E1BCC(0x05800000000022F0), m_F026D40E=STU_43CF7A79(0x04000000000008BA)),
+        ]
+
+state STU_37D754C8_2:  # STU_37D754C8, state 1; from Entry_1.m_outPlug
+    # reads: none  writes: none
+    run_nested_graph(m_36F7B64C=graph_ref(STU_105E1BCC(0x0580000000000F73), params=[], extras=[]))
+
+state STU_38EE1100_3:  # STU_38EE1100, state 2; from Entry_1.m_outPlug
+    # reads: none  writes: none
+    publish_game_message(
+        m_params=[
+            STU_814D595E(m_value=True, m_B5051BCE=asset(0x0A400000000003C2)),
+            STU_814D595E(m_value=Hero(0x02E00000000000DD), m_B5051BCE=asset(0x0A4000000000005D)),
+        ],
+        m_gameMessage=GameMessage(0x02400000000006FE),
+        m_target=STU_1D719351(),
+    )
+
+state Stack_4:  # STUStatescriptStateStack, state 3; from Entry_1.m_outPlug
+    # reads: none  writes: shared_var[9664]
+    stack_contribution(shared_var[9664], value=True, priority=None)
+
+state Stack_5:  # STUStatescriptStateStack, state 4; from Entry_1.m_outPlug
+    # reads: none  writes: shared_var[8540]
+    stack_contribution(shared_var[8540], value=True, priority=None)

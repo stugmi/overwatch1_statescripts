@@ -1,0 +1,35 @@
+# build 1.74.0.0.104319: 3 nodes (1 States), 2 entries, 1 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000002716
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x02400000000012B0) (entry rid 2)
+#   placeholders: 2 unrecovered (2 classes; 1 configvar, 1 node)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_BF916E6E_1)
+
+on_game_message(GameMessage(0x02400000000012B0), rid=2)(var[29781] <- param 0x0A40000000000900):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[29781]
+    pass
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_BF916E6E_1:  # STU_BF916E6E, state 0; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_BF916E6E(
+        m_values=[
+            STUGlobalDataFlowValue(
+                m_5A6D4FBD=DataFlow(0x048000000000084F),
+                m_answer=unimplemented STU_0A6747C8(),
+            ),
+        ],
+    )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_0A6747C8 (configvar) x1
+#   STU_BF916E6E (node) x1

@@ -1,0 +1,72 @@
+# build 1.74.0.0.104319: 6 nodes (4 States), 2 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001665 (shared by 6 heroes)
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[15585] (stack_contribution x1), shared_var[15586] (stack_contribution x1),
+#                      shared_var[15587] (stack_contribution x1)
+#   placeholders: 6 unrecovered (2 classes; 6 configvar)
+#   shared_var[15585]: 1 write at line 37; 1 read at line 68
+#   shared_var[15586]: 1 write at line 48; 1 read at line 68
+#   shared_var[15587]: 1 write at line 59; 1 read at line 68
+#   var[15589]: 2 reads at lines 38, 68
+#   var[15590]: 2 reads at lines 49, 68
+#   var[15591]: 2 reads at lines 60, 68
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[15589] = None
+    var[15590] = None
+    var[15591] = None
+
+on_entry(context=unset, rid=3):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(Stack_0)
+
+on_entry(always, rid=4):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_5)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=3 ----
+
+state Stack_0:  # STUStatescriptStateStack, state 0 (client-only); from Entry_3.m_outPlug
+    # reads: var[15589]  writes: shared_var[15585]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        shared_var[15585],
+        value=var[15589] * unimplemented STU_FDBB0B67(m_entity=unimplemented STU_B5A0CAF0()),
+        priority=STU_8A491388(0x0C40000000000001),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(Stack_1)
+
+state Stack_1:  # STUStatescriptStateStack, state 1 (client-only); from Stack_0.m_subgraphPlug
+    # reads: var[15590]  writes: shared_var[15586]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        shared_var[15586],
+        value=var[15590] * unimplemented STU_FDBB0B67(m_entity=unimplemented STU_B5A0CAF0()),
+        priority=STU_8A491388(0x0C40000000000001),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(Stack_2)
+
+state Stack_2:  # STUStatescriptStateStack, state 2 (client-only); from Stack_1.m_subgraphPlug
+    # reads: var[15591]  writes: shared_var[15587]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        shared_var[15587],
+        value=var[15591] * unimplemented STU_FDBB0B67(m_entity=unimplemented STU_B5A0CAF0()),
+        priority=STU_8A491388(0x0C40000000000001),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=4 ----
+
+state STU_9D7BF987_5:  # STU_9D7BF987, state 3 (plain State at run time); from STU_571CC72E_4.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[shared_var[15585], var[15589], shared_var[15586], var[15590], shared_var[15587], var[15591]]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x3
+#   STU_FDBB0B67 (configvar) x3

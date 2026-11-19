@@ -1,0 +1,185 @@
+# build 1.74.0.0.104319: 23 nodes (13 States), 3 entries, 22 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000d8b
+# names (replace): 8 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[215] (set x1), var[1206] (set x1)
+#   waits: Wait_8 after(1); Wait_9 after(var[215] - 0.5); Wait_13 after(0.5)
+#   messages: receives GameMessage(0x0240000000000018) (entry rid 1)
+#   placeholders: 17 unrecovered (14 classes; 11 node, 6 configvar)
+#   var[1206]: 1 write at line 18; 2 reads at lines 55, 169
+#   var[1886]: 3 reads at lines 62, 77, 146
+#   var[215]: 1 write at line 17; 2 reads at lines 22, 104
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[215]  writes: var[215], var[1206]
+    # + unimplemented nodes may touch others
+    set_var(var[215], 14)
+    set_var(var[1206], STU_8556841E(0x04000000000012F5))
+    begin(State_7)
+    unimplemented STU_C43F9944(
+        m_params=[
+            STU_814D595E(m_value=var[215], m_B5051BCE=asset(0x0A4000000000002B)),
+            STU_814D595E(m_value=True, m_B5051BCE=asset(0x0A4000000000012E)),
+        ],
+        m_gameMessage=GameMessage(0x02400000000005DD),
+    )
+
+on_game_message(GameMessage(0x0240000000000018), rid=1):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    begin(Wait_8)
+    abort(State_7)
+
+on_entry(always, rid=21):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_22)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- UI presenters (grouped by class) ----
+
+state UXPresenter_17:  # STUStatescriptStateUXPresenter, state 9 (client-only); from STU_BD02E168_20.m_5B10D01F; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        presenter_id[?]=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A0000000000548)),
+        presenter_data[?]=unimplemented STU_B317E7B5(),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+
+# ---- animation, cosmetics and haptics (grouped by class) ----
+
+state CosmeticEntity_3:  # STUStatescriptStateCosmeticEntity, state 0 (client-only); from STU_BD02E168_19.m_5B10D01F; names: class STUStatescriptStateCosmeticEntity=CosmeticEntity [matched]
+    # reads: var[1206], var[1886]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateCosmeticEntity(
+        m_entityDef=var[1206],
+        m_8E6AFB43=False,
+        m_skin=SkinTheme(0x0A50000000001962),
+        m_BD631144=unimplemented STU_A4F22D6B(m_25252423=0, m_3DCE8650=0, m_447C0E2E=0),
+        m_BA6E2567=True,
+        m_87EFD870=True,
+        m_FABFF0F8=True,
+        m_1DEF59FA=var[1886],
+    )  # names: class STUStatescriptStateCosmeticEntity=CosmeticEntity [matched]
+    begin:
+        unimplemented STU_C9458758()  # client-only
+    subgraph:
+        begin(DataFlowMapping_4)
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_4:  # STUStatescriptStateDataFlowMapping, state 1 (client-only); from CosmeticEntity_3.m_subgraphPlug
+    # reads: var[1886]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x0480000000000002),
+        m_answer=Animation(0x0A000000000040AC),
+        m_entity=STU_328656A2(m_609E2FBF=var[1886]),
+    )
+    begin:
+        unimplemented STU_100EF8C2(m_gameMessage=GameMessage(0))  # client-only
+    subgraph:
+        begin(AnimatedCamera_5)
+
+# ---- begun from on_entry rid=0 ----
+
+state State_7:  # STUStatescriptState, state 3 (plain State at run time); from GameMessage_1.m_outPlug, SetVar_6.m_outPlug, Wait_8.m_onEndPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(STU_BD02E168_19)
+        begin(Wait_9)
+        begin(STU_38EE1100_11)
+        begin(STU_BD02E168_20)
+
+state STU_BD02E168_19:  # STU_BD02E168, state 10; from State_7.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_BD02E168()
+    plug m_5B10D01F:
+        # owns (not begun here): DataFlowMapping_4, AnimatedCamera_5
+        begin(CosmeticEntity_3)
+
+state Wait_9:  # STUStatescriptStateWait, state 5; from State_7.m_subgraphPlug
+    # reads: var[215]  writes: none
+    after(var[215] - 0.5):
+        begin(Wait_13)
+
+state STU_38EE1100_11:  # STU_38EE1100, state 6; from State_7.m_subgraphPlug
+    # reads: none  writes: none
+    publish_game_message(m_gameMessage=GameMessage(0x02400000000006DA), m_target=STU_1D719351())
+
+state STU_BD02E168_20:  # STU_BD02E168, state 11; from State_7.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_BD02E168()
+    plug m_5B10D01F:
+        begin(UXPresenter_17)
+
+state Wait_13:  # STUStatescriptStateWait, state 7; from Wait_9.m_onFinishedPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    subgraph:
+        begin(STU_38EE1100_14)
+    after(0.5):
+        unimplemented STU_22926252()
+
+state STU_38EE1100_14:  # STU_38EE1100, state 8; from Wait_13.m_subgraphPlug
+    # reads: none  writes: none
+    publish_game_message(
+        m_params=[
+            STU_814D595E(m_value=0.25, m_B5051BCE=asset(0x0A400000000003CB)),
+            STU_814D595E(m_value=0.25, m_B5051BCE=asset(0x0A400000000003CC)),
+            STU_814D595E(m_value=0.25, m_B5051BCE=asset(0x0A400000000003CD)),
+            STU_814D595E(m_value=color(0.0, 0.0, 0.0, 0.0), m_B5051BCE=asset(0x0A4000000000049A)),
+        ],
+        m_gameMessage=GameMessage(0x02400000000006D7),
+        m_target=STU_1D719351(m_1199BFE0=1, m_6A8DB059=raw(00)),
+    )
+
+state AnimatedCamera_5:  # STUStatescriptStateAnimatedCamera, state 2 (client-only); from DataFlowMapping_4.m_subgraphPlug
+    # reads: var[1886]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateAnimatedCamera(
+        m_C41767A5=0,
+        m_4D530E8A=0,
+        m_F8072B62=Bone(0x088000000000007D),
+        m_36634ED8=unimplemented STU_0C963938(m_entity=unimplemented STU_B5A0CAF0(), m_C19A378A=var[1886]),
+        m_678E6DC9=Bone(0x08800000000005F0),
+        m_2DCE8B53=False,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin:
+        unimplemented STU_100EF8C2(
+            m_gameMessage=GameMessage(0x02400000000006D6),
+            m_targets=unimplemented STU_B5A0CAF0(),
+        )  # client-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_game_message rid=1 ----
+
+state Wait_8:  # STUStatescriptStateWait, state 4; from GameMessage_1.m_outPlug
+    # reads: none  writes: none
+    after(1):
+        pass
+    end:
+        begin(State_7)
+
+# ---- begun from on_entry rid=21 ----
+
+state STU_9D7BF987_22:  # STU_9D7BF987, state 12 (plain State at run time); from STU_571CC72E_21.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[var[1206]]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x2
+#   STU_100EF8C2 (node) x2
+#   STU_BD02E168 (node) x2
+#   STU_0C963938 (configvar) x1
+#   STU_A4F22D6B (configvar) x1
+#   STU_B317E7B5 (configvar) x1
+#   STU_BCD1C634 (configvar) x1
+#   STUStatescriptStateAnimatedCamera (node) x1
+#   STUStatescriptStateCosmeticEntity (node) x1
+#   STUStatescriptStateDataFlowMapping (node) x1
+#   STUStatescriptStateUXPresenter (node) x1
+#   STU_22926252 (node) x1
+#   STU_C43F9944 (node) x1
+#   STU_C9458758 (node) x1

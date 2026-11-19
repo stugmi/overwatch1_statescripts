@@ -1,0 +1,70 @@
+# build 1.74.0.0.104319: 8 nodes (4 States), 1 entries, 8 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000002736
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[33] (stack_contribution x1), shared_var[7605] (stack_contribution x1)
+#   placeholders: 8 unrecovered (8 classes; 5 node, 3 configvar)
+#   var[7566]: 1 write at line 17; 1 read at line 34
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[18739]  writes: var[7566]
+    # + unimplemented nodes may touch others
+    unimplemented STU_12F5D52D(
+        m_143D4C5B=[
+            STU_8529C204(
+                m_value=[unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0])],
+                m_out_Var=var[7566],
+            ),
+        ],
+    )
+    begin(STU_550D0C5C_3)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_550D0C5C_3:  # STU_550D0C5C, state 0; from STU_12F5D52D_1.m_outPlug, STU_550D0C5C_3.m_onBeginPlug
+    # reads: var[7566]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_550D0C5C(
+        m_4B7DF406=True,
+        m_targets=unimplemented STU_6C846FF5(
+            m_260A4690=unimplemented STU_00707E1E(m_00903303=param[142]),
+            m_814F8EC3=var[7566],
+        ),
+    )
+    begin:
+        abort(STU_550D0C5C_3)
+        unimplemented STU_1E93FE1F()
+    plug m_C41A9BE2:  # m_5AEA0A51=25
+        begin(STU_9C9A422A_7)
+
+state STU_9C9A422A_7:  # STU_9C9A422A, state 3; from STU_550D0C5C_3.m_C41A9BE2; names: class STU_9C9A422A=PriorityClaim [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_9C9A422A(m_priority=0.0, m_4BA4C058=raw(01000000))  # names: class STU_9C9A422A=PriorityClaim [matched]
+    subgraph:
+        begin(Stack_5)
+    plug m_8E484B2E:
+        unimplemented STU_22926252()
+
+state Stack_5:  # STUStatescriptStateStack, state 1; from STU_9C9A422A_7.m_subgraphPlug
+    # reads: none  writes: shared_var[33]
+    stack_contribution(shared_var[33], value=None, priority=STU_8A491388(0x0C40000000000015))
+    subgraph:
+        begin(Stack_6)
+
+state Stack_6:  # STUStatescriptStateStack, state 2; from Stack_5.m_subgraphPlug
+    # reads: none  writes: shared_var[7605]
+    stack_contribution(shared_var[7605], value=None, priority=STU_8A491388(0x0C40000000000015))
+
+# placeholders in this graph (semantics not recovered):
+#   STU_00707E1E (configvar) x1
+#   STU_6C846FF5 (configvar) x1
+#   STU_77B0987E (configvar) x1
+#   STU_12F5D52D (node) x1
+#   STU_1E93FE1F (node) x1
+#   STU_22926252 (node) x1
+#   STU_550D0C5C (node) x1
+#   STU_9C9A422A (node) x1

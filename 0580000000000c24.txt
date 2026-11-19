@@ -1,0 +1,250 @@
+# build 1.74.0.0.104319: 32 nodes (19 States), 2 entries, 30 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c24
+# names (replace): 6 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[61] (set x1), var[686] (set x1)
+#   waits: Wait_6 after(0.3); Wait_16 after(0.3); Wait_19 after(0.3); Wait_20 after(0.3); Wait_8 after(0.2);
+#          Wait_14 after(0.2); Wait_17 after(0.2); Wait_22 after(0.2)
+#   messages: receives GameMessage(0x0240000000000018) (entry rid 3)
+#   placeholders: 30 unrecovered (11 classes; 17 node, 13 configvar)
+#   var[38]: 5 reads at lines 24, 115, 122, 129, 136
+#   var[375]: 4 reads at lines 55, 65, 81, 99
+#   var[468]: 3 reads at lines 77, 92, 100
+#   var[61]: 2 writes at lines 34, 94; 1 read at line 40
+#   var[686]: 1 write at line 109; 2 reads at lines 109, 110
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted), server-only
+    # reads: none  writes: none
+    begin(BooleanSwitch_24)
+
+on_game_message(GameMessage(0x0240000000000018), rid=3):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[38]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_523EE38D(m_entity=var[38])
+    begin(STU_E3CEF6B9_23)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_25:  # STUStatescriptStateChaseVar, state 16 (server-only); from BooleanSwitch_24.m_falseSubgraphPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: none  writes: var[61]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=0, m_out_Var=var[61], rate=1)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_24:  # STUStatescriptStateBooleanSwitch, state 15 (server-only); from Entry_0.m_outPlug
+    # reads: var[61]  writes: none
+    watch var[61] <= 0.0:  # re-evaluated while the State runs
+        while true:
+            begin(TrackTargets_1)
+        while false:
+            begin(ChaseVar_25)
+
+state TrackTargets_1:  # STUStatescriptStateTrackTargets, state 0 (server-only); from BooleanSwitch_24.m_trueSubgraphPlug
+    # reads: var[375]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_A30B383E=360,
+        m_8DCA77B6=unimplemented STU_B5A0CAF0(),
+        m_05BE62DD=vec3(0.0, 0.35000002, 0.0),
+        m_radius=0.15,
+        m_93AB8C13=0.2,
+        m_8A2905A0=var[375],
+        m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1073741823, m_B486603E=STU_357DABBB(0x0D600000000002F2)),
+        m_95FFC3C5=raw(00),
+        m_DD792FF0=raw(01000000),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(BooleanSwitch_2)
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 1 (server-only); from TrackTargets_1.m_subgraphPlug
+    # reads: var[375]  writes: none
+    watch len(var[375]) > 0.0:  # re-evaluated while the State runs
+        while true:
+            begin(TrackTargets_28)
+
+state TrackTargets_28:  # STUStatescriptStateTrackTargets, state 17 (server-only); from BooleanSwitch_2.m_trueSubgraphPlug
+    # reads: var[375], var[468]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_A30B383E=360,
+        m_8DCA77B6=unimplemented STU_B5A0CAF0(),
+        m_05BE62DD=vec3(0.0, -0.35000002, 0.0),
+        m_radius=0.15,
+        m_8A2905A0=var[468],
+        m_filter=unimplemented STUConfigVarFilter(
+            m_84065FD1=1073741823,
+            m_B486603E=STU_357DABBB(0x0D600000000002F2),
+            m_condition=contains(var[375], key=None, value=param[8]),
+        ),
+        m_95FFC3C5=raw(00),
+        m_DD792FF0=raw(01000000),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(BooleanSwitch_29)
+
+state BooleanSwitch_29:  # STUStatescriptStateBooleanSwitch, state 18 (server-only); from TrackTargets_28.m_subgraphPlug
+    # reads: var[375], var[468]  writes: var[61]
+    # + unimplemented nodes may touch others
+    watch len(var[468]) > 0.0:  # re-evaluated while the State runs
+        on change to true:
+            set_var(var[61], 1)  # server-only
+            unimplemented STUStatescriptActionEffect(
+                m_effect=Effect(0x03000000000019F6),
+                entity[?]=unimplemented STU_B5A0CAF0(),
+            )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+            unimplemented STU_1C2CC6D5(m_26E3B366=var[375])  # server-only
+            unimplemented STU_1C2CC6D5(m_26E3B366=var[468])  # server-only
+
+# ---- begun from on_game_message rid=3 ----
+
+state STU_E3CEF6B9_23:  # STU_E3CEF6B9, state 14; from STU_523EE38D_7.m_outPlug
+    # reads: var[38], var[686]  writes: var[686]
+    # + unimplemented nodes may touch others
+    unimplemented STU_E3CEF6B9(m_3016B9A1=1)
+    plug m_onFinishedPlug:
+        set_var(var[686], (var[686] + 1.0) % 4.0)
+        unimplemented STUStatescriptActionSwitch(m_262AE982=var[686]):
+            plug m_FDD34C25[0]:  # m_value=0
+                unimplemented STUStatescriptActionCreateEntity(
+                    m_entityDef=STU_8556841E(0x040000000000140D),
+                    m_position=unimplemented STU_B5A0CAF0() + vec3(0.0, 1.0, 0.0),
+                    m_E95B313B=var[38],
+                )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+                begin(Wait_6)
+            plug m_FDD34C25[1]:  # m_value=1
+                unimplemented STUStatescriptActionCreateEntity(
+                    m_entityDef=STU_8556841E(0x040000000000140D),
+                    m_position=unimplemented STU_B5A0CAF0() + vec3(0.0, 1.0, 0.0),
+                    m_E95B313B=var[38],
+                )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+                begin(Wait_16)
+            plug m_FDD34C25[2]:  # m_value=2
+                unimplemented STUStatescriptActionCreateEntity(
+                    m_entityDef=STU_8556841E(0x040000000000140D),
+                    m_position=unimplemented STU_B5A0CAF0() + vec3(0.0, 1.0, 0.35000002),
+                    m_E95B313B=var[38],
+                )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+                begin(Wait_19)
+            plug m_FDD34C25[3]:  # m_value=3
+                unimplemented STUStatescriptActionCreateEntity(
+                    m_entityDef=STU_8556841E(0x040000000000140D),
+                    m_position=unimplemented STU_B5A0CAF0() + vec3(0.0, -1.0, -0.2),
+                    m_E95B313B=var[38],
+                )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+                begin(Wait_20)
+
+state Wait_6:  # STUStatescriptStateWait, state 3; from CreateEntity_4.m_outPlug
+    # reads: none  writes: none
+    after(0.3):
+        begin(Wait_8)
+
+state Wait_16:  # STUStatescriptStateWait, state 9; from CreateEntity_15.m_outPlug
+    # reads: none  writes: none
+    after(0.3):
+        begin(Wait_14)
+
+state Wait_19:  # STUStatescriptStateWait, state 11; from CreateEntity_18.m_outPlug
+    # reads: none  writes: none
+    after(0.3):
+        begin(Wait_17)
+
+state Wait_20:  # STUStatescriptStateWait, state 12; from CreateEntity_21.m_outPlug
+    # reads: none  writes: none
+    after(0.3):
+        begin(Wait_22)
+
+state Wait_8:  # STUStatescriptStateWait, state 4; from Wait_6.m_onFinishedPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(PhysicsExplosion_5)
+    after(0.2):
+        pass
+
+state Wait_14:  # STUStatescriptStateWait, state 8; from Wait_16.m_onFinishedPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(PhysicsExplosion_9)
+    after(0.2):
+        pass
+
+state Wait_17:  # STUStatescriptStateWait, state 10; from Wait_19.m_onFinishedPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(PhysicsExplosion_10)
+    after(0.2):
+        pass
+
+state Wait_22:  # STUStatescriptStateWait, state 13; from Wait_20.m_onFinishedPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(PhysicsExplosion_12)
+    after(0.2):
+        pass
+
+state PhysicsExplosion_5:  # STUStatescriptStatePhysicsExplosion, state 2; from Wait_8.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStatePhysicsExplosion(
+        m_position=unimplemented STU_B5A0CAF0(),
+        m_6EFD110C=1,
+        m_65438EEB=0.0,
+        m_radius=2,
+        m_D80AEDB1=1,
+        m_015FF666=0.0,
+        m_66D29548=0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state PhysicsExplosion_9:  # STUStatescriptStatePhysicsExplosion, state 5; from Wait_14.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStatePhysicsExplosion(
+        m_position=unimplemented STU_B5A0CAF0() + vec3(0.0, 1.5, 0.0),
+        m_6EFD110C=6,
+        m_65438EEB=0.0,
+        m_radius=2,
+        m_015FF666=0.0,
+        m_66D29548=0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state PhysicsExplosion_10:  # STUStatescriptStatePhysicsExplosion, state 6; from Wait_17.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStatePhysicsExplosion(
+        m_position=unimplemented STU_B5A0CAF0() + vec3(0.0, 0.0, 0.4),
+        m_6EFD110C=0.8,
+        m_65438EEB=0.0,
+        m_radius=2,
+        m_D80AEDB1=1,
+        m_015FF666=0.0,
+        m_66D29548=0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state PhysicsExplosion_12:  # STUStatescriptStatePhysicsExplosion, state 7; from Wait_22.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStatePhysicsExplosion(
+        m_position=unimplemented STU_B5A0CAF0() + vec3(0.0, -2.0, -0.4),
+        m_6EFD110C=2,
+        m_65438EEB=0.0,
+        m_radius=2,
+        m_D80AEDB1=1,
+        m_015FF666=0.0,
+        m_66D29548=0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x11
+#   STUStatescriptActionCreateEntity (node) x4
+#   STUStatescriptStatePhysicsExplosion (node) x4
+#   STUConfigVarFilter (configvar) x2
+#   STUStatescriptStateTrackTargets (node) x2
+#   STU_1C2CC6D5 (node) x2
+#   STUStatescriptActionEffect (node) x1
+#   STUStatescriptActionSwitch (node) x1
+#   STUStatescriptStateChaseVar (node) x1
+#   STU_523EE38D (node) x1
+#   STU_E3CEF6B9 (node) x1

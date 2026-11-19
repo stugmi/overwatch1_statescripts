@@ -1,0 +1,129 @@
+# build 1.74.0.0.104319: 16 nodes (6 States), 4 entries, 13 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001100
+# names (replace): 5 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[11806] (set x1), var[11807] (set x1)
+#   waits: Wait_11 after(1)
+#   messages: receives GameMessage(0x0240000000000012) (entry rid 15); sends GameMessage(0x024000000000060E)
+#             x1
+#   placeholders: 20 unrecovered (10 classes; 15 configvar, 5 node)
+#   var[11806]: 1 write at line 20; 3 reads at lines 28, 45, 65
+#   var[11807]: 1 write at line 44; 3 reads at lines 44, 45, 65
+#   var[375]: 3 reads at lines 77, 97, 103
+#   var[336]: 1 write at line 40; 1 read at line 44
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[11806]  writes: var[11806]
+    # + unimplemented nodes may touch others
+    set_var(
+        var[11806],
+        200.0 * unimplemented STU_3832D36C(
+            m_value=member(unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()), id(12619)),
+        ),
+    )  # names: class STU_3832D36C=EntitySharedVariable [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin(TrackTargets_1)
+    unimplemented STU_CEBDAF17(
+        m_stat=asset(0x08600000000005E4),
+        m_amount=var[11806],
+        m_targets=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+    )  # names: class STU_CEBDAF17=ModifyStat [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+on_entry(context=unset, rid=7):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(DataFlowMapping_6)
+
+on_entry(context=unset, rid=9):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_10)
+
+on_game_message(GameMessage(0x0240000000000012), rid=15)(var[336] <- param 0x0A40000000000013):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[336], var[11806], var[11807]  writes: var[336], var[11807]
+    # + unimplemented nodes may touch others
+    set_var(var[11807], var[11807] + var[336])
+    if var[11807] >= var[11806]:
+        unimplemented STU_523EE38D(m_entity=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        send_game_message(
+            GameMessage(0x024000000000060E),
+            targets=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+            params=[
+                STU_814D595E(m_value=Identifier(0x0D800000000030F2), m_B5051BCE=asset(0x0A40000000000358)),
+                STU_814D595E(m_value=False, m_B5051BCE=asset(0x0A400000000003D5)),
+            ],
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_6:  # STUStatescriptStateDataFlowMapping, state 2; from Entry_7.m_outPlug
+    # reads: var[11806], var[11807]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x0480000000000636),
+        m_answer=min(var[11807] / var[11806], 1.0),
+        m_entity=STU_02C0109E(),
+    )
+
+# ---- begun from on_entry rid=0 ----
+
+state TrackTargets_1:  # STUStatescriptStateTrackTargets, state 0; from SetVar_13.m_outPlug
+    # reads: var[375]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_8DCA77B6=unimplemented STU_B5A0CAF0(),
+        m_radius=4.0,
+        m_8A2905A0=var[375],
+        m_filter=unimplemented STUConfigVarFilter(
+            m_4EA686DB=20,
+            m_66747E7D=2,
+            m_84065FD1=1,
+            m_condition=(
+                not unimplemented STU_7C005F8F(
+                    m_82B6345B=unimplemented STU_2B2E2F6D(m_81A364DE=unimplemented STU_B5A0CAF0()),
+                    m_entity=param[8],
+                )
+                or member(param[8], id(7982))
+            ),
+        ),
+        m_DD792FF0=raw(02000000),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(STU_431F3FCC_2)
+
+state STU_431F3FCC_2:  # STU_431F3FCC, state 1 (plain State at run time); from TrackTargets_1.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_params=[STU_814D595E(m_value=50, m_B5051BCE=asset(0x0A4000000000002A))], m_A76A8CF6=STU_0E766B33(0x04A00000000002D5), m_targets=var[375], m_6D7701B7=unimplemented STU_2B2E2F6D(m_7BDB02D1=2, m_81A364DE=unimplemented STU_B5A0CAF0()); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=9 ----
+
+state BooleanSwitch_10:  # STUStatescriptStateBooleanSwitch, state 4; from Entry_9.m_outPlug
+    # reads: var[375]  writes: none
+    watch var[375]:  # re-evaluated while the State runs
+        on change to true:
+            begin(STU_D3F71FCF_8)
+        while false:
+            begin(Wait_11)
+
+state STU_D3F71FCF_8:  # STU_D3F71FCF, state 3; from BooleanSwitch_10.m_onTruePlug, Wait_11.m_onFinishedPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_D3F71FCF(m_67E8FF48=0.275)
+
+state Wait_11:  # STUStatescriptStateWait, state 5; from BooleanSwitch_10.m_falseSubgraphPlug
+    # reads: none  writes: none
+    after(1):
+        abort(STU_D3F71FCF_8)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x7
+#   STU_2B2E2F6D (configvar) x5
+#   STUConfigVarFilter (configvar) x1
+#   STU_3832D36C (configvar) x1
+#   STU_7C005F8F (configvar) x1
+#   STUStatescriptStateDataFlowMapping (node) x1
+#   STUStatescriptStateTrackTargets (node) x1
+#   STU_523EE38D (node) x1
+#   STU_CEBDAF17 (node) x1
+#   STU_D3F71FCF (node) x1

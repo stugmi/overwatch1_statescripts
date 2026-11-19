@@ -1,0 +1,54 @@
+# build 1.74.0.0.104319: 10 nodes (3 States), 1 entries, 10 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000014d5
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_5 after(0.25)
+#   placeholders: 8 unrecovered (7 classes; 6 node, 2 configvar)
+#   var[8681]: 3 reads at lines 40, 43, 44
+
+on_entry(context=unset, rid=3):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_38EE1100_4)
+    begin(Wait_5)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=3 ----
+
+state STU_38EE1100_4:  # STU_38EE1100, state 0; from Entry_3.m_outPlug
+    # reads: none  writes: none
+    publish_game_message(m_gameMessage=GameMessage(0x0240000000000A57), m_target=STU_1D719351())
+
+state Wait_5:  # STUStatescriptStateWait, state 1; from Entry_3.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    after(0.25):
+        unimplemented STU_7947FBE4()
+        unimplemented STU_57692020(m_gameMessage=GameMessage(0x0240000000000669))
+        unimplemented STU_523EE38D(
+            m_entity=unimplemented STU_B3E67A36(m_B486603E=STU_357DABBB(0x0D60000000000044)),
+        )
+        begin(STU_E3CEF6B9_8)
+
+state STU_E3CEF6B9_8:  # STU_E3CEF6B9, state 2; from STU_523EE38D_1.m_outPlug, STU_523EE38D_6.m_outPlug
+    # reads: var[8681]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_E3CEF6B9(m_3016B9A1=2)
+    plug m_onFinishedPlug:
+        unimplemented STU_42578342(
+            m_4AEEE6A1=var[8681],
+            m_filter=unimplemented STUConfigVarFilter(m_84065FD1=2),
+        )  # names: class STUConfigVarFilter=OwnEntityFilter [candidate]
+        if len(var[8681]) > 0.0:
+            unimplemented STU_523EE38D(m_entity=var[8681][0.0])
+            begin(STU_E3CEF6B9_8)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_523EE38D (node) x2
+#   STUConfigVarFilter (configvar) x1
+#   STU_B3E67A36 (configvar) x1
+#   STU_42578342 (node) x1
+#   STU_57692020 (node) x1
+#   STU_7947FBE4 (node) x1
+#   STU_E3CEF6B9 (node) x1

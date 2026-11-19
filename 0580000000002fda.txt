@@ -1,0 +1,75 @@
+# build 1.74.0.0.104319: 10 nodes (2 States), 1 entries, 11 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000002fda
+# inlined shared nodes (printed at each use site instead of a def): STU_22926252_0
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[34939] (set x2)
+#   waits: Wait_6 after(1)
+#   placeholders: 11 unrecovered (9 classes; 6 configvar, 5 node)
+#   shared_var[34939]: 2 writes at lines 49, 63; 3 reads at lines 48, 49, 63
+#   var[18739]: 3 reads at lines 21, 25, 29
+#   var[10749]: 1 write at line 30; 1 read at line 53
+#   var[22985]: 1 write at line 26; 1 read at line 52
+#   var[7566]: 1 write at line 22; 1 read at line 51
+
+on_entry(context=unset, rid=2):  # STUStatescriptEntry, init=context_match (context omitted), server-only
+    # reads: var[18739]  writes: var[7566], var[10749], var[22985]
+    # + unimplemented nodes may touch others
+    unimplemented STU_12F5D52D(
+        m_143D4C5B=[
+            STU_8529C204(
+                m_value=[unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0])],
+                m_out_Var=var[7566],
+            ),
+            STU_8529C204(
+                m_value=unimplemented STU_382A5949(m_A66DE11B=unimplemented STU_77B0987E(m_35547D6E=var[18739][1.0])),
+                m_out_Var=var[22985],
+            ),
+            STU_8529C204(
+                m_value=unimplemented STU_77B0987E(m_35547D6E=var[18739][2.0], m_68CFF844=12, m_FDCA1FD0=-1),
+                m_out_Var=var[10749],
+            ),
+        ],
+    )  # server-only
+    begin(STU_550D0C5C_7)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=2 ----
+
+state STU_550D0C5C_7:  # STU_550D0C5C, state 1 (server-only); from STU_12F5D52D_3.m_outPlug, STU_550D0C5C_7.m_onBeginPlug
+    # reads: var[7566], var[10749], var[22985], shared_var[34939]  writes: shared_var[34939]
+    # + unimplemented nodes may touch others
+    unimplemented STU_550D0C5C(m_4B7DF406=True, m_targets=unimplemented STU_A3DEF368())
+    begin:
+        abort(STU_550D0C5C_7)
+        unimplemented STU_1E93FE1F()  # server-only
+    plug m_C41A9BE2:  # m_5AEA0A51=32
+        if shared_var[34939] < 24.0:  # server-only
+            set_var(shared_var[34939], shared_var[34939] + 1.0)  # server-only
+            unimplemented STU_E37955DB(
+                m_94029FBA=unimplemented STU_9278BE7E(m_39A13B37=parent_var(1, var[7566])[0.0]),
+                m_67465E75=parent_var(1, var[22985]),
+                m_slot=parent_var(1, var[10749]),
+            )  # server-only
+            begin(Wait_6)
+        else:
+            unimplemented STU_22926252()  # server-only
+
+state Wait_6:  # STUStatescriptStateWait, state 0 (server-only); from STU_E37955DB_4.m_outPlug
+    # reads: shared_var[34939]  writes: shared_var[34939]
+    # + unimplemented nodes may touch others
+    after(1):
+        set_var(shared_var[34939], shared_var[34939] - 1.0)  # server-only
+        unimplemented STU_22926252()  # server-only
+
+# placeholders in this graph (semantics not recovered):
+#   STU_77B0987E (configvar) x3
+#   STU_382A5949 (configvar) x1
+#   STU_9278BE7E (configvar) x1
+#   STU_A3DEF368 (configvar) x1
+#   STU_12F5D52D (node) x1
+#   STU_1E93FE1F (node) x1
+#   STU_22926252 (node) x1
+#   STU_550D0C5C (node) x1
+#   STU_E37955DB (node) x1

@@ -1,0 +1,113 @@
+# build 1.74.0.0.104319: 12 nodes (6 States), 2 entries, 10 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001831
+# names (replace): 11 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[23424] (stack_contribution x1), shared_var[12079] (set x1)
+#   placeholders: 17 unrecovered (13 classes; 13 configvar, 4 node)
+#   shared_var[12079]: 1 write at line 51; 3 reads at lines 33, 52, 98
+#   var[12565]: 1 write at line 63; 2 reads at lines 27, 40
+#   var[23424]: 1 write at line 70; 1 read at line 78
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(Stack_9)
+
+on_entry(always, rid=10):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_11)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- UI presenters (grouped by class) ----
+
+state UXPresenter_1:  # STUStatescriptStateUXPresenter, state 0 (client-only); from GameMessageEntry_8.m_33DA5163; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: var[12565], shared_var[12079]  writes: shared_var[12079]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        m_3DBF6FD2=STU_5F31962C(m_condition=owner_scope(not member(unimplemented STU_DAAE1875(), id(28367)), scope=0)),
+        presenter_id[?]=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A00000000005E5)),
+        presenter_data[?]=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=shared_var[12079], m_id=asset(0x0D80000000006644)),
+                    STU_E870E3E8(m_value=unimplemented STU_194690C0(), m_id=asset(0x0D800000000063A8)),
+                    STU_E870E3E8(
+                        m_value=min(
+                            1.0,
+                            (
+                                unimplemented STU_41E91E02() if unimplemented STU_CEFF290A()
+                                else var[12565] / owner_scope(member(unimplemented STU_DAAE1875(), id(2441)), scope=0)
+                            ),
+                        ),
+                        m_id=asset(0x0D8000000000424B),
+                    ),
+                ],
+                m_definition=asset(0x0A88000000000091),
+            ),
+        ),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+    begin:
+        set_var(shared_var[12079], 1.0)  # client-only
+        unimplemented STU_2AB3F306(m_E62F36ED=shared_var[12079], m_0468C6D4=1000.0)  # client-only
+        if not unimplemented STU_CEFF290A():  # client-only
+            unimplemented STU_59364DB1()  # client-only
+    subgraph:
+        begin(ChaseVar_2)
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_2:  # STUStatescriptStateChaseVar, state 1 (client-only); from UXPresenter_1.m_subgraphPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: none  writes: var[12565]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=1000, start[?]=0, m_out_Var=var[12565], rate=1)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+# ---- begun from on_entry rid=0 ----
+
+state Stack_9:  # STUStatescriptStateStack, state 4 (client-only); from Entry_0.m_outPlug
+    # reads: none  writes: var[23424]
+    # + unimplemented nodes may touch others
+    stack_contribution(var[23424], value=unimplemented STU_28EC0F8A(), priority=None)
+    subgraph:
+        begin(BooleanSwitch_3)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 2 (client-only); from Stack_9.m_subgraphPlug
+    # reads: var[23424]  writes: none
+    # + unimplemented nodes may touch others
+    watch (
+               not member(var[23424], id(6732))
+               and unimplemented STU_AECBBA41(m_entity=unimplemented STU_8985E00A())
+               and (
+                   owner_scope(member(unimplemented STU_DAAE1875(), id(12103)), scope=0)
+                   or unimplemented STU_CEFF290A()
+               )
+           ):  # re-evaluated while the State runs
+        while true:
+            begin(GameMessageEntry_8)
+
+state GameMessageEntry_8:  # STUStatescriptStateGameMessageEntry, state 3 (client-only); from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000C1F))
+    provider_absent:
+        begin(UXPresenter_1)
+
+# ---- begun from on_entry rid=10 ----
+
+state STU_9D7BF987_11:  # STU_9D7BF987, state 5 (plain State at run time); from STU_571CC72E_10.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[shared_var[12079]]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_CEFF290A (configvar) x3
+#   STU_DAAE1875 (configvar) x3
+#   STU_194690C0 (configvar) x1
+#   STU_28EC0F8A (configvar) x1
+#   STU_41E91E02 (configvar) x1
+#   STU_8985E00A (configvar) x1
+#   STU_AECBBA41 (configvar) x1
+#   STU_B317E7B5 (configvar) x1
+#   STU_BCD1C634 (configvar) x1
+#   STUStatescriptStateChaseVar (node) x1
+#   STUStatescriptStateUXPresenter (node) x1
+#   STU_2AB3F306 (node) x1
+#   STU_59364DB1 (node) x1

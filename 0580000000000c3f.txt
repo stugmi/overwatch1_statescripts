@@ -1,0 +1,139 @@
+# build 1.74.0.0.104319: 15 nodes (12 States), 3 entries, 15 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c3f
+# names (replace): 4 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[1777] (stack_contribution x2)
+#   placeholders: 10 unrecovered (6 classes; 5 configvar, 5 node)
+#   shared_var[1777]: 2 writes at lines 106, 112; 3 reads at lines 75, 121, 131
+#   var[2075]: 4 reads at lines 80, 88, 98, 131
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[2075] = False
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(BooleanSwitch_4)
+    begin(DataFlowMapping_0)
+    begin(STU_CF6A8191_11)
+
+on_entry(context=unset, rid=7):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_8)
+
+on_entry(always, rid=13):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_14)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_0:  # STUStatescriptStateDataFlowMapping, state 0 (client-only); from Entry_1.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x048000000000058F),
+        m_answer=True,
+        m_entity=STU_02C0109E(),
+    )
+
+state DataFlowMapping_2:  # STUStatescriptStateDataFlowMapping, state 1 (client-only); from BooleanSwitch_5.m_trueSubgraphPlug, BooleanSwitch_6.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x048000000000058E),
+        m_answer=0,
+        m_entity=STU_02C0109E(),
+    )
+
+state DataFlowMapping_3:  # STUStatescriptStateDataFlowMapping, state 2 (client-only); from BooleanSwitch_5.m_falseSubgraphPlug, BooleanSwitch_6.m_falseSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x048000000000058E),
+        m_answer=1,
+        m_entity=STU_02C0109E(),
+    )
+
+# ---- begun from on_entry rid=1 ----
+
+state BooleanSwitch_4:  # STUStatescriptStateBooleanSwitch, state 3 (client-only); from Entry_1.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_47703870(m_team=STU_BD6CC023(0)):  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_5)
+        while false:
+            begin(BooleanSwitch_6)
+
+state STU_CF6A8191_11:  # STU_CF6A8191, state 9 (client-only); from Entry_1.m_outPlug
+    # reads: shared_var[1777]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_CF6A8191(
+        m_entity=unimplemented STU_B5A0CAF0(),
+        m_teamColor=unimplemented STU_377B7AAB(m_67465E75=shared_var[1777]),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state BooleanSwitch_5:  # STUStatescriptStateBooleanSwitch, state 4 (client-only); from BooleanSwitch_4.m_trueSubgraphPlug
+    # reads: var[2075]  writes: none
+    watch var[2075]:  # re-evaluated while the State runs
+        while true:
+            begin(DataFlowMapping_2)
+        while false:
+            begin(DataFlowMapping_3)
+
+state BooleanSwitch_6:  # STUStatescriptStateBooleanSwitch, state 5 (client-only); from BooleanSwitch_4.m_falseSubgraphPlug
+    # reads: var[2075]  writes: none
+    watch not var[2075]:  # re-evaluated while the State runs
+        while true:
+            begin(DataFlowMapping_2)
+        while false:
+            begin(DataFlowMapping_3)
+
+# ---- begun from on_entry rid=7 ----
+
+state BooleanSwitch_8:  # STUStatescriptStateBooleanSwitch, state 6; from Entry_7.m_outPlug
+    # reads: var[2075]  writes: none
+    watch var[2075]:  # re-evaluated while the State runs
+        while true:
+            begin(Stack_9)
+        while false:
+            begin(Stack_10)
+
+state Stack_9:  # STUStatescriptStateStack, state 7; from BooleanSwitch_8.m_trueSubgraphPlug
+    # reads: none  writes: shared_var[1777]
+    stack_contribution(shared_var[1777], value=0, priority=None)
+    subgraph:
+        begin(STU_691BFA55_12)
+
+state Stack_10:  # STUStatescriptStateStack, state 8; from BooleanSwitch_8.m_falseSubgraphPlug
+    # reads: none  writes: shared_var[1777]
+    stack_contribution(shared_var[1777], value=1, priority=None)
+    subgraph:
+        begin(STU_691BFA55_12)
+
+state STU_691BFA55_12:  # STU_691BFA55, state 10; from Stack_9.m_subgraphPlug, Stack_10.m_subgraphPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: shared_var[1777]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(
+        m_effect=Effect(0x0300000000001A90),
+        m_teamColor=unimplemented STU_377B7AAB(m_67465E75=shared_var[1777]),
+        entity[?]=unimplemented STU_B5A0CAF0(),
+        m_E591AF01=HardPoint(0x0DC0000000000076),
+        m_9E54CED9=HardPoint(0x0DC0000000000076),
+    )  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=13 ----
+
+state STU_9D7BF987_14:  # STU_9D7BF987, state 11 (plain State at run time); from STU_571CC72E_13.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[var[2075], shared_var[1777]]
+
+# placeholders in this graph (semantics not recovered):
+#   STUStatescriptStateDataFlowMapping (node) x3
+#   STU_377B7AAB (configvar) x2
+#   STU_B5A0CAF0 (configvar) x2
+#   STU_47703870 (configvar) x1
+#   STU_691BFA55 (node) x1
+#   STU_CF6A8191 (node) x1

@@ -1,0 +1,133 @@
+# build 1.74.0.0.104319: 12 nodes (9 States), 1 entries, 12 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001464
+# names (replace): 8 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[8530] (set x1)
+#   placeholders: 20 unrecovered (10 classes; 9 configvar, 9 node, 2 expression)
+#   var[14239]: 5 reads at lines 31, 44, 55, 64, 109
+#   var[1002]: 3 reads at lines 31, 44, 109
+#   var[1303]: 1 write at line 73; 2 reads at lines 31, 44
+#   var[85]: 3 reads at lines 31, 44, 109
+#   var[1724]: 1 write at line 88; 1 read at line 90
+#   var[6439]: 1 write at line 87; 1 read at line 118
+#   var[8530]: 1 write at line 90; 1 read at line 117
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(State_2)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_0:  # STUStatescriptStateDataFlowMapping, state 0; from State_2.m_subgraphPlug
+    # reads: var[85], var[1002], var[1303], var[14239]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x048000000000066E),
+        m_answer=unimplemented STU_919FD47C(
+            code=raw(08000801060024040c080106001a060118010406021908020603190602401806011706041a060506064108030607192e0608191700),
+            vars=[var[14239], var[1002], var[85], var[1303]],
+            floats=[10.0, 1.0, 0.0, -1.0, 2.0, 0.2, 0.8, 50.0, 0.030000001],
+        ),
+        m_entity=STU_02C0109E(),
+    )
+
+state DataFlowMapping_3:  # STUStatescriptStateDataFlowMapping, state 2; from State_2.m_subgraphPlug
+    # reads: var[85], var[1002], var[1303], var[14239]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x048000000000066F),
+        m_answer=unimplemented STU_919FD47C(
+            code=raw(08000801060024040c080106001a060118010406021908020602401806011706031a060406054108030606192e0607191700),
+            vars=[var[14239], var[1002], var[85], var[1303]],
+            floats=[10.0, 1.0, 0.0, 2.0, 0.2, 0.8, 52.0, 0.030000001],
+        ),
+        m_entity=STU_02C0109E(),
+    )
+
+state DataFlowMapping_5:  # STUStatescriptStateDataFlowMapping, state 4; from State_2.m_subgraphPlug
+    # reads: var[14239]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x048000000000067E),
+        m_answer=var[14239],
+        m_entity=STU_02C0109E(),
+    )
+
+state DataFlowMapping_7:  # STUStatescriptStateDataFlowMapping, state 6; from State_2.m_subgraphPlug
+    # reads: var[14239]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x0480000000000685),
+        m_answer=0.2 + magnitude(var[14239] * 1.5),
+        m_entity=STU_02C0109E(),
+    )
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_6:  # STUStatescriptStateChaseVar, state 5; from State_2.m_subgraphPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: none  writes: var[1303]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=9999, start[?]=0, m_out_Var=var[1303], rate=1)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+state ChaseVar_11:  # STUStatescriptStateChaseVar, state 8; from STU_691BFA55_8.m_subgraphPlug, SetVar_9.m_outPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: var[1724]  writes: var[1724], var[6439], var[8530], var[14074]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=0.1, start[?]=0, m_out_Var=var[14074], rate=1)  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    end:
+        unimplemented STU_08D6BA6E(
+            m_ignoreEntities=[unimplemented STU_B5A0CAF0()],
+            m_startPosWS=unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()),
+            m_dirWS=unimplemented STU_D32169F6(m_entity=unimplemented STU_B5A0CAF0()) * -1.0,
+            m_castLength=15,
+            m_8CBE558B=False,
+            m_castFilter=unimplemented STUConfigVarFilter(m_C1903771=STU_20DB8AB5(0x069000000000011E)),
+            m_out_HitSomething=var[6439],
+            m_out_HitPointWS=var[1724],
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        set_var(var[8530], var[1724] - unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()))  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        begin(ChaseVar_11)
+
+# ---- begun from on_entry rid=1 ----
+
+state State_2:  # STUStatescriptState, state 1 (plain State at run time); from Entry_1.m_outPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(STU_1973FD2E_4)
+        begin(DataFlowMapping_0)
+        begin(DataFlowMapping_3)
+        begin(DataFlowMapping_5)
+        begin(ChaseVar_6)
+        begin(DataFlowMapping_7)
+        begin(STU_691BFA55_8)
+
+state STU_1973FD2E_4:  # STU_1973FD2E, state 3; from State_2.m_subgraphPlug
+    # reads: var[85], var[1002], var[14239]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_1973FD2E(m_51A48B8D=var[14239], m_A9839B78=var[85], m_5F79638E=var[1002])
+
+state STU_691BFA55_8:  # STU_691BFA55, state 7; from State_2.m_subgraphPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: var[6439], var[8530]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(
+        m_effect=Effect(0x03000000000022CA),
+        entity[?]=unimplemented STU_B5A0CAF0(),
+        m_BD631144=var[8530],
+        m_89C93A57=not var[6439],
+    )  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(ChaseVar_11)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x5
+#   STUStatescriptStateDataFlowMapping (node) x4
+#   STU_71A87E92 (configvar) x2
+#   STU_919FD47C (expression) x2
+#   STUStatescriptStateChaseVar (node) x2
+#   STUConfigVarFilter (configvar) x1
+#   STU_D32169F6 (configvar) x1
+#   STU_08D6BA6E (node) x1
+#   STU_1973FD2E (node) x1
+#   STU_691BFA55 (node) x1

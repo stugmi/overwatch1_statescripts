@@ -1,0 +1,95 @@
+# build 1.74.0.0.104319: 13 nodes (7 States), 3 entries, 10 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000d58
+# names (replace): 6 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: shared_var[2052] (set x1)
+#   waits: Wait_1 after(var[2507]); Wait_8 after(var[2508])
+#   messages: receives GameMessage(0x0240000000000715) (entry rid 0); receives
+#             GameMessage(0x024000000000076D) (entry rid 7)
+#   placeholders: 9 unrecovered (4 classes; 7 node, 2 configvar)
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[2507] = 0
+    var[2032] = 2
+    var[609] = Effect(0)
+    var[2508] = 0
+    var[2035] = 2
+    var[6343] = Effect(0)
+    var[2052] = False
+
+on_game_message(GameMessage(0x0240000000000715), rid=0):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    begin(Wait_1)
+    begin(STU_B1FA9C2A_6)
+
+on_entry(context=unset, rid=5):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[2052]  writes: shared_var[2052]
+    begin(STU_B1FA9C2A_4)
+    set_var(shared_var[2052], var[2052])
+
+on_game_message(GameMessage(0x024000000000076D), rid=7):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    begin(Wait_8)
+    begin(STU_B1FA9C2A_9)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- animation, cosmetics and haptics (grouped by class) ----
+
+state Anim_2:  # STUStatescriptStateAnim, state 1; from Wait_1.m_onFinishedPlug; names: class STUStatescriptStateAnim=Anim [matched]
+    # reads: var[609], var[2032]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateAnim(
+        animation[?]=AnimAlias(0x0C80000000000011),
+        m_22326315=AnimCategory(0x0280000000000235),
+        m_37EE887D=False,
+        blend_time[?]=var[2032],
+        m_2DEAE6A9=True,
+    )  # names: class STUStatescriptStateAnim=Anim [matched]
+    begin:
+        unimplemented STUStatescriptActionEffect(m_effect=var[609], entity[?]=unimplemented STU_B5A0CAF0())  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state Anim_11:  # STUStatescriptStateAnim, state 6; from Wait_8.m_onFinishedPlug; names: class STUStatescriptStateAnim=Anim [matched]
+    # reads: var[2035], var[6343]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateAnim(animation[?]=AnimAlias(0x0C80000000000015), m_37EE887D=False, blend_time[?]=var[2035], m_2DEAE6A9=True)  # names: class STUStatescriptStateAnim=Anim [matched]
+    begin:
+        unimplemented STUStatescriptActionEffect(m_effect=var[6343], entity[?]=unimplemented STU_B5A0CAF0())  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_game_message rid=0 ----
+
+state Wait_1:  # STUStatescriptStateWait, state 0; from GameMessage_0.m_outPlug
+    # reads: var[2507]  writes: none
+    after(var[2507]):
+        begin(Anim_2)
+
+state STU_B1FA9C2A_6:  # STU_B1FA9C2A, state 3; from GameMessage_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_B1FA9C2A(m_11E0A658=AnimAlias(0x0C80000000000011))
+
+# ---- begun from on_entry rid=5 ----
+
+state STU_B1FA9C2A_4:  # STU_B1FA9C2A, state 2; from Entry_5.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_B1FA9C2A(m_11E0A658=AnimAlias(0x0C80000000000015))
+
+# ---- begun from on_game_message rid=7 ----
+
+state Wait_8:  # STUStatescriptStateWait, state 4; from GameMessage_7.m_outPlug
+    # reads: var[2508]  writes: none
+    after(var[2508]):
+        begin(Anim_11)
+
+state STU_B1FA9C2A_9:  # STU_B1FA9C2A, state 5; from GameMessage_7.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_B1FA9C2A(m_11E0A658=AnimAlias(0x0C80000000000015))
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B1FA9C2A (node) x3
+#   STU_B5A0CAF0 (configvar) x2
+#   STUStatescriptActionEffect (node) x2
+#   STUStatescriptStateAnim (node) x2

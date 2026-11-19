@@ -1,0 +1,94 @@
+# build 1.74.0.0.104319: 8 nodes (0 States), 1 entries, 7 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000029bc
+# names (replace): 4 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x02400000000013D7) (entry rid 0)
+#   placeholders: 19 unrecovered (7 classes; 14 configvar, 5 node)
+#   var[1777]: 17 reads at lines 25, 49, 52, 53, 58, 61 ...
+#   var[4914]: 1 write at line 21; 3 reads at lines 25, 32, 41
+#   var[8959]: 1 write at line 44; 2 reads at lines 56, 75
+#   var[9252]: 1 write at line 35; 2 reads at lines 65, 84
+#   var[13151]: 1 write at line 21; 1 read at line 48
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[261] = Effect(0x0300000000001A4B)
+    var[31350] = Effect(0x0300000000001A4B)
+    var[31438] = Effect(0x0300000000001A4B)
+    var[31439] = Effect(0x0300000000001A4B)
+    var[1777] = STU_BD6CC023(4294967295)
+
+on_game_message(GameMessage(0x02400000000013D7), rid=0)(var[4914] <- param 0x0A4000000000008D, var[13151] <- param 0x0A4000000000008E):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[261], var[1777], var[4914], var[8959], var[9252], var[13151], var[31350], var[31438], var[31439]  writes: var[4914], var[8959], var[9252], var[13151]
+    # + unimplemented nodes may touch others
+    if var[4914] != var[1777]:
+        unimplemented STU_12F5D52D(
+            m_143D4C5B=[
+                STU_8529C204(
+                    m_value=unimplemented STU_EB216A0B(
+                        m_filter=unimplemented STUConfigVarFilter(
+                            m_84065FD1=262144,
+                            m_condition=var[4914] == unimplemented STU_65ABFCCC(m_target=param[8]),
+                        ),
+                    ),
+                    m_out_Var=var[9252],
+                ),
+                STU_8529C204(
+                    m_value=unimplemented STU_EB216A0B(
+                        m_filter=unimplemented STUConfigVarFilter(
+                            m_84065FD1=262144,
+                            m_condition=var[4914] != unimplemented STU_65ABFCCC(m_target=param[8]),
+                        ),
+                    ),
+                    m_out_Var=var[8959],
+                ),
+            ],
+        )  # names: class STUConfigVarFilter=OwnEntityFilter [candidate]
+        if var[13151] > 1.0:
+            unimplemented STUStatescriptActionEffect(
+                m_effect=var[31350],
+                m_teamColor=(
+                    0 if var[1777] == STU_BD6CC023(4294967295)
+                    else unimplemented STU_377B7AAB(m_67465E75=var[1777])
+                ),
+                entity[?]=unimplemented STU_B5A0CAF0(),
+                m_9CCD4C7F=var[8959],
+            )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+            unimplemented STUStatescriptActionEffect(
+                m_effect=var[31439],
+                m_teamColor=(
+                    0 if var[1777] == STU_BD6CC023(4294967295)
+                    else unimplemented STU_377B7AAB(m_67465E75=var[1777])
+                ),
+                entity[?]=unimplemented STU_B5A0CAF0(),
+                m_9CCD4C7F=var[9252],
+            )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        else:
+            unimplemented STUStatescriptActionEffect(
+                m_effect=var[261],
+                m_teamColor=(
+                    0 if var[1777] == STU_BD6CC023(4294967295)
+                    else unimplemented STU_377B7AAB(m_67465E75=var[1777])
+                ),
+                entity[?]=unimplemented STU_B5A0CAF0(),
+                m_9CCD4C7F=var[8959],
+            )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+            unimplemented STUStatescriptActionEffect(
+                m_effect=var[31438],
+                m_teamColor=(
+                    0 if var[1777] == STU_BD6CC023(4294967295)
+                    else unimplemented STU_377B7AAB(m_67465E75=var[1777])
+                ),
+                entity[?]=unimplemented STU_B5A0CAF0(),
+                m_9CCD4C7F=var[9252],
+            )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_377B7AAB (configvar) x4
+#   STU_B5A0CAF0 (configvar) x4
+#   STUStatescriptActionEffect (node) x4
+#   STUConfigVarFilter (configvar) x2
+#   STU_65ABFCCC (configvar) x2
+#   STU_EB216A0B (configvar) x2
+#   STU_12F5D52D (node) x1

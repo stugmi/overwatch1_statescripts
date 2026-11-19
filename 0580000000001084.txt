@@ -1,0 +1,109 @@
+# build 1.74.0.0.104319: 11 nodes (8 States), 2 entries, 9 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001084
+# names (replace): 6 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[479] (stack_contribution x1), var[3192] (stack_contribution x1), var[6895] (set
+#                      x1), var[7549] (stack_contribution x1)
+#   placeholders: 8 unrecovered (7 classes; 6 configvar, 2 node)
+#   var[6895]: 1 write at line 27; 4 reads at lines 58, 68, 74, 100
+#   var[3192]: 1 write at line 68; 2 reads at lines 91, 92
+#   var[479]: 1 write at line 74; 2 reads at line 80
+#   var[7549]: 1 write at line 55; 2 reads at lines 68, 74
+#   var[11694]: 2 reads at lines 91, 100
+#   var[11697]: 2 reads at lines 80, 100
+#   var[11698]: 2 reads at lines 80, 100
+#   var[11756]: 2 reads at lines 88, 100
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[11694] = 70
+    var[11697] = 1.5
+    var[11698] = 50
+    var[11756] = Effect(0)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[6895]
+    # + unimplemented nodes may touch others
+    set_var(var[6895], unimplemented STU_71A87E92(m_entity=unimplemented STU_B5A0CAF0()))  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin(State_5)
+
+on_entry(always, rid=9):  # STU_571CC72E, init=always
+    # reads: none  writes: none
+    begin(STU_9D7BF987_10)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state State_5:  # STUStatescriptState, state 4 (plain State at run time); from SetVar_7.m_outPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(STU_BD02E168_8)
+
+state STU_BD02E168_8:  # STU_BD02E168, state 6; from State_5.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_BD02E168()
+    plug m_5B10D01F:
+        # owns (not begun here): Stack_4, Stack_6, BooleanSwitch_3, STU_691BFA55_1
+        begin(Stack_2)
+
+state Stack_2:  # STUStatescriptStateStack, state 1 (client-only); from STU_BD02E168_8.m_5B10D01F
+    # reads: var[6895]  writes: var[7549]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        var[7549],
+        value=vec3(
+            lane_x(unimplemented STU_8CBDD81C(m_entity=unimplemented STU_1FF67CA6())),
+            lane_y(var[6895]),
+            lane_z(unimplemented STU_8CBDD81C(m_entity=unimplemented STU_1FF67CA6())),
+        ),
+        priority=None,
+    )  # names: class STU_1FF67CA6=ControllerEntityID [candidate]
+    subgraph:
+        begin(Stack_4)
+
+state Stack_4:  # STUStatescriptStateStack, state 3 (client-only); from Stack_2.m_subgraphPlug
+    # reads: var[6895], var[7549]  writes: var[3192]
+    stack_contribution(var[3192], value=normalize(var[7549] - var[6895]), priority=None)
+    subgraph:
+        begin(Stack_6)
+
+state Stack_6:  # STUStatescriptStateStack, state 5 (client-only); from Stack_4.m_subgraphPlug
+    # reads: var[6895], var[7549]  writes: var[479]
+    stack_contribution(var[479], value=distance(var[7549], var[6895]), priority=None)
+    subgraph:
+        begin(BooleanSwitch_3)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 2 (client-only); from Stack_6.m_subgraphPlug
+    # reads: var[479], var[11697], var[11698]  writes: none
+    watch var[479] > var[11697] and var[479] < var[11698]:  # re-evaluated while the State runs
+        while true:
+            begin(STU_691BFA55_1)
+
+state STU_691BFA55_1:  # STU_691BFA55, state 0 (client-only); from BooleanSwitch_3.m_trueSubgraphPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: var[3192], var[11694], var[11756]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(
+        m_effect=var[11756],
+        entity[?]=unimplemented STU_B5A0CAF0(),
+        m_9E54CED9=HardPoint(0x0DC00000000000A4),
+        m_BD631144=var[3192] * var[11694],
+        offset_x[?]=lane_x(unimplemented STU_D0E0DA18(m_3ABD589C=-var[3192])),
+        skip_if[?]=True,
+    )  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=9 ----
+
+state STU_9D7BF987_10:  # STU_9D7BF987, state 7 (plain State at run time); from STU_571CC72E_9.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_6F0C0343=[var[11756], var[11698], var[11694], var[11697], var[6895]]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x2
+#   STU_1FF67CA6 (configvar) x1
+#   STU_71A87E92 (configvar) x1
+#   STU_8CBDD81C (configvar) x1
+#   STU_D0E0DA18 (configvar) x1
+#   STU_691BFA55 (node) x1
+#   STU_BD02E168 (node) x1

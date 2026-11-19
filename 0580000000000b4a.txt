@@ -1,0 +1,207 @@
+# build 1.74.0.0.104319: 23 nodes (18 States), 1 entries, 27 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000b4a
+# inlined shared nodes (printed at each use site instead of a def): SetVar_15
+# names (replace): 3 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[940] (stack_contribution x1), var[1206] (stack_contribution x1), var[1962]
+#                      (stack_contribution x1), var[8172] (stack_contribution x2), var[12884] (set x5)
+#   placeholders: 16 unrecovered (13 classes; 9 configvar, 7 node)
+#   var[12884]: 5 writes at lines 65, 128, 136, 139, 175; 3 reads at lines 40, 47, 93
+#   var[8172]: 2 writes at lines 143, 149; 5 reads at lines 39, 126, 157, 173, 192
+#   var[940]: 1 write at line 62; 6 reads at lines 38, 79, 94, 105, 119, 150
+#   var[1206]: 1 write at line 79; 5 reads at lines 37, 83, 133, 173, 192
+#   var[1962]: 1 write at line 114; 3 reads at lines 40, 47, 180
+#   var[1980]: 2 reads at lines 42, 192
+#   var[2712]: 2 reads at lines 50, 187
+#   var[501]: 2 reads at lines 43, 192
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[13241] = Hero(0)
+    var[13242] = SkinTheme(0)
+    var[13204] = None
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(Stack_19)
+    begin(GameMessageEntry_11)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- animation, cosmetics and haptics (grouped by class) ----
+
+state CosmeticEntity_0:  # STUStatescriptStateCosmeticEntity, state 0; from STU_434D6E7F_4.m_subgraphPlug; names: class STUStatescriptStateCosmeticEntity=CosmeticEntity [matched]
+    # reads: var[501], var[502], var[682], var[940], var[1206], var[1962], var[1980], var[2712], var[8172], var[12884]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateCosmeticEntity(
+        m_entityDef=var[1206],
+        m_8E6AFB43=unimplemented STU_051DAD39(m_hero=var[940]),
+        m_skin=var[8172],
+        m_89C93A57=not var[1962] or not var[12884],
+        m_8A406A39=var[502],
+        m_8E253789=var[1980],
+        m_99C32380=var[501],
+        m_BD631144=var[682],
+        entity[?]=unimplemented STU_B5A0CAF0(),
+        m_BA6E2567=True,
+        m_CA1F4D2A=not var[1962] or not var[12884],
+        m_FABFF0F8=True,
+        m_BF32F199=0,
+        m_1DEF59FA=var[2712],
+        m_485109CB=True,
+    )  # names: class STUStatescriptStateCosmeticEntity=CosmeticEntity [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(STU_E0079489_8)
+        begin(BooleanSwitch_9)
+
+# ---- begun from on_entry rid=1 ----
+
+state Stack_19:  # STUStatescriptStateStack, state 14; from Entry_1.m_outPlug
+    # reads: var[13241]  writes: var[940], var[12884]
+    # + unimplemented nodes may touch others
+    stack_contribution(var[940], value=var[13241] or unimplemented STU_47F99DF4(), priority=None)
+    subgraph:
+        begin(Stack_20)
+        set_var(var[12884], False)
+        begin(BooleanSwitch_3)
+        begin(STU_38EE1100_10)
+        begin(BooleanSwitch_16)
+
+state GameMessageEntry_11:  # STUStatescriptStateGameMessageEntry, state 9; from Entry_1.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x024000000000062C))
+    provider_present:
+        begin(Stack_12)
+
+state Stack_20:  # STUStatescriptStateStack, state 15; from Stack_19.m_subgraphPlug
+    # reads: var[940]  writes: var[1206]
+    # + unimplemented nodes may touch others
+    stack_contribution(var[1206], value=unimplemented STU_93CBF16B(m_hero=var[940]), priority=None)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 1; from SetVar_14.m_outPlug
+    # reads: var[1206]  writes: none
+    watch var[1206]:  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_5)
+            begin(STU_2F4E2E3F_21)
+            begin(STU_2F4E2E3F_22)
+
+state STU_38EE1100_10:  # STU_38EE1100, state 8; from SetVar_14.m_outPlug
+    # reads: var[940], var[12884]  writes: none
+    publish_game_message(
+        m_params=[
+            STU_814D595E(m_value=var[12884], m_B5051BCE=asset(0x0A40000000000563)),
+            STU_814D595E(m_value=var[940], m_B5051BCE=asset(0x0A4000000000005D)),
+        ],
+        m_gameMessage=GameMessage(0x02400000000009AF),
+        m_target=STU_1D719351(m_111E4A0E=1, m_1199BFE0=1),
+    )
+
+state BooleanSwitch_16:  # STUStatescriptStateBooleanSwitch, state 11; from Stack_19.m_subgraphPlug
+    # reads: var[940]  writes: none
+    # + unimplemented nodes may touch others
+    watch (
+               unimplemented STU_6689C0A9() == STU_FA7A1F98(6)
+               and unimplemented STU_D4B06BC5(m_hero=var[940]) == SkinTheme(0x0A50000000001C1B)
+           ):  # re-evaluated while the State runs
+        while true:
+            begin(Stack_17)
+        while false:
+            begin(Stack_18)
+
+state Stack_12:  # STUStatescriptStateStack, state 10; from GameMessageEntry_11.m_452862E6
+    # reads: none  writes: var[1962]
+    stack_contribution(var[1962], value=True, priority=None)
+
+state BooleanSwitch_5:  # STUStatescriptStateBooleanSwitch, state 3; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: var[940]  writes: none
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_8CE91499(m_18D94B00=var[940]):  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_6)
+
+state STU_2F4E2E3F_21:  # STU_2F4E2E3F, state 16; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: var[8172]  writes: var[12884]
+    # + unimplemented nodes may touch others
+    unimplemented STU_2F4E2E3F(m_B7A3CF78=var[8172])
+    plug m_A70DB860:
+        set_var(var[12884], False)
+
+state STU_2F4E2E3F_22:  # STU_2F4E2E3F, state 17; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: var[1206]  writes: var[12884]
+    # + unimplemented nodes may touch others
+    unimplemented STU_2F4E2E3F(m_B7A3CF78=var[1206])
+    begin:
+        STU_04772F44_2()
+        set_var(var[12884], False)
+    plug m_A70DB860:
+        STU_04772F44_2()
+        set_var(var[12884], False)
+
+state Stack_17:  # STUStatescriptStateStack, state 12; from BooleanSwitch_16.m_trueSubgraphPlug
+    # reads: none  writes: var[8172]
+    stack_contribution(var[8172], value=SkinTheme(0x0A500000000016A3), priority=None)
+
+state Stack_18:  # STUStatescriptStateStack, state 13; from BooleanSwitch_16.m_falseSubgraphPlug
+    # reads: var[940], var[13242]  writes: var[8172]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        var[8172],
+        value=var[13242] or unimplemented STU_D4B06BC5(m_hero=var[940]),
+        priority=None,
+    )
+
+state BooleanSwitch_6:  # STUStatescriptStateBooleanSwitch, state 4; from BooleanSwitch_5.m_trueSubgraphPlug
+    # reads: var[8172]  writes: none
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_8CE91499(m_18D94B00=var[8172]):  # re-evaluated while the State runs
+        on change to true:
+            STU_04772F44_2()
+        while true:
+            begin(STU_434D6E7F_4)
+
+state STU_434D6E7F_4:  # STU_434D6E7F, state 2; from BooleanSwitch_6.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_434D6E7F()
+    subgraph:
+        begin(CosmeticEntity_0)
+
+state STU_E0079489_8:  # STU_E0079489, state 6; from CosmeticEntity_0.m_subgraphPlug
+    # reads: var[1206], var[8172]  writes: var[12884]
+    # + unimplemented nodes may touch others
+    unimplemented STU_E0079489(m_98CA8107=var[1206], m_skin=var[8172], m_E46584AF=False, m_01A39BC8=raw(00))
+    plug m_59A0ED6F:
+        set_var(var[12884], True)
+        STU_04772F44_2()
+
+state BooleanSwitch_9:  # STUStatescriptStateBooleanSwitch, state 7; from CosmeticEntity_0.m_subgraphPlug
+    # reads: var[1962], var[13204]  writes: none
+    watch not var[13204] and var[1962]:  # re-evaluated while the State runs
+        while true:
+            begin(STU_7CB2AE01_7)
+
+state STU_7CB2AE01_7:  # STU_7CB2AE01, state 5; from BooleanSwitch_9.m_trueSubgraphPlug
+    # reads: var[2712]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_7CB2AE01(m_C19A378A=var[2712])
+
+def STU_04772F44_2():  # STU_04772F44; shared or nested too deep to inline; from BooleanSwitch_6.m_onTruePlug, STU_E0079489_8.m_59A0ED6F, STU_2F4E2E3F_22.m_onBeginPlug, STU_2F4E2E3F_22.m_A70DB860; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[501], var[502], var[682], var[1206], var[1980], var[8172]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_04772F44(m_5589C1B3=var[1206], m_5E6DA8F7=var[8172], m_E1CE3497=var[682], m_886B1AA1=var[502], m_E1395228=var[501], m_077A7D96=var[1980])
+
+# placeholders in this graph (semantics not recovered):
+#   STU_8CE91499 (configvar) x2
+#   STU_D4B06BC5 (configvar) x2
+#   STU_2F4E2E3F (node) x2
+#   STU_051DAD39 (configvar) x1
+#   STU_47F99DF4 (configvar) x1
+#   STU_6689C0A9 (configvar) x1
+#   STU_93CBF16B (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STUStatescriptStateCosmeticEntity (node) x1
+#   STU_04772F44 (node) x1
+#   STU_434D6E7F (node) x1
+#   STU_7CB2AE01 (node) x1
+#   STU_E0079489 (node) x1

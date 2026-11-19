@@ -1,0 +1,50 @@
+# build 1.74.0.0.104319: 6 nodes (2 States), 2 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000b21
+# names (replace): 3 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_4 after(1); Wait_5 after(1)
+#   messages: receives GameMessage(0x0240000000000581) (entry rid 1); receives
+#             GameMessage(0x0240000000000582) (entry rid 2)
+#   placeholders: 4 unrecovered (2 classes; 2 configvar, 2 node)
+#   var[7017]: 2 writes at lines 12, 17
+
+on_game_message(GameMessage(0x0240000000000581), rid=1)(var[7017] <- param 0x0A4000000000034B):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[7017]
+    begin(Wait_4)
+
+on_game_message(GameMessage(0x0240000000000582), rid=2)(var[7017] <- param 0x0A4000000000034B):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[7017]
+    begin(Wait_5)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_game_message rid=1 ----
+
+state Wait_4:  # STUStatescriptStateWait, state 0; from GameMessage_1.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    after(1):
+        unimplemented STUStatescriptActionEffect(
+            m_effect=Effect(0x03000000000016E3),
+            entity[?]=unimplemented STU_B5A0CAF0(),
+            m_7A46FA0F=raw(01000000),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_game_message rid=2 ----
+
+state Wait_5:  # STUStatescriptStateWait, state 1; from GameMessage_2.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    after(1):
+        unimplemented STUStatescriptActionEffect(
+            m_effect=Effect(0x03000000000016E6),
+            entity[?]=unimplemented STU_B5A0CAF0(),
+            m_7A46FA0F=raw(01000000),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x2
+#   STUStatescriptActionEffect (node) x2

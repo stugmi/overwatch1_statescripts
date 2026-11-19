@@ -1,0 +1,61 @@
+# build 1.74.0.0.104319: 7 nodes (4 States), 1 entries, 6 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000208
+# names (replace): 4 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[154] (stack_contribution x1)
+#   placeholders: 4 unrecovered (4 classes; 3 node, 1 configvar)
+#   var[1794]: 5 reads at lines 26, 34, 42, 54
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[1794] = unimplemented STUConfigVarEntityReference()
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(Stack_2)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_1:  # STUStatescriptStateDataFlowMapping, state 0; from Stack_2.m_subgraphPlug
+    # reads: var[1794]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x04800000000000FD),
+        m_answer=member(var[1794], id(154)),
+        m_entity=STU_02C0109E(),
+    )
+
+# ---- begun from on_entry rid=0 ----
+
+state Stack_2:  # STUStatescriptStateStack, state 1; from Entry_0.m_outPlug
+    # reads: var[1794]  writes: var[154]
+    stack_contribution(var[154], value=member(var[1794], id(154)), priority=None)
+    subgraph:
+        begin(DataFlowMapping_1)
+        begin(BooleanSwitch_3)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 2; from Stack_2.m_subgraphPlug
+    # reads: var[1794]  writes: none
+    # + unimplemented nodes may touch others
+    watch member(var[1794], id(2017)) or member(var[1794], id(100)):  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_5)
+            unimplemented STUStatescriptActionEffect(
+                m_effect=Effect(0x03000000000003B1),
+                entity[?]=unimplemented STU_B5A0CAF0(),
+                m_7A46FA0F=raw(01000000),
+            )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+            unimplemented STU_9F3FE778()
+
+state BooleanSwitch_5:  # STUStatescriptStateBooleanSwitch, state 3; from BooleanSwitch_3.m_trueSubgraphPlug
+    # reads: var[1794]  writes: none
+    watch member(var[1794], id(1754)):  # re-evaluated while the State runs
+        pass
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x1
+#   STUStatescriptActionEffect (node) x1
+#   STUStatescriptStateDataFlowMapping (node) x1
+#   STU_9F3FE778 (node) x1

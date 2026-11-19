@@ -1,0 +1,43 @@
+# build 1.74.0.0.104319: 3 nodes (1 States), 1 entries, 2 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000015ae
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_2 after(3.0)
+#   placeholders: 8 unrecovered (5 classes; 7 configvar, 1 node)
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[15081] = STU_8556841E(0x0400000000002763)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(Wait_2)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state Wait_2:  # STUStatescriptStateWait, state 0; from Entry_0.m_outPlug
+    # reads: var[15081]  writes: none
+    # + unimplemented nodes may touch others
+    after(3.0):
+        pass
+    end:
+        unimplemented STUStatescriptActionCreateEntity(
+            m_entityDef=var[15081],
+            m_position=unimplemented STU_FC99C77E(
+                m_hardPoint=HardPoint(0x0DC0000000000076),
+                m_entity=unimplemented STU_B5A0CAF0(),
+            ),
+            m_40AF7E2D=1.45,
+            m_1C558638=unimplemented STU_C8C4C20D(m_entity=unimplemented STU_B5A0CAF0()),
+            m_EC1E473E=unimplemented STU_40AC5AE4(m_entity=unimplemented STU_B5A0CAF0()),
+            m_3E3E203A=unimplemented STU_B5A0CAF0(),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x4
+#   STU_40AC5AE4 (configvar) x1
+#   STU_C8C4C20D (configvar) x1
+#   STU_FC99C77E (configvar) x1
+#   STUStatescriptActionCreateEntity (node) x1

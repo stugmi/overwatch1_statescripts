@@ -1,0 +1,68 @@
+# build 1.74.0.0.104319: 9 nodes (5 States), 2 entries, 10 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001370
+# inlined shared nodes (printed at each use site instead of a def): STU_1113EBD5_8
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_1 after(unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0], m_68CFF844=100000,
+#          m_FDCA1FD0=0.016))
+#   messages: receives GameMessage(0x0240000000000D65) (entry rid 2)
+#   placeholders: 4 unrecovered (4 classes; 3 node, 1 configvar)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(State_5)
+
+on_game_message(GameMessage(0x0240000000000D65), rid=2):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    abort(State_5)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state State_5:  # STUStatescriptState, state 2 (plain State at run time); from Entry_0.m_outPlug, GameMessage_2.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    subgraph:
+        # owns (not begun here): State_6, State_7
+        begin(Wait_1)
+        begin(STU_E3CEF6B9_4)
+    transitions:
+        when transition[0]:
+            unimplemented STU_1113EBD5(m_122DF0CA=[3, 4, 2], m_B24D1794=3)
+            unimplemented STU_1E93FE1F()
+
+state Wait_1:  # STUStatescriptStateWait, state 0; from State_5.m_subgraphPlug
+    # reads: var[18739]  writes: none
+    # + unimplemented nodes may touch others
+    after(unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0], m_68CFF844=100000, m_FDCA1FD0=0.016)):
+        begin(State_7)
+
+state STU_E3CEF6B9_4:  # STU_E3CEF6B9, state 1; from State_5.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_E3CEF6B9(m_3016B9A1=1)
+    plug m_onFinishedPlug:
+        begin(State_6)
+
+state State_7:  # STUStatescriptState, state 4 (plain State at run time); from Wait_1.m_onFinishedPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    transitions:
+        when transition[0]:
+            unimplemented STU_1113EBD5(m_122DF0CA=[3, 4, 2], m_B24D1794=3)
+            unimplemented STU_1E93FE1F()
+
+state State_6:  # STUStatescriptState, state 3 (plain State at run time); from STU_E3CEF6B9_4.m_onFinishedPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    transitions:
+        when transition[0]:
+            unimplemented STU_1113EBD5(m_122DF0CA=[3, 4, 2], m_B24D1794=3)
+            unimplemented STU_1E93FE1F()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_77B0987E (configvar) x1
+#   STU_1113EBD5 (node) x1
+#   STU_1E93FE1F (node) x1
+#   STU_E3CEF6B9 (node) x1

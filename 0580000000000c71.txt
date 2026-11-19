@@ -1,0 +1,47 @@
+# build 1.74.0.0.104319: 4 nodes (0 States), 1 entries, 3 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c71
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x024000000000000F) (entry rid 0)
+#   placeholders: 8 unrecovered (4 classes; 6 configvar, 2 node)
+#   var[40]: 4 reads at lines 12, 16, 20, 33
+#   var[18763]: 1 write at line 12; 2 reads at lines 21, 34
+#   var[499]: 1 write at line 12; 2 reads at lines 19, 32
+
+on_game_message(GameMessage(0x024000000000000F), rid=0, m_B60ABDA4=var[40], m_FF703F20=var[41])(var[499] <- param 0x0A4000000000002A, var[18763] <- param 0x0A40000000000708):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[40], var[41], var[499], var[18763]  writes: var[499], var[18763]
+    # + unimplemented nodes may touch others
+    if unimplemented STU_53F4CA65(m_target=unimplemented STU_B5A0CAF0(), m_AFBBE9C3=False, m_source=var[40]):  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        unimplemented STUStatescriptActionPlayScript(
+            m_params=[
+                STU_814D595E(m_value=var[499], m_B5051BCE=asset(0x0A4000000000002A)),
+                STU_814D595E(m_value=var[40], m_B5051BCE=asset(0x0A4000000000000A)),
+                STU_814D595E(m_value=var[18763], m_B5051BCE=asset(0x0A40000000000708)),
+            ],
+            m_69F4B52C=unimplemented STU_9DB46B98(),
+            m_script=STU_105E1BCC(0x0580000000000B99),
+            m_targets=unimplemented STU_B5A0CAF0(),
+            m_AA4DE426=3,
+            m_7ABA409C=raw(00),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    else:
+        unimplemented STUStatescriptActionPlayScript(
+            m_params=[
+                STU_814D595E(m_value=var[499], m_B5051BCE=asset(0x0A4000000000002A)),
+                STU_814D595E(m_value=var[40], m_B5051BCE=asset(0x0A4000000000000A)),
+                STU_814D595E(m_value=var[18763], m_B5051BCE=asset(0x0A40000000000708)),
+            ],
+            m_69F4B52C=unimplemented STU_9DB46B98(),
+            m_script=STU_105E1BCC(0x0580000000000C72),
+            m_targets=unimplemented STU_B5A0CAF0(),
+            m_AA4DE426=3,
+            m_7ABA409C=raw(00),
+        )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x3
+#   STU_9DB46B98 (configvar) x2
+#   STUStatescriptActionPlayScript (node) x2
+#   STU_53F4CA65 (configvar) x1

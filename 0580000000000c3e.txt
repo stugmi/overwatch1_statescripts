@@ -1,0 +1,83 @@
+# build 1.74.0.0.104319: 9 nodes (5 States), 1 entries, 8 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c3e
+# names (replace): 6 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[9268] (set x1)
+#   placeholders: 10 unrecovered (6 classes; 6 configvar, 4 node)
+#   var[375]: 4 reads at lines 38, 66, 73, 75
+#   var[9268]: 1 write at line 16; 1 read at line 19
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[9269] = None
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[9268]  writes: var[9268]
+    set_var(var[9268], True)
+    begin(STU_691BFA55_3)
+    begin(TrackTargets_1)
+    if not var[9268]:
+        begin(STU_7D71FDF3_6)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_691BFA55_3:  # STU_691BFA55, state 2; from SetVar_8.m_outPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(m_effect=Effect(0x0300000000001A0E), entity[?]=unimplemented STU_B5A0CAF0())  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state TrackTargets_1:  # STUStatescriptStateTrackTargets, state 0; from SetVar_8.m_outPlug
+    # reads: var[375]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_8DCA77B6=unimplemented STU_B5A0CAF0(),
+        m_radius=2.0,
+        m_93AB8C13=1,
+        m_8A2905A0=var[375],
+        m_filter=unimplemented STUConfigVarFilter(m_4EA686DB=20, m_84065FD1=64, m_8B2A4DF3=STU_357DABBB(0x0D6000000000003A)),
+        m_95FFC3C5=raw(00),
+        m_DD792FF0=raw(00000000),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(ModifyHealth_2)
+
+state STU_7D71FDF3_6:  # STU_7D71FDF3, state 4; from Condition_7.m_truePlug
+    # reads: var[9269]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_7D71FDF3(m_BBBF2499=unimplemented STU_B5A0CAF0(), m_CC4BEAB2=var[9269])  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state ModifyHealth_2:  # STUStatescriptStateModifyHealth, state 1 (plain State at run time); from TrackTargets_1.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_modifyHealth=STUStatescriptModifyHealth(
+            m_148F3152=[
+                STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002440)),
+                STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000025E1)),
+                STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004FFB)),
+            ],
+            m_583C208B=15,
+            m_724CBA57=unimplemented STU_B5A0CAF0(),
+            m_amount=9999999,
+            m_C0139FA6=unimplemented STU_B5A0CAF0(),
+            m_E33EFEE1=15,
+            m_knockbackRings=[STUStatescriptModifyHealthKnockbackRing(m_10399AE7=1, m_579D7CFF=1, m_9102DA3F=1, m_radius=3)],
+            m_F8EA2036=False,
+        ), m_FA3ECC43=var[375], m_79758CE9=False, m_FF9E82FA=False, m_48BED081=False, m_8B707686=raw(00), m_DD792FF0=raw(00000000); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(BooleanSwitch_5)
+
+state BooleanSwitch_5:  # STUStatescriptStateBooleanSwitch, state 3; from ModifyHealth_2.m_subgraphPlug
+    # reads: var[375]  writes: none
+    # + unimplemented nodes may touch others
+    watch var[375]:  # re-evaluated while the State runs
+        on change to true:
+            unimplemented STUStatescriptActionEffect(m_effect=Effect(0x0300000000001C43), entity[?]=var[375], m_7A46FA0F=raw(01000000))  # names: class STUStatescriptActionEffect=PlayEffect [matched]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x5
+#   STUConfigVarFilter (configvar) x1
+#   STUStatescriptActionEffect (node) x1
+#   STUStatescriptStateTrackTargets (node) x1
+#   STU_691BFA55 (node) x1
+#   STU_7D71FDF3 (node) x1

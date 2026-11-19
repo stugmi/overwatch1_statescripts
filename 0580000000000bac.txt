@@ -1,0 +1,69 @@
+# build 1.74.0.0.104319: 8 nodes (3 States), 3 entries, 6 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000bac (Hanzo: init)
+# names (replace): 2 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[14386] (set x1)
+#   waits: Wait_3 after(2)
+#   messages: receives GameMessage(0x02400000000000D3) (entry rid 0); receives
+#             GameMessage(0x02400000000001A4) (entry rid 2, 6)
+#   placeholders: 7 unrecovered (6 classes; 4 configvar, 3 node)
+#   var[14386]: 1 write at line 44; 2 reads at lines 39, 52
+
+on_game_message(GameMessage(0x02400000000000D3), rid=0):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_22926252()  # server-only
+
+on_game_message(GameMessage(0x02400000000001A4), rid=2):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # reads: none  writes: none
+    pass
+
+on_game_message(GameMessage(0x02400000000001A4), rid=6):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # reads: none  writes: none
+    begin(STU_0A6BE10E_4)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_game_message rid=6 ----
+
+state STU_0A6BE10E_4:  # STU_0A6BE10E, state 1 (server-only); from Wait_3.m_onFinishedPlug, GameMessage_6.m_outPlug
+    # reads: var[14386]  writes: var[14386]
+    # + unimplemented nodes may touch others
+    unimplemented STU_0A6BE10E(
+        m_filter=unimplemented STUConfigVarFilter(
+            m_27CF71D5=1,
+            m_condition=distance(unimplemented STU_B5A0CAF0(), param[8]) <= 10.0,
+        ),
+        m_814F8EC3=unimplemented STU_BD2D717B(),
+        m_F2805C84=var[14386],
+    )  # names: class STUConfigVarFilter=OwnEntityFilter [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin:
+        begin(STU_40E05F6B_5)
+    end:
+        set_var(var[14386], 0)  # server-only
+
+state STU_40E05F6B_5:  # STU_40E05F6B, state 2 (server-only); from STU_0A6BE10E_4.m_onBeginPlug
+    # reads: var[14386]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_40E05F6B(
+        m_stimulus=VoiceStimulus(0x0EE000000000000D),
+        m_targets=unimplemented STU_B5A0CAF0(),
+        m_A732F9A2=var[14386],
+        m_E0E02BD4=0.0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    plug m_onFinishedPlug:
+        begin(Wait_3)
+
+state Wait_3:  # STUStatescriptStateWait, state 0 (server-only); from STU_40E05F6B_5.m_onFinishedPlug
+    # reads: none  writes: none
+    after(2):
+        abort(STU_0A6BE10E_4)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x2
+#   STUConfigVarFilter (configvar) x1
+#   STU_BD2D717B (configvar) x1
+#   STU_0A6BE10E (node) x1
+#   STU_22926252 (node) x1
+#   STU_40E05F6B (node) x1

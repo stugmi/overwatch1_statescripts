@@ -1,0 +1,93 @@
+# build 1.74.0.0.104319: 13 nodes (8 States), 1 entries, 16 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000b8e
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[39] (set x2), var[6948] (set x1), var[6960] (set x1)
+#   waits: Wait_2 after(2); Wait_10 after(1)
+#   placeholders: 8 unrecovered (7 classes; 6 configvar, 2 node)
+#   var[39]: 2 writes at lines 32, 70; 3 reads at lines 16, 70, 71
+#   var[6947]: 3 reads at lines 70, 71
+#   var[6948]: 1 write at line 71; 2 reads at lines 76, 80
+#   var[6960]: 1 write at line 16; 1 read at line 32
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[39]  writes: var[6960]
+    set_var(var[6960], var[39])
+    begin(BooleanSwitch_7)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=1 ----
+
+state BooleanSwitch_7:  # STUStatescriptStateBooleanSwitch, state 4; from SetVar_8.m_outPlug
+    # reads: var[6960]  writes: var[39]
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_9B7648C3(
+               m_entity=unimplemented STU_0AC15F78(m_entity=unimplemented STU_B5A0CAF0()),
+           ) > 0.0:  # re-evaluated while the State runs; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        while true:
+            begin(STU_91EF24A9_0)
+        on change to false:
+            set_var(var[39], var[6960])
+
+state STU_91EF24A9_0:  # STU_91EF24A9, state 0; from BooleanSwitch_7.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_91EF24A9(
+        m_329381D5=[STU_F0FD6BAC(m_232D081C=1, m_390BD4AD=1)],
+        m_2A8EBAE3=Identifier(0x0D80000000000FE9),
+        m_38568F15=0.0,
+    )
+    plug m_6F92F4BD:
+        begin(Wait_2)
+        begin(STU_ECAEE401_11)
+
+state Wait_2:  # STUStatescriptStateWait, state 1; from STU_91EF24A9_0.m_6F92F4BD, STU_ECAEE401_11.m_3D5F729C, STU_ECAEE401_11.m_881FC2B2
+    # reads: none  writes: none
+    after(2):
+        begin(Wait_10)
+
+state STU_ECAEE401_11:  # STU_ECAEE401, state 6; from STU_91EF24A9_0.m_6F92F4BD, SetVar_5.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_ECAEE401(m_F377D806=False, m_BDDD203A=0.0, m_6F4283C8=1)
+    subgraph:
+        begin(STU_194D744E_3)
+        begin(STU_AB9B30EF_4)
+        begin(STU_2C18F116_12)
+    plug m_881FC2B2:
+        begin(Wait_2)
+    plug m_1B09389D:
+        begin(Wait_10)
+    plug m_3D5F729C:
+        begin(Wait_2)
+
+state Wait_10:  # STUStatescriptStateWait, state 5; from Wait_2.m_onFinishedPlug, STU_ECAEE401_11.m_1B09389D
+    # reads: var[39], var[6947]  writes: var[39], var[6948]
+    # + unimplemented nodes may touch others
+    after(1):
+        set_var(var[39], (var[39] + 1.0) % len(var[6947]) if len(var[6947]) > 0.0 else 0.0)
+        set_var(var[6948], unimplemented STU_A8FB8712(m_094F4D35=var[6947][var[39]]))
+        pulse(STU_ECAEE401_11.m_8CBFEBB9)
+
+state STU_194D744E_3:  # STU_194D744E, state 2 (plain State at run time); from STU_ECAEE401_11.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_BD2A95EE=unimplemented STU_71A87E92(m_entity=var[6948])
+
+state STU_AB9B30EF_4:  # STU_AB9B30EF, state 3 (plain State at run time); from STU_ECAEE401_11.m_subgraphPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_CC7C6F4B=unimplemented STU_71A87E92(m_entity=var[6948])
+
+state STU_2C18F116_12:  # STU_2C18F116, state 7 (plain State at run time); from STU_ECAEE401_11.m_subgraphPlug
+    # reads: none  writes: none
+    pass
+
+# placeholders in this graph (semantics not recovered):
+#   STU_71A87E92 (configvar) x2
+#   STU_0AC15F78 (configvar) x1
+#   STU_9B7648C3 (configvar) x1
+#   STU_A8FB8712 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_91EF24A9 (node) x1
+#   STU_ECAEE401 (node) x1

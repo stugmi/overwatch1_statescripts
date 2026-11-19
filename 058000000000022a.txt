@@ -1,0 +1,589 @@
+# build 1.74.0.0.104319: 34 nodes (8 States), 8 entries, 27 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 058000000000022a (Junkrat: init)
+# names (replace): 7 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[476] (set x1), var[561] (set x1), var[6368] (set x1), var[11861] (set x1),
+#                      shared_var[10513] (set x1)
+#   messages: receives GameMessage(0x024000000000003E) (entry rid 1); receives
+#             GameMessage(0x0240000000000093) (entry rid 3, 20); receives GameMessage(0x0240000000000012)
+#             (entry rid 22); receives GameMessage(0x024000000000130B) (entry rid 30)
+#   placeholders: 43 unrecovered (7 classes; 36 configvar, 7 node)
+#   var[11861]: 1 write at line 566; 6 reads at lines 116, 188, 260, 332, 402, 472
+#   var[476]: 1 write at line 23; 6 reads at lines 126, 198, 270, 342, 412, 482
+#   var[510]: 3 writes at lines 32, 61, 76; 4 reads at lines 41, 47, 70, 85
+#   var[561]: 1 write at line 567; 6 reads at lines 111, 183, 255, 327, 397, 467
+#   var[6368]: 1 write at line 576; 6 reads at lines 114, 186, 258, 330, 400, 470
+#   var[393]: 3 writes at lines 30, 59, 74; 3 reads at lines 38, 67, 82
+#   shared_var[338]: 2 reads at lines 545, 546
+#   shared_var[342]: 2 reads at lines 545, 546
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[476]
+    set_var(var[476], 50)
+
+on_game_message(GameMessage(0x024000000000003E), rid=1):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    STU_6E5C5F66_31()
+
+on_game_message(GameMessage(0x0240000000000093), rid=3)(
+    var[393] <- param 0x0A40000000000015,
+    var[392] <- param 0x0A40000000000012,
+    var[510] <- param 0x0A4000000000003D,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[393], var[510]  writes: var[392], var[393], var[510]
+    # + unimplemented nodes may touch others
+    if unimplemented STU_AC829876(
+           m_entity=var[393],
+           m_filter=unimplemented STUConfigVarFilter(m_66747E7D=2, m_84065FD1=1, m_8B2A4DF3=STU_357DABBB(0x0D600000000006AD)),
+       ):  # names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        if contains(var[510], key=None, value=Identifier(0x0D80000000000B03)):
+            unimplemented STU_CEBDAF17(
+                m_stat=asset(0x0860000000000133),
+                m_amount=1,
+                m_targets=unimplemented STU_B5A0CAF0(),
+            )  # names: class STU_CEBDAF17=ModifyStat [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        if contains(var[510], key=None, value=Identifier(0x0D80000000002D3D)):
+            unimplemented STU_CEBDAF17(
+                m_stats=[asset(0x08600000000006E8)],
+                m_amount=1,
+                m_targets=unimplemented STU_B5A0CAF0(),
+            )  # names: class STU_CEBDAF17=ModifyStat [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+on_entry(context=unset, rid=8):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(STU_F5A99B2A_16)
+
+on_game_message(GameMessage(0x0240000000000093), rid=20)(
+    var[393] <- param 0x0A40000000000015,
+    var[392] <- param 0x0A40000000000012,
+    var[510] <- param 0x0A4000000000003D,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[393], var[510]  writes: var[392], var[393], var[510], shared_var[10513]
+    # + unimplemented nodes may touch others
+    if unimplemented STU_AC829876(
+           m_entity=var[393],
+           m_filter=unimplemented STUConfigVarFilter(m_66747E7D=2, m_84065FD1=1),
+       ):  # names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        if contains(var[510], key=None, value=Identifier(0x0D80000000000B03)):
+            set_var(shared_var[10513], True)
+
+on_game_message(GameMessage(0x0240000000000012), rid=22)(
+    var[393] <- param 0x0A40000000000015,
+    var[499] <- param 0x0A40000000000013,
+    var[510] <- param 0x0A4000000000003D,
+):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[393], var[499], var[510]  writes: var[393], var[499], var[510]
+    # + unimplemented nodes may touch others
+    if unimplemented STU_AC829876(
+           m_entity=var[393],
+           m_filter=unimplemented STUConfigVarFilter(m_66747E7D=2, m_84065FD1=1, m_8B2A4DF3=STU_357DABBB(0x0D600000000006AD)),
+       ):  # names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        if contains(var[510], key=None, value=Identifier(0x0D80000000002D3F)):
+            unimplemented STU_CEBDAF17(
+                m_stat=asset(0x086000000000054F),
+                m_amount=var[499],
+                m_targets=unimplemented STU_B5A0CAF0(),
+            )  # names: class STU_CEBDAF17=ModifyStat [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+on_entry(context=unset, rid=27):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(STU_38EE1100_26)
+
+on_game_message(GameMessage(0x024000000000130B), rid=30):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    STU_6E5C5F66_31()
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- weapon volleys (grouped by class) ----
+
+state WeaponVolley_10:  # STUStatescriptStateWeaponVolley, state 1; from SetVar_11.m_outPlug; names: class STUStatescriptStateWeaponVolley=WeaponVolley [matched]
+    # reads: var[476], var[561], var[6368], var[11861]  writes: none
+    # + unimplemented nodes may touch others
+    weapon_volley(
+        m_projectileMotions=[STU_E1A5B579(m_599AB8D7=9.8)],
+        m_projectileEntity=STUStatescriptWeaponProjectileEntity(m_entityDef=STU_8556841E(0x0400000000000515)),
+        m_projectileVisual=STUStatescriptWeaponProjectileVisual(),
+        m_projectileLifetime=var[561] + 0.1,
+        m_FEC435C6=100.0,
+        m_E365DB20=STU_3FE1A93B(m_0D20DAFD=0.5, m_360294F0=9999, m_8BCA0BAF=True, m_CE33458D=0.1, m_D9EFD182=True, m_E94D94BA=True),
+        m_projectileSpeed=var[6368],
+        m_D2D11CE9=STU_4AA6CA44(
+            m_0D30E40C=[STUStatescriptWeaponProjectileExplosionRing(m_B399CACB=1.0, m_radius=var[11861])],
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=var[476],
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_21CEF653=False,
+            m_2FE97560=1,
+            m_43D015B3=False,
+            m_66D29548=0,
+            m_7F5CC8D3=False,
+            m_8A3E3883=0.5,
+            m_B15688ED=False,
+            m_E03B193A=0.0,
+            m_EEB99E41=True,
+        ),
+        m_6396149F=STU_00D9C7E1(
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=1,
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_1FFD8312=0.15,
+            m_66D29548=0,
+            m_A872C70E=1,
+            m_BC54C84B=0.0,
+            m_CF39A346=raw(00),
+        ),
+        m_numProjectilesPerShot=1,
+        m_numShotsPerSecond=50,
+        m_A55BC904=1,
+        m_A17BE89B=1,
+        m_5EC1EB38=STU_613BDDB0(
+            m_0D30E40C=[STU_B101467F(m_6425FFB9=1, m_B19BD35D=4)],
+            m_spread=90,
+            m_92308789=25,
+            m_E2FD6F04=vec3(0.0, -1.0, 0.0),
+            m_muzzles=[STUStatescriptWeaponVolleyMuzzle(m_hardPoint=HardPoint(0x0DC0000000000001))],
+        ),
+        m_58631C73=True,
+        m_3B0AD973=False,
+        m_45271E8C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin:
+        begin(WeaponVolley_15)
+
+state WeaponVolley_9:  # STUStatescriptStateWeaponVolley, state 0; from SetVar_11.m_outPlug; names: class STUStatescriptStateWeaponVolley=WeaponVolley [matched]
+    # reads: var[476], var[561], var[6368], var[11861]  writes: none
+    # + unimplemented nodes may touch others
+    weapon_volley(
+        m_projectileMotions=[STU_E1A5B579(m_599AB8D7=9.8)],
+        m_projectileEntity=STUStatescriptWeaponProjectileEntity(m_entityDef=STU_8556841E(0x0400000000000515)),
+        m_projectileVisual=STUStatescriptWeaponProjectileVisual(),
+        m_projectileLifetime=var[561] + 0.2,
+        m_FEC435C6=100.0,
+        m_E365DB20=STU_3FE1A93B(m_0D20DAFD=0.5, m_360294F0=9999, m_8BCA0BAF=True, m_CE33458D=0.1, m_D9EFD182=True, m_E94D94BA=True),
+        m_projectileSpeed=var[6368],
+        m_D2D11CE9=STU_4AA6CA44(
+            m_0D30E40C=[STUStatescriptWeaponProjectileExplosionRing(m_B399CACB=1.0, m_radius=var[11861])],
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=var[476],
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_21CEF653=False,
+            m_2FE97560=1,
+            m_43D015B3=False,
+            m_66D29548=0,
+            m_7F5CC8D3=False,
+            m_8A3E3883=0.5,
+            m_B15688ED=False,
+            m_E03B193A=0.0,
+            m_EEB99E41=True,
+        ),
+        m_6396149F=STU_00D9C7E1(
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=1,
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_1FFD8312=0.15,
+            m_66D29548=0,
+            m_A872C70E=1,
+            m_BC54C84B=0.0,
+            m_CF39A346=raw(00),
+        ),
+        m_numProjectilesPerShot=1,
+        m_numShotsPerSecond=50,
+        m_A55BC904=1,
+        m_A17BE89B=1,
+        m_5EC1EB38=STU_613BDDB0(
+            m_0D30E40C=[STU_B101467F(m_6425FFB9=1, m_B19BD35D=4)],
+            m_spread=90,
+            m_92308789=25,
+            m_E2FD6F04=vec3(0.0, -1.0, 0.0),
+            m_muzzles=[STUStatescriptWeaponVolleyMuzzle(m_hardPoint=HardPoint(0x0DC0000000000001))],
+        ),
+        m_58631C73=True,
+        m_3B0AD973=False,
+        m_45271E8C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin:
+        begin(WeaponVolley_14)
+
+state WeaponVolley_12:  # STUStatescriptStateWeaponVolley, state 2; from SetVar_11.m_outPlug; names: class STUStatescriptStateWeaponVolley=WeaponVolley [matched]
+    # reads: var[476], var[561], var[6368], var[11861]  writes: none
+    # + unimplemented nodes may touch others
+    weapon_volley(
+        m_projectileMotions=[STU_E1A5B579(m_599AB8D7=9.8)],
+        m_projectileEntity=STUStatescriptWeaponProjectileEntity(m_entityDef=STU_8556841E(0x0400000000000515)),
+        m_projectileVisual=STUStatescriptWeaponProjectileVisual(),
+        m_projectileLifetime=var[561] + 0.3,
+        m_FEC435C6=100.0,
+        m_E365DB20=STU_3FE1A93B(m_0D20DAFD=0.5, m_360294F0=9999, m_8BCA0BAF=True, m_CE33458D=0.1, m_D9EFD182=True, m_E94D94BA=True),
+        m_projectileSpeed=var[6368],
+        m_D2D11CE9=STU_4AA6CA44(
+            m_0D30E40C=[STUStatescriptWeaponProjectileExplosionRing(m_B399CACB=1.0, m_radius=var[11861])],
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=var[476],
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_21CEF653=False,
+            m_2FE97560=1,
+            m_43D015B3=False,
+            m_66D29548=0,
+            m_7F5CC8D3=False,
+            m_8A3E3883=0.5,
+            m_B15688ED=False,
+            m_E03B193A=0.0,
+            m_EEB99E41=True,
+        ),
+        m_6396149F=STU_00D9C7E1(
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=1,
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_1FFD8312=0.15,
+            m_66D29548=0,
+            m_A872C70E=1,
+            m_BC54C84B=0.0,
+            m_CF39A346=raw(00),
+        ),
+        m_numProjectilesPerShot=1,
+        m_numShotsPerSecond=50,
+        m_A55BC904=1,
+        m_A17BE89B=1,
+        m_5EC1EB38=STU_613BDDB0(
+            m_0D30E40C=[STU_B101467F(m_6425FFB9=1, m_B19BD35D=4)],
+            m_spread=90,
+            m_92308789=25,
+            m_E2FD6F04=vec3(0.0, -1.0, 0.0),
+            m_muzzles=[STUStatescriptWeaponVolleyMuzzle(m_hardPoint=HardPoint(0x0DC0000000000001))],
+        ),
+        m_58631C73=True,
+        m_3B0AD973=False,
+        m_45271E8C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin:
+        begin(WeaponVolley_13)
+
+state WeaponVolley_15:  # STUStatescriptStateWeaponVolley, state 5; from WeaponVolley_10.m_onBeginPlug; names: class STUStatescriptStateWeaponVolley=WeaponVolley [matched]
+    # reads: var[476], var[561], var[6368], var[11861]  writes: none
+    # + unimplemented nodes may touch others
+    weapon_volley(
+        m_projectileMotions=[STU_E1A5B579(m_599AB8D7=9.8)],
+        m_projectileEntity=STUStatescriptWeaponProjectileEntity(m_entityDef=STU_8556841E(0x0400000000000515)),
+        m_projectileVisual=STUStatescriptWeaponProjectileVisual(),
+        m_projectileLifetime=var[561] + 0.4,
+        m_FEC435C6=100.0,
+        m_E365DB20=STU_3FE1A93B(m_0D20DAFD=0.5, m_360294F0=9999, m_8BCA0BAF=True, m_CE33458D=0.1, m_D9EFD182=True, m_E94D94BA=True),
+        m_projectileSpeed=var[6368],
+        m_D2D11CE9=STU_4AA6CA44(
+            m_0D30E40C=[STUStatescriptWeaponProjectileExplosionRing(m_B399CACB=1.0, m_radius=var[11861])],
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=var[476],
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_21CEF653=False,
+            m_2FE97560=1,
+            m_43D015B3=False,
+            m_66D29548=0,
+            m_7F5CC8D3=False,
+            m_8A3E3883=0.5,
+            m_B15688ED=False,
+            m_E03B193A=0.0,
+            m_EEB99E41=True,
+        ),
+        m_6396149F=STU_00D9C7E1(
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=1,
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_1FFD8312=0.15,
+            m_66D29548=0,
+            m_A872C70E=1,
+            m_BC54C84B=0.0,
+            m_CF39A346=raw(00),
+        ),
+        m_numProjectilesPerShot=1,
+        m_numShotsPerSecond=50,
+        m_A55BC904=1,
+        m_A17BE89B=1,
+        m_5EC1EB38=STU_613BDDB0(
+            m_0D30E40C=[STU_B101467F(m_6425FFB9=1, m_B19BD35D=4)],
+            m_spread=90,
+            m_92308789=25,
+            m_E2FD6F04=vec3(0.0, -1.0, 0.0),
+            m_muzzles=[STUStatescriptWeaponVolleyMuzzle(m_hardPoint=HardPoint(0x0DC0000000000001))],
+        ),
+        m_58631C73=True,
+        m_3B0AD973=False,
+        m_45271E8C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state WeaponVolley_14:  # STUStatescriptStateWeaponVolley, state 4; from WeaponVolley_9.m_onBeginPlug; names: class STUStatescriptStateWeaponVolley=WeaponVolley [matched]
+    # reads: var[476], var[561], var[6368], var[11861]  writes: none
+    # + unimplemented nodes may touch others
+    weapon_volley(
+        m_projectileMotions=[STU_E1A5B579(m_599AB8D7=9.8)],
+        m_projectileEntity=STUStatescriptWeaponProjectileEntity(m_entityDef=STU_8556841E(0x0400000000000515)),
+        m_projectileVisual=STUStatescriptWeaponProjectileVisual(),
+        m_projectileLifetime=var[561] + 0.5,
+        m_FEC435C6=100.0,
+        m_E365DB20=STU_3FE1A93B(m_0D20DAFD=0.5, m_360294F0=9999, m_8BCA0BAF=True, m_CE33458D=0.1, m_D9EFD182=True, m_E94D94BA=True),
+        m_projectileSpeed=var[6368],
+        m_D2D11CE9=STU_4AA6CA44(
+            m_0D30E40C=[STUStatescriptWeaponProjectileExplosionRing(m_B399CACB=1.0, m_radius=var[11861])],
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=var[476],
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_21CEF653=False,
+            m_2FE97560=1,
+            m_43D015B3=False,
+            m_66D29548=0,
+            m_7F5CC8D3=False,
+            m_8A3E3883=0.5,
+            m_B15688ED=False,
+            m_E03B193A=0.0,
+            m_EEB99E41=True,
+        ),
+        m_6396149F=STU_00D9C7E1(
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=1,
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_1FFD8312=0.15,
+            m_66D29548=0,
+            m_A872C70E=1,
+            m_BC54C84B=0.0,
+            m_CF39A346=raw(00),
+        ),
+        m_numProjectilesPerShot=1,
+        m_numShotsPerSecond=50,
+        m_A55BC904=1,
+        m_A17BE89B=1,
+        m_5EC1EB38=STU_613BDDB0(
+            m_0D30E40C=[STU_B101467F(m_6425FFB9=1, m_B19BD35D=4)],
+            m_spread=90,
+            m_92308789=25,
+            m_E2FD6F04=vec3(0.0, -1.0, 0.0),
+            m_muzzles=[STUStatescriptWeaponVolleyMuzzle(m_hardPoint=HardPoint(0x0DC0000000000001))],
+        ),
+        m_58631C73=True,
+        m_3B0AD973=False,
+        m_45271E8C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state WeaponVolley_13:  # STUStatescriptStateWeaponVolley, state 3; from WeaponVolley_12.m_onBeginPlug; names: class STUStatescriptStateWeaponVolley=WeaponVolley [matched]
+    # reads: var[476], var[561], var[6368], var[11861]  writes: none
+    # + unimplemented nodes may touch others
+    weapon_volley(
+        m_projectileMotions=[STU_E1A5B579(m_599AB8D7=9.8)],
+        m_projectileEntity=STUStatescriptWeaponProjectileEntity(m_entityDef=STU_8556841E(0x0400000000000515)),
+        m_projectileVisual=STUStatescriptWeaponProjectileVisual(),
+        m_projectileLifetime=var[561] + 0.6,
+        m_FEC435C6=100.0,
+        m_E365DB20=STU_3FE1A93B(m_0D20DAFD=0.5, m_360294F0=9999, m_8BCA0BAF=True, m_CE33458D=0.1, m_D9EFD182=True, m_E94D94BA=True),
+        m_projectileSpeed=var[6368],
+        m_D2D11CE9=STU_4AA6CA44(
+            m_0D30E40C=[STUStatescriptWeaponProjectileExplosionRing(m_B399CACB=1.0, m_radius=var[11861])],
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=var[476],
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_21CEF653=False,
+            m_2FE97560=1,
+            m_43D015B3=False,
+            m_66D29548=0,
+            m_7F5CC8D3=False,
+            m_8A3E3883=0.5,
+            m_B15688ED=False,
+            m_E03B193A=0.0,
+            m_EEB99E41=True,
+        ),
+        m_6396149F=STU_00D9C7E1(
+            m_modifyHealth=STUStatescriptModifyHealth(
+                m_148F3152=[
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D800000000004B1)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000000B03)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000002D3F)),
+                    STUStatescriptModifyHealthTag(m_EE3055BD=Identifier(0x0D80000000004D2B)),
+                ],
+                m_instigator=unimplemented STU_B5A0CAF0(),
+                m_724CBA57=unimplemented STU_B5A0CAF0(),
+                m_amount=1,
+                m_loadout=Loadout(0x0B900000000000CA),
+            ),
+            m_1FFD8312=0.15,
+            m_66D29548=0,
+            m_A872C70E=1,
+            m_BC54C84B=0.0,
+            m_CF39A346=raw(00),
+        ),
+        m_numProjectilesPerShot=1,
+        m_numShotsPerSecond=50,
+        m_A55BC904=1,
+        m_A17BE89B=1,
+        m_5EC1EB38=STU_613BDDB0(
+            m_0D30E40C=[STU_B101467F(m_6425FFB9=1, m_B19BD35D=4)],
+            m_spread=90,
+            m_92308789=25,
+            m_E2FD6F04=vec3(0.0, -1.0, 0.0),
+            m_muzzles=[STUStatescriptWeaponVolleyMuzzle(m_hardPoint=HardPoint(0x0DC0000000000001))],
+        ),
+        m_58631C73=True,
+        m_3B0AD973=False,
+        m_45271E8C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=8 ----
+
+state STU_F5A99B2A_16:  # STU_F5A99B2A, state 6; from Entry_8.m_outPlug
+    # reads: shared_var[338], shared_var[342]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_F5A99B2A(
+        m_tips=[
+            STUTip(m_tip=asset(0x0DE00000000019FE), m_A127B088=asset(0x0D80000000000D68)),
+            STUTip(m_tip=asset(0x0DE00000000019FF), m_A127B088=asset(0x0D80000000000D68)),
+            STUTip(m_tip=asset(0x0DE0000000001A00), m_A127B088=asset(0x0D80000000000D68)),
+            STUTip(m_tip=asset(0x0DE0000000001A01), m_A127B088=asset(0x0D80000000000D68)),
+            STUTip(m_tip=asset(0x0DE0000000001A02), m_A127B088=asset(0x0D80000000000D68)),
+            STUTip(m_tip=asset(0x0DE0000000001A03), m_A127B088=asset(0x0D80000000000D68)),
+            STUTip(m_tip=asset(0x0DE0000000001A04), m_A127B088=asset(0x0D80000000000D68)),
+            STUTip(m_tip=asset(0x0DE0000000001A05), m_A127B088=asset(0x0D80000000000D68)),
+            STUTip(m_tip=asset(0x0DE0000000001A06), m_A127B088=asset(0x0D80000000000D68), m_condition=shared_var[342] == shared_var[338], m_priority=2),
+            STUTip(m_tip=asset(0x0DE0000000001A07), m_A127B088=asset(0x0D80000000000D68), m_condition=shared_var[342] == shared_var[338], m_priority=1),
+            STUTip(m_tip=asset(0x0DE0000000001A08), m_A127B088=asset(0x0D80000000000D68)),
+        ],
+    )
+
+# ---- begun from on_entry rid=27 ----
+
+state STU_38EE1100_26:  # STU_38EE1100, state 7 (client-only); from Entry_27.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    publish_game_message(
+        m_gameMessage=GameMessage(0x02400000000008DF),
+        m_target=STU_9B213168(m_targets=unimplemented STU_B5A0CAF0()),
+        m_67FD6A60=1,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+def STU_6E5C5F66_31():  # STU_6E5C5F66; shared or nested too deep to inline; from GameMessage_1.m_outPlug, GameMessage_30.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: none  writes: var[561], var[6368], var[11861]
+    # + unimplemented nodes may touch others
+    unimplemented STU_6E5C5F66()
+    set_var(var[11861], 2.0)
+    set_var(var[561], 0.7)
+    begin(WeaponVolley_10)
+    begin(WeaponVolley_9)
+    begin(WeaponVolley_12)
+    unimplemented STUStatescriptActionEffect(
+        m_effect=Effect(0x0300000000000F2B),
+        entity[?]=unimplemented STU_B5A0CAF0(),
+        m_7A46FA0F=raw(01000000),
+    )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    set_var(var[6368], 1.5)
+    unimplemented STUStatescriptActionEffect(
+        m_effect=Effect(0x03000000000019A0),
+        entity[?]=unimplemented STU_B5A0CAF0(),
+    )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x30
+#   STUConfigVarFilter (configvar) x3
+#   STU_AC829876 (configvar) x3
+#   STU_CEBDAF17 (node) x3
+#   STUStatescriptActionEffect (node) x2
+#   STU_6E5C5F66 (node) x1
+#   STU_F5A99B2A (node) x1

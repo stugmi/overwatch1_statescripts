@@ -1,0 +1,44 @@
+# build 1.74.0.0.104319: 5 nodes (0 States), 1 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c67
+# names (replace): 2 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x024000000000000F) (entry rid 0); sends GameMessage(0x02400000000009F0)
+#             x1
+#   placeholders: 6 unrecovered (5 classes; 4 configvar, 2 node)
+#   var[40]: 4 reads at lines 13, 20, 31, 36
+#   var[18763]: 1 write at line 13; 1 read at line 22
+#   var[499]: 1 write at line 13; 1 read at line 19
+
+on_game_message(GameMessage(0x024000000000000F), rid=0, m_B60ABDA4=var[40], m_FF703F20=var[41])(var[499] <- param 0x0A4000000000002A, var[18763] <- param 0x0A40000000000708):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[40], var[41], var[499], var[18763]  writes: var[499], var[18763]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionPlayScript(
+        m_params=[
+            STU_814D595E(m_value=var[499], m_B5051BCE=asset(0x0A4000000000002A)),
+            STU_814D595E(m_value=var[40], m_B5051BCE=asset(0x0A40000000000009)),
+            STU_814D595E(m_value=True, m_B5051BCE=asset(0x0A400000000004A1)),
+            STU_814D595E(m_value=var[18763], m_B5051BCE=asset(0x0A40000000000708)),
+        ],
+        m_69F4B52C=unimplemented STU_9DB46B98(),
+        m_script=STU_105E1BCC(0x0580000000000B95),
+        m_targets=unimplemented STU_B5A0CAF0(),
+        m_AA4DE426=1,
+        m_7ABA409C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    if unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D6000000000003A), m_entity=unimplemented STU_B5A0CAF0()):  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        send_game_message(GameMessage(0x02400000000009F0), targets=var[40])
+    else:
+        unimplemented STU_CEBDAF17(
+            m_stats=[asset(0x0860000000000216), asset(0x0860000000000378)],
+            m_amount=1,
+            m_targets=var[40],
+        )  # names: class STU_CEBDAF17=ModifyStat [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x2
+#   STU_25ECB55F (configvar) x1
+#   STU_9DB46B98 (configvar) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STU_CEBDAF17 (node) x1

@@ -1,0 +1,42 @@
+# build 1.74.0.0.104319: 7 nodes (0 States), 1 entries, 8 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001484
+# inlined shared nodes (printed at each use site instead of a def): STU_1E93FE1F_6
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[499] (set x1), var[7566] (set x1)
+#   messages: sends GameMessage(0x0240000000000A1F) x1; sends GameMessage(0x024000000000086F) x1
+#   placeholders: 4 unrecovered (3 classes; 2 configvar, 2 node)
+#   var[499]: 1 write at line 18; 4 reads at lines 22, 26, 29, 33
+#   var[7566]: 1 write at line 16; 2 reads at lines 25, 32
+#   var[18739]: 2 reads at lines 16, 19
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[7566], var[18739]  writes: var[499], var[7566]
+    # + unimplemented nodes may touch others
+    set_var(var[7566], unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0]))
+    set_var(
+        var[499],
+        unimplemented STU_77B0987E(m_35547D6E=var[18739][1.0], m_68CFF844=10000, m_FDCA1FD0=-10000),
+    )
+    unimplemented STUStatescriptActionSwitch(m_262AE982=True):
+        plug m_FDD34C25[0]:  # m_value=var[499] > 0.0
+            send_game_message(
+                GameMessage(0x0240000000000A1F),
+                targets=var[7566],
+                params=[STU_814D595E(m_value=round(var[499]), m_B5051BCE=asset(0x0A4000000000039E))],
+            )
+            unimplemented STU_1E93FE1F()
+        plug m_FDD34C25[1]:  # m_value=var[499] < 0.0
+            send_game_message(
+                GameMessage(0x024000000000086F),
+                targets=var[7566],
+                params=[STU_814D595E(m_value=round(-var[499]), m_B5051BCE=asset(0x0A4000000000039E))],
+            )
+            unimplemented STU_1E93FE1F()
+        plug m_CD38D5DB:
+            unimplemented STU_1E93FE1F()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_77B0987E (configvar) x2
+#   STUStatescriptActionSwitch (node) x1
+#   STU_1E93FE1F (node) x1

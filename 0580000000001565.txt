@@ -1,0 +1,154 @@
+# build 1.74.0.0.104319: 16 nodes (7 States), 1 entries, 15 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001565
+# names (replace): 4 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[12032] (set x1), var[12033] (stack_contribution x1), var[12034] (set x1),
+#                      var[14831] (set x1)
+#   placeholders: 27 unrecovered (7 classes; 18 configvar, 9 node)
+#   var[14831]: 1 write at line 23; 8 reads at lines 46, 83, 87, 94, 106, 110 ...
+#   var[12032]: 2 writes at lines 20, 97; 1 read at line 95
+#   var[12034]: 2 writes at lines 20, 136; 1 read at line 135
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[11399] = ModelLook(0)
+
+on_entry(context=unset, rid=1):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[12032], var[12034], var[14831]
+    # + unimplemented nodes may touch others
+    unimplemented STU_12F5D52D(
+        m_143D4C5B=[STU_8529C204(m_value=True, m_out_Var=var[12032]), STU_8529C204(m_value=True, m_out_Var=var[12034])],
+    )
+    set_var(
+        var[14831],
+        unimplemented STU_F180BF30(
+            m_24FCD338=Identifier(0x0D800000000039E1),
+            m_entity=unimplemented STU_B5A0CAF0(),
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    begin(STU_DEBD057B_5)
+    begin(DataFlowMapping_7)
+    begin(Stack_8)
+    begin(BooleanSwitch_11)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- data flow mappings (grouped by class) ----
+
+state DataFlowMapping_7:  # STUStatescriptStateDataFlowMapping, state 2; from SetVar_4.m_outPlug
+    # reads: var[14831]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x0480000000000698),
+        m_answer=1.0 - unimplemented STU_F180BF30(
+            m_24FCD338=Identifier(0x0D800000000039E1),
+            m_entity=unimplemented STU_B5A0CAF0(),
+        ) / var[14831],
+        m_entity=STU_469A9B36(),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state DataFlowMapping_10:  # STUStatescriptStateDataFlowMapping, state 5; from STU_DEBD057B_5.m_05706D1C[0]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x048000000000069A),
+        m_answer=True,
+        m_entity=STU_02C0109E(),
+    )
+
+state DataFlowMapping_9:  # STUStatescriptStateDataFlowMapping, state 4; from STU_DEBD057B_5.m_05706D1C[2]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateDataFlowMapping(
+        data_flow[?]=DataFlow(0x0480000000000696),
+        m_answer=True,
+        m_entity=STU_02C0109E(),
+    )
+    end:
+        unimplemented STUStatescriptActionEffect(
+            m_effect=Effect(0x030000000000240C),
+            entity[?]=unimplemented STU_B5A0CAF0(),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=1 ----
+
+state STU_DEBD057B_5:  # STU_DEBD057B, state 0; from SetVar_4.m_outPlug
+    # reads: none  writes: var[12032]
+    # + unimplemented nodes may touch others
+    unimplemented STU_DEBD057B(m_262AE982=True)
+    plug m_05706D1C[0]:  # m_value=(
+    unimplemented STU_F180BF30(
+        m_24FCD338=Identifier(0x0D800000000039E1),
+        m_entity=unimplemented STU_B5A0CAF0(),
+    ) / var[14831] < 0.75
+    and unimplemented STU_F180BF30(
+        m_24FCD338=Identifier(0x0D800000000039E1),
+        m_entity=unimplemented STU_B5A0CAF0(),
+    ) / var[14831] > 0.4
+); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        begin(DataFlowMapping_10)
+    plug m_05706D1C[1]:  # m_value=(
+    unimplemented STU_F180BF30(
+        m_24FCD338=Identifier(0x0D800000000039E1),
+        m_entity=unimplemented STU_B5A0CAF0(),
+    ) / var[14831] < 0.4
+    and var[12032]
+); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        set_var(var[12032], False)
+        unimplemented STUStatescriptActionEffect(
+            m_effect=Effect(0x03000000000023C6),
+            entity[?]=unimplemented STU_B5A0CAF0(),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+    plug m_05706D1C[2]:  # m_value=(
+    unimplemented STU_F180BF30(
+        m_24FCD338=Identifier(0x0D800000000039E1),
+        m_entity=unimplemented STU_B5A0CAF0(),
+    ) / var[14831] < 0.4
+    and unimplemented STU_F180BF30(
+        m_24FCD338=Identifier(0x0D800000000039E1),
+        m_entity=unimplemented STU_B5A0CAF0(),
+    ) / var[14831] > 0.0
+); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        begin(DataFlowMapping_9)
+
+state Stack_8:  # STUStatescriptStateStack, state 3; from SetVar_4.m_outPlug
+    # reads: var[14831]  writes: var[12033]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        var[12033],
+        value=1.0 - unimplemented STU_F180BF30(
+            m_24FCD338=Identifier(0x0D800000000039E1),
+            m_entity=unimplemented STU_B5A0CAF0(),
+        ) / var[14831],
+        priority=None,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state BooleanSwitch_11:  # STUStatescriptStateBooleanSwitch, state 6; from SetVar_4.m_outPlug
+    # reads: var[12034], var[14831]  writes: var[12034]
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_F180BF30(
+               m_24FCD338=Identifier(0x0D800000000039E1),
+               m_entity=unimplemented STU_B5A0CAF0(),
+           ) / var[14831] < 0.75:  # re-evaluated while the State runs; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+        while true:
+            begin(STU_7D71FDF3_6)
+            if var[12034]:
+                set_var(var[12034], False)
+                unimplemented STUStatescriptActionEffect(
+                    m_effect=Effect(0x030000000000240B),
+                    entity[?]=unimplemented STU_B5A0CAF0(),
+                )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_7D71FDF3_6:  # STU_7D71FDF3, state 1; from BooleanSwitch_11.m_trueSubgraphPlug
+    # reads: var[11399]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_7D71FDF3(m_BBBF2499=unimplemented STU_B5A0CAF0(), m_CC4BEAB2=var[11399])  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x11
+#   STU_F180BF30 (configvar) x7
+#   STUStatescriptActionEffect (node) x3
+#   STUStatescriptStateDataFlowMapping (node) x3
+#   STU_12F5D52D (node) x1
+#   STU_7D71FDF3 (node) x1
+#   STU_DEBD057B (node) x1

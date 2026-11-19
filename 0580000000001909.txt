@@ -1,0 +1,243 @@
+# build 1.74.0.0.104319: 21 nodes (17 States), 2 entries, 20 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001909 (heroes Baptiste)
+# names (replace): 8 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_16 after(1); Wait_17 after(0.5); Wait_4 after(0.5)
+#   placeholders: 47 unrecovered (16 classes; 32 configvar, 15 node)
+#   var[215]: 2 writes at lines 12, 34
+
+on_entry_unimplemented STU_BB4AC733(
+    rid=0,
+    m_params=[STU_EF930FD7(m_out_Var=var[215], m_B5051BCE=asset(0x0A4000000000002B))],
+    m_B60ABDA4=var[40],
+):  # STU_BB4AC733, init=never
+    # reads: var[40]  writes: var[215]
+    begin(STU_F08E1453_2)
+    begin(ChaseVar_3)
+    begin(CombatModFilter_12)
+    begin(Wait_16)
+    begin(PhysicsExplosion_18)
+
+on_entry(context=unset, rid=11):  # STUStatescriptEntry, init=context_match (context omitted), client-only
+    # reads: none  writes: none
+    begin(STU_7CA2FBAF_10)
+    begin(STU_7CA2FBAF_13)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_3:  # STUStatescriptStateChaseVar, state 1; from STU_BB4AC733_0.m_outPlug, BooleanSwitch_14.m_onTruePlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: none  writes: var[215]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=0, m_out_Var=var[215])  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    subgraph:
+        # owns (not begun here): STU_691BFA55_7
+        begin(STU_691BFA55_8)
+        begin(BooleanSwitch_14)
+        begin(Wait_17)
+    end:
+        begin(Wait_4)
+        unimplemented STUStatescriptActionEffect(
+            m_effect=Effect(0x0300000000002A0F),
+            position[?]=unimplemented STU_FC99C77E(
+                m_hardPoint=HardPoint(0x0DC00000000000A4),
+                m_entity=unimplemented STU_B5A0CAF0(),
+            ),
+            offset_x[?]=unimplemented STU_C8C4C20D(m_entity=unimplemented STU_B5A0CAF0()),
+            offset_y[?]=unimplemented STU_40AC5AE4(m_entity=unimplemented STU_B5A0CAF0()),
+            m_7A46FA0F=raw(01000000),
+        )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_F08E1453_2:  # STU_F08E1453, state 0 (plain State at run time); from STU_BB4AC733_0.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_64C3E07E=unimplemented STU_B5A0CAF0(); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state CombatModFilter_12:  # STUStatescriptStateCombatModFilter, state 8; from STU_BB4AC733_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateCombatModFilter(
+        m_5CFFCBAE=[asset(0x0D80000000003FCE), asset(0x0D800000000054AA)],
+        m_60703B1E=asset(0x0D80000000000317),
+        m_50530EAB=1,
+        m_F7872851=unimplemented STU_0AC15F78(
+            m_entity=unimplemented STU_F76C486C(m_D63CBEC2=unimplemented STU_B5A0CAF0()),
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(CombatModFilter_9)
+
+state Wait_16:  # STUStatescriptStateWait, state 12; from STU_BB4AC733_0.m_outPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(STU_691BFA55_15)
+    after(1):
+        pass
+
+state PhysicsExplosion_18:  # STUStatescriptStatePhysicsExplosion, state 14; from STU_BB4AC733_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStatePhysicsExplosion(
+        m_position=unimplemented STU_B5A0CAF0(),
+        m_6EFD110C=10,
+        m_65438EEB=10000.0,
+        m_radius=1,
+        m_D80AEDB1=5,
+        m_015FF666=0.0,
+        m_66D29548=0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(PhysicsExplosion_19)
+
+state STU_691BFA55_8:  # STU_691BFA55, state 5; from ChaseVar_3.m_subgraphPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(
+        m_effect=Effect(0x0300000000002A30),
+        m_E591AF01=HardPoint(0x0DC00000000000A4),
+        m_9E54CED9=HardPoint(0x0DC00000000000A4),
+        m_BD631144=unimplemented STU_B5A0CAF0(),
+    )  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state BooleanSwitch_14:  # STUStatescriptStateBooleanSwitch, state 10; from ChaseVar_3.m_subgraphPlug
+    # reads: shared_var[8912]  writes: none
+    watch shared_var[8912]:  # re-evaluated while the State runs
+        on change to true:
+            abort(ChaseVar_3)
+
+state Wait_17:  # STUStatescriptStateWait, state 13; from ChaseVar_3.m_subgraphPlug
+    # reads: none  writes: none
+    after(0.5):
+        begin(STU_691BFA55_7)
+
+state Wait_4:  # STUStatescriptStateWait, state 2; from ChaseVar_3.m_onEndPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    begin:
+        begin(STU_33A46033_6)
+    after(0.5):
+        pass
+    end:
+        unimplemented STU_523EE38D(m_entity=unimplemented STU_B5A0CAF0())  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state CombatModFilter_9:  # STUStatescriptStateCombatModFilter, state 6; from CombatModFilter_12.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateCombatModFilter(
+        m_5CFFCBAE=[asset(0x0D80000000003FCE), asset(0x0D800000000054AA)],
+        m_60703B1E=asset(0x0D80000000000319),
+        m_50530EAB=1,
+        m_F7872851=unimplemented STU_0AC15F78(
+            m_entity=unimplemented STU_F76C486C(m_D63CBEC2=unimplemented STU_B5A0CAF0()),
+        ),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_691BFA55_15:  # STU_691BFA55, state 11; from Wait_16.m_subgraphPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(
+        m_effect=Effect(0x0300000000002B19),
+        entity[?]=unimplemented STU_B5A0CAF0(),
+        m_E591AF01=HardPoint(0x0DC00000000000A4),
+        m_9E54CED9=HardPoint(0x0DC00000000000A4),
+        m_CEE37F9C=unimplemented STU_B5A0CAF0(),
+    )  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state PhysicsExplosion_19:  # STUStatescriptStatePhysicsExplosion, state 15; from PhysicsExplosion_18.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStatePhysicsExplosion(
+        m_position=unimplemented STU_B5A0CAF0() + unimplemented STU_66F3B89E(m_entity=unimplemented STU_B5A0CAF0()) * 1.5,
+        m_direction=unimplemented STU_66F3B89E(m_entity=unimplemented STU_B5A0CAF0()),
+        m_6EFD110C=50,
+        m_65438EEB=10000.0,
+        m_radius=1,
+        m_D80AEDB1=1,
+        m_015FF666=0.0,
+        m_66D29548=0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    subgraph:
+        begin(PhysicsExplosion_20)
+
+state STU_691BFA55_7:  # STU_691BFA55, state 4; from Wait_17.m_onFinishedPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(
+        m_effect=Effect(0x0300000000002848),
+        entity[?]=unimplemented STU_B5A0CAF0(),
+        m_E591AF01=HardPoint(0x0DC00000000000A4),
+        m_9E54CED9=HardPoint(0x0DC00000000000A4),
+        m_CEE37F9C=unimplemented STU_B5A0CAF0(),
+    )  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_33A46033_6:  # STU_33A46033, state 3; from Wait_4.m_onBeginPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_33A46033(m_381879C1=True, m_7E42F868=True, m_D82DB14B=True)
+
+state PhysicsExplosion_20:  # STUStatescriptStatePhysicsExplosion, state 16; from PhysicsExplosion_19.m_subgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStatePhysicsExplosion(
+        m_position=unimplemented STU_B5A0CAF0() - unimplemented STU_66F3B89E(m_entity=unimplemented STU_B5A0CAF0()) * 1.5,
+        m_direction=-unimplemented STU_66F3B89E(m_entity=unimplemented STU_B5A0CAF0()),
+        m_6EFD110C=50,
+        m_65438EEB=10000.0,
+        m_radius=1,
+        m_D80AEDB1=1,
+        m_015FF666=0.0,
+        m_66D29548=0,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# ---- begun from on_entry rid=11 ----
+
+state STU_7CA2FBAF_10:  # STU_7CA2FBAF, state 7 (client-only); from Entry_11.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_7CA2FBAF(
+        m_C2723287=Identifier(0x0D80000000004EEF),
+        m_effect=Effect(0x0300000000002A66),
+        m_3E3E203A=unimplemented STU_B5A0CAF0(),
+        m_B26D1512=True,
+        m_E3F6AF0D=False,
+        m_851C657E=0.3,
+        m_F6C30CC8=0,
+        m_66D9D4ED=0.016,
+        m_priority=1,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_7CA2FBAF_13:  # STU_7CA2FBAF, state 9 (client-only); from Entry_11.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_7CA2FBAF(
+        m_C2723287=Identifier(0x0D80000000004EC1),
+        m_effect=Effect(0x0300000000002824),
+        m_3E3E203A=unimplemented STU_B5A0CAF0(),
+        m_B26D1512=True,
+        m_E3F6AF0D=False,
+        m_851C657E=0.3,
+        m_F6C30CC8=0,
+        m_66D9D4ED=0.016,
+        m_priority=1,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x21
+#   STU_66F3B89E (configvar) x4
+#   STUStatescriptStatePhysicsExplosion (node) x3
+#   STU_691BFA55 (node) x3
+#   STU_0AC15F78 (configvar) x2
+#   STU_F76C486C (configvar) x2
+#   STUStatescriptStateCombatModFilter (node) x2
+#   STU_7CA2FBAF (node) x2
+#   STU_40AC5AE4 (configvar) x1
+#   STU_C8C4C20D (configvar) x1
+#   STU_FC99C77E (configvar) x1
+#   STUStatescriptActionEffect (node) x1
+#   STUStatescriptStateChaseVar (node) x1
+#   STU_33A46033 (node) x1
+#   STU_523EE38D (node) x1
+#   STU_BB4AC733 (node) x1

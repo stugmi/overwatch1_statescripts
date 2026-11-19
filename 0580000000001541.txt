@@ -1,0 +1,170 @@
+# build 1.74.0.0.104319: 13 nodes (11 States), 2 entries, 13 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000001541
+# names (replace): 15 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: Button(69, "Endorse Players") read by Stack_7: nothing begun directly
+#   variables written: var[465] (stack_contribution x1), shared_var[16133] (stack_contribution x1)
+#   messages: receives GameMessage(0x0240000000000AD7) (entry rid 3)
+#   placeholders: 24 unrecovered (16 classes; 20 configvar, 4 node)
+#   var[465]: 1 write at line 28; 2 reads at lines 43, 150
+#   shared_var[15090]: 2 reads at lines 105, 130
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_2)
+
+on_game_message(GameMessage(0x0240000000000AD7), rid=3):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    pulse(STU_1623C620_1.m_76875BC8)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- input listeners (States that watch a logical button) ----
+
+state Stack_7:  # STUStatescriptStateStack, state 5; from BooleanSwitch_8.m_subgraphPlug
+    # reads: none  writes: var[465]
+    # + unimplemented nodes may touch others
+    stack_contribution(
+        var[465],
+        value=unimplemented STU_354B9F6B(m_button[?]=Button(69, "Endorse Players")),
+        priority=None,
+    )  # names: class STU_354B9F6B=ConfigVarButtonBinding [candidate]
+
+# ---- UI presenters (grouped by class) ----
+
+state UXPresenter_5:  # STUStatescriptStateUXPresenter, state 3; from BooleanSwitch_8.m_trueSubgraphPlug; names: class STUStatescriptStateUXPresenter=UXPresenter [matched]
+    # reads: var[465], shared_var[1194]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateUXPresenter(
+        presenter_id[?]=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A000000000065D)),
+        presenter_data[?]=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=var[465], m_id=asset(0x0D800000000001D1)),
+                    STU_E870E3E8(m_value=shared_var[1194], m_id=asset(0x0D80000000003B0C)),
+                ],
+                m_definition=asset(0x0A88000000000051),
+            ),
+        ),
+    )  # names: class STUStatescriptStateUXPresenter=UXPresenter [matched], class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+    plug m_8D6AF7DD[0]:  # m_id=asset(0x0D80000000006530)
+        pulse(STU_1623C620_1.m_76875BC8)
+
+# ---- animation, cosmetics and haptics (grouped by class) ----
+
+state GamePadVibration_9:  # STUStatescriptStateGamePadVibration, state 7; from STU_1623C620_1.m_8D6AF7DD[0]; names: class STUStatescriptStateGamePadVibration=GamePadVibration [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateGamePadVibration(m_vibration=GamePadVibration(0x0D500000000000A5), rate[?]=0.0, intensity[?]=0.0)  # names: class STUStatescriptStateGamePadVibration=GamePadVibration [matched]
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 1; from Entry_0.m_outPlug
+    # reads: shared_var[6869], shared_var[10791]  writes: none
+    # + unimplemented nodes may touch others
+    watch (
+               not unimplemented STU_F94506DB()
+               and unimplemented STU_946E87CE()
+               and unimplemented STU_EB424844()
+               and not shared_var[6869]
+               and not shared_var[10791]
+               and not unimplemented STU_7AD646C1()
+               and not unimplemented STU_CA91299C()
+           ):  # re-evaluated while the State runs
+        while true:
+            begin(STU_1623C620_1)
+            begin(GameMessageEntry_4)
+
+state STU_1623C620_1:  # STU_1623C620, state 0; from BooleanSwitch_2.m_trueSubgraphPlug, GameMessage_3.m_outPlug, UXPresenter_5.m_8D6AF7DD[0]
+    # reads: shared_var[15090]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_1623C620(
+        m_45216F79=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A0000000000640)),
+        m_EC32138E=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(
+                        m_value=(
+                            unimplemented STU_BC6E605B(m_inputContext[?]=asset(0x029000000000009B)) if unimplemented STU_0524B040()
+                            else unimplemented STU_BC6E605B(m_inputContext[?]=asset(0x029000000000009A))
+                        ),
+                        m_id=asset(0x0D80000000006D19),
+                    ),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_BC6E605B(m_inputContext[?]=asset(0x0290000000000099)),
+                        m_id=asset(0x0D80000000006D1B),
+                    ),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_BC6E605B(m_inputContext[?]=asset(0x029000000000008E)),
+                        m_id=asset(0x0D80000000006D1A),
+                    ),
+                ],
+                m_definition=asset(0x0A8800000000000C),
+            ),
+        ),
+        m_6FE35BAA=shared_var[15090],
+    )  # names: class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven], class STU_BC6E605B=ConfigVarInputContextKey [candidate]
+    plug m_8D6AF7DD[0]:  # m_id=asset(0x0D800000000061D0)
+        begin(GamePadVibration_9)
+    plug m_8D6AF7DD[1]:  # m_id=asset(0x0D8000000000672E)
+        begin(STU_E526E527_11)
+
+state GameMessageEntry_4:  # STUStatescriptStateGameMessageEntry, state 2; from BooleanSwitch_2.m_trueSubgraphPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000AE5))
+    provider_present:
+        begin(BooleanSwitch_6)
+        begin(Stack_12)
+
+state STU_E526E527_11:  # STU_E526E527, state 9; from STU_1623C620_1.m_8D6AF7DD[1]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_E526E527(
+        m_45216F79=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A000000000067B)),
+        m_EC32138E=unimplemented STU_B317E7B5(m_structBuilder[?]=STU_802D5580(m_definition=asset(0x0A8800000000018C))),
+    )  # names: class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+
+state BooleanSwitch_6:  # STUStatescriptStateBooleanSwitch, state 4; from GameMessageEntry_4.m_452862E6
+    # reads: shared_var[15090]  writes: none
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_40A335F4() and not shared_var[15090]:  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_10)
+
+state Stack_12:  # STUStatescriptStateStack, state 10; from GameMessageEntry_4.m_452862E6
+    # reads: none  writes: shared_var[16133]
+    stack_contribution(shared_var[16133], value=STU_11B1CC76(0), priority=None)
+
+state BooleanSwitch_10:  # STUStatescriptStateBooleanSwitch, state 8; from BooleanSwitch_6.m_trueSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_D1CBBF22():  # re-evaluated while the State runs
+        while true:
+            begin(BooleanSwitch_8)
+
+state BooleanSwitch_8:  # STUStatescriptStateBooleanSwitch, state 6; from BooleanSwitch_10.m_trueSubgraphPlug
+    # reads: var[465]  writes: none
+    # + unimplemented nodes may touch others
+    subgraph:
+        begin(Stack_7)
+    watch var[465] != unimplemented STU_BC6E605B():  # re-evaluated while the State runs; names: class STU_BC6E605B=ConfigVarInputContextKey [candidate]
+        while true:
+            begin(UXPresenter_5)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_BC6E605B (configvar) x5
+#   STU_B317E7B5 (configvar) x3
+#   STU_BCD1C634 (configvar) x3
+#   STU_0524B040 (configvar) x1
+#   STU_354B9F6B (configvar) x1
+#   STU_40A335F4 (configvar) x1
+#   STU_7AD646C1 (configvar) x1
+#   STU_946E87CE (configvar) x1
+#   STU_CA91299C (configvar) x1
+#   STU_D1CBBF22 (configvar) x1
+#   STU_EB424844 (configvar) x1
+#   STU_F94506DB (configvar) x1
+#   STUStatescriptStateGamePadVibration (node) x1
+#   STUStatescriptStateUXPresenter (node) x1
+#   STU_1623C620 (node) x1
+#   STU_E526E527 (node) x1

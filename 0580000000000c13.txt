@@ -1,0 +1,56 @@
+# build 1.74.0.0.104319: 5 nodes (2 States), 1 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000c13 (heroes Zarya)
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_1 after(var[215])
+#   placeholders: 3 unrecovered (3 classes; 3 node)
+#   var[215]: 1 write at line 14; 1 read at line 32
+#   var[536]: 1 write at line 16; 1 read at line 49
+#   var[7576]: 1 write at line 15; 1 read at line 45
+
+on_entry_unimplemented STU_BB4AC733(
+    rid=2,
+    m_params=[
+        STU_EF930FD7(m_out_Var=var[215], m_B5051BCE=asset(0x0A4000000000002B)),
+        STU_EF930FD7(m_out_Var=var[7576], m_B5051BCE=asset(0x0A40000000000369)),
+        STU_EF930FD7(m_out_Var=var[536], m_B5051BCE=asset(0x0A4000000000005C)),
+    ],
+    m_B60ABDA4=var[40],
+):  # STU_BB4AC733, init=never
+    # reads: var[40]  writes: var[215], var[536], var[7576]
+    begin(Wait_1)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=2 ----
+
+state Wait_1:  # STUStatescriptStateWait, state 0; from STU_BB4AC733_2.m_outPlug
+    # reads: var[215]  writes: none
+    # + unimplemented nodes may touch others
+    subgraph:
+        begin(BooleanSwitch_3)
+    after(var[215]):
+        pass
+    end:
+        unimplemented STU_22926252()
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 1; from Wait_1.m_subgraphPlug
+    # reads: var[536], var[7576], shared_var[478]  writes: none
+    # + unimplemented nodes may touch others
+    watch shared_var[478]:  # re-evaluated while the State runs
+        on change to true:
+            unimplemented STU_0FC6DAEA(
+                m_POTGData=PlayOfTheGameData(
+                    m_value=0,
+                    m_id=var[7576],
+                    m_371085C1=asset(0x0830000000000004),
+                    m_41B10FF2=1,
+                    m_description=UXDisplayText(0x0DE000000000421B),
+                    m_targets=var[536],
+                ),
+            )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_0FC6DAEA (node) x1
+#   STU_22926252 (node) x1
+#   STU_BB4AC733 (node) x1

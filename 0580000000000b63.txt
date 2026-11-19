@@ -1,0 +1,146 @@
+# build 1.74.0.0.104319: 13 nodes (7 States), 2 entries, 11 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000b63
+# names (replace): 5 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[7273] (set x2), var[10319] (stack_contribution x1), var[10539] (stack_contribution
+#                      x1)
+#   messages: receives GameMessage(0x02400000000005F7) (entry rid 1)
+#   placeholders: 14 unrecovered (11 classes; 12 configvar, 2 node)
+#   var[7273]: 2 writes at lines 17, 133; 1 read at line 26
+#   var[10319]: 1 write at line 99; 1 read at line 62
+#   var[10539]: 1 write at line 103; 1 read at line 65
+#   var[7323]: 1 write at line 22; 1 read at line 122
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[7273]
+    set_var(var[7273], 0)
+    begin(GameMessageEntry_10)
+    begin(GameMessageEntry_6)
+    begin(GameMessageEntry_8)
+
+on_game_message(GameMessage(0x02400000000005F7), rid=1)(var[7323] <- param 0x0A4000000000035A):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[7273], shared_var[2490]  writes: var[7323]
+    if shared_var[2490]:
+        if var[7273] == 0.0:
+            begin(STU_E526E527_11)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state GameMessageEntry_10:  # STUStatescriptStateGameMessageEntry, state 5; from SetVar_2.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000A68))
+    provider_absent:
+        begin(STU_AD4F324E_5)
+
+state GameMessageEntry_6:  # STUStatescriptStateGameMessageEntry, state 1; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x02400000000007E4))
+    provider_present:
+        begin(Stack_7)
+
+state GameMessageEntry_8:  # STUStatescriptStateGameMessageEntry, state 3; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000812))
+    provider_present:
+        begin(Stack_9)
+
+state STU_AD4F324E_5:  # STU_AD4F324E, state 0; from GameMessageEntry_10.m_33DA5163
+    # reads: var[10319], var[10539], shared_var[981], shared_var[1844], shared_var[2459], shared_var[7284], shared_var[7774]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_AD4F324E(
+        m_45216F79=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A00000000004C2)),
+        m_EC32138E=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(m_value=shared_var[1844], m_id=asset(0x0D80000000006376)),
+                    STU_E870E3E8(m_value=not (shared_var[7774] or shared_var[2459] or shared_var[7284]), m_id=asset(0x0D800000000063D7)),
+                    STU_E870E3E8(
+                        m_value=var[10319] or unimplemented STU_6DDB22BB() and unimplemented STU_F0CB8772(),
+                        m_id=asset(0x0D80000000006394),
+                    ),
+                    STU_E870E3E8(m_value=not var[10539] and not shared_var[981], m_id=asset(0x0D800000000063DB)),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_B317E7B5(
+                            m_structBuilder[?]=STU_802D5580(
+                                m_overrides=[
+                                    STU_E870E3E8(
+                                        m_value=owner_scope(
+                                            member(
+                                                unimplemented STU_ECEE6694(
+                                                    m_teamColor=(
+                                                        unimplemented STU_377B7AAB(m_67465E75=STU_BD6CC023(1)) if unimplemented STU_67AFF7D7(m_67465E75=STU_BD6CC023(1))
+                                                        else STU_195217A6(0x0B300000000000EF)
+                                                    ),
+                                                ),
+                                                id(16909),
+                                            ),
+                                            scope=0,
+                                        ),
+                                        m_id=asset(0x0D80000000002EAB),
+                                    ),
+                                ],
+                                m_definition=asset(0x0A88000000000252),
+                            ),
+                        ),
+                        m_id=asset(0x0D80000000000406),
+                    ),
+                ],
+                m_definition=asset(0x0A880000000002D3),
+            ),
+        ),
+    )  # names: class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+
+state Stack_7:  # STUStatescriptStateStack, state 2; from GameMessageEntry_6.m_452862E6
+    # reads: none  writes: var[10319]
+    stack_contribution(var[10319], value=True, priority=None)
+
+state Stack_9:  # STUStatescriptStateStack, state 4; from GameMessageEntry_8.m_452862E6
+    # reads: none  writes: var[10539]
+    stack_contribution(var[10539], value=True, priority=None)
+
+# ---- begun from on_game_message rid=1 ----
+
+state STU_E526E527_11:  # STU_E526E527, state 6; from Condition_3.m_truePlug
+    # reads: var[7323]  writes: var[7273]
+    # + unimplemented nodes may touch others
+    unimplemented STU_E526E527(
+        m_45216F79=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A0000000000712)),
+        m_EC32138E=unimplemented STU_B317E7B5(
+            m_structBuilder[?]=STU_802D5580(
+                m_overrides=[
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_E0A69706(m_displayText=UXDisplayText(0x0DE00000000041D8)),
+                        m_id=asset(0x0D800000000064C5),
+                    ),
+                    STU_E870E3E8(m_value=UXDisplayText(0x0DE0000000002CE4), m_id=asset(0x0D80000000006522)),
+                    STU_E870E3E8(
+                        m_value=unimplemented STU_E7579408(
+                            m_367CCBF5=[var[7323]],
+                            m_6C54C35C=UXDisplayText(0x0DE0000000002CE3),
+                        ),
+                        m_id=asset(0x0D8000000000682B),
+                    ),
+                ],
+                m_definition=asset(0x0A8800000000014C),
+            ),
+        ),
+    )  # names: class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+    begin:
+        set_var(var[7273], 1)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B317E7B5 (configvar) x3
+#   STU_BCD1C634 (configvar) x2
+#   STU_377B7AAB (configvar) x1
+#   STU_67AFF7D7 (configvar) x1
+#   STU_6DDB22BB (configvar) x1
+#   STU_E0A69706 (configvar) x1
+#   STU_E7579408 (configvar) x1
+#   STU_ECEE6694 (configvar) x1
+#   STU_F0CB8772 (configvar) x1
+#   STU_AD4F324E (node) x1
+#   STU_E526E527 (node) x1

@@ -1,0 +1,39 @@
+# build 1.74.0.0.104319: 5 nodes (3 States), 1 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000ba2
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_4 after(1)
+#   placeholders: 1 unrecovered (1 classes; 1 node)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(BooleanSwitch_1)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state BooleanSwitch_1:  # STUStatescriptStateBooleanSwitch, state 0; from Entry_0.m_outPlug
+    # reads: shared_var[426]  writes: none
+    watch shared_var[426] == Identifier(0x0D80000000000016):  # re-evaluated while the State runs
+        while true:
+            # owns (not begun here): BooleanSwitch_3
+            begin(Wait_4)
+
+state Wait_4:  # STUStatescriptStateWait, state 2; from BooleanSwitch_1.m_trueSubgraphPlug
+    # reads: none  writes: none
+    after(1):
+        begin(BooleanSwitch_3)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 1; from Wait_4.m_onFinishedPlug
+    # reads: shared_var[427]  writes: none
+    # + unimplemented nodes may touch others
+    watch shared_var[427] < 10.0:  # re-evaluated while the State runs
+        on change to true:
+            unimplemented STU_57692020(
+                m_params=[STU_814D595E(m_value=10, m_B5051BCE=asset(0x0A4000000000017E))],
+                m_gameMessage=GameMessage(0x02400000000005E4),
+            )
+
+# placeholders in this graph (semantics not recovered):
+#   STU_57692020 (node) x1

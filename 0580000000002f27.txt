@@ -1,0 +1,138 @@
+# build 1.74.0.0.104319: 15 nodes (12 States), 1 entries, 16 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000002f27
+# names (replace): 6 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_10 after(var[33835]); Wait_11 after(var[33836]); Wait_13 after(0.1)
+#   placeholders: 13 unrecovered (6 classes; 8 node, 5 configvar)
+#   var[7566]: 1 write at line 56; 2 reads at lines 72, 83
+#   var[11399]: 2 reads at lines 91, 100
+#   var[11400]: 2 reads at lines 115, 130
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[15182] = GameMessage(0)
+    var[11399] = ModelLook(0)
+    var[33835] = 0
+    var[11400] = ModelLook(0)
+    var[33836] = 0
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(GameMessageEntry_4)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- animation, cosmetics and haptics (grouped by class) ----
+
+state Anim_2:  # STUStatescriptStateAnim, state 1; from Condition_5.m_truePlug; names: class STUStatescriptStateAnim=Anim [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateAnim(animation[?]=AnimAlias(0x0C80000000000011), m_37EE887D=False, m_2DEAE6A9=False)  # names: class STUStatescriptStateAnim=Anim [matched]
+    end:
+        begin(Anim_3)
+
+state Anim_1:  # STUStatescriptStateAnim, state 0; from Condition_7.m_truePlug; names: class STUStatescriptStateAnim=Anim [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateAnim(
+        animation[?]=AnimAlias(0x0C80000000000015),
+        m_37EE887D=False,
+        blend_time[?]=0.5,
+        m_2DEAE6A9=True,
+        m_startTime=0.0,
+        m_0637108B=1,
+    )  # names: class STUStatescriptStateAnim=Anim [matched]
+
+state Anim_3:  # STUStatescriptStateAnim, state 2; from Anim_2.m_onEndPlug; names: class STUStatescriptStateAnim=Anim [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateAnim(animation[?]=AnimAlias(0x0C80000000000001), m_37EE887D=True, m_2DEAE6A9=True)  # names: class STUStatescriptStateAnim=Anim [matched]
+
+# ---- begun from on_entry rid=0 ----
+
+state GameMessageEntry_4:  # STUStatescriptStateGameMessageEntry, state 3; from Entry_0.m_outPlug
+    # reads: var[15182]  writes: var[7566]
+    subscribe_game_message(
+        m_params=[STU_EF930FD7(m_out_Var=var[7566], m_B5051BCE=asset(0x0A40000000000737))],
+        m_gameMessage=var[15182],
+        m_586B4905=1,
+    )
+    provider_present:
+        # owns (not begun here): STU_691BFA55_14
+        begin(STU_B591EBFE_9)
+    provider_absent:
+        # owns (not begun here): Wait_11, Anim_1, STU_7D71FDF3_8
+        begin(STU_B591EBFE_12)
+        abort(STU_7D71FDF3_6)
+
+state STU_B591EBFE_9:  # STU_B591EBFE, state 6; from GameMessageEntry_4.m_452862E6
+    # reads: var[7566]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_B591EBFE(
+        m_BD83C8E6=unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D6000000000029A), m_entity=var[7566][0.0]),
+    )
+    plug m_onTruePlug:
+        begin(Wait_10)
+    plug m_trueSubgraphPlug:
+        begin(STU_691BFA55_14)
+
+state STU_B591EBFE_12:  # STU_B591EBFE, state 9; from GameMessageEntry_4.m_33DA5163
+    # reads: var[7566]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_B591EBFE(
+        m_BD83C8E6=unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D6000000000029A), m_entity=var[7566][0.0]),
+    )
+    plug m_onTruePlug:
+        begin(Wait_11)
+
+state STU_7D71FDF3_6:  # STU_7D71FDF3, state 4; from GameMessageEntry_4.m_33DA5163, Wait_13.m_onEndPlug
+    # reads: var[11399]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_7D71FDF3(m_BBBF2499=unimplemented STU_B5A0CAF0(), m_CC4BEAB2=var[11399])  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    end:
+        abort(STU_691BFA55_14)
+
+state Wait_10:  # STUStatescriptStateWait, state 7; from STU_B591EBFE_9.m_onTruePlug
+    # reads: var[11399], var[33835]  writes: none
+    after(var[33835]):
+        pass
+    end:
+        if var[11399] == ModelLook(0):
+            begin(Anim_2)
+        else:
+            begin(Wait_13)
+
+state STU_691BFA55_14:  # STU_691BFA55, state 11; from STU_7D71FDF3_6.m_onEndPlug, STU_B591EBFE_9.m_trueSubgraphPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(m_effect=Effect(0x03000000000037DB), entity[?]=unimplemented STU_B5A0CAF0())  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state Wait_11:  # STUStatescriptStateWait, state 8; from STU_B591EBFE_12.m_onTruePlug
+    # reads: var[11400], var[33836]  writes: none
+    after(var[33836]):
+        pass
+    end:
+        if var[11400] == ModelLook(0):
+            begin(Anim_1)
+        else:
+            begin(STU_7D71FDF3_8)
+
+state Wait_13:  # STUStatescriptStateWait, state 10; from Condition_5.m_falsePlug
+    # reads: none  writes: none
+    after(0.1):
+        pass
+    end:
+        begin(STU_7D71FDF3_6)
+
+state STU_7D71FDF3_8:  # STU_7D71FDF3, state 5; from Condition_7.m_falsePlug
+    # reads: var[11400]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_7D71FDF3(m_BBBF2499=unimplemented STU_B5A0CAF0(), m_CC4BEAB2=var[11400])  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x3
+#   STUStatescriptStateAnim (node) x3
+#   STU_25ECB55F (configvar) x2
+#   STU_7D71FDF3 (node) x2
+#   STU_B591EBFE (node) x2
+#   STU_691BFA55 (node) x1

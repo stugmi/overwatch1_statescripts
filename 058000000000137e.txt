@@ -1,0 +1,45 @@
+# build 1.74.0.0.104319: 5 nodes (0 States), 1 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 058000000000137e
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: sends GameMessage(0x024000000000167F) x1
+#   placeholders: 6 unrecovered (5 classes; 3 configvar, 3 node)
+#   var[469]: 1 write at line 22; 2 reads at lines 27, 36
+#   var[7566]: 1 write at line 18; 2 reads at lines 30, 35
+#   var[18739]: 2 reads at lines 17, 21
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[469], var[7566], var[18739]  writes: var[469], var[7566]
+    # + unimplemented nodes may touch others
+    unimplemented STU_12F5D52D(
+        m_143D4C5B=[
+            STU_8529C204(
+                m_value=[unimplemented STU_77B0987E(m_35547D6E=var[18739][0.0])],
+                m_out_Var=var[7566],
+            ),
+            STU_8529C204(
+                m_value=unimplemented STU_77B0987E(m_35547D6E=var[18739][1.0], m_68CFF844=10000, m_FDCA1FD0=0),
+                m_out_Var=var[469],
+            ),
+        ],
+    )
+    unimplemented STUStatescriptActionPlayScript(
+        m_params=[STU_814D595E(m_value=var[469], m_B5051BCE=asset(0x0A4000000000008E))],
+        m_69F4B52C=unimplemented STU_9DB46B98(),
+        m_script=STU_105E1BCC(0x058000000000137F),
+        m_targets=var[7566],
+        m_7ABA409C=raw(00),
+    )
+    send_game_message(
+        GameMessage(0x024000000000167F),
+        targets=var[7566],
+        params=[STU_814D595E(m_value=var[469], m_B5051BCE=asset(0x0A4000000000008F))],
+    )
+    unimplemented STU_1E93FE1F()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_77B0987E (configvar) x2
+#   STU_9DB46B98 (configvar) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STU_12F5D52D (node) x1
+#   STU_1E93FE1F (node) x1

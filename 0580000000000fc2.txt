@@ -1,0 +1,142 @@
+# build 1.74.0.0.104319: 22 nodes (6 States), 3 entries, 19 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000fc2
+# names (replace): 7 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   waits: Wait_7 after(random_float(1.0, 2.5))
+#   messages: receives GameMessage(0x0240000000000679) (entry rid 15); receives
+#             GameMessage(0x0240000000000671) (entry rid 20)
+#   placeholders: 35 unrecovered (10 classes; 24 configvar, 11 node)
+#   var[4914]: 1 write at line 50; 5 reads at lines 97, 112, 113, 120, 126
+#   var[8124]: 1 write at line 50; 4 reads at lines 96, 104, 111, 112
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionPlayScript(
+        m_69F4B52C=unimplemented STU_9DB46B98(),
+        m_script=STU_105E1BCC(0x0580000000000C8E),
+        m_targets=unimplemented STU_B5A0CAF0(),
+        m_7ABA409C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STUStatescriptActionPlayScript(
+        m_69F4B52C=unimplemented STU_9DB46B98(),
+        m_script=STU_105E1BCC(0x0580000000000C7A),
+        m_targets=unimplemented STU_B5A0CAF0(),
+        m_7ABA409C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    if unimplemented STU_AC829876(
+           m_entity=unimplemented STU_B5A0CAF0(),
+           m_filter=unimplemented STUConfigVarFilter(
+               m_9C7BD8B8=[
+                   STU_357DABBB(0x0D60000000000100),
+                   STU_357DABBB(0x0D60000000000428),
+                   STU_357DABBB(0x0D60000000000121),
+                   STU_357DABBB(0x0D60000000000369),
+                   STU_357DABBB(0x0D600000000000F9),
+                   STU_357DABBB(0x0D6000000000011E),
+                   STU_357DABBB(0x0D6000000000083C),
+                   STU_357DABBB(0x0D600000000000FD),
+                   STU_357DABBB(0x0D60000000000612),
+               ],
+           ),
+       ):  # names: class STU_AC829876=EntityFilterTest [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        begin(STU_B0B07014_3)
+    else:
+        begin(STU_B0B07014_5)
+    begin(STU_E9485CAF_6)
+    begin(STU_316CFEF2_19)
+
+on_game_message(GameMessage(0x0240000000000679), rid=15)(var[8124] <- param 0x0A40000000000008, var[4914] <- param 0x0A4000000000039B):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered), server-only
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: none  writes: var[4914], var[8124]
+    begin(Wait_7)
+
+on_game_message(GameMessage(0x0240000000000671), rid=20):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: none  writes: none
+    begin(GamePadVibration_21)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- animation, cosmetics and haptics (grouped by class) ----
+
+state GamePadVibration_21:  # STUStatescriptStateGamePadVibration, state 5; from GameMessage_20.m_outPlug; names: class STUStatescriptStateGamePadVibration=GamePadVibration [matched]
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateGamePadVibration(m_vibration=GamePadVibration(0x0D500000000000E0), rate[?]=0.0, intensity[?]=0.0)  # names: class STUStatescriptStateGamePadVibration=GamePadVibration [matched]
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_B0B07014_3:  # STU_B0B07014, state 0; from Condition_4.m_truePlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_B0B07014(m_69DB3949=1.5, m_21A537D3=0.6)
+
+state STU_B0B07014_5:  # STU_B0B07014, state 1; from Condition_4.m_falsePlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_B0B07014(m_69DB3949=1.2, m_21A537D3=0.6)
+
+state STU_E9485CAF_6:  # STU_E9485CAF, state 2 (plain State at run time); from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # authored, unused by the plain State handler [INFERENCE]: m_identifier=Identifier(0x0D80000000002E5B), m_targets=unimplemented STU_B5A0CAF0(); names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+state STU_316CFEF2_19:  # STU_316CFEF2, state 4; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_316CFEF2(m_BC5E91CF=[STU_4CB0950F(m_9B7A63EA=0.3)])
+
+# ---- begun from on_game_message rid=15 ----
+
+state Wait_7:  # STUStatescriptStateWait, state 3 (server-only); from GameMessage_15.m_outPlug
+    # reads: var[4914], var[8124]  writes: none
+    # + unimplemented nodes may touch others
+    after(random_float(1.0, 2.5)):
+        if (
+               var[8124] == unimplemented STU_B5A0CAF0()
+               and var[4914] != unimplemented STU_65ABFCCC(m_target=unimplemented STU_B5A0CAF0())
+           ):  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+            unimplemented STUStatescriptActionCriteria(
+                m_identifier=Identifier(0x0D8000000000203B),
+                m_targets=unimplemented STU_B5A0CAF0(),
+            )  # server-only; names: class STUStatescriptActionCriteria=ReportCriteria [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        else:
+            if var[8124] == unimplemented STU_B5A0CAF0():  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+                unimplemented STUStatescriptActionCriteria(
+                    m_identifier=Identifier(0x0D80000000002039),
+                    m_targets=unimplemented STU_B5A0CAF0(),
+                )  # server-only; names: class STUStatescriptActionCriteria=ReportCriteria [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+            else:
+                if (
+                       var[8124]
+                       and unimplemented STU_65ABFCCC(m_target=var[8124]) != var[4914]
+                       and var[4914] == unimplemented STU_65ABFCCC(m_target=unimplemented STU_B5A0CAF0())
+                   ):  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+                    unimplemented STUStatescriptActionCriteria(
+                        m_identifier=Identifier(0x0D8000000000203C),
+                        m_targets=unimplemented STU_B5A0CAF0(),
+                    )  # server-only; names: class STUStatescriptActionCriteria=ReportCriteria [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+                else:
+                    if var[4914] == unimplemented STU_65ABFCCC(m_target=unimplemented STU_B5A0CAF0()):  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+                        unimplemented STUStatescriptActionCriteria(
+                            m_identifier=Identifier(0x0D8000000000203A),
+                            m_targets=unimplemented STU_B5A0CAF0(),
+                        )  # server-only; names: class STUStatescriptActionCriteria=ReportCriteria [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+                    else:
+                        if var[4914] != unimplemented STU_65ABFCCC(m_target=unimplemented STU_B5A0CAF0()):  # server-only; names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+                            unimplemented STUStatescriptActionCriteria(
+                                m_identifier=Identifier(0x0D80000000002002),
+                                m_targets=unimplemented STU_B5A0CAF0(),
+                            )  # server-only; names: class STUStatescriptActionCriteria=ReportCriteria [candidate], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x15
+#   STU_65ABFCCC (configvar) x5
+#   STUStatescriptActionCriteria (node) x5
+#   STU_9DB46B98 (configvar) x2
+#   STUStatescriptActionPlayScript (node) x2
+#   STU_B0B07014 (node) x2
+#   STUConfigVarFilter (configvar) x1
+#   STU_AC829876 (configvar) x1
+#   STUStatescriptStateGamePadVibration (node) x1
+#   STU_316CFEF2 (node) x1

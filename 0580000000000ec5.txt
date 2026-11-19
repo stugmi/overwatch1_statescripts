@@ -1,0 +1,158 @@
+# build 1.74.0.0.104319: 34 nodes (3 States), 1 entries, 39 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000ec5
+# inlined shared nodes (printed at each use site instead of a def): SetVar_11
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[536] (set x1), var[10133] (set x5), var[10134] (set x5), var[10135] (set x4),
+#                      var[10361] (set x3)
+#   waits: Wait_2 after(shared_var[8504])
+#   messages: sends GameMessage(0x02400000000006BB) x1
+#   placeholders: 21 unrecovered (8 classes; 15 configvar, 6 node)
+#   var[536]: 1 write at line 24; 20 reads at lines 25, 28, 31, 33, 34, 38 ...
+#   var[10133]: 5 writes at lines 26, 32, 117, 140, 146; 9 reads at lines 50, 80, 98, 107, 118, 127 ...
+#   var[10135]: 4 writes at lines 28, 45, 100, 128; 7 reads at lines 48, 49, 82, 105, 106, 131 ...
+#   var[10134]: 5 writes at lines 27, 39, 118, 141, 147; 4 reads at lines 81, 118, 141, 147
+#   var[10361]: 3 writes at lines 97, 126, 139; 5 reads at lines 98, 117, 127, 140, 146
+#   var[10360]: 3 writes at lines 52, 109, 135; 3 reads at lines 96, 112, 138
+#   var[9692]: 3 writes at lines 53, 110, 136; 3 reads at lines 97, 126, 139
+#   var[7566]: 2 reads at lines 72, 77
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[536], var[10133], var[10135], shared_var[10110]  writes: var[536], var[9692], var[10133], var[10134], var[10135], var[10360]
+    # + unimplemented nodes may touch others
+    set_var(var[536], shared_var[10110])
+    if unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000003CF), m_entity=var[536]):
+        set_var(var[10133], 15.0)
+        set_var(var[10134], 10.0)
+        set_var(var[10135], unimplemented STU_021D01CD(m_entity=var[536]))
+        begin(State_29)
+    else:
+        set_var(
+            var[10133],
+            8.0 if unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000002A0), m_entity=var[536]) else (
+                6.0 if unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D60000000000369), m_entity=var[536])
+                else 4.0
+            ),
+        )
+        set_var(
+            var[10134],
+            6.0 if unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D600000000002A0), m_entity=var[536]) else (
+                5.0 if unimplemented STU_25ECB55F(m_88B0050A=asset(0x0D60000000000369), m_entity=var[536])
+                else 3.0
+            ),
+        )
+        set_var(var[10135], normalize(vec3(0.0, 1.5, 0.0) + unimplemented STU_021D01CD(m_entity=var[536])))
+        unimplemented STU_08D6BA6E(
+            m_ignoreEntities=[var[536]],
+            m_startPosWS=unimplemented STU_0BA27A07(m_entity=var[536]) + var[10135],
+            m_dirWS=var[10135],
+            m_castLength=var[10133] - 0.5,
+            m_castRadius=0.4,
+            m_out_HitSomething=var[10360],
+            m_out_HitPointWS=var[9692],
+        )
+        Condition_23()
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state State_29:  # STUStatescriptState, state 2 (plain State at run time); from Condition_9.m_falsePlug, SetVar_12.m_outPlug, SetVar_14.m_outPlug, Condition_17.m_falsePlug +3 more
+    # reads: none  writes: none
+    begin:
+        begin(STU_2F07848F_5)
+
+state STU_2F07848F_5:  # STU_2F07848F, state 1; from State_29.m_onBeginPlug
+    # reads: var[7566], shared_var[8190]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_2F07848F(m_17D12F6B=1, m_D8989B37=0, m_89C63AB3=0, m_E75DF5AC=shared_var[8190])
+    subgraph:
+        unimplemented STU_42578342(
+            m_4AEEE6A1=var[7566],
+            m_filter=unimplemented STUConfigVarFilter(m_4EA686DB=2, m_84065FD1=262144),
+        )  # names: class STUConfigVarFilter=OwnEntityFilter [candidate]
+        send_game_message(
+            GameMessage(0x02400000000006BB),
+            targets=var[7566],
+            params=[
+                STU_814D595E(m_value=var[536], m_B5051BCE=asset(0x0A40000000000008)),
+                STU_814D595E(m_value=var[10133], m_B5051BCE=asset(0x0A4000000000044D)),
+                STU_814D595E(m_value=var[10134], m_B5051BCE=asset(0x0A4000000000044E)),
+                STU_814D595E(m_value=var[10135], m_B5051BCE=asset(0x0A4000000000006F)),
+            ],
+        )
+        begin(Wait_2)
+
+state Wait_2:  # STUStatescriptStateWait, state 0; from SendGameMessage_1.m_outPlug
+    # reads: shared_var[8504]  writes: none
+    # + unimplemented nodes may touch others
+    after(shared_var[8504]):
+        unimplemented STU_22926252()
+
+def Condition_23():  # STU_3387AB5D; shared or nested too deep to inline; from STU_08D6BA6E_24.m_outPlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[536], var[9692], var[10133], var[10134], var[10135], var[10360], var[10361]  writes: var[9692], var[10133], var[10134], var[10135], var[10360], var[10361]
+    # + unimplemented nodes may touch others
+    if var[10360]:
+        set_var(var[10361], distance(unimplemented STU_0BA27A07(m_entity=var[536]), var[9692]))
+        if var[10361] < var[10133] * 0.75:
+            set_var(
+                var[10135],
+                normalize(vec3(0.0, 1.5, 0.0) - unimplemented STU_021D01CD(m_entity=var[536])),
+            )
+            unimplemented STU_08D6BA6E(
+                m_ignoreEntities=[var[536]],
+                m_startPosWS=unimplemented STU_0BA27A07(m_entity=var[536]) + var[10135],
+                m_dirWS=var[10135],
+                m_castLength=var[10133] - 0.5,
+                m_castRadius=0.4,
+                m_out_HitSomething=var[10360],
+                m_out_HitPointWS=var[9692],
+            )
+            if var[10360]:
+                SetVar_16()
+            else:
+                begin(State_29)
+        else:
+            set_var(var[10133], var[10361] - 0.5)
+            set_var(var[10134], min(var[10134], var[10133]))
+            begin(State_29)
+    else:
+        begin(State_29)
+
+def SetVar_16():  # STUStatescriptActionSetVar; shared or nested too deep to inline; from Condition_17.m_truePlug; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[536], var[9692], var[10133], var[10134], var[10135], var[10360], var[10361]  writes: var[9692], var[10133], var[10134], var[10135], var[10360], var[10361]
+    # + unimplemented nodes may touch others
+    set_var(var[10361], distance(unimplemented STU_0BA27A07(m_entity=var[536]), var[9692]))
+    if var[10361] < var[10133] * 0.75:
+        set_var(var[10135], vec3(0.0, 1.0, 0.0))
+        unimplemented STU_08D6BA6E(
+            m_ignoreEntities=[var[536]],
+            m_startPosWS=unimplemented STU_0BA27A07(m_entity=var[536]) + var[10135],
+            m_dirWS=var[10135],
+            m_castLength=var[10133] - 0.5,
+            m_castRadius=0.4,
+            m_out_HitSomething=var[10360],
+            m_out_HitPointWS=var[9692],
+        )
+        if var[10360]:
+            set_var(var[10361], distance(unimplemented STU_0BA27A07(m_entity=var[536]), var[9692]))
+            set_var(var[10133], min(1.0, var[10361] - 0.5))
+            set_var(var[10134], min(var[10134], var[10133]))
+            begin(State_29)
+        else:
+            begin(State_29)
+    else:
+        set_var(var[10133], var[10361] - 0.5)
+        set_var(var[10134], min(var[10134], var[10133]))
+        begin(State_29)
+
+# placeholders in this graph (semantics not recovered):
+#   STU_0BA27A07 (configvar) x6
+#   STU_25ECB55F (configvar) x5
+#   STU_021D01CD (configvar) x3
+#   STU_08D6BA6E (node) x3
+#   STUConfigVarFilter (configvar) x1
+#   STU_22926252 (node) x1
+#   STU_2F07848F (node) x1
+#   STU_42578342 (node) x1

@@ -1,0 +1,74 @@
+# build 1.74.0.0.104319: 8 nodes (4 States), 1 entries, 7 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000cb9
+# names (replace): 4 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[8463] (set x2), var[8465] (set x1)
+#   placeholders: 6 unrecovered (6 classes; 5 configvar, 1 node)
+#   var[8465]: 1 write at line 22; 5 reads at lines 21, 25, 26, 28, 66
+#   var[8463]: 2 writes at lines 28, 66; 2 reads at lines 39, 66
+#   var[13648]: 3 reads at lines 21, 24, 26
+#   var[13652]: 2 reads at lines 21, 24
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[8465] = 2
+    var[13652] = 0
+    var[13648] = None
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: var[8465], var[13648], var[13652]  writes: var[8463], var[8465]
+    # + unimplemented nodes may touch others
+    set_var(
+        var[8465],
+        (
+            var[13652] if unimplemented STU_E0A69706(m_displayText=var[13648]) != unimplemented STU_92CA44CC()
+            else var[8465]
+        ) if unimplemented STU_47B454CC() == unimplemented STU_E0A69706(m_displayText=var[13648]) else var[8465],
+    )
+    set_var(var[8463], random_offset(0.0, var[8465]))
+    begin(STU_38EE1100_2)
+    begin(GameMessageEntry_4)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_38EE1100_2:  # STU_38EE1100, state 0; from SetVar_1.m_outPlug
+    # reads: var[8463]  writes: none
+    publish_game_message(
+        m_params=[STU_814D595E(m_value=var[8463], m_B5051BCE=asset(0x0A400000000003A5))],
+        m_gameMessage=GameMessage(0x0240000000000693),
+        m_target=STU_1D719351(m_111E4A0E=1, m_6A8DB059=raw(00)),
+    )
+
+state GameMessageEntry_4:  # STUStatescriptStateGameMessageEntry, state 1; from Entry_0.m_outPlug
+    # reads: none  writes: none
+    subscribe_game_message(m_gameMessage=GameMessage(0x0240000000000950))
+    provider_present:
+        begin(State_6)
+
+state State_6:  # STUStatescriptState, state 3 (plain State at run time); from GameMessageEntry_4.m_452862E6
+    # reads: none  writes: none
+    begin:
+        begin(STU_4BD2E886_5)
+
+state STU_4BD2E886_5:  # STU_4BD2E886, state 2; from State_6.m_onBeginPlug
+    # reads: var[8463], var[8465]  writes: var[8463]
+    # + unimplemented nodes may touch others
+    unimplemented STU_4BD2E886(
+        m_45216F79=STU_43A1F049(m_39736FED=unimplemented STU_BCD1C634(), m_C21DB248=STU_08305297(0x09A00000000005EF)),
+        m_EC32138E=unimplemented STU_B317E7B5(m_structBuilder[?]=STU_802D5580(m_definition=asset(0x0A880000000002BD))),
+        m_AD8C28BA=0.0,
+        m_D7ED647E=0.0,
+        m_C69C2A73=0.1,
+    )  # names: class STU_BCD1C634=ConfigVarIdentifierBuilder [proven], class STU_B317E7B5=ConfigVarStructFromDefinition [proven]
+    plug m_82A8A67E:
+        set_var(var[8463], (var[8463] + 1.0) % (var[8465] + 1.0))
+
+# placeholders in this graph (semantics not recovered):
+#   STU_47B454CC (configvar) x1
+#   STU_92CA44CC (configvar) x1
+#   STU_B317E7B5 (configvar) x1
+#   STU_BCD1C634 (configvar) x1
+#   STU_E0A69706 (configvar) x1
+#   STU_4BD2E886 (node) x1

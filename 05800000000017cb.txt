@@ -1,0 +1,59 @@
+# build 1.74.0.0.104319: 6 nodes (5 States), 1 entries, 5 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000017cb
+# names (replace): 2 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   placeholders: 6 unrecovered (6 classes; 4 configvar, 2 node)
+
+on_entry_unimplemented STU_BB4AC733(
+    rid=4,
+    m_params=[STU_EF930FD7(m_out_Var=var[215], m_B5051BCE=asset(0x0A4000000000002B))],
+):  # STU_BB4AC733, init=never
+    # reads: none  writes: var[215]
+    begin(STU_B9898052_5)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=4 ----
+
+state STU_B9898052_5:  # STU_B9898052, state 4; from STU_BB4AC733_4.m_outPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_B9898052()
+    plug m_B6A27F9A:
+        begin(BooleanSwitch_3)
+
+state BooleanSwitch_3:  # STUStatescriptStateBooleanSwitch, state 3 (client-only); from STU_B9898052_5.m_B6A27F9A
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_AC829876(
+               m_entity=unimplemented STU_8985E00A(),
+               m_filter=unimplemented STUConfigVarFilter(m_1E14CCA8=268435456, m_84065FD1=268435456),
+           ):  # re-evaluated while the State runs; names: class STU_AC829876=EntityFilterTest [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+        while false:
+            begin(BooleanSwitch_2)
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 2 (client-only); from BooleanSwitch_3.m_falseSubgraphPlug
+    # reads: none  writes: none
+    # + unimplemented nodes may touch others
+    watch unimplemented STU_9FE80D27():  # re-evaluated while the State runs
+        while true:
+            begin(STU_37D754C8_1)
+        while false:
+            begin(STU_37D754C8_0)
+
+state STU_37D754C8_1:  # STU_37D754C8, state 1 (client-only); from BooleanSwitch_2.m_trueSubgraphPlug
+    # reads: none  writes: none
+    run_nested_graph(m_36F7B64C=graph_ref(STU_105E1BCC(0x0580000000000C34), params=[], extras=[]))
+
+state STU_37D754C8_0:  # STU_37D754C8, state 0 (client-only); from BooleanSwitch_2.m_falseSubgraphPlug
+    # reads: none  writes: none
+    run_nested_graph(m_36F7B64C=graph_ref(STU_105E1BCC(0x0580000000000C1F), params=[], extras=[]))
+
+# placeholders in this graph (semantics not recovered):
+#   STUConfigVarFilter (configvar) x1
+#   STU_8985E00A (configvar) x1
+#   STU_9FE80D27 (configvar) x1
+#   STU_AC829876 (configvar) x1
+#   STU_B9898052 (node) x1
+#   STU_BB4AC733 (node) x1

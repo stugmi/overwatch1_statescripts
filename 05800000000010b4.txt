@@ -1,0 +1,27 @@
+# build 1.74.0.0.104319: 3 nodes (0 States), 1 entries, 2 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 05800000000010b4
+# names (replace): 1 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   messages: receives GameMessage(0x024000000000000F) (entry rid 2)
+#   placeholders: 4 unrecovered (4 classes; 2 configvar, 2 node)
+#   var[40]: 2 reads at lines 10, 14
+
+on_game_message(GameMessage(0x024000000000000F), rid=2, m_B60ABDA4=var[40]):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # reads: var[40]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionPlayScript(
+        m_params=[STU_814D595E(m_value=var[40], m_B5051BCE=asset(0x0A400000000004A2))],
+        m_69F4B52C=unimplemented STU_9DB46B98(),
+        m_script=STU_105E1BCC(0x05800000000010B3),
+        m_targets=unimplemented STU_B5A0CAF0(),
+        m_AA4DE426=3,
+        m_7ABA409C=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+    unimplemented STU_22926252()
+
+# placeholders in this graph (semantics not recovered):
+#   STU_9DB46B98 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STU_22926252 (node) x1

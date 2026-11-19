@@ -1,0 +1,328 @@
+# build 1.74.0.0.104319: 36 nodes (14 States), 2 entries, 38 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000cc0
+# inlined shared nodes (printed at each use site instead of a def): STU_57692020_35
+# names (replace): 5 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   variables written: var[176] (set x1), var[8635] (set x1), var[8636] (set x1), var[8637] (set x1),
+#                      var[8639] (set x1), shared_var[8493] (set x1), shared_var[8520] (set x1),
+#                      shared_var[8521] (set x1), shared_var[8522] (set x1), shared_var[8619] (set x4),
+#                      shared_var[11687] (stack_contribution x1)
+#   waits: Wait_26 after(1); Wait_22 after(var[8636]); Wait_28 after(10)
+#   messages: receives GameMessage(0x02400000000014B6) (entry rid 34); sends GameMessage(0x02400000000006C8)
+#             x1
+#   placeholders: 12 unrecovered (9 classes; 7 configvar, 5 node)
+#   shared_var[8619]: 4 writes at lines 141, 180, 219, 263; 1 read at line 316
+#   var[215]: 5 writes at lines 68, 110, 149, 188, 232
+#   var[384]: 5 writes at lines 75, 117, 156, 195, 239
+#   var[6734]: 5 writes at lines 73, 115, 154, 193, 237
+#   var[6737]: 5 writes at lines 74, 116, 155, 194, 238
+#   var[8364]: 5 writes at lines 71, 113, 152, 191, 235
+#   var[8397]: 5 writes at lines 69, 111, 150, 189, 233
+#   var[8398]: 5 writes at lines 70, 112, 151, 190, 234
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: var[8635], var[8636], var[8637], shared_var[8520], shared_var[8521], shared_var[8522]
+    # + unimplemented nodes may touch others
+    set_var(var[8635], 700)
+    set_var(var[8636], 20)
+    set_var(var[8637], 30)
+    set_var(shared_var[8520], True)
+    set_var(shared_var[8521], True)
+    set_var(shared_var[8522], True)
+    begin(STU_37D754C8_1)
+    begin(Wait_26)
+    begin(STU_37D754C8_8)
+    unimplemented STU_57692020(m_gameMessage=GameMessage(0x02400000000014D4))
+
+on_game_message(GameMessage(0x02400000000014B6), rid=34)(var[1179] <- param 0x0A400000000004E7, var[11380] <- param 0x0A4000000000041A):  # STUStatescriptEntryGameMessage, init=never (runs when a matching game message is delivered)
+    # message parameters are bound into variables: a binding of values, not a function call
+    # reads: var[1179], var[11380]  writes: var[1179], var[11380]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptActionPlayScript(
+        m_params=[
+            STU_814D595E(m_value=var[1179], m_B5051BCE=asset(0x0A40000000000078)),
+            STU_814D595E(m_value=var[11380], m_B5051BCE=asset(0x0A4000000000041A)),
+        ],
+        m_69F4B52C=STU_105E1BCC(0x0580000000002B7A),
+        m_script=STU_105E1BCC(0x0580000000002B7A),
+        m_targets=unimplemented STU_B5A0CAF0(),
+        m_AA4DE426=1,
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- variable chasers (grouped by class) ----
+
+state ChaseVar_21:  # STUStatescriptStateChaseVar, state 7; from Wait_22.m_onFinishedPlug; names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+    # reads: var[8636], var[8637]  writes: var[176]
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateChaseVar(m_destination=0, start[?]=1, m_out_Var=var[176], duration[?]=var[8637] - var[8636])  # names: class STUStatescriptStateChaseVar=ChaseVar [proven]
+
+# ---- begun from on_entry rid=0 ----
+
+state STU_37D754C8_1:  # STU_37D754C8, state 0; from SetVar_10.m_outPlug
+    # reads: none  writes: var[215], var[384], var[6734], var[6737], var[8364], var[8397], var[8398], var[8451]
+    run_nested_graph(
+        m_89402D74=[
+            STUStatescriptSubScriptInitData(m_value=1800, m_2AF1FCC8=True, m_out_Var=var[215]),
+            STUStatescriptSubScriptInitData(m_value=6, m_2AF1FCC8=True, m_out_Var=var[8397]),
+            STUStatescriptSubScriptInitData(m_value=Hero(0x02E0000000000175), m_2AF1FCC8=True, m_out_Var=var[8398]),
+            STUStatescriptSubScriptInitData(m_value=STU_357DABBB(0x0D60000000000311), m_2AF1FCC8=True, m_out_Var=var[8364]),
+            STUStatescriptSubScriptInitData(m_value=120, m_2AF1FCC8=True, m_out_Var=var[8451]),
+            STUStatescriptSubScriptInitData(m_value=40, m_2AF1FCC8=True, m_out_Var=var[6734]),
+            STUStatescriptSubScriptInitData(m_value=70, m_2AF1FCC8=True, m_out_Var=var[6737]),
+            STUStatescriptSubScriptInitData(m_value=1, m_2AF1FCC8=True, m_out_Var=var[384]),
+        ],
+        m_36F7B64C=graph_ref(
+            STU_105E1BCC(0x0580000000000CBA),
+            params=[
+                arg(asset(0x0D800000000000D7), 1800),
+                arg(asset(0x0D800000000020CD), 6),
+                arg(asset(0x0D800000000020CE), Hero(0x02E0000000000175)),
+                arg(asset(0x0D800000000020AC), STU_357DABBB(0x0D60000000000311)),
+                arg(asset(0x0D80000000002103), 120),
+                arg(asset(0x0D80000000001A4E), 40),
+                arg(asset(0x0D80000000001A51), 70),
+                arg(asset(0x0D80000000000180), 1),
+            ],
+            extras=[],
+        ),
+    )
+
+state Wait_26:  # STUStatescriptStateWait, state 9; from SetVar_10.m_outPlug
+    # reads: shared_var[9948]  writes: var[176]
+    after(1):
+        begin(STU_37D754C8_3)
+        begin(STU_37D754C8_2)
+        set_var(var[176], 1)
+        begin(Wait_22)
+        if element([False, False, False, True], shared_var[9948]):
+            begin(STU_37D754C8_30)
+        else:
+            begin(State_32)
+
+state STU_37D754C8_8:  # STU_37D754C8, state 5; from SetVar_10.m_outPlug
+    # reads: none  writes: var[215], var[384], var[6734], var[6737], var[8364], var[8397], var[8398], var[8451], var[8541], var[9318], shared_var[8619]
+    # + unimplemented nodes may touch others
+    run_nested_graph(
+        m_89402D74=[
+            STUStatescriptSubScriptInitData(m_value=1, m_2AF1FCC8=True, m_out_Var=var[215]),
+            STUStatescriptSubScriptInitData(m_value=1, m_2AF1FCC8=True, m_out_Var=var[8397]),
+            STUStatescriptSubScriptInitData(m_value=Hero(0x02E0000000000004), m_2AF1FCC8=True, m_out_Var=var[8398]),
+            STUStatescriptSubScriptInitData(m_value=STU_357DABBB(0x0D60000000000322), m_2AF1FCC8=True, m_out_Var=var[8364]),
+            STUStatescriptSubScriptInitData(m_value=360, m_2AF1FCC8=True, m_out_Var=var[8451]),
+            STUStatescriptSubScriptInitData(m_value=0, m_2AF1FCC8=True, m_out_Var=var[6734]),
+            STUStatescriptSubScriptInitData(m_value=3, m_2AF1FCC8=True, m_out_Var=var[6737]),
+            STUStatescriptSubScriptInitData(m_value=999, m_2AF1FCC8=True, m_out_Var=var[384]),
+            STUStatescriptSubScriptInitData(m_value=True, m_2AF1FCC8=True, m_out_Var=var[8541]),
+            STUStatescriptSubScriptInitData(m_value=STU_8556841E(0x040000000000172E), m_2AF1FCC8=True, m_out_Var=var[9318]),
+        ],
+        m_36F7B64C=graph_ref(
+            STU_105E1BCC(0x0580000000000CBA),
+            params=[
+                arg(asset(0x0D800000000000D7), 1),
+                arg(asset(0x0D800000000020CD), 1),
+                arg(asset(0x0D800000000020CE), Hero(0x02E0000000000004)),
+                arg(asset(0x0D800000000020AC), STU_357DABBB(0x0D60000000000322)),
+                arg(asset(0x0D80000000002103), 360),
+                arg(asset(0x0D80000000001A4E), 0),
+                arg(asset(0x0D80000000001A51), 3),
+                arg(asset(0x0D80000000000180), 999),
+                arg(asset(0x0D8000000000215D), True),
+                arg(asset(0x0D80000000002466), STU_8556841E(0x040000000000172E)),
+            ],
+            extras=[],
+        ),
+    )
+    begin:
+        begin(Wait_28)
+    end:
+        set_var(shared_var[8619], unimplemented STU_B3E67A36(m_B486603E=STU_357DABBB(0x0D600000000000FA)))
+        begin(State_9)
+
+state STU_37D754C8_3:  # STU_37D754C8, state 2; from Wait_26.m_onFinishedPlug
+    # reads: none  writes: var[215], var[384], var[6734], var[6737], var[8364], var[8397], var[8398], var[8451], var[8539], var[8541], var[9318], shared_var[8619]
+    # + unimplemented nodes may touch others
+    run_nested_graph(
+        m_89402D74=[
+            STUStatescriptSubScriptInitData(m_value=1, m_2AF1FCC8=True, m_out_Var=var[215]),
+            STUStatescriptSubScriptInitData(m_value=1, m_2AF1FCC8=True, m_out_Var=var[8397]),
+            STUStatescriptSubScriptInitData(m_value=Hero(0x02E0000000000040), m_2AF1FCC8=True, m_out_Var=var[8398]),
+            STUStatescriptSubScriptInitData(m_value=STU_357DABBB(0x0D60000000000323), m_2AF1FCC8=True, m_out_Var=var[8364]),
+            STUStatescriptSubScriptInitData(m_value=360, m_2AF1FCC8=True, m_out_Var=var[8451]),
+            STUStatescriptSubScriptInitData(m_value=0, m_2AF1FCC8=True, m_out_Var=var[6734]),
+            STUStatescriptSubScriptInitData(m_value=3, m_2AF1FCC8=True, m_out_Var=var[6737]),
+            STUStatescriptSubScriptInitData(m_value=999, m_2AF1FCC8=True, m_out_Var=var[384]),
+            STUStatescriptSubScriptInitData(m_value=True, m_2AF1FCC8=True, m_out_Var=var[8541]),
+            STUStatescriptSubScriptInitData(m_value=True, m_2AF1FCC8=True, m_out_Var=var[8539]),
+            STUStatescriptSubScriptInitData(m_value=STU_8556841E(0x0400000000001959), m_2AF1FCC8=True, m_out_Var=var[9318]),
+        ],
+        m_36F7B64C=graph_ref(
+            STU_105E1BCC(0x0580000000000CBA),
+            params=[
+                arg(asset(0x0D800000000000D7), 1),
+                arg(asset(0x0D800000000020CD), 1),
+                arg(asset(0x0D800000000020CE), Hero(0x02E0000000000040)),
+                arg(asset(0x0D800000000020AC), STU_357DABBB(0x0D60000000000323)),
+                arg(asset(0x0D80000000002103), 360),
+                arg(asset(0x0D80000000001A4E), 0),
+                arg(asset(0x0D80000000001A51), 3),
+                arg(asset(0x0D80000000000180), 999),
+                arg(asset(0x0D8000000000215D), True),
+                arg(asset(0x0D8000000000215B), True),
+                arg(asset(0x0D80000000002466), STU_8556841E(0x0400000000001959)),
+            ],
+            extras=[],
+        ),
+    )
+    end:
+        set_var(shared_var[8619], unimplemented STU_B3E67A36(m_B486603E=STU_357DABBB(0x0D6000000000011E)))
+        begin(State_5)
+
+state STU_37D754C8_2:  # STU_37D754C8, state 1; from Wait_26.m_onFinishedPlug
+    # reads: none  writes: var[215], var[384], var[6734], var[6737], var[8364], var[8397], var[8398], var[8451], var[8539], var[8541], var[9318], shared_var[8619]
+    # + unimplemented nodes may touch others
+    run_nested_graph(
+        m_89402D74=[
+            STUStatescriptSubScriptInitData(m_value=1, m_2AF1FCC8=True, m_out_Var=var[215]),
+            STUStatescriptSubScriptInitData(m_value=1, m_2AF1FCC8=True, m_out_Var=var[8397]),
+            STUStatescriptSubScriptInitData(m_value=Hero(0x02E0000000000065), m_2AF1FCC8=True, m_out_Var=var[8398]),
+            STUStatescriptSubScriptInitData(m_value=STU_357DABBB(0x0D6000000000031C), m_2AF1FCC8=True, m_out_Var=var[8364]),
+            STUStatescriptSubScriptInitData(m_value=360, m_2AF1FCC8=True, m_out_Var=var[8451]),
+            STUStatescriptSubScriptInitData(m_value=0, m_2AF1FCC8=True, m_out_Var=var[6734]),
+            STUStatescriptSubScriptInitData(m_value=3, m_2AF1FCC8=True, m_out_Var=var[6737]),
+            STUStatescriptSubScriptInitData(m_value=999, m_2AF1FCC8=True, m_out_Var=var[384]),
+            STUStatescriptSubScriptInitData(m_value=True, m_2AF1FCC8=True, m_out_Var=var[8541]),
+            STUStatescriptSubScriptInitData(m_value=True, m_2AF1FCC8=True, m_out_Var=var[8539]),
+            STUStatescriptSubScriptInitData(m_value=STU_8556841E(0x04000000000016FB), m_2AF1FCC8=True, m_out_Var=var[9318]),
+        ],
+        m_36F7B64C=graph_ref(
+            STU_105E1BCC(0x0580000000000CBA),
+            params=[
+                arg(asset(0x0D800000000000D7), 1),
+                arg(asset(0x0D800000000020CD), 1),
+                arg(asset(0x0D800000000020CE), Hero(0x02E0000000000065)),
+                arg(asset(0x0D800000000020AC), STU_357DABBB(0x0D6000000000031C)),
+                arg(asset(0x0D80000000002103), 360),
+                arg(asset(0x0D80000000001A4E), 0),
+                arg(asset(0x0D80000000001A51), 3),
+                arg(asset(0x0D80000000000180), 999),
+                arg(asset(0x0D8000000000215D), True),
+                arg(asset(0x0D8000000000215B), True),
+                arg(asset(0x0D80000000002466), STU_8556841E(0x04000000000016FB)),
+            ],
+            extras=[],
+        ),
+    )
+    end:
+        set_var(shared_var[8619], unimplemented STU_B3E67A36(m_B486603E=STU_357DABBB(0x0D60000000000120)))
+        begin(State_7)
+
+state Wait_22:  # STUStatescriptStateWait, state 8; from SetVar_20.m_outPlug
+    # reads: var[8636]  writes: none
+    after(var[8636]):
+        begin(ChaseVar_21)
+
+state STU_37D754C8_30:  # STU_37D754C8, state 12; from Condition_29.m_truePlug
+    # reads: none  writes: var[215], var[384], var[6734], var[6737], var[8364], var[8397], var[8398], var[8451], var[8539], var[8541], var[9318], shared_var[8619]
+    # + unimplemented nodes may touch others
+    run_nested_graph(
+        m_89402D74=[
+            STUStatescriptSubScriptInitData(m_value=1, m_2AF1FCC8=True, m_out_Var=var[215]),
+            STUStatescriptSubScriptInitData(m_value=1, m_2AF1FCC8=True, m_out_Var=var[8397]),
+            STUStatescriptSubScriptInitData(m_value=Hero(0x02E0000000000016), m_2AF1FCC8=True, m_out_Var=var[8398]),
+            STUStatescriptSubScriptInitData(m_value=STU_357DABBB(0x0D6000000000044E), m_2AF1FCC8=True, m_out_Var=var[8364]),
+            STUStatescriptSubScriptInitData(m_value=360, m_2AF1FCC8=True, m_out_Var=var[8451]),
+            STUStatescriptSubScriptInitData(m_value=0, m_2AF1FCC8=True, m_out_Var=var[6734]),
+            STUStatescriptSubScriptInitData(m_value=3, m_2AF1FCC8=True, m_out_Var=var[6737]),
+            STUStatescriptSubScriptInitData(m_value=999, m_2AF1FCC8=True, m_out_Var=var[384]),
+            STUStatescriptSubScriptInitData(m_value=True, m_2AF1FCC8=True, m_out_Var=var[8541]),
+            STUStatescriptSubScriptInitData(m_value=True, m_2AF1FCC8=True, m_out_Var=var[8539]),
+            STUStatescriptSubScriptInitData(m_value=STU_8556841E(0x0400000000001DD3), m_2AF1FCC8=True, m_out_Var=var[9318]),
+        ],
+        m_36F7B64C=graph_ref(
+            STU_105E1BCC(0x0580000000000CBA),
+            params=[
+                arg(asset(0x0D800000000000D7), 1),
+                arg(asset(0x0D800000000020CD), 1),
+                arg(asset(0x0D800000000020CE), Hero(0x02E0000000000016)),
+                arg(asset(0x0D800000000020AC), STU_357DABBB(0x0D6000000000044E)),
+                arg(asset(0x0D80000000002103), 360),
+                arg(asset(0x0D80000000001A4E), 0),
+                arg(asset(0x0D80000000001A51), 3),
+                arg(asset(0x0D80000000000180), 999),
+                arg(asset(0x0D8000000000215D), True),
+                arg(asset(0x0D8000000000215B), True),
+                arg(asset(0x0D80000000002466), STU_8556841E(0x0400000000001DD3)),
+            ],
+            extras=[],
+        ),
+    )
+    end:
+        set_var(shared_var[8619], unimplemented STU_B3E67A36(m_B486603E=STU_357DABBB(0x0D600000000000FF)))
+        begin(State_32)
+
+state State_32:  # STUStatescriptState, state 13 (plain State at run time); from Condition_29.m_falsePlug, SetVar_31.m_outPlug
+    # reads: none  writes: none
+    transitions:
+        when transition[0]:
+            STU_1113EBD5_6()
+
+state Wait_28:  # STUStatescriptStateWait, state 11; from STU_37D754C8_8.m_onBeginPlug
+    # reads: none  writes: none
+    subgraph:
+        begin(Stack_27)
+    after(10):
+        pass
+
+state State_9:  # STUStatescriptState, state 6 (plain State at run time); from SetVar_13.m_outPlug
+    # reads: none  writes: none
+    transitions:
+        when transition[0]:
+            STU_1113EBD5_6()
+
+state State_5:  # STUStatescriptState, state 3 (plain State at run time); from SetVar_14.m_outPlug
+    # reads: none  writes: none
+    transitions:
+        when transition[0]:
+            STU_1113EBD5_6()
+
+state State_7:  # STUStatescriptState, state 4 (plain State at run time); from SetVar_15.m_outPlug
+    # reads: none  writes: none
+    transitions:
+        when transition[0]:
+            STU_1113EBD5_6()
+
+state Stack_27:  # STUStatescriptStateStack, state 10; from Wait_28.m_subgraphPlug
+    # reads: none  writes: shared_var[11687]
+    stack_contribution(shared_var[11687], value=True, priority=None)
+
+def STU_1113EBD5_6():  # STU_1113EBD5; shared or nested too deep to inline; from State_5.m_transitionPlug[0], State_7.m_transitionPlug[0], State_9.m_transitionPlug[0], State_32.m_transitionPlug[0]; not a function: no arguments or return value, reads/writes instance variables
+    # reads: var[176], var[8635], var[8639], shared_var[8619]  writes: var[8639], shared_var[8493]
+    # + unimplemented nodes may touch others
+    unimplemented STU_1113EBD5(m_122DF0CA=[3, 4, 6, 13], m_B24D1794=4)
+    set_var(shared_var[8493], True)
+    set_var(var[8639], var[176])
+    if round(var[8635] * var[8639]) > 0.0:
+        send_game_message(
+            GameMessage(0x02400000000006C8),
+            targets=unimplemented STU_A3DEF368(),
+            params=[STU_814D595E(m_value=round(var[8635] * var[8639]), m_B5051BCE=asset(0x0A400000000003AF))],
+        )
+    unimplemented STUStatescriptActionCriteria(
+        m_identifier=Identifier(0x0D800000000005BF),
+        m_targets=unimplemented STU_BD2D717B(),
+        m_8C8C5285=shared_var[8619],
+    )  # names: class STUStatescriptActionCriteria=ReportCriteria [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B3E67A36 (configvar) x4
+#   STU_A3DEF368 (configvar) x1
+#   STU_B5A0CAF0 (configvar) x1
+#   STU_BD2D717B (configvar) x1
+#   STUStatescriptActionCriteria (node) x1
+#   STUStatescriptActionPlayScript (node) x1
+#   STUStatescriptStateChaseVar (node) x1
+#   STU_1113EBD5 (node) x1
+#   STU_57692020 (node) x1

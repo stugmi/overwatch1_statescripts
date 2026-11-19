@@ -1,0 +1,57 @@
+# build 1.74.0.0.104319: 5 nodes (3 States), 1 entries, 4 links. Authored structure; `unimplemented` marks semantics not recovered.
+# graph 0580000000000b28
+# names (replace): 6 names from script-names-174.json; [?] marks a name that is not proven; --names off prints the raw ids
+# summary (structure only; nothing is evaluated):
+#   inputs: no State watches a logical button
+#   placeholders: 7 unrecovered (5 classes; 4 configvar, 3 node)
+#   var[1660]: 2 reads at lines 28, 38
+
+schema:  # public schema defaults [INFERENCE: apply site for a root instance not located]
+    var[422] = 2
+    var[4593] = Effect(0)
+    var[4592] = Effect(0)
+
+on_entry(context=unset, rid=0):  # STUStatescriptEntry, init=context_match (context omitted)
+    # reads: none  writes: none
+    begin(TrackTargets_1)
+
+# State blocks grouped by structure (listeners, class groups, the entry that begins them): grouping, not semantics
+
+# ---- begun from on_entry rid=0 ----
+
+state TrackTargets_1:  # STUStatescriptStateTrackTargets, state 0; from Entry_0.m_outPlug
+    # reads: var[422], var[1660]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STUStatescriptStateTrackTargets(
+        m_8DCA77B6=unimplemented STU_B5A0CAF0(),
+        m_radius=var[422],
+        m_1B89EA79=var[1660],
+        m_filter=unimplemented STUConfigVarFilter(m_84065FD1=1),
+        m_95FFC3C5=raw(00),
+    )  # names: class STU_B5A0CAF0=OwnerEntityID [candidate], class STUConfigVarFilter=OwnEntityFilter [candidate]
+    subgraph:
+        begin(BooleanSwitch_2)
+
+state BooleanSwitch_2:  # STUStatescriptStateBooleanSwitch, state 1; from TrackTargets_1.m_subgraphPlug
+    # reads: var[1660], var[4593]  writes: none
+    # + unimplemented nodes may touch others
+    watch var[1660] > 0.0:  # re-evaluated while the State runs
+        on change to true:
+            unimplemented STUStatescriptActionEffect(
+                m_effect=var[4593],
+                entity[?]=unimplemented STU_B5A0CAF0(),
+            )  # names: class STUStatescriptActionEffect=PlayEffect [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+        while true:
+            begin(STU_691BFA55_4)
+
+state STU_691BFA55_4:  # STU_691BFA55, state 2; from BooleanSwitch_2.m_trueSubgraphPlug; names: class STU_691BFA55=EffectState [matched]
+    # reads: var[4592]  writes: none
+    # + unimplemented nodes may touch others
+    unimplemented STU_691BFA55(m_effect=var[4592], entity[?]=unimplemented STU_B5A0CAF0())  # names: class STU_691BFA55=EffectState [matched], class STU_B5A0CAF0=OwnerEntityID [candidate]
+
+# placeholders in this graph (semantics not recovered):
+#   STU_B5A0CAF0 (configvar) x3
+#   STUConfigVarFilter (configvar) x1
+#   STUStatescriptActionEffect (node) x1
+#   STUStatescriptStateTrackTargets (node) x1
+#   STU_691BFA55 (node) x1
